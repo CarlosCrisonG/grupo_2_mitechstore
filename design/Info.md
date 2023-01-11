@@ -1,0 +1,1 @@
+Esta carpeta contiene contenido adicional para el diseño del proyecto.
