@@ -1,12 +1,12 @@
 # Nombre del Grupo
 Mi Tech Store
 
-<br /><br />
+<br />
 
 # Descripción de productos
 Tienda de productos de tecnología exclusiva para productos Xiaomi.
 
-<br /><br />
+<br />
 
 # Público Objetivo
 Segmentación:
@@ -15,7 +15,7 @@ Segmentación:
 - **Ingresos:** 2 a 4 Salarios Mínimos
 - **Ubicación:** Ciudades principales de Latinoamérica
 
-<br /><br />
+<br />
 
 # Integrantes del Equipo
 ## - Carlos Crisón
@@ -42,7 +42,7 @@ Breve descripción
 ## - Yesica Pérez
 Breve descripción
 
-<br /><br />
+<br />
 
 # Sitios de Referencia
 1. Sitio
@@ -51,4 +51,4 @@ Breve descripción
 4. Sitio
 5. Sitio
 
-<br /><br />
+<br />
