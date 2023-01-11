@@ -25,7 +25,7 @@ Soy Desarrollador Web, vivo en Valledupar, Colombia y me encanta diseñar y prog
 Breve descripción
 
 ## - Jaider Andres Mena
-Breve descripción
+Vivo en Chocó - Colobia, me apasiona la programación y me gustaría vivir de ello
 
 ## - Franco Rotchen
 Breve descripción
