@@ -37,7 +37,7 @@ Breve descripción
 Breve descripción
 
 ## - Lorenzo Sanchez
-Breve descripción
+Tengo veinticinco años, vivo en General Fernández Oro, Argentina, y soy estudiante universitario y de desarrollo web fullstack. Me gusta programar.
 
 ## - Yesica Pérez
 Breve descripción
