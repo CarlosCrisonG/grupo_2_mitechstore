@@ -19,7 +19,7 @@ Segmentación:
 
 # Integrantes del Equipo
 ## - Carlos Crisón
-Breve descripción
+Soy Desarrollador Web, vivo en Valledupar, Colombia y me encanta diseñar y programar.
 
 ## - Andres Jose De la Cruz
 Breve descripción
