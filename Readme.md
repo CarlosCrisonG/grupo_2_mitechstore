@@ -4,7 +4,7 @@ Mi Tech Store
 <br />
 
 # Descripción de productos
-Tienda de productos de tecnología exclusiva para productos Xiaomi.
+Tienda de productos de tecnología exclusiva para productos y accesorios marca Xiaomi.
 
 <br />
 
