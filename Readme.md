@@ -28,7 +28,7 @@ Soy Tecnico de soporte en sistemas, vivo en Medellín, Colombia, con muchas gana
 Vivo en Chocó - Colombia, me apasiona la programación y me gustaría vivir de ello
 
 ## - Franco Rotchen
-Breve descripción
+Comerciante y estudiante en Digital House. Vivo en Santa Fe, Argentina
 
 ## - Martín Bertinotti
 Breve descripción
