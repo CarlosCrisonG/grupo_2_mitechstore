@@ -22,7 +22,7 @@ Segmentación:
 Soy Desarrollador Web, vivo en Valledupar, Colombia y me encanta diseñar y programar.
 
 ## - Andres Jose De la Cruz
-Breve descripción
+Soy Tecnico de soporte en sistemas, vivo en Medellín, Colombia, con muchas ganas de trabajar y aprender.
 
 ## - Jaider Andres Mena
 Vivo en Chocó - Colombia, me apasiona la programación y me gustaría vivir de ello
