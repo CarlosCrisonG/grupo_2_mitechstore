@@ -34,7 +34,7 @@ Breve descripción
 Breve descripción
 
 ## - Miguel Herrera
-Breve descripción
+Soy Tecnico en Mercadeo y Ventas, tengo 21 años y vivo en Medellín - Colombia. Me apasiona aprender y estoy estudiando programacion en Digital House.
 
 ## - Lorenzo Sanchez
 Tengo veinticinco años, vivo en General Fernández Oro, Argentina, y soy estudiante universitario y de desarrollo web fullstack. Me gusta programar.
