@@ -11,7 +11,7 @@ Tienda de productos de tecnología exclusiva para productos Xiaomi.
 # Público Objetivo
 Segmentación:
 - **Género:** Ambos 
-- **Edad:** Entre los 20 y 30 años
+- **Edad:** +18 
 - **Ingresos:** 2 a 4 Salarios Mínimos
 - **Ubicación:** Ciudades principales de Latinoamérica
 
