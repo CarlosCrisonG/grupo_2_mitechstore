@@ -4,7 +4,7 @@ Mi Tech Store
 <br />
 
 # Descripción de productos
-Tienda de productos de tecnología exclusiva para productos Xiaomi.
+Tienda de productos de tecnología exclusiva para productos y accesorios marca Xiaomi.
 
 <br />
 
@@ -45,10 +45,11 @@ Breve descripción
 <br />
 
 # Sitios de Referencia
-1. Sitio
-2. Sitio
-3. Sitio
+1. Mercado libre: Debido a su distribución de elementos en la versión móvil. https://www.mercadolibre.com.co
+2. Mc Center - Tienda Apple: Muy buena escala de colores y el enfoque de cada producto. https://mac-center.com/
+3. 
 4. Sitio
 5. Sitio
+6. Sitio
 
 <br />
