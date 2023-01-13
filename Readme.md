@@ -47,7 +47,7 @@ Breve descripción
 # Sitios de Referencia
 1. Mercado libre: Debido a su distribución de elementos en la versión móvil. https://www.mercadolibre.com.co
 2. Mc Center - Tienda Apple: Muy buena escala de colores y el enfoque de cada producto. https://mac-center.com/
-3. 
+3. Amazon: Nos basamos deacuerdo a su formulario de registro. https://www.amazon.es/ap/register
 4. Sitio
 5. Sitio
 6. Sitio
