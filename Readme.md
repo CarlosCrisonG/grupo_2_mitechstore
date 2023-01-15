@@ -48,7 +48,7 @@ Breve descripción
 1. Mercado libre: Debido a su distribución de elementos en la versión móvil. https://www.mercadolibre.com.co
 2. Mc Center - Tienda Apple: Muy buena escala de colores y el enfoque de cada producto. https://mac-center.com/
 3. Amazon: Nos basamos deacuerdo a su formulario de registro. https://www.amazon.es/ap/register
-4. Sitio
+4. Xiaomi - Tienda oficial Argentina: Ofrece el mismo tipo de productos de tecnología que queremos ofrecer en nuestro e-commerce (smartphones, smart tv, smarwatchs, accesorios, entre otros). Además, nos inspiramos en la presentación de cada producto que hace este sitio para nuestra versión desktop. https://xiaomistore.com.ar
 5. Sitio
 6. Sitio
 
