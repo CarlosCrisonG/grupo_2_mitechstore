@@ -46,10 +46,15 @@ Breve descripción
 
 # Sitios de Referencia
 1. Mercado libre: Debido a la presentación de los productos y al menú desplegable que presenta en la versión móvil, que se utilizaron para nuestra versión móvil. https://www.mercadolibre.com.co
+
 2. Mc Center - Tienda Apple: Nos interesó la presentación de las categorías desplegables en el header del sitio, al igual que el formulario de login que presenta. https://mac-center.com/
+
 3. Amazon: Nos basamos en su formulario de registro. https://www.amazon.es/ap/register
+
 4. Xiaomi - Tienda oficial Argentina: Ofrece el mismo tipo de productos de tecnología que queremos ofrecer en nuestro e-commerce (smartphones, smart tv, smarwatchs, accesorios, entre otros). Además, nos inspiramos en la presentación de cada producto que hace este sitio para nuestra versión desktop. Finalmente, nos basamos en su formulario de registro y la información que solicita para diseñar nuestro formulario de registro. https://xiaomistore.com.ar
+
 5. Sitio
+
 6. Sitio
 
 <br />
