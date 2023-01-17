@@ -1,0 +1,6 @@
+Texto: #222231
+Fondo: #FFFFFF
+Primario: #FF6700
+Enlace / Boton: #1255B3
+Enlace / Boton Hover: #0D72FF
+Destacar Verde: #05C026
