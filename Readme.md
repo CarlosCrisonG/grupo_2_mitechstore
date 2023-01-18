@@ -8,6 +8,11 @@ Tienda de productos de tecnología exclusiva para productos y accesorios marca X
 
 <br />
 
+# Link del trello
+https://trello.com/b/bxqi7wBT/proyecto-integrador
+
+<br />
+
 # Público Objetivo
 Segmentación:
 - **Género:** Ambos 
