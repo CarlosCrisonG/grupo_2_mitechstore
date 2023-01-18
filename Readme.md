@@ -1,3 +1,7 @@
+![alt Logo](https://i.ibb.co/M9dm0BR/Logo-Tech-Store.png)
+
+<br />
+
 # Nombre del Grupo
 Mi Tech Store
 
