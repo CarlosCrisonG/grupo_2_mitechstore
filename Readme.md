@@ -26,7 +26,7 @@ https://trello.com/b/bxqi7wBT/proyecto-integrador
 
 <br />
 
-Ajustamos nuestra oferta a ese púlico ofreciendo una amplia gama de productos consumidos por la población urbana, desde scooters para el desplazamiento en la ciudad, hasta celulares, computadoras y peroiféricos para uso personal o laboral, incluyendo productos aptos para el hogar como aspiradoras smart y de ciudado personal como afeitadoras.
+Ajustamos nuestra oferta a ese púlico ofreciendo una amplia gama de productos consumidos por la población urbana, desde scooters para el desplazamiento en la ciudad, hasta celulares, computadoras y periféricos para uso personal o laboral, incluyendo productos aptos para el hogar como aspiradoras smart y de ciudado personal como afeitadoras.
 
 <br />
 
