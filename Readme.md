@@ -8,7 +8,7 @@ Mi Tech Store
 <br />
 
 # Descripción de productos
-Tienda de productos de tecnología exclusiva para productos y accesorios marca Xiaomi.
+Tienda de productos de tecnología exclusiva para productos y accesorios marca Xiaomi (smartphones, smart tv, smarwatchs, scooters, accesorios, periféricos, entre otros).
 
 <br />
 
@@ -18,11 +18,15 @@ https://trello.com/b/bxqi7wBT/proyecto-integrador
 <br />
 
 # Público Objetivo
-Segmentación:
+
 - **Género:** Ambos 
-- **Edad:** +18 
+- **Edad:** +18
 - **Ingresos:** 2 a 4 Salarios Mínimos
-- **Ubicación:** Ciudades principales de Latinoamérica
+- **Ubicación:** Principalmente población de las principales ciudades de Latinoamérica (público general).
+
+<br />
+
+Ajustamos nuestra oferta a ese púlico ofreciendo una amplia gama de productos consumidos por la población urbana, desde scooters para el desplazamiento en la ciudad, hasta celulares, computadoras y peroiféricos para uso personal o laboral, incluyendo productos aptos para el hogar como aspiradoras smart y de ciudado personal como afeitadoras.
 
 <br />
 
@@ -60,7 +64,7 @@ Breve descripción
 
 3. Amazon: Nos basamos en su formulario de registro. https://www.amazon.es/ap/register
 
-4. Xiaomi - Tienda oficial Argentina: Ofrece el mismo tipo de productos de tecnología que queremos ofrecer en nuestro e-commerce (smartphones, smart tv, smarwatchs, accesorios, entre otros). Además, nos inspiramos en la presentación de cada producto que hace este sitio para nuestra versión desktop. Finalmente, nos basamos en su formulario de registro y la información que solicita para diseñar nuestro formulario de registro. https://xiaomistore.com.ar
+4. Xiaomi - Tienda oficial Argentina: Ofrece el mismo tipo de productos de tecnología que queremos ofrecer en nuestro e-commerce (smartphones, smart tv, smarwatchs, accesorios, entre otros). Además, nos inspiramos en la presentación de cada producto que hace este sitio para nuestra versión desktop. Finalmente, nos basamos en su formulario de registro y la información que solicita para diseñar nuestro formulario de registro. En cuanto a lo estético, de aquí se toma el color principal de nuestro sitio (naranja) https://xiaomistore.com.ar
 
 5. Alkosto Colombia: Tienda en linea que ofrece una amplia gama de categorías. De este sitio nos inspiramos para la estructuración del homepage y una parte para la vista de producto. https://www.alkosto.com/
 
