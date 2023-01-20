@@ -22,11 +22,11 @@ https://trello.com/b/bxqi7wBT/proyecto-integrador
 - **Género:** Ambos 
 - **Edad:** +18
 - **Ingresos:** 2 a 4 Salarios Mínimos
-- **Ubicación:** Principalmente población de las principales ciudades de Latinoamérica (público general).
+- **Ubicación:** Principales ciudades de Latinoamérica
 
 <br />
 
-Ajustamos nuestra oferta a ese púlico ofreciendo una amplia gama de productos consumidos por la población urbana, desde scooters para el desplazamiento en la ciudad, hasta celulares, computadoras y periféricos para uso personal o laboral, incluyendo productos aptos para el hogar como aspiradoras smart y de ciudado personal como afeitadoras.
+Ajustamos nuestra oferta a ese púlico ofreciendo una amplia gama de productos consumidos por la población urbana en general, desde scooters para el desplazamiento en la ciudad, hasta celulares, computadoras y periféricos para uso personal o laboral, incluyendo productos aptos para el hogar como aspiradoras smart y de ciudado personal como afeitadoras.
 
 <br />
 
