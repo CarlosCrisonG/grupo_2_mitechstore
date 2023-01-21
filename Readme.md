@@ -21,7 +21,7 @@ https://trello.com/b/bxqi7wBT/proyecto-integrador
 
 - **Género:** Ambos 
 - **Edad:** +18
-- **Ingresos:** 2 a 4 Salarios Mínimos
+- **Estrato - Clase:** Medio
 - **Ubicación:** Principales ciudades de Latinoamérica
 
 <br />
@@ -44,7 +44,7 @@ Vivo en Chocó - Colombia, me apasiona la programación y me gustaría vivir de 
 Comerciante y estudiante en Digital House. Vivo en Santa Fe, Argentina
 
 ## - Martín Bertinotti
-Breve descripción
+Nunca se contactó con el equipo.
 
 ## - Miguel Herrera
 Soy Tecnico en Mercadeo y Ventas, tengo 21 años y vivo en Medellín - Colombia. Me apasiona aprender y estoy estudiando programacion en Digital House.
@@ -53,16 +53,16 @@ Soy Tecnico en Mercadeo y Ventas, tengo 21 años y vivo en Medellín - Colombia.
 Tengo veinticinco años, vivo en General Fernández Oro, Argentina, y soy estudiante universitario y de desarrollo web fullstack. Me gusta programar.
 
 ## - Yesica Pérez
-Breve descripción
+PENDIENTE
 
 <br />
 
 # Sitios de Referencia
-1. Mercado libre: Debido a la presentación de los productos y al menú desplegable que presenta en la versión móvil, que se utilizaron para nuestra versión móvil. https://www.mercadolibre.com.co
+1. Mercadolibre: Debido a la presentación de los productos y al menú desplegable que presenta en la versión móvil, que se utilizaron para nuestra versión móvil. https://www.mercadolibre.com.co
 
 2. Mc Center - Tienda Apple: Nos interesó la presentación de las categorías desplegables en el header del sitio, al igual que el formulario de login que presenta. https://mac-center.com/
 
-3. Amazon: Nos basamos en su formulario de registro. https://www.amazon.es/ap/register
+3. Amazon: Observamos aquí la forma en la que organizan gran cantidad de productos de distintos tipos sin confudir a los usuarios. Tambien manejan muy bien pagos desde distintas partes del mundo con disintos medios de pago internacionales. https://www.amazon.es/ap/register
 
 4. Xiaomi - Tienda oficial Argentina: Ofrece el mismo tipo de productos de tecnología que queremos ofrecer en nuestro e-commerce (smartphones, smart tv, smarwatchs, accesorios, entre otros). Además, nos inspiramos en la presentación de cada producto que hace este sitio para nuestra versión desktop. Finalmente, nos basamos en su formulario de registro y la información que solicita para diseñar nuestro formulario de registro. En cuanto a lo estético, de aquí se toma el color principal de nuestro sitio (naranja) https://xiaomistore.com.ar
 
