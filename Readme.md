@@ -53,7 +53,7 @@ Soy Tecnico en Mercadeo y Ventas, tengo 21 años y vivo en Medellín - Colombia.
 Tengo veinticinco años, vivo en General Fernández Oro, Argentina, y soy estudiante universitario y de desarrollo web fullstack. Me gusta programar.
 
 ## - Yesica Pérez
-PENDIENTE
+Soy Técnica en Prácticas Cardiológicas, vivo en Buenos Aires - Argentina. No tengo conocimiento previo sobre programación, pero con ganas de aprender.
 
 <br />
 
