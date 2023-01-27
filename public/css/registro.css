@@ -1,0 +1,58 @@
+main {
+    background-color: rgb(241, 238, 238);
+    padding: 10px 0px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px 0px;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color: #FF6700;
+}
+
+input {
+    border-radius: 5px;
+    height: 30px;
+    width: 65%;
+    border: solid rgb(197 194 194) 1px;
+}
+
+input::placeholder{
+    color: rgb(207, 204, 204);
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 2px;
+}
+
+#create-account-button {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+
+#create-account-button button {
+    background-color: #FF6700;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+}
+
+div {
+    text-align: center;
+}
+
+div p {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(54, 104, 241);
+}
+
