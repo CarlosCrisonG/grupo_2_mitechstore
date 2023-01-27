@@ -14,9 +14,7 @@ h3 {
     text-align: center;
     margin-top: 60px;
     margin-bottom: 40px;
-    font-family: 'Montserrat', sans-serif;
     color: #FF6700;
-    font-size: 22px;
 }
 
 input {
@@ -26,9 +24,9 @@ input {
     border: solid rgb(197 194 194) 1px;
 }
 
-input::placeholder{
+input::placeholder {
     color: rgb(207, 204, 204);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
     padding-left: 2px;
 }
 
@@ -43,24 +41,29 @@ input::placeholder{
     border: none;
     border-radius: 5px;
     padding: 15px 30px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 18px;
 
 }
 
-.link-inicio-sesion{
+.link-inicio-sesion {
     text-align: center;
     margin-bottom: 20px;
 }
 
 .link-inicio-sesion a {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
     color: rgb(54, 104, 241);
 }
 
 @media (min-width: 481px) {
-input {
-    max-width: 470px;
+    input {
+        max-width: 470px;
+    }
 }
+@media (min-width: 769px) {
+    input::placeholder {
+        font-size: 18px;
+    }
 }
