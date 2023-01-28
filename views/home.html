@@ -13,8 +13,37 @@
 <body>
     <!--Contenido HTML del Home - Inicio -->
     <main>
-      
+        <!-- Carrusel de Banners  -->
+        <section id="carrusel">
+            <div class="slideshow-container">
+
+                <!-- Imágenes de Carrusel  -->
+                <div class="mySlides fade"><img src="/images/banner_home_1.jpg" style="width:100%"></div>
+                <div class="mySlides fade"><img src="/images/banner_home_2.jpg" style="width:100%"></div>
+                <div class="mySlides fade"><img src="/images/banner_home_3.jpg" style="width:100%"></div>
+                <div class="mySlides fade"><img src="/images/banner_home_4.jpg" style="width:100%"></div>
+                <div class="mySlides fade"><img src="/images/banner_home_5.jpg" style="width:100%"></div>
+            
+                <!-- Flechas Carrusel -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            
+            <!-- Circulos bajo el carrusel -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+        </section>
+
     </main>
     <!--Contenido HTML del Home - Fin -->
+
+    <!-- Script para carrusel de banner -->
+    <script src="/js/carrusel_home.js"></script>
 </body>
 </html>
