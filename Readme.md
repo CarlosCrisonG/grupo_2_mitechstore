@@ -12,8 +12,10 @@ Tienda de productos de tecnología exclusiva para productos y accesorios marca X
 
 <br />
 
-# Link del trello
-https://trello.com/b/bxqi7wBT/proyecto-integrador
+# Links del Trello
+Sprint 1: https://trello.com/b/bxqi7wBT/proyecto-integrador
+
+Sprint 2: https://trello.com/b/cIFR3m3x/sprint-2
 
 <br />
 
