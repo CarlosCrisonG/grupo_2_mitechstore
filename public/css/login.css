@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+/*TITULO*/
+.contenedorh1{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+/*INPUTS*/
+.contenedorInputs{
+    margin-top: 20px;
+}
+
+.email{
+    margin-bottom: 10px;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.pass{
+    margin-top: 10px;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/*Olvidaste tu contraseña*/
+.contenedorOlvidaste{
+    margin-top: 5px;
+}
+
+.contenedorOlvidaste h4{
+    margin: 0;
+    color: cornflowerblue
+}
+
+/*Button*/
+.contenedorButton{
+    margin-top: 30px;
+}
+
+.contenedorButton {
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/*No tienes cuenta*/
+.contenedorNoTienes{
+    margin-top: 5px;
+}
+
+.contenedorNoTienes h4{
+    margin: 0;
+    color: cornflowerblue;
+}
