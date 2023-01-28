@@ -6,6 +6,7 @@
 
 main div.titulo {
     text-align: center;
+    margin-bottom: 41px;
 }
 
 tr td.producto div.imgProducto{
@@ -28,4 +29,26 @@ tr td.producto div.descProducto{
 
 tr td.producto{
     display: flex;
+}
+
+tr td.cantidadProducto{
+    text-align: center;    
+}
+
+tr td.precioProducto{
+    text-align: center;
+}
+
+tr td.cantidadProducto p{    
+    border: solid;
+    border-radius: 9px;
+    padding: 4px 0;
+}
+
+article.listaProductos table{
+    width: 100%;
+}
+
+table tr.titulosProducto th p{
+    font-weight: bold;
 }
