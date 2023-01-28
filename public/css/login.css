@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgb(241, 238, 238);
 }
 
 main{
@@ -11,39 +12,51 @@ main{
     align-items: center;
 }
 /*TITULO*/
-.contenedorh1{
-    margin-top: 20px;
-    margin-bottom: 5px;
+.contenedorh3{
+    margin-top: 60px;
+    margin-bottom: 40px;
+
+
+}
+
+.contenedorh3 h3{
+   color: #FF6700;
+   
 }
 
 /*INPUTS*/
 .contenedorInputs{
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px 0px;
+    width: 100%;
+    align-items: center;
+    
+
 }
 
-.email{
-    margin-bottom: 10px;
-    border: solid 1px black;
+input{
     border-radius: 5px;
-    padding: 5px;
+    height: 30px;
+    width: 65%;
+    border: solid rgb(197 194 194) 1px;
+    font-family: 'Raleway', sans-serif;
+    padding: 2px; 
 }
 
-
-.pass{
-    margin-top: 10px;
-    border: solid 1px black;
-    border-radius: 5px;
-    padding: 5px;
+input::placeholder {
+    color: rgb(207, 204, 204);
+    font-family: 'Raleway', sans-serif;
+    padding-left: 2px;
 }
-
 /*Olvidaste tu contraseña*/
 .contenedorOlvidaste{
     margin-top: 5px;
 }
 
-.contenedorOlvidaste h4{
-    margin: 0;
-    color: cornflowerblue
+.contenedorOlvidaste a{
+    font-family: 'Raleway', sans-serif;
+    color: rgb(54, 104, 241);
 }
 
 /*Button*/
@@ -51,11 +64,14 @@ main{
     margin-top: 30px;
 }
 
-.contenedorButton {
-    width: 110px;
-    height: 40px;
-    border-radius: 10px;
-    font-weight: bold;
+.contenedorButton button{
+    background-color: #FF6700;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 18px;
 }
 
 /*No tienes cuenta*/
@@ -63,7 +79,18 @@ main{
     margin-top: 5px;
 }
 
-.contenedorNoTienes h4{
-    margin: 0;
-    color: cornflowerblue;
+.contenedorNoTienes a{
+    font-family: 'Raleway', sans-serif;
+    color: rgb(54, 104, 241);
+}
+
+@media (min-width: 481px) {
+    input {
+        max-width: 470px;
+    }
+}
+@media (min-width: 769px) {
+    input::placeholder {
+        font-size: 18px;
+    }
 }
