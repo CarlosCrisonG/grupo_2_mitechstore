@@ -11,11 +11,11 @@ main {
 
 main div.titulo {
     text-align: center;
-    margin-bottom: 41px;
+    margin-bottom: 41px;    
 }
 
 tr td.producto div.imgProducto {
-    width: 100px;
+    width: 150px;
     height: 100px;
 }
 
@@ -34,6 +34,7 @@ tr td.producto div.descProducto {
 
 tr td.producto {
     display: flex;
+    gap: 23px
 }
 
 tr td.cantidadProducto {
@@ -44,25 +45,50 @@ tr td.precioProducto {
     text-align: center;
 }
 
+tr td.precioProducto p{
+    width: 112px;
+}
+
 tr td.cantidadProducto p {
     border: solid;
     border-radius: 9px;
     padding: 4px 0;
+    width: 122px;
+}
+
+article.listaProductos {
+    overflow-x: scroll;
 }
 
 article.listaProductos table {
     width: 100%;
 }
 
-table tr.titulosProductos th p {
+tr.titulosProducto th {
+    border-bottom: solid 1px;
+    padding-bottom: 10px;
+}
+
+tr.mostrarProductos td {
+    padding-bottom: 28px;
+    padding-top: 28px;
+    width: 236px;
+}
+
+tr.footerProductos td {
+    border-top: solid 1px;
+    padding-top: 10px;
+}
+
+tr.titulosProductos th p {
     font-weight: bold;
 }
 
-table tr.footerProductos{
-    text-align: center;    
+table tr.footerProductos {
+    text-align: center;
 }
 
-div.opciones{
+div.opciones {
     display: flex;
     margin: 71px auto;
     flex-direction: row;
@@ -70,19 +96,19 @@ div.opciones{
     align-items: center;
 }
 
-div.opciones div.retornar a{
+div.opciones div.retornar a {
     text-decoration: none;
     color: #0057D8;
 }
 
-div.opciones div.comprar{
-    background-color: #0057D8;    
+div.opciones div.comprar {
+    background-color: #0057D8;
     padding: 10px 22px;
     border-radius: 8px;
     text-align: center;
 }
 
-div.opciones div.comprar a{
+div.opciones div.comprar a {
     color: white;
     text-decoration: none;
 }

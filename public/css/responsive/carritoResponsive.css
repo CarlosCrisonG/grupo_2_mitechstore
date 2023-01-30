@@ -1,9 +1,23 @@
 /* tablets */
 @media(min-width:481px) {
-    
+    div.opciones {
+        justify-content: flex-end;
+        gap: 44px;
+    }
+
+    tr td.producto div.imgProducto {
+        width: 150px;
+        height: 150px;
+    }
+
+    tr.mostrarProductos td {    
+        width: auto;
+    }    
 }
 
 /* desktops */
-@media(min-width:769){
-
+@media(min-width:769) {
+    div.opciones{
+        margin-right: 37px;
+    }
 }
