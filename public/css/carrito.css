@@ -60,4 +60,29 @@ table tr.titulosProductos th p {
 
 table tr.footerProductos{
     text-align: center;
+    color: #0057D8;
+}
+
+div.opciones{
+    display: flex;
+    margin: 71px auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.opciones div.retornar a{
+    text-decoration: none;
+}
+
+div.opciones div.comprar{
+    background-color: #0057D8;    
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+div.opciones div.comprar a{
+    color: white;
+    text-decoration: none;
 }
