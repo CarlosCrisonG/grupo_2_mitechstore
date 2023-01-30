@@ -59,8 +59,7 @@ table tr.titulosProductos th p {
 }
 
 table tr.footerProductos{
-    text-align: center;
-    color: #0057D8;
+    text-align: center;    
 }
 
 div.opciones{
@@ -73,6 +72,7 @@ div.opciones{
 
 div.opciones div.retornar a{
     text-decoration: none;
+    color: #0057D8;
 }
 
 div.opciones div.comprar{
