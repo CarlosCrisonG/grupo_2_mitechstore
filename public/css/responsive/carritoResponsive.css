@@ -17,6 +17,13 @@
     tr.mostrarProductos td {    
         width: auto;
     }    
+    tr td.precioProducto p{
+        width: auto;
+    }
+
+    tr td.cantidadProducto p{
+        width: auto;
+    }
 }
 
 /* desktops */
