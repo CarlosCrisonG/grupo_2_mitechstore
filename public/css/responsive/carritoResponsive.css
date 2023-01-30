@@ -10,6 +10,10 @@
         height: 150px;
     }
 
+    article.listaProductos{
+        overflow-x: auto;
+    }
+
     tr.mostrarProductos td {    
         width: auto;
     }    
