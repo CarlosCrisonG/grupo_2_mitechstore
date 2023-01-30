@@ -3,7 +3,7 @@ main {
     padding: 10px 0px;
 }
 
-.main-container {
+.formulario-registro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,6 +28,21 @@ input::placeholder {
     color: rgb(207, 204, 204);
     font-family: 'Raleway', sans-serif;
     padding-left: 2px;
+}
+
+.pais {
+    width: 65%;
+}
+
+label {
+    font-family: 'Raleway', sans-serif;
+}
+
+select {
+    font-family: 'Raleway', sans-serif;
+    padding: 3px;
+    border: solid rgb(197 194 194) 1px;
+    border-radius: 5px;
 }
 
 #create-account-button {
@@ -61,9 +76,20 @@ input::placeholder {
     input {
         max-width: 470px;
     }
+
+    .pais {
+        max-width: 470px;
+    }
 }
+
 @media (min-width: 769px) {
     input::placeholder {
+        font-size: 18px;
+    }
+    label {
+        font-size: 18px;
+    }
+    select {
         font-size: 18px;
     }
 }

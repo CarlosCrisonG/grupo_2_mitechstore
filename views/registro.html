@@ -18,21 +18,37 @@
     <!--Contenido HTML de Registro - Inicio -->
     <main>
         <h3>Crear cuenta</h3>
-        <div class="main-container">
-            <input type="text" placeholder="Nombre" name="" id="">
-            <input type="text" placeholder="Apellido" name="" id="">
-            <input type="email" placeholder="Correo electrónico" name="" id="">
-            <input type="password" placeholder="Contraseña" name="" id="">
-            <input type="password" placeholder="Confirmar contraseña" name="" id="">
-            <input type="text" placeholder="Pais" name="" id="">
-            <input type="text" placeholder="Provincia / Región" name="" id="">
-            <input type="text" placeholder="Ciudad" name="" id="">
-            <input type="number" placeholder="Código postal" name="" id="">
-            <input type="text" placeholder="Dirección" name="" id="">
-            <input type="number" placeholder="Número de teléfono" name="" id="">
-        </div>
+        <form class="formulario-registro" action="/registro" method="POST">
+            <input type="text" placeholder="Nombre" name="nombre" required>
+            <input type="text" placeholder="Apellido" name="apellido" required>
+            <input type="email" placeholder="Correo electrónico" name="email" required>
+            <input type="email" placeholder="Confirmar correo electrónico" name="confirmarEmail" required>
+            <input type="password" placeholder="Contraseña" name="contraseña" required>
+            <input type="password" placeholder="Confirmar contraseña" name="confirmarContraseña" required>
+            <input type="number" placeholder="Número de teléfono" name="telefono">
+            <br>
+            <div class="pais">
+                <label for="paises">Seleccione su pais:</label>
+                <select id="paises" name="pais">
+                    <option value="arg">Argentina</option>
+                    <option value="bol">Bolivia</option>
+                    <option value="bra">Brasil</option>
+                    <option value="chi">Chile</option>
+                    <option value="col">Colombia</option>
+                    <option value="ecu">Ecuador</option>
+                    <option value="par">Paraguay</option>
+                    <option value="per">Perú</option>
+                    <option value="uru">Uruguay</option>
+                    <option value="ven">Venezuela</option>
+                </select>
+            </div>
+            <input type="text" placeholder="Provincia / Región" name="provincia">
+            <input type="text" placeholder="Ciudad" name="ciudad">
+            <input type="number" placeholder="Código postal" name="codigoPostal">
+            <input type="text" placeholder="Dirección" name="direccion">
+        </form>
         <div id="create-account-button">
-            <button id="create-account-button">Crear</button>
+            <button id="create-account-button" type="submit">Crear</button>
         </div>
         <div class="link-inicio-sesion">
             <a href="">¿Ya tienes una cuenta? Inicia sesión aquí</a>
