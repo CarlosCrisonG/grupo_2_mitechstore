@@ -3,6 +3,7 @@
     div.opciones {
         justify-content: flex-end;
         gap: 44px;
+        margin: 71px 20px;
     }
 
     tr td.producto div.imgProducto {
