@@ -22,6 +22,8 @@ input {
     height: 30px;
     width: 65%;
     border: solid rgb(197 194 194) 1px;
+    font-family: 'Raleway', sans-serif;
+    padding-left: 3px;
 }
 
 input::placeholder {
@@ -47,7 +49,7 @@ select {
 
 #create-account-button {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 10px
 }
 
