@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"> <!--Etiqueta Normalize CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <!--Etiqueta Normalize CSS-->
+    <link rel="stylesheet" href="/css/styles.css"> <!--Etiqueta de conexión a Estilos Generales-->
     <link rel="stylesheet" href="/css/producto.css"> <!--Etiqueta de conexión con su CSS-->
     <title>Producto</title>
 </head>
+
 <body>
     <!--Contenido HTML de Producto - Inicio -->
     <main>
-        
+        <h4 class="titulo-producto">Xiaomi Redmi Note 10 2022</h4>
+        <div class="imagen-producto">
+            <img src="images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom.jpg" alt="">
+        </div>
+        <div class="product-cost-box">
+            <span class="precio">1119900 COP</span> <span class="cuotas">!Doce cuotas sin interés!</span>
+            <label for="color">Color: </label>
+            <select name="color" id="color">
+                <option value="bra">Gris</option>
+                <option value="arg">Blanco</option>
+                <option value="bol">Azul oscuro</option>
+            </select>
+            <span class="cuotas">Stock disponible <i class="fa-solid fa-check"></i></span>
+            <i id="truck" class="fa-solid fa-truck"></i>
+        </div>
+        <button class="comprar">Agregar al carrito</button>
+        <div class="product-descr-box">
+            <h4 class="subtitle">Descripción</h4>
+            <p>Con el XIAOMI Redmi 10 2022 128GB Azul captura tus momentos especiales con su cámara principal con alta
+                resolución de 50MP, junto a 3 cámaras para que no pierdas detalle alguno. Disfruta tus contenidos
+                favoritos en su gran pantalla de 6.5" con resolución FHD+ junto a una tasa de refresco de 90Hz. Cuenta
+                con un procesador MediaTek Helio G88 que te permite usar cualquier aplicación tranquilamente. La batería
+                de 5000 mAh con carga rápida de 18W te permitirá llegar hasta el final del día. Adicional, cuenta con
+                sonido estéreo gracias a sus dos altavoces ¡Lleva el tuyo!</p>
+        </div>
+        <div class="product-caract-box">
+            <h4 class="subtitle">Características</h4>
+            <ul>
+                <li>Cámara cuádruple de 50MP, alta calidad al mejor precio</li>
+                <li>Pantalla de 90Hz, disfruta mejores experiencias en juegos</li>
+                <li>Procesador MediaTek G88, poderoso en todo momento</li>
+                <li>Batería de 5000mAh, llega al final del día con 1 sola carga</li>
+                <li>Doble altavoz, para que disfrutes de sonido estéreo</li>
+            </ul>
+        </div>
     </main>
     <!--Contenido HTML del Producto - Fin -->
 </body>
+
 </html>

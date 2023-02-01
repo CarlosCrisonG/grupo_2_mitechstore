@@ -1,0 +1,105 @@
+main {
+    padding-top: 35px;
+}
+
+.titulo-producto {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid 1px gray;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: #FF6700
+}
+
+.imagen-producto {
+    width: 100vw;
+    margin: auto;
+}
+
+.imagen-producto img {
+    width: 100%;
+}
+
+.product-cost-box {
+    width: 100%;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    padding: 10px;
+    position: relative;
+}
+
+span {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    margin-right: 20px;
+}
+
+.precio {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.cuotas {
+    color: #00a650;
+}
+
+label {
+    font-family: 'Raleway', sans-serif;
+}
+
+select {
+    font-family: 'Raleway', sans-serif;
+    padding: 3px;
+    border: solid rgb(197 194 194) 1px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+#truck {
+    color: #39b54a;
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: -15px;
+    box-sizing: border-box;
+}
+
+.comprar {
+    width: 100%;
+    margin-top: 10px;
+    border: solid rgb(197 194 194) 1px;
+    border-left: none;
+    border-right: none;
+    font-family: 'Raleway', sans-serif;
+    background-color: #FF6700;
+    color: white;
+    padding: 22px 0px;
+    font-size: 18px;
+}
+
+.product-caract-box,
+.product-descr-box {
+    margin-top: 10px;
+        width: 100%;
+        border-top: solid 1px gray;
+        border-bottom: solid 1px gray;
+        padding: 10px;
+        color: gray;
+}
+
+li {
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    margin-top: 8px;
+}
