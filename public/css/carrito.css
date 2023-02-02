@@ -41,4 +41,5 @@ div.infoProducto2 div.cantidadProducto button{
     border: solid 1px black;
     width: 90px;
     height: 30px;
+    border-radius: 5px;
 }
