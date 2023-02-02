@@ -26,14 +26,24 @@ div.imgProducto {
 
 div.producto {
     display: flex;
+    align-items: stretch;
 }
 
 div.infoProducto2 {
     display: flex;
-    gap: 40px;
     flex-direction: row;
     align-items: center;
-    margin-top: 50px;
+    justify-content: space-between;    
+}
+
+div.infoProducto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.infoProducto div.tituloProducto p{
+    font-weight: bold;
 }
 
 div.infoProducto2 div.cantidadProducto button{
