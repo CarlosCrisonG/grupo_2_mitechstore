@@ -37,6 +37,8 @@ div.infoProducto2 {
 }
 
 div.infoProducto2 div.cantidadProducto button{
-    background: none;
-    border: none;
+    background: none;    
+    border: solid 1px black;
+    width: 90px;
+    height: 30px;
 }
