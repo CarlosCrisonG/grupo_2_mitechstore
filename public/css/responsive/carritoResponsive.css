@@ -1,35 +1,9 @@
 /* tablets */
 @media(min-width:481px) {
-    div.opciones {
-        justify-content: flex-end;
-        gap: 44px;
-        margin: 71px 20px;
-    }
-
-    tr td.producto div.imgProducto {
-        width: 150px;
-        height: 150px;
-    }
-
-    article.listaProductos{
-        overflow-x: auto;
-    }
-
-    tr.mostrarProductos td {    
-        width: auto;
-    }    
-    tr td.precioProducto p{
-        width: auto;
-    }
-
-    tr td.cantidadProducto p{
-        width: auto;
-    }
+   
 }
 
 /* desktops */
 @media(min-width:769) {
-    div.opciones{
-        margin-right: 37px;
-    }
+
 }
