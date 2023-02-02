@@ -7,16 +7,21 @@
     div.infoProducto {
         flex-direction: row;
         align-items: center;
+        width: 100%;
     }
 
     div.listaTitulos {
         display: flex;
-        gap: 298px;
+        justify-content: space-between;
+        border-bottom: solid 1px black;
     }
 
-    div.CantidadPrecioTitulo {
-        display: flex;
-        gap: 70px;
+    h5.cantidadTitulo{
+        padding-left: 151px;
+    }
+
+    div.listaProductos{
+        margin: 15px auto;
     }
 
     div.TituloDescripcion {
@@ -30,11 +35,16 @@
         display: inline;
     }
 
-    div.infoProducto,
-    div.CantidadPrecio {
-        gap: 50px;
+    div.producto{
+        justify-content: space-between;
+    }
+
+    div.CantidadPrecio{
+        width: 50%;
     }
 }
 
 /* desktops */
-@media(min-width:769) {}
+@media(min-width:769px) {
+
+}
