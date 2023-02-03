@@ -11,7 +11,7 @@ Implementar el uso de ramas de Git para optimizar el trabajo y evitar conflictos
 Continuar reuniéndonos los Martes y Jueves antes de la clase para coordinar el trabajo realizado y pendiente.
 
 ### 4. Hacer menos:
-
+Evitar trabajar directamente todos en la rama main, sino más bien crear ramas por cada tarea y luego fusionarlas.
 
 ### 5. Dejar de hacer:
 Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el push correspondiente en el repositorio. Esto permitirá mantener sincronizado todo el tiempo Trello y Github.
