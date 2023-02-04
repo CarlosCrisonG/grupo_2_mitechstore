@@ -101,6 +101,10 @@
     -moz-transform: scale(1);
     transition: all 200ms ease-in;
     transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
   .producto:hover {
     transform: scale(1.1);
@@ -167,12 +171,19 @@
   .producto {
     width: 40%;
   }
+  .descuento_producto span {
+    font-size: 1.1em;
+  }
+  .precio_producto span {
+    font-size: 1.5em;
+  }
 }
 
 /*Desktop*/
 @media (min-width: 1024px) {
   .fila_productos {
     flex-wrap: nowrap;
+    align-items: stretch;
   }
   .producto {
     width: 20%;

@@ -21,7 +21,7 @@
 - Nombre: Redmi Buds 3 Lite
 - Descripción: Bluetooth 5.2 / Ajuste seguro y cómodo.
 - Valor: $30
-- Link: https://www.xiaomi-store.co/xiaomi-12/p
+- Link: https://mixiaomi.co/product/redmi-buds-3-lite/
 
 ## Producto 5
 - Nombre: Xiaomi Smart Band 7 Pro
