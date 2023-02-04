@@ -28,10 +28,6 @@ main {
     margin: auto;
 }
 
-.imagen-producto img {
-    width: 100%;
-}
-
 .product-cost-box {
     width: 100%;
     border-top: solid 1px gray;
@@ -56,11 +52,11 @@ p {
     font-weight: 600;
 }
 
-label {
+.label-color {
     font-family: 'Raleway', sans-serif;
 }
 
-select {
+.select-color {
     font-family: 'Raleway', sans-serif;
     padding: 3px;
     border: solid rgb(197 194 194) 1px;
@@ -123,6 +119,60 @@ li {
     margin-top: 8px;
 }
 
+/* ---------------------Estilos Carrusel -- Inicio */
+#carrusel {
+    width: 100%;
+}
+
+.slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+/* Ocultar imagenes por defecto */
+.mySlides {
+    display: none;
+}
+
+/* Flechas siguiente y atras */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    padding: 16px;
+    color: #FF6700;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 5px 0 0 5px;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Animaciones */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* ------------ Estilos Carrusel -- Fin */
+
 @media (min-width: 769px) {
     main {
         background-color: rgb(230, 227, 227);
@@ -136,7 +186,7 @@ li {
         margin: auto;
     }
 
-    .imagen-producto {
+    #carrusel {
         width: 59%;
     }
 
@@ -193,7 +243,7 @@ li {
         display: block;
     }
 
-    select {
+    .select-color {
         margin-right: 24px;
     }
 
@@ -211,6 +261,19 @@ li {
         padding: 15px 0px;
         font-size: 15px;
     }
+
+    .prev {
+        margin-left: 10px;
+    }
+
+    .next {
+        margin-right: 10px;
+    }
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgb(255, 255, 255);
+    }
 }
 
 @media (min-width: 1025px) {
@@ -223,7 +286,7 @@ li {
         margin-right: 45px;
     }
 
-    .imagen-producto {
+    #carrusel {
         width: 60%;
     }
 

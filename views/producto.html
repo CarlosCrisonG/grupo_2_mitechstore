@@ -22,17 +22,31 @@
         <section class="main-section">
             <h4 class="titulo-producto-mobile">Xiaomi Redmi Note 10 2022</h4>
             <div class="main-top-section">
-                    <img class="imagen-producto" src="images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom.jpg" alt="">
+                <!-- Carrusel -->
+                <section id="carrusel">
+                    <div class="slideshow-container">
+                        <!-- Imágenes de Carrusel  -->
+                        <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" style="width:100%"></div>
+                        <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (1).jpg" style="width:100%"></div>
+                        <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (2).jpg" style="width:100%"></div>
+                        <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (3).jpg" style="width:100%"></div>
+                        <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (4).jpg" style="width:100%"></div>
+
+                        <!-- Flechas Carrusel -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </section>
                 <section class="right-box">
                     <div class="product-cost-box">
                         <h3 class="titulo-producto-desktop">Xiaomi Redmi Note 10 2022</h3>
                         <P class="precio">1119900 COP</p>
                         <p class="cuotas">!Doce cuotas sin interés!</p>
-                        <label for="color">Color: </label>
-                        <select name="color" id="color">
-                            <option value="bra">Gris</option>
-                            <option value="arg">Blanco</option>
-                            <option value="bol">Azul oscuro</option>
+                        <label class="label-color" for="color">Color: </label>
+                        <select class="select-color" name="color" id="color">
+                            <option value="gris">Gris</option>
+                            <option value="blanco">Blanco</option>
+                            <option value="azulOscuro">Azul oscuro</option>
                         </select>
                         <p class="cuotas">Stock disponible <i class="fa-solid fa-check"></i></p>
                         <i id="truck" class="fa-solid fa-truck"></i>
@@ -73,6 +87,9 @@
         </section>
     </main>
     <!--Contenido HTML del Producto - Fin -->
+
+    <!--Script carrusel -->
+    <script src="/js/carrusel_producto.js"></script>
 </body>
 
 </html>
