@@ -9,12 +9,23 @@ main {
     width: 90vw;
 }
 
-article.carritoProductos{
+article.carritoProductos {
     margin: 30px auto;
 }
 
-div.listaTitulos{
+div.listaTitulos {
     display: none;
+}
+
+div.listaProductos div.producto {
+    margin: 30px auto;
+}
+
+div.listaFooter {
+    padding-top: 10px;
+    border-top: solid 1px black;
+    display: flex;
+    justify-content: space-between;
 }
 
 div.titulo {
@@ -35,33 +46,58 @@ div.imgProducto {
 div.producto {
     display: flex;
     align-items: stretch;
+    justify-content: center;
 }
 
 div.CantidadPrecio {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
-div.infoProducto{
+div.infoProducto {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-div.infoProducto div.TituloDescripcion p.titulo{
+div.infoProducto div.TituloDescripcion p.titulo {
     font-weight: bold;
 }
 
-div.infoProducto div.TituloDescripcion p.descripcion{
+div.infoProducto div.TituloDescripcion p.descripcion {
     display: none;
 }
 
-div.CantidadPrecio div.cantidadProducto button{
-    background: none;    
+div.CantidadPrecio div.cantidadProducto button {
+    background: none;
     border: solid 1px black;
     width: 90px;
     height: 30px;
     border-radius: 5px;
+}
+
+div.opcionesDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.opcionesDiv div.opciones button.pagar {
+    border: none;
+    color: white;
+    width: 109px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #0456D4;
+}
+
+div.opcionesDiv div.opciones a.seguir {
+    text-decoration: none;
+    color: #0456D4;
+}
+
+div.opcionesDiv div.opciones {
+    text-align: end;
 }
