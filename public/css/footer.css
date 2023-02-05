@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+footer {
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+div.noticiasDiv {
+    display: none;
+}
+
+div.emailInput input {
+    width: 90%;
+    text-align: center;
+}
+
+div.emailInput {
+    display: flex;
+    align-items: center;
+}
+
+div.feedbackDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+div.redesSocialesDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+div.redesSocialesDiv div.redesSocialesIcon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
