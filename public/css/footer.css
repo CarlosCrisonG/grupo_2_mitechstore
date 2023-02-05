@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 html {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -47,5 +52,10 @@ div.redesSocialesDiv {
 div.redesSocialesDiv div.redesSocialesIcon {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    gap: 9px;
+}
+
+svg.icons{
+    width: 30px;
+    height: 30px;
 }
