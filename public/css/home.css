@@ -1,4 +1,8 @@
 /* Estilos Carrusel Home -- Inicio */
+#carrusel {
+  margin-bottom: 40px;
+}
+
 .slideshow-container {
     width: 100%;
     position: relative;
@@ -65,8 +69,13 @@
   /* Estilos Carrusel Home -- Fin */
 
   /*Estilos productos home -- Inicio */
+  .productos_home {
+    margin-bottom:40px;
+  }
+
   .secciones {
-    margin-top:80px;
+    margin-top:40px;
+    margin-bottom:40px;
   }
   
   .secciones h4 {
@@ -151,6 +160,11 @@
     font-size: 1.6em;
     font-family: 'Montserrat', sans-serif;
     color:#05C026;
+  }
+
+  .enlace_producto {
+    text-decoration: none;
+    color: #222231;
   }
   /*Estilos productos home -- Fin */
 
