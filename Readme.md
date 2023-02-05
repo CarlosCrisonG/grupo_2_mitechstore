@@ -1,4 +1,4 @@
-![alt Logo](https://i.ibb.co/M9dm0BR/Logo-Tech-Store.png)
+![alt Logo](https://i.ibb.co/4ZZJy81/Logo-Color.png)
 
 <br />
 
