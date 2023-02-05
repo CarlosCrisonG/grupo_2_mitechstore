@@ -76,6 +76,22 @@ div.CantidadPrecio div.cantidadProducto button {
     width: 90px;
     height: 30px;
     border-radius: 5px;
+    cursor: pointer;    
+}
+
+div.CantidadPrecio div.cantidadProducto button:hover{
+    animation-duration: 3s;
+    animation-name: cantidadProductoAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes cantidadProductoAnim {
+    100% {
+        background-color: black;
+        border: solid 1px white;
+        color: white;      
+    }
 }
 
 div.opcionesDiv {
@@ -91,6 +107,7 @@ div.opcionesDiv div.opciones button.pagar {
     height: 32px;
     border-radius: 5px;
     background-color: #0456D4;
+    cursor: pointer;
 }
 
 div.opcionesDiv div.opciones a.seguir {
@@ -100,4 +117,36 @@ div.opcionesDiv div.opciones a.seguir {
 
 div.opcionesDiv div.opciones {
     text-align: end;
+}
+
+div.opcionesDiv div.opciones button.pagar:hover {
+    animation-duration: 3s;
+    animation-name: pagarAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes pagarAnim {
+    100% {
+        background-color: white;
+        color: #0456D4;
+        border: #0456D4 1px solid;
+    }
+}
+
+div.opcionesDiv div.opciones a.seguir:hover {
+    animation-duration: 3s;
+    animation-name: seguirAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes seguirAnim {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
