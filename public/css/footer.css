@@ -21,6 +21,8 @@ footer {
     display: flex;
     text-align: center;
     justify-content: space-around;
+    background-color: #EEEEEE;
+    padding: 40px 0;
 }
 
 div.noticiasDiv {
@@ -30,10 +32,13 @@ div.noticiasDiv {
 div.emailInput input {
     width: 90%;
     text-align: center;
+    padding: 4px 0;
 }
 
 div.emailInput {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     align-items: center;
 }
 
