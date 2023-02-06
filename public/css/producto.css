@@ -96,6 +96,7 @@ p {
     color: white;
     padding: 22px 0px;
     font-size: 18px;
+    transition: all 400ms;
 }
 
 .product-caract-box,
@@ -190,11 +191,11 @@ li {
     }
 
     #carrusel {
-        width: 59%;
+        width: 60%;
     }
 
     .right-box {
-        width: 41%;
+        width: 40%;
         background-color: white;
         padding: 20px;
         height: fit-content;
@@ -267,6 +268,10 @@ li {
         font-size: 15px;
     }
 
+    .comprar:hover {
+        background-color: gray;
+    }
+
     .prev {
         margin-left: 10px;
     }
@@ -291,12 +296,7 @@ li {
         margin-right: 45px;
     }
 
-    #carrusel {
-        width: 60%;
-    }
-
     .right-box {
-        width: 40%;
         margin-top: 50px;
     }
 
