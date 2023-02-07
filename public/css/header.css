@@ -10,6 +10,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+div.acceso{
+    display: none;
+}
+
 .encabezado {
     width: 100%;
     background-color: #DCDCDC;
@@ -25,7 +29,11 @@ div.header-top-bar {
 
 div.search-bar input{
     width: 85%;
-    height: 32px;
+    padding: 3px;
+}
+
+div.search-bar button{
+    padding: 3px;
 }
 
 div.search-bar{
