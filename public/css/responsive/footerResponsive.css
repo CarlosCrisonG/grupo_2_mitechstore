@@ -13,4 +13,8 @@
 }
 
 /* desktop */
-@media(min-width:1024px) {}
+@media(min-width:1024px) {
+    footer{
+        padding: 40px 60px;
+    }
+}
