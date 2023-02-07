@@ -16,7 +16,7 @@ app.listen(3000, () =>
 
 //Ruta para el home.html
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/home.html"));
+    res.sendFile(path.resolve(__dirname, "./views/index.html"));
 });
 
 //Ruta para el header.html
@@ -39,12 +39,12 @@ app.get('/login', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/login.html"));
 });
 
-//Ruta para el producto.html
+//Ruta para el productDetail.html
 app.get('/producto', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/producto.html"));
+    res.sendFile(path.resolve(__dirname, "./views/productDetail.html"));
 });
 
-//Ruta para el registro.html
+//Ruta para el register.html
 app.get('/registro', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/registro.html"));
+    res.sendFile(path.resolve(__dirname, "./views/register.html"));
 });
