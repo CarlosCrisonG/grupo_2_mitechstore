@@ -34,8 +34,7 @@ body {
 }
 
 
-.barra-de-busqueda {
-    flex: 2;
+.barra-de-busqueda {    
     display: flex;
 }
 
@@ -87,10 +86,11 @@ body {
 }
 
 .icons a {
-    display: inline-block;
-    padding: 0.5rem;
+    display: flex;
     color: #FFF;
+    gap: 8px;
     background-color: #FF6700;
+    text-decoration: none;
 }
 
 .burger-menu {
@@ -166,7 +166,7 @@ body {
     }
 
     .barra-de-busqueda {
-        width: 30%;
+        width: 48%;
         display: flex;
         justify-content: center;
     }
@@ -177,14 +177,9 @@ body {
 
     .ingresar {
         font-size: 18px;
-        position: relative;
-        right: 50px;
-        bottom: 50%;
         display: flex;
         text-align: center;
         color: #FFF;
-        width: 100%;
-        padding: 0.5rem;
     }
 
     .barra-de-busqueda input[type="text"] {
@@ -193,9 +188,6 @@ body {
 
     .whatsapp {
         font-size: 18px;
-        position: relative;
-        right: 50px;
-        bottom: 50%;
         display: flex;
         text-align: center;
         color: #FFF;
@@ -217,14 +209,9 @@ body {
 
     .carrito {
         font-size: 18px;
-        position: relative;
-        right: 50px;
-        bottom: 50%;
         display: flex;
         text-align: center;
         color: #FFF;
-        width: 100%;
-        padding: 0.5rem;
     }
 
 
@@ -258,7 +245,6 @@ body {
         font-size: 18px;
         border: none;
         cursor: pointer;
-        width: 100%;
         text-align: center;
         background-color: #DCDCDC;
     }
