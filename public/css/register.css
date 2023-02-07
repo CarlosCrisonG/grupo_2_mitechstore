@@ -109,6 +109,7 @@ select {
 
     #create-account-button button:hover {
         background-color: gray;
+        cursor: pointer;;
     }
 
     select {

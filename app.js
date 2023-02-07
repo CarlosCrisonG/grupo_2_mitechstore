@@ -45,6 +45,6 @@ app.get('/producto', (req, res) => {
 });
 
 //Ruta para el register.html
-app.get('/registro', (req, res) => {
+app.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/register.html"));
 });
