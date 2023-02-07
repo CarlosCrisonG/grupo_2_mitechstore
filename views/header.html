@@ -5,8 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <!--Etiqueta Normalize CSS-->
+  <link rel="stylesheet" href="/css/styles.css"> <!--Etiqueta de conexión a Estilos Generales-->
   <link rel="stylesheet" href="/css/header.css"> <!--Etiqueta de conexión con su CSS-->
   <script src="https://kit.fontawesome.com/e49cfd628c.js" crossorigin="anonymous"></script>
 
@@ -16,8 +20,7 @@
 <body>
   <header class="main-header">
     <div class="encabezado">
-      <p>Realizá compras en nuestras tienda online, recibí promociones y novedades<a href="#">¡SUSCRIBETE!</a>
-      <p>
+      <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/register">¡Registrate!</a></p>
     </div>
     <div class="header-top-bar">
       <div class="logo-search-container">
@@ -28,62 +31,56 @@
           <input type="text" placeholder="¿Que producto buscas?">
           <button class=><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+        <nav class="opciones">
+          <ul>
+            <li class="main-header-navbar-element"><a href="#"><i class="fa-brands fa-whatsapp"></i> +573006698669
+              </a></li>
+            <li class="main-header-navbar-element"><a href="/login">Ingresar</a></li>
+            <li class="main-header-navbar-element"><a href="/carrito">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="opciones">
-        <div class="whatsapp">
-          <i class="fa-brands fa-whatsapp"></i>
-          <p>+573006698669</p>
-        </div>
-        <div class="acceso">
-          <p>Ingresar</p>
-        </div>
-        <div class="burger-menu">
-          <i class="fas fa-bars"></i>
-        </div>
-        <div class="carrito">
-          <p>Carrito</p>
-          <i class="fa-solid fa-cart-shopping"></i>
-        </div>
+      <div class="burguer-menu">
+        <button><i class="fas fa-bars"></i></button>
       </div>
     </div>
-    <div class="conteiner-dropdown">
-      <div class="dropdown-block">
-        <ul>
-          <li class="dropdown">
-            <button class="dropbtn">Computadores</button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <button class="dropbtn">Celulares</button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <button class="dropbtn">Accesorios</button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <button class="dropbtn">Electrodomésticos</button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </li>
-        </ul>
-      </div>
     </div>
+    <nav class="categorias-navbar">
+      <ul>
+        <li class="categoria">Computadoras
+          <div class="categoria-desplegable">
+            <a href="#">Subcategoria 1</a>
+            <a href="#">Subcategoria 2</a>
+            <a href="#">Subcategoria 3</a>
+            <a href="#">Subcategoria 4</a>
+          </div>
+        </li>
+        <li class="categoria">Celulares
+          <div class="categoria-desplegable">
+            <a href="#">Subcategoria 1</a>
+            <a href="#">Subcategoria 2</a>
+            <a href="#">Subcategoria 3</a>
+            <a href="#">Subcategoria 4</a>
+          </div>
+        </li>
+        <li class="categoria">Accesorios
+          <div class="categoria-desplegable">
+            <a href="#">Subcategoria 1</a>
+            <a href="#">Subcategoria 2</a>
+            <a href="#">Subcategoria 3</a>
+            <a href="#">Subcategoria 4</a>
+          </div>
+        </li>
+        <li class="categoria">Electrodomésticos
+          <div class="categoria-desplegable">
+            <a href="#">Subcategoria 1</a>
+            <a href="#">Subcategoria 2</a>
+            <a href="#">Subcategoria 3</a>
+            <a href="#">Subcategoria 4</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
 
 
   </header>
