@@ -59,6 +59,15 @@ input::placeholder {
     color: rgb(54, 104, 241);
 }
 
+.contenedor-checkbox{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.checkbox{
+    margin-right: 8px;
+}
 /*Button*/
 .contenedorButton{
     margin-top: 30px;
@@ -72,6 +81,7 @@ input::placeholder {
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 18px;
+    transition: all 400ms;
 }
 
 /*No tienes cuenta*/
@@ -90,7 +100,16 @@ input::placeholder {
     }
 }
 @media (min-width: 769px) {
-    input::placeholder {
-        font-size: 18px;
-    }
+
+input::placeholder {
+font-size: 18px;
+ }
+
+ .contenedorButton button:hover{
+    background-color: gray;
+}
+
+.contenedor-checkbox{
+    font-size: 18px;
+}
 }
