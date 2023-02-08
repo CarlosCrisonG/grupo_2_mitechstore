@@ -1,18 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"> <!--Etiqueta Normalize CSS-->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <!--iconos-->
+    <!--Etiqueta Normalize CSS-->
     <link rel="stylesheet" href="/css/carrito.css"> <!--Etiqueta de conexión con su CSS-->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- etiqueta de las fuentes -->
+    <link rel="stylesheet" href="/css/responsive/carritoResponsive.css">
     <title>Carrito</title>
 </head>
+
 <body>
     <!--Contenido HTML del Carrito - Inicio -->
     <main>
-        
+        <div class="titulo">
+            <h3>Tu carrito</h3>
+        </div>
+
+        <article class="carritoProductos">
+            <div class="listaTitulos">
+                <h5 class="productoTitulo">
+                    Producto
+                </h5>
+                <h5 class="cantidadTitulo">
+                    Cantidad
+                </h5>
+                <h5 class="precioTitulo">
+                    Precio
+                </h5>
+            </div>
+            <div class="listaProductos">
+                <!-- producto 1 -->
+                <div class="producto">
+                    <div class="imgProducto">
+                        <img src="https://exitocol.vtexassets.com/arquivos/ids/15846857-800-auto?v=638055279731570000&width=800&height=auto&aspect=true"
+                            alt="">
+                    </div>
+                    <div class="infoProducto">
+                        <div class="TituloDescripcion">
+                            <p class="titulo">Xiaomi Redmi Note 10 2022</p>
+                            <p class="descripcion">128 GB / Azul / 4 GB ram</p>
+                        </div>
+                        <div class="CantidadPrecio">
+                            <div class="cantidadProducto">
+                                <button>
+                                    1 unidad
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" width="14px" height="8px" viewBox="-0.5 -0.5 14 8"
+                                        content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2023-02-02T00:29:58.472Z&quot; agent=&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 OPR/94.0.0.0&quot; etag=&quot;a48Ybc1rIicF6FaPuOnU&quot; version=&quot;20.8.15&quot; type=&quot;device&quot;&gt;&lt;diagram name=&quot;Página-1&quot; id=&quot;ip25DtLCd1AsNNUi_eMX&quot;&gt;jVPJboMwEP0ajokAZ+uxoWl6aKpKUZWzgw1Y2Aw1JoF8fU0YNkWR6gPyvNmfHw4JVLXXNE8OwLh0fJdVDnlzfH9DXuy3AeoWWGyWLRBrwVrIG4CjuHEEXURLwXgxCTQA0oh8CoaQZTw0E4xqDddpWARy2jWnMX8AjiGVj+hJMJPgWv56wD+4iJOus7fChRXtgnGTIqEMriOI7BwSaADT3lQVcNlw1/HS5r0/8faDaZ6Z/yR8RbODSE/uT3Xbb8o0jOpfOcMqFypLXBiHNXXHQGKUtDfPIdsL10ZYbj7pmctvKIQRkFnfGYwBZQNk49jSMI01lBkLQIK+VyHR/YxqvEoRN7kGcov25LjWYLRIOEOjMBrSnnu/jc2b2VQVN5KbCyjWcyWKcG5LZH3KqLl7P9aD29oRePWURq9/HCtqDoobXdsQTFh0ykRB+0u0r4M8PGQxGSljhZpEPcZ94eHJ7AVfrTMHddx9o1+M7P4A&lt;/diagram&gt;&lt;/mxfile&gt;">
+                                        <defs />
+                                        <g>
+                                            <path d="M 1 1 L 7 7 L 13 1" fill="none" stroke-width="2"
+                                                stroke-miterlimit="10" pointer-events="all" />
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="eliminar">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50">
+                                    <path
+                                        d="M 21 2 C 19.354545 2 18 3.3545455 18 5 L 18 7 L 10.154297 7 A 1.0001 1.0001 0 0 0 9.984375 6.9863281 A 1.0001 1.0001 0 0 0 9.8398438 7 L 8 7 A 1.0001 1.0001 0 1 0 8 9 L 9 9 L 9 45 C 9 46.645455 10.354545 48 12 48 L 38 48 C 39.645455 48 41 46.645455 41 45 L 41 9 L 42 9 A 1.0001 1.0001 0 1 0 42 7 L 40.167969 7 A 1.0001 1.0001 0 0 0 39.841797 7 L 32 7 L 32 5 C 32 3.3545455 30.645455 2 29 2 L 21 2 z M 21 4 L 29 4 C 29.554545 4 30 4.4454545 30 5 L 30 7 L 20 7 L 20 5 C 20 4.4454545 20.445455 4 21 4 z M 11 9 L 18.832031 9 A 1.0001 1.0001 0 0 0 19.158203 9 L 30.832031 9 A 1.0001 1.0001 0 0 0 31.158203 9 L 39 9 L 39 45 C 39 45.554545 38.554545 46 38 46 L 12 46 C 11.445455 46 11 45.554545 11 45 L 11 9 z M 18.984375 13.986328 A 1.0001 1.0001 0 0 0 18 15 L 18 40 A 1.0001 1.0001 0 1 0 20 40 L 20 15 A 1.0001 1.0001 0 0 0 18.984375 13.986328 z M 24.984375 13.986328 A 1.0001 1.0001 0 0 0 24 15 L 24 40 A 1.0001 1.0001 0 1 0 26 40 L 26 15 A 1.0001 1.0001 0 0 0 24.984375 13.986328 z M 30.984375 13.986328 A 1.0001 1.0001 0 0 0 30 15 L 30 40 A 1.0001 1.0001 0 1 0 32 40 L 32 15 A 1.0001 1.0001 0 0 0 30.984375 13.986328 z">
+                                    </path>
+                                </svg>
+                            </div>
+                            
+                            <div class="precioProducto">
+                                <p>$180</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- producto 2 -->
+                <div class="producto">
+                    <div class="imgProducto">
+                        <img src="https://exitocol.vtexassets.com/arquivos/ids/15846857-800-auto?v=638055279731570000&width=800&height=auto&aspect=true"
+                            alt="">
+                    </div>
+                    <div class="infoProducto">
+                        <div class="TituloDescripcion">
+                            <p class="titulo">Xiaomi Redmi Note 10 2022</p>
+                            <p class="descripcion">128 GB / Azul / 4 GB ram</p>
+                        </div>
+                        <div class="CantidadPrecio">
+                            <div class="cantidadProducto">
+                                <button>
+                                    1 unidad
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" width="14px" height="8px" viewBox="-0.5 -0.5 14 8"
+                                        content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2023-02-02T00:29:58.472Z&quot; agent=&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 OPR/94.0.0.0&quot; etag=&quot;a48Ybc1rIicF6FaPuOnU&quot; version=&quot;20.8.15&quot; type=&quot;device&quot;&gt;&lt;diagram name=&quot;Página-1&quot; id=&quot;ip25DtLCd1AsNNUi_eMX&quot;&gt;jVPJboMwEP0ajokAZ+uxoWl6aKpKUZWzgw1Y2Aw1JoF8fU0YNkWR6gPyvNmfHw4JVLXXNE8OwLh0fJdVDnlzfH9DXuy3AeoWWGyWLRBrwVrIG4CjuHEEXURLwXgxCTQA0oh8CoaQZTw0E4xqDddpWARy2jWnMX8AjiGVj+hJMJPgWv56wD+4iJOus7fChRXtgnGTIqEMriOI7BwSaADT3lQVcNlw1/HS5r0/8faDaZ6Z/yR8RbODSE/uT3Xbb8o0jOpfOcMqFypLXBiHNXXHQGKUtDfPIdsL10ZYbj7pmctvKIQRkFnfGYwBZQNk49jSMI01lBkLQIK+VyHR/YxqvEoRN7kGcov25LjWYLRIOEOjMBrSnnu/jc2b2VQVN5KbCyjWcyWKcG5LZH3KqLl7P9aD29oRePWURq9/HCtqDoobXdsQTFh0ykRB+0u0r4M8PGQxGSljhZpEPcZ94eHJ7AVfrTMHddx9o1+M7P4A&lt;/diagram&gt;&lt;/mxfile&gt;">
+                                        <defs />
+                                        <g>
+                                            <path d="M 1 1 L 7 7 L 13 1" fill="none" stroke-width="2"
+                                                stroke-miterlimit="10" pointer-events="all" />
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="eliminar">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50">
+                                    <path
+                                        d="M 21 2 C 19.354545 2 18 3.3545455 18 5 L 18 7 L 10.154297 7 A 1.0001 1.0001 0 0 0 9.984375 6.9863281 A 1.0001 1.0001 0 0 0 9.8398438 7 L 8 7 A 1.0001 1.0001 0 1 0 8 9 L 9 9 L 9 45 C 9 46.645455 10.354545 48 12 48 L 38 48 C 39.645455 48 41 46.645455 41 45 L 41 9 L 42 9 A 1.0001 1.0001 0 1 0 42 7 L 40.167969 7 A 1.0001 1.0001 0 0 0 39.841797 7 L 32 7 L 32 5 C 32 3.3545455 30.645455 2 29 2 L 21 2 z M 21 4 L 29 4 C 29.554545 4 30 4.4454545 30 5 L 30 7 L 20 7 L 20 5 C 20 4.4454545 20.445455 4 21 4 z M 11 9 L 18.832031 9 A 1.0001 1.0001 0 0 0 19.158203 9 L 30.832031 9 A 1.0001 1.0001 0 0 0 31.158203 9 L 39 9 L 39 45 C 39 45.554545 38.554545 46 38 46 L 12 46 C 11.445455 46 11 45.554545 11 45 L 11 9 z M 18.984375 13.986328 A 1.0001 1.0001 0 0 0 18 15 L 18 40 A 1.0001 1.0001 0 1 0 20 40 L 20 15 A 1.0001 1.0001 0 0 0 18.984375 13.986328 z M 24.984375 13.986328 A 1.0001 1.0001 0 0 0 24 15 L 24 40 A 1.0001 1.0001 0 1 0 26 40 L 26 15 A 1.0001 1.0001 0 0 0 24.984375 13.986328 z M 30.984375 13.986328 A 1.0001 1.0001 0 0 0 30 15 L 30 40 A 1.0001 1.0001 0 1 0 32 40 L 32 15 A 1.0001 1.0001 0 0 0 30.984375 13.986328 z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <div class="precioProducto">
+                                <p>$180</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="listaFooter">
+                <h5>2 artículos</h5>
+                <h5>$Total</h5>
+            </div>
+        </article>
+        <div class="opcionesDiv">
+            <div class="opciones">
+                <a href="#" class="seguir">Seguir comprando</a>
+            </div>
+            <div class="opciones">
+                <button class="pagar">Pagar</button>
+            </div>
+
+        </div>
     </main>
     <!--Contenido HTML del Carrito - Fin -->
+    <script src="/js/carrito.js"></script>
 </body>
+
 </html>

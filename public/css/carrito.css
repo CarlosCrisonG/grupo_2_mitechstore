@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(230, 227, 227)
+}
+
+main {
+    width: 90vw;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 5px 10px #888888;
+    border-radius: 5px;
+}
+
+article.carritoProductos {
+    margin: 30px auto;
+}
+
+div.listaTitulos {
+    display: none;
+}
+
+div.listaProductos div.producto {
+    margin: 30px auto;
+}
+
+div.listaFooter {
+    padding-top: 10px;
+    border-top: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.titulo {
+    text-align: center;
+}
+
+div.imgProducto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div.imgProducto {
+    width: 100px;
+    height: 100px;
+}
+
+div.producto {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+div.CantidadPrecio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.infoProducto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.infoProducto div.TituloDescripcion p.titulo {
+    font-weight: bold;
+}
+
+div.infoProducto div.TituloDescripcion p.descripcion {
+    display: none;
+}
+
+div.CantidadPrecio div.cantidadProducto button {
+    background: none;
+    border: solid 1px black;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+svg g path {
+    stroke: black;
+}
+
+div.CantidadPrecio div.cantidadProducto button:hover,
+div.CantidadPrecio div.cantidadProducto button:hover svg g path {
+    animation-duration: 2s;
+    animation-name: cantidadProductoAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes cantidadProductoAnim {
+    100% {
+        background-color: #FF6700;
+        border: solid 1px #FF6700;
+        color: white;
+        stroke: white;
+    }
+}
+
+div.opcionesDiv,
+div.cantidadProducto {
+    font-family: 'Raleway', sans-serif;
+}
+
+div.opcionesDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.opcionesDiv div.opciones button.pagar {
+    border: none;
+    color: white;
+    width: 109px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #FF6700;
+    cursor: pointer;
+}
+
+div.opcionesDiv div.opciones a.seguir {
+    text-decoration: none;
+    color: #0456D4;
+}
+
+div.opcionesDiv div.opciones {
+    text-align: end;
+}
+
+div.opcionesDiv div.opciones button.pagar:hover {
+    animation-duration: 2s;
+    animation-name: pagarAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes pagarAnim {
+    100% {
+        background-color: white;
+        color: #FF6700;
+        border: #FF6700 1px solid;
+    }
+}
+
+div.opcionesDiv div.opciones a.seguir:hover {
+    animation-duration: 2s;
+    animation-name: seguirAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes seguirAnim {
+    50% {
+        font-weight: 600;
+    }
+
+    100% {
+        font-weight: bolder;
+    }
+}
+
+div.eliminar svg {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+div.eliminar:hover svg {
+    animation-duration: 2s;
+    animation-name: eliminarAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes eliminarAnim {
+    100% {
+        fill: red;
+    }
+}

@@ -1,0 +1,57 @@
+/* tablets */
+@media(min-width:481px) {
+    main {
+        width: 85vw;
+    }
+
+    div.infoProducto {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    div.listaTitulos {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 1px black;
+    }
+
+    h5.cantidadTitulo{
+        padding-left: 151px;
+    }
+
+    div.listaProductos{
+        margin: 15px auto;
+    }
+
+    div.TituloDescripcion {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    div.infoProducto div.TituloDescripcion p.descripcion {
+        display: inline;
+    }
+
+    div.producto{
+        justify-content: space-between;
+    }
+
+    div.CantidadPrecio{
+        width: 50%;
+    }
+
+    div.eliminar svg{
+        width: 2em;
+        height: 2em;
+    }
+}
+
+/* desktops */
+@media(min-width:769px) {
+    main{
+        width: 60vw;
+    }
+}
