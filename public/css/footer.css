@@ -64,3 +64,24 @@ svg.icons{
     width: 30px;
     height: 30px;
 }
+
+/* tablets */
+@media(min-width:768px) {
+    div.noticiasDiv{
+        display: flex;
+        flex-grow: 0.2;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    div.noticiasDiv div.emailInput label i.fa-envelope{
+        font-size: 1.5em;
+    }
+}
+
+/* desktop */
+@media(min-width:1024px) {
+    footer{
+        padding: 40px 60px;
+    }
+}
