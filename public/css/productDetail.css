@@ -113,7 +113,11 @@ p {
     text-align: justify;
 }
 
-li {
+.product-caract-box ul {
+    padding-left: 25px;
+}
+
+li.caracteristicas {
     font-family: 'Raleway', sans-serif;
     margin-bottom: 10px;
 }
@@ -121,6 +125,10 @@ li {
 .subtitle-descripcion,
 .subtitle-caracteristicas {
     margin-top: 10px;
+}
+
+.subtitle-caracteristicas {
+    margin-bottom: 25px;
 }
 
 /* ---------------------Estilos Carrusel -- Inicio */
@@ -307,7 +315,7 @@ li {
         font-size: 19px;
     }
 
-    li {
+    li.caracteristicas {
         font-size: 17px;
     }
 
