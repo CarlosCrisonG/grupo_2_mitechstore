@@ -87,6 +87,7 @@ input::placeholder {
 /*No tienes cuenta*/
 .contenedorNoTienes{
     margin-top: 5px;
+    margin-bottom: 50px;
 }
 
 .contenedorNoTienes a{

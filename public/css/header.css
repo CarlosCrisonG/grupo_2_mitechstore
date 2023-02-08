@@ -111,6 +111,7 @@ li.main-header-navbar-element a {
     left: 0;
     top: 58px;
     display: none;
+    z-index: 2;
 }
 
 .categoria-desplegable a {
