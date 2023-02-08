@@ -96,7 +96,7 @@ div.CantidadPrecio div.cantidadProducto button:hover svg g path {
     animation-duration: 2s;
     animation-name: cantidadProductoAnim;
     animation-iteration-count: infinite;
-    animation-direction: alternate;        
+    animation-direction: alternate;
 }
 
 @keyframes cantidadProductoAnim {
@@ -104,7 +104,7 @@ div.CantidadPrecio div.cantidadProducto button:hover svg g path {
         background-color: #FF6700;
         border: solid 1px #FF6700;
         color: white;
-        stroke: white;        
+        stroke: white;
     }
 }
 
@@ -167,5 +167,24 @@ div.opcionesDiv div.opciones a.seguir:hover {
 
     100% {
         font-weight: bolder;
+    }
+}
+
+div.eliminar svg {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+div.eliminar:hover svg {
+    animation-duration: 2s;
+    animation-name: eliminarAnim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes eliminarAnim {
+    100% {
+        fill: red;
     }
 }

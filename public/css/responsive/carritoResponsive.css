@@ -42,6 +42,11 @@
     div.CantidadPrecio{
         width: 50%;
     }
+
+    div.eliminar svg{
+        width: 2em;
+        height: 2em;
+    }
 }
 
 /* desktops */
