@@ -9,8 +9,9 @@ body {
 }
 
 main {
+    width: 90vw;
     margin: 30px auto;
-    padding: 20px;    
+    padding: 20px;
     background-color: white;
     box-shadow: 0px 5px 10px #888888;
     border-radius: 5px;
@@ -92,19 +93,24 @@ svg g path {
 
 div.CantidadPrecio div.cantidadProducto button:hover,
 div.CantidadPrecio div.cantidadProducto button:hover svg g path {
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-name: cantidadProductoAnim;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-direction: alternate;        
 }
 
 @keyframes cantidadProductoAnim {
     100% {
-        background-color: black;
-        border: solid 1px white;
+        background-color: #FF6700;
+        border: solid 1px #FF6700;
         color: white;
-        stroke: white;
+        stroke: white;        
     }
+}
+
+div.opcionesDiv,
+div.cantidadProducto {
+    font-family: 'Raleway', sans-serif;
 }
 
 div.opcionesDiv {
@@ -133,7 +139,7 @@ div.opcionesDiv div.opciones {
 }
 
 div.opcionesDiv div.opciones button.pagar:hover {
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-name: pagarAnim;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -148,7 +154,7 @@ div.opcionesDiv div.opciones button.pagar:hover {
 }
 
 div.opcionesDiv div.opciones a.seguir:hover {
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-name: seguirAnim;
     animation-iteration-count: infinite;
     animation-direction: alternate;
