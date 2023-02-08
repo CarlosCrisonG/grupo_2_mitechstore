@@ -36,7 +36,7 @@ main {
     position: relative;
 }
 
-p {
+p.texto {
     margin-top: 11px;
     margin-bottom: 11px;
 }
@@ -45,11 +45,15 @@ p {
     font-weight: bold;
     font-size: 22px;
     margin-right: 10px;
+    margin-top: 11px;
+    margin-bottom: 11px;
 }
 
 .cuotas {
     color: #00a650;
     font-weight: 600;
+    margin-top: 11px;
+    margin-bottom: 11px;
 }
 
 .label-color {
@@ -83,6 +87,8 @@ p {
     display: none;
     color: #39b54a;
     font-weight: 600;
+    margin-top: 11px;
+    margin-bottom: 11px;
 }
 
 .comprar {
@@ -311,7 +317,7 @@ li.caracteristicas {
         margin-top: 50px;
     }
 
-    p {
+    p.texto {
         font-size: 19px;
     }
 
