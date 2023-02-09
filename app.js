@@ -29,9 +29,9 @@ app.get('/footer', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/footer.html"));
 });
 
-//Ruta para el carrito.html
+//Ruta para el productCart.html
 app.get('/carrito', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/carrito.html"));
+    res.sendFile(path.resolve(__dirname, "./views/productCart.html"));
 });
 
 //Ruta para el login.html
