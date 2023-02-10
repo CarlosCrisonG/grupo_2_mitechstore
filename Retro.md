@@ -20,3 +20,23 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 
 # Sprint 2
 
+### 1. Comenzar a hacer:
+- Trabajar con la rama main protegida
+- Pasar las tareas a "To review" luego de hacer el pull request
+- Incluir a todo el grupo dentro de los reviewers de los pull requests
+- Establecer 2 aprobaciones mínimo para aprobar un pull request
+
+### 2. Hacer más:
+- Trabajar con ramas para guardar el main
+- Extender el tiempo de las 2 reuniones semanales a 30 minutos
+
+### 3. Continuar haciendo:
+- Continuar reuniendonos 2 veces a la semana
+
+### 4. Hacer menos:
+- Dejar comentarios sobre las tareas por whatsapp y usar el Trello y Github para los pull request.
+
+### 5. Dejar de hacer:
+- Dejar de trabajar directamente en la rama main
+
+<br />
