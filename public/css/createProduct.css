@@ -1,0 +1,160 @@
+main {
+    background-color: #ebebeb;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 0px;
+}
+
+h3.titulo {
+   color: #FF6700;
+   text-align: center;
+   margin: 50px 0px;
+}
+
+.input {
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    border: solid rgb(197 194 194) 1px;
+    font-family: 'Raleway', sans-serif;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3px;
+    transition: all 300ms;
+}
+
+.input::placeholder {
+    font-family: 'Raleway', sans-serif;
+    color: rgb(199, 197, 197);
+    padding-left: 2px;
+}
+
+.perfil {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.label {
+    font-weight: bold;
+    align-self: flex-start;
+    font-family: 'Raleway', sans-serif;
+}
+
+.categorias,
+.colores {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+
+.caracteristicasTitle {
+    align-self: flex-start;
+}
+
+.especificaciones {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: flex-start;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    gap: 20px 0px;
+}
+
+.especificacion {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.especificacion label {
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    font-family: 'Raleway', sans-serif;
+}
+
+.precio {
+    align-self: flex-start;
+}
+
+.precio input {
+    margin-top: 5px;
+}
+
+.descripcion {
+    width: 100%;
+}
+
+textarea {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    padding: 5px;
+    font-size: 15px;
+    color: rgb(199, 197, 197);
+    border: 1px lightgray solid;
+}
+
+.buttons {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.buttons button {
+    background-color: #FF6700;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+    transition: all 400ms;
+}
+
+@media (min-width: 481px) {
+
+    form {
+        max-width: 500px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 769px) {
+
+    input::placeholder {
+        font-size: 18px;
+    }
+
+    .label{
+        font-size: 18px;
+    }
+
+    .buttons button:hover {
+        background-color: gray;
+        cursor: pointer;;
+    }
+
+    textarea {
+        font-size: 18px;
+    }
+
+    .talle {
+        width: 50%;
+    }
+}
