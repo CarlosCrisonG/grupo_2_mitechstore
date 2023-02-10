@@ -48,3 +48,8 @@ app.get('/producto', (req, res) => {
 app.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/register.html"));
 });
+
+//Ruta para la listaDeProducto.html
+app.get('/listaDeProducto', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/listaDeProducto.html"));
+});
