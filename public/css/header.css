@@ -139,7 +139,7 @@ li.main-header-navbar-element a {
     }
 
     div.search-bar {
-        width: 30%;
+        width: 25%;
     }
 
     .logo-search-container {
@@ -200,4 +200,13 @@ li.main-header-navbar-element a {
         box-shadow: 0px 0px 5px rgb(100, 100, 100);
         display: block;
     }
+
 }
+
+    @media (min-width: 1025px) {
+        div.search-bar {
+            width: 30%;
+        }
+    }
+        
+    
