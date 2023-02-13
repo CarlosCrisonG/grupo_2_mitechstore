@@ -50,7 +50,6 @@ h3.titulo {
     font-family: 'Raleway', sans-serif;
 }
 
-.categorias,
 .colores {
     display: flex;
     flex-direction: column;
@@ -89,7 +88,21 @@ h3.titulo {
 }
 
 .precio {
+    width: 38%;
+}
+
+.precio,
+.categorias {
     align-self: flex-start;
+}
+
+.categorias select {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    padding: 8px;
+    border: solid rgb(197 194 194) 1px;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 .precio input {
@@ -156,5 +169,10 @@ textarea {
 
     .talle {
         width: 50%;
+    }
+
+    .categorias select {
+        font-size: 18px;
+        padding: 4px;
     }
 }

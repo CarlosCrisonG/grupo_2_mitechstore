@@ -107,32 +107,16 @@
                 <label class="label" for="precio">Precio:</label>
                 <input id="precio" class="input" type="number" placeholder="">
             </div>
-            <label class="label" for="">Categoría</label>
-            <div class="categorias">
-                <div>
-                    <input id="celular" type="radio" name="categoria" value="celular">
-                    <label for="celular">Celulares</label>
-                </div>
-
-                <div>
-                    <input id="computadora" type="radio" name="categoria" value="computadora">
-                    <label for="computadora">Computadoras</label>
-                </div>
-
-                <div>
-                    <input id="accesorio" type="radio" name="categoria" value="accesorio">
-                    <label for="accesorio">Accesorios</label>
-                </div>
-
-                <div>
-                    <input id="electrodomestico" type="radio" name="categoria" value="electrodomestico">
-                    <label for="electrodomestico">Electrodomésticos</label>
-                </div>
-
-                <div>
-                    <input id="vidaSana" type="radio" name="categoria" value="Vida sana">
-                    <label for="vidaSana">Cuidado personal</label>
-                </div>
+             <div class="categorias">
+                <label class="label" for="">Categoría: </label>
+                <select id="categorias" name="categoria">
+                    <option value="empty"></option>
+                    <option value="cel">Celulares</option>
+                    <option value="comp">Computadoras</option>
+                    <option value="acc">Accesorios</option>
+                    <option value="elect">Electrodomésticos</option>
+                    <option value="cuidp">Cuidado personal</option>
+                </select>
             </div>
             <label class="label" for="">Colores</label>
             <div class="colores">
