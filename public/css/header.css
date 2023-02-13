@@ -22,7 +22,7 @@
 .ad-text p {
     font-size: 20px;
     display: inline-block;
-    animation: scroll 15s linear infinite;
+    animation: scroll 10s linear infinite;
 }
 
 @keyframes scroll {
