@@ -6,11 +6,14 @@ const app = express();
 const path = require("path");
 const publicPath = path.resolve(__dirname, "./public")
 
+//puerto para el servidor
+const port = process.env.PORT || 3000;
+
 //Definimos la carpeta public
 app.use(express.static(publicPath));
 
 //Iniciamos el servidor
-app.listen(3000, () =>
+app.listen(port, () =>
     console.log("Servidor corriendo en puerto 3000")
 );
 
