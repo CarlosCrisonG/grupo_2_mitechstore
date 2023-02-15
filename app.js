@@ -51,3 +51,8 @@ app.get('/producto', (req, res) => {
 app.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/register.html"));
 });
+
+//Ruta para el createProduct.html
+app.get('/createProduct', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/createProduct.html"));
+});
