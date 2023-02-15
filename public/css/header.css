@@ -5,10 +5,34 @@
 }
 
 .encabezado {
+    display: none;
     background-color: #DCDCDC;
     text-align: center;
     margin: auto;
     padding: 20px;
+}
+
+.ad-text {
+    white-space: nowrap;
+    overflow: hidden;
+    background: white;
+    padding: 15px 0;
+}
+
+.ad-text p {
+    font-size: 20px;
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(-100%);
+    }
 }
 
 div.header-top-bar {
@@ -68,7 +92,7 @@ nav.opciones {
     display: none;
 }
 
-nav.categorias-navbar{
+nav.categorias-navbar {
     display: none;
 }
 
@@ -85,7 +109,7 @@ li.categoria a {
     font-size: 14px;
 }
 
-li.main-header-navbar-element a { 
+li.main-header-navbar-element a {
     text-decoration: none;
 }
 
@@ -123,6 +147,14 @@ li.main-header-navbar-element a {
 @media (min-width: 769px) {
 
     nav.categorias-navbar {
+        display: block;
+    }
+
+    .ad-text{
+        display: none;
+    }
+
+    .encabezado {
         display: block;
     }
 
