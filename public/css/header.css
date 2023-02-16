@@ -5,10 +5,34 @@
 }
 
 .encabezado {
+    display: none;
     background-color: #DCDCDC;
     text-align: center;
     margin: auto;
     padding: 20px;
+}
+
+.ad-text {
+    white-space: nowrap;
+    overflow: hidden;
+    background: white;
+    padding: 15px 0;
+}
+
+.ad-text p {
+    font-size: 20px;
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(-100%);
+    }
 }
 
 div.header-top-bar {
@@ -68,7 +92,7 @@ nav.opciones {
     display: none;
 }
 
-nav.categorias-navbar{
+nav.categorias-navbar {
     display: none;
 }
 
@@ -85,7 +109,7 @@ li.categoria a {
     font-size: 14px;
 }
 
-li.main-header-navbar-element a { 
+li.main-header-navbar-element a {
     text-decoration: none;
 }
 
@@ -126,6 +150,14 @@ li.main-header-navbar-element a {
         display: block;
     }
 
+    .ad-text{
+        display: none;
+    }
+
+    .encabezado {
+        display: block;
+    }
+
     .encabezado p {
         font-size: 18px;
     }
@@ -139,7 +171,7 @@ li.main-header-navbar-element a {
     }
 
     div.search-bar {
-        width: 30%;
+        width: 25%;
     }
 
     .logo-search-container {
@@ -200,4 +232,13 @@ li.main-header-navbar-element a {
         box-shadow: 0px 0px 5px rgb(100, 100, 100);
         display: block;
     }
+
 }
+
+    @media (min-width: 1025px) {
+        div.search-bar {
+            width: 30%;
+        }
+    }
+        
+    

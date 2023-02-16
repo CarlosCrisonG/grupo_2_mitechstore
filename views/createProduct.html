@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"> <!--Etiqueta Normalize CSS-->
-    <link rel="stylesheet" href="/css/index.css"> <!--Etiqueta de conexión con su CSS-->
-    <link rel="stylesheet" href="/css/styles.css"> <!--Etiqueta de conexión a Estilos Generales-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <!--Etiqueta Normalize CSS-->
+    <link rel="stylesheet" href="/css/styles.css"> <!--Etiqueta de conexión a Estilos Generales-->
+    <link rel="stylesheet" href="/css/createProduct.css"> <!--Etiqueta de conexión con su CSS-->
     <!-- Etiquetas para  Header y Footer - Inicio-->
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
@@ -15,10 +21,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e49cfd628c.js" crossorigin="anonymous"></script>
     <!-- Etiquetas para  Header y Footer - Fin-->
-    <title>Home</title>
 </head>
+
 <body>
-    <!-- Header - Inicio -->
     <header class="main-header">
         <div class="encabezado">
           <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/register" style="color:blue;">¡Registrate!</a></p>
@@ -87,169 +92,132 @@
           </ul>
         </nav>
     </header>
-    <!-- Header - Fin-->
-
-    <!--Contenido HTML del Home - Inicio -->
     <main>
-         <!-- Carrusel - Inicio -->
-         <section id="carrusel">
-            <div class="slideshow-container">
-                <!-- Imágenes de Carrusel  -->
-                <div class="mySlides fade"><img
-                        src="/images/home/banner_home_1.jpg" style="width:100%">
-                </div>
-                <div class="mySlides fade"><img
-                        src="/images/home/banner_home_2.jpg" style="width:100%">
-                </div>
-                <div class="mySlides fade"><img
-                        src="/images/home/banner_home_3.jpg" style="width:100%">
-                </div>
-                <div class="mySlides fade"><img
-                        src="/images/home/banner_home_4.jpg" style="width:100%">
-                </div>
-                <div class="mySlides fade"><img
-                        src="/images/home/banner_home_5.jpg" style="width:100%">
-                </div>
-
-                <!-- Botones Carrusel -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <h3 class="titulo">Crear un nuevo producto</h3>
+        <form action="/" method="">
+            <input class="input" type="text" placeholder="Nombre del producto">
+            <div class="descripcion">
+                <textarea rows="4" name="comment" form="usrform">Descripción...</textarea>
             </div>
-        </section>
-          <!-- Carrusel - Fin -->
-        <!-- Productos Home -->
-        <section class="productos_home">
-            <!-- Seccion Novedades -->
-            <section class="secciones">
-                <h4>Novedades</h4>
-                <div class="fila_productos" id="fila1">
-                    <!-- Producto 1: Xiaomi Smart Band 7 Pro -->
-                        <div class="producto">
-                            <a class="enlace_producto" href="/producto">
-                                <div class="imagen_producto">
-                                    <img src="/images/home/Smart_Band_7_Pro.png" alt="Smart Band 7 Pro">
-                                </div>
-                                <div class="titulo_producto"><h3>Smart Band 7 Pro</h3></div>
-                                <div class="descripcion_producto"><p>Smartwatch Xiaomi con Pantalla 1,64" GPS, GLONASS, Galileo y QZSS</p></div>
-                                <div class="precio_descuento">
-                                    <div class="precio_producto"><span>$80</span></div>
-                                    <div class="descuento_producto"><span>25% OFF</span></div>
-                                </div>
-                            </a>
-                        </div>
-                   
-                    <!-- Producto 2: Watch S1 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Watch_S1.png" alt="Xiaomi Watch S1">
-                            </div>
-                            <div class="titulo_producto"><h3>Xiaomi Watch S1</h3></div>
-                            <div class="descripcion_producto"><p>Pantalla de 1,43", Cristal de zafiro | Caja de acero inoxidable | Correa de cuero</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$205</span></div>
-                                <div class="descuento_producto"><span>20% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 3: Watch S1 Active -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Watch_S1_Active.png" alt="Watch S1 Active">
-                            </div>
-                            <div class="titulo_producto"><h3>Watch S1 Active</h3></div>
-                            <div class="descripcion_producto"><p>Pantalla de 1,43" con más de 200 pantallas de reloj. Diseño personalizable</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$151</span></div>
-                                <div class="descuento_producto"><span>15% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 4: Mi Robot Vacuum-Mop 2 Pro -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Vacuum-Mop_2.png" alt="Mi Robot Vacuum-Mop 2 Pro">
-                            </div>
-                            <div class="titulo_producto"><h3>Vacuum-Mop 2 Pro</h3></div>
-                            <div class="descripcion_producto"><p>Dron Mi Robot Vacuum-Mop 2 Pro con trapeado de vibración sónica de alta frecuencia.</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$432</span></div>
-                                <div class="descuento_producto"><span>25% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
+            <label class="label" for="">Imágenes del producto</label>
+            <input type="file" accept=".jpg,.png,.jpeg">
+            <div class="precio">
+                <label class="label" for="precio">Precio:</label>
+                <input id="precio" class="input" type="number" placeholder="">
+            </div>
+             <div class="categorias">
+                <label class="label" for="">Categoría: </label>
+                <select id="categorias" name="categoria">
+                    <option value="empty"></option>
+                    <option value="cel">Celulares</option>
+                    <option value="comp">Computadoras</option>
+                    <option value="acc">Accesorios</option>
+                    <option value="elect">Electrodomésticos</option>
+                    <option value="cuidp">Cuidado personal</option>
+                </select>
+            </div>
+            <label class="label" for="">Colores</label>
+            <div class="colores">
+                <div>
+                    <input id="negro" type="checkbox" name="intereses" value="negro">
+                    <label for="negro">Negro</label>
                 </div>
-            </section>
 
-            <!-- Seccion Más Vendidos -->
-            <section class="secciones">
-                <h4>Más Vendidos</h4>
-                <div class="fila_productos" id="fila1">
-                    <!-- Producto 5: Redmi Note 10 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Redmi_10_2022_128GB_Azul.jpg" alt="Redmi10">
-                            </div>
-                            <div class="titulo_producto"><h3>Redmi 10 - 2022</h3></div>
-                            <div class="descripcion_producto"><p>Celular Xiaomi Redmi 10 - 2022 de 128GB Azul con cámara de 50MP</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$180</span></div>
-                                <div class="descuento_producto"><span>20% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 6: Redmi Note 11 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Redmi_Note_11.jpg" alt="Redmi Note 11">
-                            </div>
-                            <div class="titulo_producto"><h3>Redmi Note 11</h3></div>
-                            <div class="descripcion_producto"><p>Celular Xiaomi Redmi Note 11 de 128GB y 4GB de Ram con cámara cuádruple de 50MP</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$201</span></div>
-                                <div class="descuento_producto"><span>35% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 7: Xiaomi 12 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Xiaomi_12.png" alt="Xiaomi 12">
-                            </div>
-                            <div class="titulo_producto"><h3>Xiaomi 12</h3></div>
-                            <div class="descripcion_producto"><p>Celular Xiaomi Xiaomi 12 con 256 Gb / Azul / 8Gb Ram</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$756</span></div>
-                                <div class="descuento_producto"><span>20% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 8: Redmi Buds 3 Lite -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/producto">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Redmi_buds_3_lite.jpg" alt="Redmi Buds 3 Lite">
-                            </div>
-                            <div class="titulo_producto"><h3>Redmi Buds 3 Lite</h3></div>
-                            <div class="descripcion_producto"><p>Audífonos Bluetooth 5.2 / Ajuste seguro y cómodo.</p></div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$30</span></div>
-                                <div class="descuento_producto"><span>15% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
+                <div>
+                    <input id="blanco" type="checkbox" name="intereses" value="blanco">
+                    <label for="blanco">Blanco</label>
                 </div>
-            </section>
-        </section>
+
+                <div>
+                    <input id="gris" type="checkbox" name="intereses" value="gris">
+                    <label for="gris">Gris</label>
+                </div>
+
+                <div>
+                    <input id="rojo" type="checkbox" name="intereses" value="rojo">
+                    <label for="rojo">Rojo</label>
+                </div>
+
+                <div>
+                    <input id="verde" type="checkbox" name="intereses" value="verde">
+                    <label for="verde">Verde</label>
+                </div>
+
+                <div>
+                    <input id="azul" type="checkbox" name="intereses" value="azul">
+                    <label for="azul">Azul</label>
+                </div>
+
+                <div>
+                    <input id="amarillo" type="checkbox" name="intereses" value="amarillo">
+                    <label for="amarillo">Amarillo</label>
+                </div>
+
+                <div>
+                    <input id="violeta" type="checkbox" name="intereses" value="violeta">
+                    <label for="violeta">Violeta</label>
+                </div>
+
+                <div>
+                    <input id="rosado" type="checkbox" name="intereses" value="rosado">
+                    <label for="rosado">Rosado</label>
+                </div>
+
+                <div>
+                    <input id="anaranjado" type="checkbox" name="intereses" value="anaranjado">
+                    <label for="anaranjado">Anaranjado</label>
+                </div>
+            </div>
+
+            <label class="label" for="">Caracteristicas</label>
+            <div class="especificaciones">
+                <div class="especificacion">
+                    <label for="modelo">Modelo:</label>
+                    <input id="modelo" class="input" type="text" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="fabricacion">Año de fabricación:</label>
+                    <input id="fabricacion" class="input" type="number" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="tamaño">Tamaño:</label>
+                    <input id="tamaño" class="input" type="text" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="peso">Peso:</label>
+                    <input id="peso" class="input" type="text" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
+                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
+                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
+                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
+                </div>
+
+                <div class="especificacion">
+                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
+                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="reset">Borrar</button>
+                <a href="/"><button type="submit">Crear producto</button></a> <br>
+            </div>
+        </form>
     </main>
-    <!--Contenido HTML del Home - Fin -->
-
-    <!-- Footer - Inicio -->
     <footer>
         <div class="feedbackDiv">
             <h5>Atención al cliente</h5>
@@ -339,9 +307,6 @@
             </div>
         </div>
     </footer>
-    <!-- Footer - Fin -->
-
-    <!-- Script para carrusel de banner -->
-    <script src="/js/carrusel_home.js"></script>
 </body>
+
 </html>
