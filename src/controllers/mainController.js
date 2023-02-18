@@ -3,7 +3,7 @@ const path = require("path");
 
 const controller = {
   index: (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../views/index.html"));
+    res.sendFile(path.resolve(__dirname, "../views/main/index.html"));
   },
 };
 
