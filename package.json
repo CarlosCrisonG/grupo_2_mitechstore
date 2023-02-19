@@ -2,11 +2,11 @@
   "name": "grupo_2_mitechstore",
   "version": "1.0.0",
   "description": "![alt Logo](https://i.ibb.co/M9dm0BR/Logo-Tech-Store.png)",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
