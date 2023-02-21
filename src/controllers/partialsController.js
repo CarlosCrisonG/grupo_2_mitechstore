@@ -3,10 +3,10 @@ const path = require("path");
 
 const controller = {
   header: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/partials/header.html"));
+    res.render("partials/header");
   },
   footer: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/partials/footer.html"));
+    res.render("partials/footer");
   },
 };
 
