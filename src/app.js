@@ -9,6 +9,10 @@ const publicPath = path.resolve(__dirname, "./public")
 //puerto para el servidor
 const port = process.env.PORT || 3000;
 
+//EJS 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 //rutas
 const mainRoutes = require('./routes/mainRoutes');
 const productsRoutes = require('./routes/productRoutes');
