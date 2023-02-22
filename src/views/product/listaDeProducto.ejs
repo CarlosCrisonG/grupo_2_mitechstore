@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Css -->
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/listaDeProducto.css">
-    <!-- Fuente Raleway-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <!-- Fuente Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- Iconos -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
-    
-    <title>Celulares</title>
-</head>
+<%- include("../partials/head", {
+    stylePag: "listaDeProducto", title: "Lista de Producto"
+}) %>
+
 <body>
+    <!-- Header - Inicio -->
+   <%- include("../partials/header") %>
+   <!-- Header - Fin-->
+
     <!-- Seccion de header -->
     <section>
         <div class="conteiner-h1">
@@ -216,5 +202,7 @@
             </div>
         </section>
     </main>
-</body>
-</html>
+
+  <!-- Footer - Inicio -->
+  <%- include("../partials/footer") %>
+  <!-- Footer - Fin -->
