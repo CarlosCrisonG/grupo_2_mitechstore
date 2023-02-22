@@ -1,0 +1,50 @@
+<%- include("../partials/head", {
+  stylePag: "login", title: "Login"
+}) %>
+
+<body>
+  <!-- Header - Inicio -->
+  <%- include("../partials/header") %>
+  <!-- Header - Fin-->
+
+  <main>
+
+    <div class="contenedorh3">
+
+      <h3>Iniciar sesión</h3>
+
+    </div>
+
+    <div class="contenedorInputs">
+
+
+      <input type="email" placeholder="Correo electrónico">
+
+      <input type="password" placeholder="Contraseña">
+
+
+    </div>
+
+    <div class="contenedorOlvidaste">
+
+      <a href="">¿Olvidaste tu contraseña? Haz click aquí</a>
+
+    </div>
+    <div class="contenedor-checkbox">
+      <input type="checkbox" class="checkbox"> Recordarme
+    </div>
+
+    <div class="contenedorButton">
+      <button>Iniciar sesión</button>
+    </div>
+
+    <div class="contenedorNoTienes">
+
+      <a href="/user/register">¿No tienes una cuenta? Crea una aquí</a>
+
+    </div>
+  </main>
+
+   <!-- Footer - Inicio -->
+<%- include("../partials/footer") %>
+<!-- Footer - Fin -->

@@ -3,7 +3,7 @@ const path = require("path");
 
 const controller = {
   createProduct: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/admin/createProduct.html"));
+    res.render("admin/createProduct");
   },
 };
 

@@ -1,0 +1,99 @@
+<%- include("../partials/head", {
+  stylePag: "productDetail", title: "Producto"
+}) %>
+
+<body>
+  <!-- Header - Inicio -->
+  <%- include("../partials/header") %>
+  <!-- Header - Fin-->
+  
+
+  <!--Contenido HTML de Producto - Inicio -->
+  <main>
+    <section class="main-section">
+      <h4 class="titulo-producto-mobile">Xiaomi Redmi Note 10 2022</h4>
+      <div class="main-top-section">
+        <!-- Carrusel -->
+        <section id="carrusel">
+          <div class="slideshow-container">
+            <!-- Imágenes de Carrusel  -->
+            <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg"
+                style="width:100%">
+            </div>
+            <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (1).jpg"
+                style="width:100%">
+            </div>
+            <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (2).jpg"
+                style="width:100%">
+            </div>
+            <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (3).jpg"
+                style="width:100%">
+            </div>
+            <div class="mySlides fade"><img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (4).jpg"
+                style="width:100%">
+            </div>
+
+            <!-- Botones Carrusel -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+        </section>
+        <section class="right-box">
+          <div class="product-cost-box">
+            <h3 class="titulo-producto-desktop">Xiaomi Redmi Note 10 2022</h3>
+            <P class="precio">$180</p>
+            <p class="cuotas">!Doce cuotas sin interés!</p>
+            <div class="color">
+              <label class="label-color" for="color">Color: </label>
+              <select class="select-color" name="color" id="color">
+                <option value="gris">Gris</option>
+                <option value="blanco">Blanco</option>
+                <option value="azulOscuro">Azul oscuro</option>
+              </select>
+            </div>
+            <p class="cuotas">Stock disponible <i class="fa-solid fa-check"></i></p>
+            <i id="truck" class="fa-solid fa-truck"></i>
+            <p class="envio">Envio gratis</p>
+          </div>
+          <button class="comprar">Agregar al carrito</button>
+          <div class="product-descr-box">
+            <h4 class="subtitle-descripcion">Descripción</h4>
+            <p class="texto">Con el XIAOMI Redmi 10 2022 128GB Azul captura tus momentos especiales con su cámara
+              principal
+              con
+              alta
+              resolución de 50MP, junto a 3 cámaras para que no pierdas detalle alguno. Disfruta tus
+              contenidos
+              favoritos en su gran pantalla de 6.5" con resolución FHD+ junto a una tasa de refresco de
+              90Hz.
+              Cuenta
+              con un procesador MediaTek Helio G88 que te permite usar cualquier aplicación
+              tranquilamente. La
+              batería
+              de 5000 mAh con carga rápida de 18W te permitirá llegar hasta el final del día. Adicional,
+              cuenta
+              con
+              sonido estéreo gracias a sus dos altavoces ¡Lleva el tuyo!</p>
+          </div>
+        </section>
+      </div>
+      <div class="product-caract-box">
+        <h4 class="subtitle-caracteristicas">Características</h4>
+        <ul>
+          <li class="caracteristicas">Cámara cuádruple de 50MP, alta calidad al mejor precio</li>
+          <li class="caracteristicas">Pantalla de 90Hz, disfruta mejores experiencias en juegos</li>
+          <li class="caracteristicas">Procesador MediaTek G88, poderoso en todo momento</li>
+          <li class="caracteristicas">Batería de 5000mAh, llega al final del día con 1 sola carga</li>
+          <li class="caracteristicas">Doble altavoz, para que disfrutes de sonido estéreo</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <!--Contenido HTML del Producto - Fin -->
+
+  <!--Script carrusel -->
+  <script src="/js/carrusel_producto.js"></script>
+
+  <!-- Footer - Inicio -->
+<%- include("../partials/footer") %>
+<!-- Footer - Fin -->

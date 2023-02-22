@@ -1,0 +1,55 @@
+<%- include("../partials/head", {
+  stylePag: "register", title: "Registro"
+}) %>
+
+
+<body>
+  <!-- Header - Inicio -->
+  <%- include("../partials/header") %>
+  <!-- Header - Fin-->
+
+  <!--Contenido HTML de Registro - Inicio -->
+  <main>
+    <h3>Crear cuenta</h3>
+    <form class="formulario-registro" action="/registro" method="POST">
+      <input type="text" placeholder="Nombre" name="nombre" required>
+      <input type="text" placeholder="Apellido" name="apellido" required>
+      <input type="email" placeholder="Correo electrónico" name="email" required>
+      <input type="email" placeholder="Confirmar correo electrónico" name="confirmarEmail" required>
+      <input type="password" placeholder="Contraseña" name="contraseña" required>
+      <input type="password" placeholder="Confirmar contraseña" name="confirmarContraseña" required>
+      <input type="number" placeholder="Número de teléfono" name="telefono">
+      <br>
+      <div class="pais">
+        <label for="paises">Seleccione su pais:</label>
+        <select id="paises" name="pais">
+          <option value="arg">Argentina</option>
+          <option value="bol">Bolivia</option>
+          <option value="bra">Brasil</option>
+          <option value="chi">Chile</option>
+          <option value="col">Colombia</option>
+          <option value="ecu">Ecuador</option>
+          <option value="par">Paraguay</option>
+          <option value="per">Perú</option>
+          <option value="uru">Uruguay</option>
+          <option value="ven">Venezuela</option>
+        </select>
+      </div>
+      <input type="text" placeholder="Provincia / Región" name="provincia" required>
+      <input type="text" placeholder="Ciudad" name="ciudad" required>
+      <input type="number" placeholder="Código postal" name="codigoPostal" required>
+      <input type="text" placeholder="Dirección" name="direccion" required>
+    </form>
+    <div id="create-account-button">
+      <button type="submit">Crear</button>
+    </div>
+    <div class="link-inicio-sesion">
+      <a href="/user/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+    </div>
+  </main>
+  <!--Contenido HTML del Registro - Fin -->
+
+    <!-- Footer - Inicio -->
+<%- include("../partials/footer") %>
+<!-- Footer - Fin -->
+  
