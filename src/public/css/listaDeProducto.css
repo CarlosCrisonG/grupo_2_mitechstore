@@ -115,6 +115,7 @@ h3{
     justify-content:  center;
 }
 .descripcion-producto button{
+    cursor: pointer;
     border-radius: 5px;
     background-color: #FF6700;
     color: white;
