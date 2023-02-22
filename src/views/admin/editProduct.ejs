@@ -1,5 +1,5 @@
 <%- include("../partials/head", {
-    stylePag: "createProduct", title: "Creacion de Producto"
+    stylePag: "createProduct", title: "Editar un producto"
   }) %>
   
 <body>
@@ -9,8 +9,8 @@
   <!-- Header - Fin-->
 
     <main>
-        <h3 class="titulo">Crear un nuevo producto</h3>
-        <form action="/" method="">
+        <h3 class="titulo">Editar un producto</h3>
+        <form action="/product/list" method="">
             <input class="input" type="text" placeholder="Nombre del producto">
             <div class="descripcion">
                 <textarea rows="4" name="comment" form="usrform">Descripción...</textarea>
@@ -128,9 +128,9 @@
                 </div>
             </div>
 
-            <div class="buttons">
+            <div class="buttons">                
                 <button type="reset">Borrar</button>
-                <a href="/"><button type="submit">Crear producto</button></a> <br>
+                <a href="/"><button type="submit">Editar producto</button></a> <br>
             </div>
         </form>
     </main>

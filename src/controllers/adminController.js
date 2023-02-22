@@ -6,7 +6,7 @@ const controller = {
     res.render("admin/createProduct");
   },
   editProduct: (req, res) => {
-    res.render("admin/editProduct")
+    res.render("admin/editProduct");
   },
 };
 
