@@ -29,13 +29,13 @@ main{
 
 
 .conteiner-h1{
-    background-color: #FF6700;
+    background-color: rgb(241, 238, 238);
     padding: 20px;
     
 }
 
 h1{
-    color: #FFFFFF;
+    color: #FF6700;
     text-align: center;
 }
 
@@ -141,7 +141,7 @@ h3{
         font-size: 28px;
     }
     .filtro{
-        background-color: #DCDCDC;
+        background-color: rgb(241, 238, 238);
         display: flex;
         height: 50px;
         justify-content: center;
