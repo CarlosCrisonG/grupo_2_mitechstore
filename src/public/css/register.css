@@ -17,10 +17,10 @@ h3 {
     color: #FF6700;
 }
 
-input {
+.input {
     border-radius: 5px;
-    height: 30px;
-    width: 65%;
+    height: 35px;
+    width: 75%;
     border: solid rgb(197 194 194) 1px;
     font-family: 'Raleway', sans-serif;
     padding-top: 15px;
@@ -29,15 +29,22 @@ input {
     transition: all 300ms;
 }
 
-input::placeholder {
+.input::placeholder {
     color: rgb(207, 204, 204);
     font-family: 'Raleway', sans-serif;
     padding-left: 2px;
 }
 
+.perfil {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .pais {
-    width: 65%;
+    width: 75%;
     margin-bottom: 10px;
+    margin-top: 35px;
 }
 
 label {
@@ -52,9 +59,12 @@ select {
 }
 
 #create-account-button {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    gap: 10px;
     margin-top: 30px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 #create-account-button button {
@@ -69,9 +79,14 @@ select {
 
 }
 
+#create-account-button .reset {
+    background-color: gray;
+}
+
 .link-inicio-sesion {
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .link-inicio-sesion a {
@@ -79,15 +94,34 @@ select {
     color: rgb(54, 104, 241);
 }
 
+.perfil-label {
+    width: 75%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.avatar {
+    margin-bottom: 25px;
+}
+
+
 @media (min-width: 481px) {
-    input {
+    .input {
         max-width: 470px;
     }
+
+    .perfil {
+        max-width: 450px;
+    }
+    .perfil-label {
+        max-width: 470px;
+    }
+    
 }
 
 @media (min-width: 769px) {
 
-    input:hover {
+    .input:hover {
         box-shadow: 0px 0px 5px rgb(100, 100, 100);
     }
 
@@ -95,7 +129,7 @@ select {
         max-width: 470px;
     }
 
-    input::placeholder {
+    .input::placeholder {
         font-size: 18px;
     }
 
@@ -109,7 +143,12 @@ select {
 
     #create-account-button button:hover {
         background-color: gray;
-        cursor: pointer;;
+        cursor: pointer;
+    }
+
+    #create-account-button .reset:hover {
+        background-color: rgb(167, 10, 10);
+        cursor: pointer;
     }
 
     select {

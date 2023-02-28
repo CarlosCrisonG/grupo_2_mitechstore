@@ -1,50 +1,48 @@
-<%- include("../partials/head", {
-  stylePag: "login", title: "Login"
-}) %>
+<%- include("../partials/head", { stylePag: "login" , title: "Login" }) %>
 
-<body>
-  <!-- Header - Inicio -->
-  <%- include("../partials/header") %>
-  <!-- Header - Fin-->
+  <body>
+    <!-- Header - Inicio -->
+    <%- include("../partials/header") %>
+      <!-- Header - Fin-->
 
-  <main>
+      <main>
 
-    <div class="contenedorh3">
+        <div class="contenedorh3">
 
-      <h3>Iniciar sesión</h3>
+          <h3>Iniciar sesión</h3>
 
-    </div>
+        </div>
 
-    <div class="contenedorInputs">
+        <form class="form" action="" method="POST">
 
+          <input class="input" type="email" placeholder="Correo electrónico" name="email">
 
-      <input type="email" placeholder="Correo electrónico">
+          <input class="input" type="password" placeholder="Contraseña" name="password">
 
-      <input type="password" placeholder="Contraseña">
+          <div class="contenedorOlvidaste">
 
+            <a href="">¿Olvidaste tu contraseña? Haz click aquí</a>
 
-    </div>
+          </div>
 
-    <div class="contenedorOlvidaste">
+          <div class="contenedor-checkbox">
+            <input id="recordarme" type="checkbox" class="checkbox" name="recordar?"> 
+            <label for="recordarme">Recordarme</label>
+          </div>
 
-      <a href="">¿Olvidaste tu contraseña? Haz click aquí</a>
+          <div class="contenedorButton">
+            <button type="submit">Iniciar sesión</button>
+          </div>
 
-    </div>
-    <div class="contenedor-checkbox">
-      <input type="checkbox" class="checkbox"> Recordarme
-    </div>
+        </form>
 
-    <div class="contenedorButton">
-      <button>Iniciar sesión</button>
-    </div>
+        <div class="contenedorNoTienes">
 
-    <div class="contenedorNoTienes">
+          <a href="/user/register">¿No tienes una cuenta? Crea una aquí</a>
 
-      <a href="/user/register">¿No tienes una cuenta? Crea una aquí</a>
+        </div>
+      </main>
 
-    </div>
-  </main>
-
-   <!-- Footer - Inicio -->
-<%- include("../partials/footer") %>
-<!-- Footer - Fin -->
+      <!-- Footer - Inicio -->
+      <%- include("../partials/footer") %>
+        <!-- Footer - Fin -->
