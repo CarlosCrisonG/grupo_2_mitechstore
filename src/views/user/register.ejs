@@ -1,55 +1,75 @@
-<%- include("../partials/head", {
-  stylePag: "register", title: "Registro"
-}) %>
+<%- include("../partials/head", { stylePag: "register" , title: "Registro" }) %>
 
 
-<body>
-  <!-- Header - Inicio -->
-  <%- include("../partials/header") %>
-  <!-- Header - Fin-->
+  <body>
+    <!-- Header - Inicio -->
+    <%- include("../partials/header") %>
+      <!-- Header - Fin-->
 
-  <!--Contenido HTML de Registro - Inicio -->
-  <main>
-    <h3>Crear cuenta</h3>
-    <form class="formulario-registro" action="/registro" method="POST">
-      <input type="text" placeholder="Nombre" name="nombre" required>
-      <input type="text" placeholder="Apellido" name="apellido" required>
-      <input type="email" placeholder="Correo electrónico" name="email" required>
-      <input type="email" placeholder="Confirmar correo electrónico" name="confirmarEmail" required>
-      <input type="password" placeholder="Contraseña" name="contraseña" required>
-      <input type="password" placeholder="Confirmar contraseña" name="confirmarContraseña" required>
-      <input type="number" placeholder="Número de teléfono" name="telefono">
-      <br>
-      <div class="pais">
-        <label for="paises">Seleccione su pais:</label>
-        <select id="paises" name="pais">
-          <option value="arg">Argentina</option>
-          <option value="bol">Bolivia</option>
-          <option value="bra">Brasil</option>
-          <option value="chi">Chile</option>
-          <option value="col">Colombia</option>
-          <option value="ecu">Ecuador</option>
-          <option value="par">Paraguay</option>
-          <option value="per">Perú</option>
-          <option value="uru">Uruguay</option>
-          <option value="ven">Venezuela</option>
-        </select>
-      </div>
-      <input type="text" placeholder="Provincia / Región" name="provincia" required>
-      <input type="text" placeholder="Ciudad" name="ciudad" required>
-      <input type="number" placeholder="Código postal" name="codigoPostal" required>
-      <input type="text" placeholder="Dirección" name="direccion" required>
-    </form>
-    <div id="create-account-button">
-      <button type="submit">Crear</button>
-    </div>
-    <div class="link-inicio-sesion">
-      <a href="/user/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
-    </div>
-  </main>
-  <!--Contenido HTML del Registro - Fin -->
+      <!--Contenido HTML de Registro - Inicio -->
+      <main>
+        <h3>Crear cuenta</h3>
+        <form class="formulario-registro" action="" method="POST">
+          <input class="input" type="text" placeholder="Nombre" name="nombre" required>
+          <input class="input" type="text" placeholder="Apellido" name="apellido" required>
+          <input class="input" type="email" placeholder="Correo electrónico" name="email" required>
+          <input class="input" type="email" placeholder="Confirmar correo electrónico" name="confirmarEmail" required>
+          <input class="input" type="password" placeholder="Contraseña" name="contraseña" required>
+          <input class="input" type="password" placeholder="Confirmar contraseña" name="confirmarContraseña" required>
+          <input class="input" type="number" placeholder="Número de teléfono" name="telefono">
+          <br>
 
-    <!-- Footer - Inicio -->
-<%- include("../partials/footer") %>
-<!-- Footer - Fin -->
-  
+          <div class="perfil-label">
+            <label>Seleccione una imagen de perfil</label>
+          </div>
+          <div class="avatar">
+            <input type="file" name="avatar" accept=".jpg,.png,.jpeg">
+          </div>
+
+          <div class="perfil-label">
+            <label>Perfil del usuario</label>
+          </div>
+          <div class="perfil">
+            <div>
+              <input id="comprador" type="radio" name="perfil-usuario" value="Comprador" checked>
+              <label for="comprador">Comprador</label>
+            </div>
+            <div>
+              <input id="vendedor" type="radio" name="perfil-usuario" value="Vendedor">
+              <label for="vendedor">Vendedor</label>
+            </div>
+
+          </div>
+          <div class="pais">
+            <label for="paises">Seleccione su pais </label>
+            <select id="paises" name="pais">
+              <option value="arg">Argentina</option>
+              <option value="bol">Bolivia</option>
+              <option value="bra">Brasil</option>
+              <option value="chi">Chile</option>
+              <option value="col">Colombia</option>
+              <option value="ecu">Ecuador</option>
+              <option value="par">Paraguay</option>
+              <option value="per">Perú</option>
+              <option value="uru">Uruguay</option>
+              <option value="ven">Venezuela</option>
+            </select>
+          </div>
+          <input class="input" type="text" placeholder="Provincia / Región" name="provincia" required>
+          <input class="input" type="text" placeholder="Ciudad" name="ciudad" required>
+          <input class="input" type="number" placeholder="Código postal" name="codigoPostal" required>
+          <input class="input" type="text" placeholder="Dirección" name="direccion" required>
+          <div id="create-account-button">
+            <button class="reset" type="reset">Borrar</button>
+            <button type="submit">Crear</button>
+          </div>
+        </form>
+        <div class="link-inicio-sesion">
+          <a href="/user/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+        </div>
+      </main>
+      <!--Contenido HTML del Registro - Fin -->
+
+      <!-- Footer - Inicio -->
+      <%- include("../partials/footer") %>
+        <!-- Footer - Fin -->

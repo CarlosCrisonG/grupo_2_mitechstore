@@ -26,7 +26,7 @@ main{
 }
 
 /*INPUTS*/
-.contenedorInputs{
+.form{
     display: flex;
     flex-direction: column;
     gap: 11px 0px;
@@ -36,16 +36,16 @@ main{
 
 }
 
-input{
+.input{
     border-radius: 5px;
-    height: 30px;
-    width: 65%;
+    height: 35px;
+    width: 75%;
     border: solid rgb(197 194 194) 1px;
     font-family: 'Raleway', sans-serif;
-    padding: 2px; 
+    padding: 3px; 
 }
 
-input::placeholder {
+.input::placeholder {
     color: rgb(207, 204, 204);
     font-family: 'Raleway', sans-serif;
     padding-left: 2px;
@@ -64,6 +64,7 @@ input::placeholder {
     display: flex;
     align-items: center;
     padding: 10px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .checkbox{
@@ -87,7 +88,7 @@ input::placeholder {
 
 /*No tienes cuenta*/
 .contenedorNoTienes{
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 50px;
 }
 
@@ -97,18 +98,19 @@ input::placeholder {
 }
 
 @media (min-width: 481px) {
-    input {
+    .input {
         max-width: 470px;
     }
 }
 @media (min-width: 769px) {
 
-input::placeholder {
+.input::placeholder {
 font-size: 18px;
  }
 
  .contenedorButton button:hover{
     background-color: gray;
+    cursor: pointer;
 }
 
 .contenedor-checkbox{
