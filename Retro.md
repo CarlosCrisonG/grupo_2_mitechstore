@@ -40,3 +40,22 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 - Dejar de trabajar directamente en la rama main
 
 <br />
+
+# Sprint 3
+
+### 1. Comenzar a hacer:
+
+
+### 2. Hacer más:
+
+
+### 3. Continuar haciendo:
+
+
+### 4. Hacer menos:
+
+
+### 5. Dejar de hacer:
+
+
+<br />
