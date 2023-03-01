@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "name": "Redmi 10 - 2022",
+        "features": [
+            "Pantalla de tantos",
+            "Giroscopio",
+            "Con tal peso",
+            "Diseño de tantos"
+        ],
+        "price": 120,
+        "images": [
+            "http://dummyimage.com/450x450.jpg/cc0000/ffffff",
+            "http://dummyimage.com/450x450.jpg/cc0000/ffffff",
+            "http://dummyimage.com/450x450.jpg/cc0000/ffffff",
+            "http://dummyimage.com/450x450.jpg/cc0000/ffffff"
+        ],
+        "colors": [
+            "Negro",
+            "Blanco",
+            "Gris",
+            "Verde"
+        ]
+    }
+]
