@@ -1,7 +1,7 @@
 [{
     "id": 1,
     "name": "Xiaomi Watch S1 Active",
-    "description": ["Pantalla HD de 1.43 pulgadas con mas de 200 pantallas de reloj", "Diseño personalizable"],
+    "description": "Pantalla HD de 1.43 pulgadas con mas de 200 pantallas de reloj. Diseño personalizable",
     "features": ["Pantalla AMOLED HD de 1.43", "117 Modos fitness", "Dual-band GPS", "Monitoreo All-day", "12 días de duración de batería​"],
     "price": 151,
     "image": ["xiaomi-1.jpg", "xiaomi-2.jpg", "xiaomi-3.jpg"],
@@ -9,7 +9,7 @@
   }, {
     "id": 2,
     "name": "Xiaomi Watch S1",
-    "description": ["Pantalla HD de 1.43 pulgadas", "Cristal de zafiro", "Caja de acero inoxidable", "Correa de cuero"],
+    "description": "Pantalla HD de 1.43 pulgadas. Cristal de zafiro. Caja de acero inoxidable. Correa de cuero",
     "features": ["Una gran pantalla AMOLED de 1,43", "El cristal de zafiro* es extremadamente duro y resistente al desgaste", "El Xiaomi Watch S1 incluye dos correas: una de cuero de primera calidad y una de fluorocarbono resistente a la suciedad."],
     "price": 205,
     "image": "xiaomi-reloj-id2.png",
@@ -25,7 +25,7 @@
   }, {
     "id": 4,
     "name": "Redmi Buds 3 Lite",
-    "description": ["Conexión Bluetooth 5.2", "Resistencia al polvo y al agua IP54"],
+    "description": "Conexión Bluetooth 5.2. Resistencia al polvo y al agua IP54",
     "features": ["Superficie táctil de control", "Control de reproducción multimedia", "Control de llamadas", "Modo de baja latencia para juegos"],
     "price": 30,
     "image": ["redmi-audifono1", "redmi-audifono2", "redmi-audifono3"],
@@ -33,7 +33,7 @@
   }, {
     "id": 5,
     "name": "Redmi 10 - 2022",
-    "description": ["XIAOMI Redmi 10 2022 128GB", "Cámara principal con alta resolución de 50MP"],
+    "description": "XIAOMI Redmi 10 2022 128GB. Cámara principal con alta resolución de 50MP",
     "features": ["Pantalla de 6.5 con resolución FHD+ junto a una tasa de refresco de 90Hz", "Procesador MediaTek Helio G88", "Batería de 5000 mAh con carga rápida de 18W"],
     "price": 180,
     "image": ["redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (1).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (2).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (3).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (4).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg"],
@@ -81,7 +81,7 @@
   }, {
     "id": 11,
     "name": "Xiaomi 11T Pro",
-    "description": ["8GB RAM 256GB ROM™ 888"],
+    "description": "8GB RAM 256GB ROM™ 888",
     "features": ["Cámara Pro de 108 MP", "Xiaomi HyperCharge de 120 W", "AMOLED de 120 Hz", "Procesador flagship Qualcomm Snapdragon™ 888"],
     "price": 789,
     "image": "xiaomi-11t-pro-id11.jpg",
