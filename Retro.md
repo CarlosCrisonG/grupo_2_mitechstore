@@ -44,13 +44,15 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 # Sprint 3
 
 ### 1. Comenzar a hacer:
-
+- Cerca del fin de los Sprint hacer una reunión para que cada uno explique cómo se hicieron las tareas del sprint.
 
 ### 2. Hacer más:
-
+- Agregar fotos a los comentarios de los pull request.
 
 ### 3. Continuar haciendo:
-
+- Trabajando en ramas y solicitando pull request.
+- Reunirse mínimo 1 vez por semana.
+- Seguir manteniendo actualizado el tablero de Trello.
 
 ### 4. Hacer menos:
 
