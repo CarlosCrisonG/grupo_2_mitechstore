@@ -33,7 +33,7 @@ const controller = {
 
     fs.writeFileSync(productsPath, JSON.stringify(products, null, 2)); 
     
-    res.render("/");
+    res.redirect("/")
   },
   editProduct: (req, res) => {
     res.render("admin/editProduct");
