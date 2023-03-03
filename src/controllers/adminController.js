@@ -13,27 +13,34 @@ const controller = {
   create: (req, res) => {
     const products = getProducts();
 
-    const newId = products[products.length - 1].id + 1
+    const newId = products[products.length - 1].id + 1;
+
+    const features = req.body.features.split("/");    
+
+    const questionInSale = +req.body.discount ? true : false;
 
     const productToPush = {
       id: newId,
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
+      discount: req.body.discount,      
       category: req.body.category,
+      highlight: req.body.highlight,
       colors: req.body.colors,
       model: req.body.model,
       year: req.body.year,
       size: req.body.size,
       weight: req.body.weight,
-      features: req.body.features
+      features: features,
+      inSale: questionInSale
     };
         
     products.push(productToPush);
 
     fs.writeFileSync(productsPath, JSON.stringify(products, null, 2)); 
     
-    res.redirect("/")
+    res.redirect("/");
   },
   editProduct: (req, res) => {
     res.render("admin/editProduct");
