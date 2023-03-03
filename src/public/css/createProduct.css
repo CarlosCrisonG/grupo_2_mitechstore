@@ -150,6 +150,15 @@ textarea {
 
 @media (min-width: 769px) {
 
+    .colores{
+        display: flex;
+        flex-direction: row;
+        gap: 17px;
+        text-align: center;
+        align-self: flex-start;
+        margin-bottom: 20px;
+    }
+
     input::placeholder {
         font-size: 18px;
     }
