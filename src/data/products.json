@@ -2,96 +2,199 @@
     "id": 1,
     "name": "Xiaomi Watch S1 Active",
     "description": "Pantalla HD de 1.43 pulgadas con mas de 200 pantallas de reloj. Diseño personalizable",
-    "features": ["Pantalla AMOLED HD de 1.43", "117 Modos fitness", "Dual-band GPS", "Monitoreo All-day", "12 días de duración de batería​"],
     "price": 151,
     "image": ["xiaomi-1.jpg", "xiaomi-2.jpg", "xiaomi-3.jpg"],
-    "color": ["Ocean Blue", "Space Black"]
+    "discount": "10",
+    "category": "accesorios",
+    "highlight": "true",
+    "color": ["Ocean Blue", "Space Black"],
+    "model": "active",
+    "year": "2020",
+    "size": "",
+    "weight": "36.3 g",
+    "features": ["Pantalla AMOLED HD de 1.43", "117 Modos fitness", "Dual-band GPS", "Monitoreo All-day", "12 días de duración de batería​"],
+    "inSale": "true"
+    
   }, {
     "id": 2,
     "name": "Xiaomi Watch S1",
     "description": "Pantalla HD de 1.43 pulgadas. Cristal de zafiro. Caja de acero inoxidable. Correa de cuero",
-    "features": ["Una gran pantalla AMOLED de 1,43", "El cristal de zafiro* es extremadamente duro y resistente al desgaste", "El Xiaomi Watch S1 incluye dos correas: una de cuero de primera calidad y una de fluorocarbono resistente a la suciedad."],
     "price": 205,
     "image": "xiaomi-reloj-id2.png",
-    "color": "Black"
+    "discount": "10",
+    "category": "accesorios",
+    "highlight": "true",
+    "color": "Black",
+    "model": "Watch S1",
+    "year": "2019",
+    "size": "",
+    "weight": "36.3 g",
+    "features": ["Una gran pantalla AMOLED de 1,43", "El cristal de zafiro* es extremadamente duro y resistente al desgaste", "El Xiaomi Watch S1 incluye dos correas: una de cuero de primera calidad y una de fluorocarbono resistente a la suciedad."],
+    "inSale": "true"
   }, {
     "id": 3,
     "name": "Vacuum-Mop 2 Pro",
     "description": "Con trapeado de vibración sónica de alta frecuencia.",
-    "features": ["Toda la unidad vibra para aumentar significativamente el poder de limpieza", "Cuenta con microfibras para garantizar una penetración uniforme del agua", "Las migas se aspiran en un instante"],
     "price": 432,
     "image": ["vacum1-id3.png", "vacum2-id3.png", "vacum3-id3.png"],
-    "color": "White"
+    "discount": "10",
+    "category": "accesorios",
+    "highlight": "true",
+    "color": "White",
+    "model": "Mi Robot Vacuum-Mop 2",
+    "year": "2022",
+    "size": "81.5 mm",
+    "weight": "3.2 kg",
+    "features": ["Toda la unidad vibra para aumentar significativamente el poder de limpieza", "Cuenta con microfibras para garantizar una penetración uniforme del agua", "Las migas se aspiran en un instante"],
+    "inSale": "true"
+   
   }, {
     "id": 4,
     "name": "Redmi Buds 3 Lite",
     "description": "Conexión Bluetooth 5.2. Resistencia al polvo y al agua IP54",
-    "features": ["Superficie táctil de control", "Control de reproducción multimedia", "Control de llamadas", "Modo de baja latencia para juegos"],
     "price": 30,
     "image": ["redmi-audifono1", "redmi-audifono2", "redmi-audifono3"],
-    "color": "black"
+    "discount": "10",
+    "category": "accesorios",
+    "highlight": "true",
+    "color": "black",
+    "model": "Buds 3",
+    "year": "2022",
+    "size": "",
+    "weight": "",
+    "features": ["Superficie táctil de control", "Control de reproducción multimedia", "Control de llamadas", "Modo de baja latencia para juegos"],
+    "inSale": "true"
+    
   }, {
     "id": 5,
     "name": "Redmi 10 - 2022",
     "description": "XIAOMI Redmi 10 2022 128GB. Cámara principal con alta resolución de 50MP",
-    "features": ["Pantalla de 6.5 con resolución FHD+ junto a una tasa de refresco de 90Hz", "Procesador MediaTek Helio G88", "Batería de 5000 mAh con carga rápida de 18W"],
     "price": 180,
     "image": ["redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (1).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (2).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (3).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (4).jpg", "redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg"],
-    "color": "Azul"
-  }, {
+    "discount": "20",
+    "category": "celulares",
+    "highlight": "true",
+    "color": "Azul",
+    "model": "Redmi 10",
+    "year": "2023",
+    "size": "161.95mm x 75.53mm x 8.92mm",
+    "weight": "181g",
+    "features": ["Pantalla de 6.5 con resolución FHD+ junto a una tasa de refresco de 90Hz", "Procesador MediaTek Helio G88", "Batería de 5000 mAh con carga rápida de 18W"],
+    "inSale": "true"
+      }, {
     "id": 6,
     "name": "Redmi Note 11",
     "description": "Celular Xiaomi Redmi Note 11 de 128GB y 4GB de RAM con camara cuadruple de 50MP",
-    "features": ["Procesador Snapdragon de 6 nm", "Pantalla AMOLED con 90 Hercios", "Carga rápida Pro de 33W", "Cámara cuádruple, principal de 50 MP", "Doble altavoz para un sonido estéreo"],
     "price": 201,
     "image": ["xiaomi1-note11-id6", "xiaomi2-note11-id6", "xiaomi3-note11-id6"],
-    "color": "gray"
+    "discount": "0",
+    "category": "celulares",
+    "highlight": "true",
+    "color": "gray",
+    "model": "Note 11 (Snapdragon)",
+    "year": "2022",
+    "size": "159.87 mm x 73.87 mm x 8.09 mm",
+    "weight": "179 g",
+    "features": ["Procesador Snapdragon de 6 nm", "Pantalla AMOLED con 90 Hercios", "Carga rápida Pro de 33W", "Cámara cuádruple, principal de 50 MP", "Doble altavoz para un sonido estéreo"],
+    "inSale": "false"
   }, {
     "id": 7,
     "name": "Xiaomi 12",
     "description": "Celular xiaomi 12 con 256GB/ Azul / 8GB RAM",
-    "features": ["Gran núcleo Cortex-X2", "Pantalla AMOLED de 6,28", "arga turbo de 67 W con cable + inalámbrica de 50 W", "Xiaomi ProFocus"],
     "price": 756,
     "image": ["xiaomi-12-1.png", "xiaomi-12-2.png"],
-    "color": "Azul"
+    "discount": "0",
+    "category": "celulares",
+    "highlight": "true",
+    "color": "Azul",
+    "model": "12",
+    "year": "2022",
+    "size": "152.7 mm x 69.9 mm x 8.16 mm",
+    "weight": "180 g",
+    "features": ["Gran núcleo Cortex-X2", "Pantalla AMOLED de 6,28", "arga turbo de 67 W con cable + inalámbrica de 50 W", "Xiaomi ProFocus"],
+    "inSale":"false"
   }, {
     "id": 8,
     "name": "Mouse Inalámbrico Xiaomi Mi Dual Mode Silent Edition",
     "description": "Este mouse wireless se adaptará a cualquier situación. Su practico tamaño ayudará a llevarlo de viaje, también incorpora un modo dual, para que puedas usarlo en dos computadoras a la vez.",
-    "features": ["Funcionamiento ultra silencioso", "Deslizamiento y desplazamiento silenciosos con rueda de goma suave", "Ligero y de tamaño compacto que es fácil de usar y llevar"],
     "price": 17.5,
     "image": "xiaomi-mouse.jpg",
-    "color": "White"
+    "discount": "0",
+    "category": "celulares",
+    "highlight": "true",
+    "color": "White",
+    "model": "Wireless Mouse",
+    "year": "2018",
+    "size": "98.1 mm x 56 mm x 34.4 mm",
+    "weight": "93 g",
+    "features": ["Funcionamiento ultra silencioso", "Deslizamiento y desplazamiento silenciosos con rueda de goma suave", "Ligero y de tamaño compacto que es fácil de usar y llevar"],
+    "inSale": "false"
+    
   }, {
     "id": 9,
     "name": "Auriculares IE In-ear Xiaomi Dual Driver USB-C",
     "description": "Los auriculares Xiaomi Mi Dual Driver con un controlador dual para tonos bajos y altos garantizan comodidad y Calidad",
-    "features": ["Disfruta de tus canciones favoritas con absoluta nitidez y todo lujo de detalle", "Sonido graves profundos y definidos y unos agudos dulces y equilibrados."],
     "price": 29.5,
     "image": "auriculares-id9.jpg",
-    "color": "Black"
+    "discount": "0",
+    "category": "accesorios",
+    "highlight": "true",
+    "color": "Black",
+    "model": "In-Ear",
+    "year": "2020",
+    "size": "",
+    "weight": "14g",
+    "features": ["Disfruta de tus canciones favoritas con absoluta nitidez y todo lujo de detalle", "Sonido graves profundos y definidos y unos agudos dulces y equilibrados."],
+    "inSale": "false"
+    
   }, {
     "id": 10,
     "name": "Cargador Inalámbrico de Auto Xiaomi 20W",
     "description": "Práctico Cargador Inalámbrico de Auto Xiaomi",
-    "features": ["El soporte permite la carga inalámbrica con una potencia de hasta 20W", "Es ajustable en ancho y se adapta a la mayoría de los teléfonos inteligentes", "Navegación y carga al mismo tiempo"],
     "price": 76.9,
     "image": ["cargador-inalambrico-de-auto-xiaomi-20w-1.jpg", "cargador-inalambrico-de-auto-xiaomi-20w-2.jpg", "cargador-inalambrico-de-auto-xiaomi-20w-3.jpg"],
-    "color": "black"
+    "discount": "0",
+    "category": "accesorios",
+    "highlight": "false",
+    "color": "Black",
+    "model": "GDS4127GL",
+    "year": "2021",
+    "size": "",
+    "weight": "",
+    "features": ["El soporte permite la carga inalámbrica con una potencia de hasta 20W", "Es ajustable en ancho y se adapta a la mayoría de los teléfonos inteligentes", "Navegación y carga al mismo tiempo"],
+    "inSale": "false"
+
   }, {
     "id": 11,
     "name": "Xiaomi 11T Pro",
     "description": "8GB RAM 256GB ROM™ 888",
-    "features": ["Cámara Pro de 108 MP", "Xiaomi HyperCharge de 120 W", "AMOLED de 120 Hz", "Procesador flagship Qualcomm Snapdragon™ 888"],
     "price": 789,
     "image": "xiaomi-11t-pro-id11.jpg",
-    "color": "gray"
+    "discount": "0",
+    "category": "celulares",
+    "highlight": "false",
+    "color": "gray",
+    "model": "11T Pro",
+    "year": "2021",
+    "size": "164.1 mm x 76.9 mm x 8.8 mm",
+    "weight": "204 g",
+    "features": ["Cámara Pro de 108 MP", "Xiaomi HyperCharge de 120 W", "AMOLED de 120 Hz", "Procesador flagship Qualcomm Snapdragon™ 888"],
+    "inSale": "false"
   }, {
     "id": 12,
     "name": "Parlante Xiaomi Mi Portable Speaker Bluetooth",
     "description": "Música en movimiento. Diseñado con estilo, es perfecto para disfrutar de la música donde vayas.",
-    "features": ["Bluetooh 5.0", "Su certificación IP55 lo que lo hace ideal para hacer uso de este en exteriores", "86x86x45mm de tamaño y un peso de solo 182 gramos"],
     "price": 32,
     "image": "parlante-xiaomi-id12.jpg",
-    "color": "black"
+    "discount": "0",
+    "category": "accesorios",
+    "highlight": "false",
+    "color": "black",
+    "model": "Mi Portable Bluetooth Speaker",
+    "year": "2023",
+    "size": "86 mm x 86 mm x 45 mm",
+    "weight": "190 g",
+    "features": ["Bluetooh 5.0", "Su certificación IP55 lo que lo hace ideal para hacer uso de este en exteriores", "86x86x45mm de tamaño y un peso de solo 182 gramos"],
+    "inSale": "false"
+    
   }]
