@@ -8,6 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/app.js"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "src/data/*.json"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CarlosCrisonG/grupo_2_mitechstore.git"

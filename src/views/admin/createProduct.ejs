@@ -10,20 +10,22 @@
 
     <main>
         <h3 class="titulo">Crear un nuevo producto</h3>
-        <form action="/" method="">
-            <input class="input" type="text" placeholder="Nombre del producto">
+        <form action="/admin" method="POST">
+            <label class="label" for="name">Nombre del producto</label>
+            <input class="input" name="name" type="text" placeholder="Nombre del producto">
             <div class="descripcion">
-                <textarea rows="4" name="comment" form="usrform">Descripción...</textarea>
+                <label class="label" for="description">Descripcion</label>
+                <textarea rows="4" name="description" form="usrform"></textarea>
             </div>
             <label class="label" for="">Imágenes del producto</label>
-            <input type="file" accept=".jpg,.png,.jpeg">
+            <input type="file" name="images" accept=".jpg,.png,.jpeg">
             <div class="precio">
                 <label class="label" for="precio">Precio:</label>
-                <input id="precio" class="input" type="number" placeholder="">
+                <input id="precio" name="price" class="input" type="number" placeholder="">
             </div>
             <div class="categorias">
                 <label class="label" for="">Categoría: </label>
-                <select id="categorias" name="categoria">
+                <select id="categorias" name="category">
                     <option value="empty"></option>
                     <option value="cel">Celulares</option>
                     <option value="comp">Computadoras</option>
@@ -35,52 +37,52 @@
             <label class="label" for="">Colores</label>
             <div class="colores">
                 <div>
-                    <input id="negro" type="checkbox" name="intereses" value="negro">
+                    <input id="negro" type="checkbox" name="colors" value="negro">
                     <label for="negro">Negro</label>
                 </div>
 
                 <div>
-                    <input id="blanco" type="checkbox" name="intereses" value="blanco">
+                    <input id="blanco" type="checkbox" name="colors" value="blanco">
                     <label for="blanco">Blanco</label>
                 </div>
 
                 <div>
-                    <input id="gris" type="checkbox" name="intereses" value="gris">
+                    <input id="gris" type="checkbox" name="colors" value="gris">
                     <label for="gris">Gris</label>
                 </div>
 
                 <div>
-                    <input id="rojo" type="checkbox" name="intereses" value="rojo">
+                    <input id="rojo" type="checkbox" name="colors" value="rojo">
                     <label for="rojo">Rojo</label>
                 </div>
 
                 <div>
-                    <input id="verde" type="checkbox" name="intereses" value="verde">
+                    <input id="verde" type="checkbox" name="colors" value="verde">
                     <label for="verde">Verde</label>
                 </div>
 
                 <div>
-                    <input id="azul" type="checkbox" name="intereses" value="azul">
+                    <input id="azul" type="checkbox" name="colors" value="azul">
                     <label for="azul">Azul</label>
                 </div>
 
                 <div>
-                    <input id="amarillo" type="checkbox" name="intereses" value="amarillo">
+                    <input id="amarillo" type="checkbox" name="colors" value="amarillo">
                     <label for="amarillo">Amarillo</label>
                 </div>
 
                 <div>
-                    <input id="violeta" type="checkbox" name="intereses" value="violeta">
+                    <input id="violeta" type="checkbox" name="colors" value="violeta">
                     <label for="violeta">Violeta</label>
                 </div>
 
                 <div>
-                    <input id="rosado" type="checkbox" name="intereses" value="rosado">
+                    <input id="rosado" type="checkbox" name="colors" value="rosado">
                     <label for="rosado">Rosado</label>
                 </div>
 
                 <div>
-                    <input id="anaranjado" type="checkbox" name="intereses" value="anaranjado">
+                    <input id="anaranjado" type="checkbox" name="colors" value="anaranjado">
                     <label for="anaranjado">Anaranjado</label>
                 </div>
             </div>
@@ -89,22 +91,27 @@
             <div class="especificaciones">
                 <div class="especificacion">
                     <label for="modelo">Modelo:</label>
-                    <input id="modelo" class="input" type="text" placeholder="">
+                    <input id="modelo" name="model" class="input" type="text" placeholder="">
                 </div>
 
                 <div class="especificacion">
                     <label for="fabricacion">Año de fabricación:</label>
-                    <input id="fabricacion" class="input" type="number" placeholder="">
+                    <input id="fabricacion" name="year" class="input" type="number" placeholder="">
                 </div>
 
                 <div class="especificacion">
                     <label for="tamaño">Tamaño:</label>
-                    <input id="tamaño" class="input" type="text" placeholder="">
+                    <input id="tamaño" name="size" class="input" type="text" placeholder="">
                 </div>
 
-                <div class="caracteristicas">
-                    <label for="caracteristicas">Caracteristicas</label>
-                    <textarea rows="4" name="caracteristicas" form="usrform" placeholder="Separa las caracteristicas por comas. Ej: triple cámara, batería de 5000 mAh, pantalla 90Hz"></textarea>
+                <div class="especificacion">
+                    <label for="peso">Peso:</label>
+                    <input id="peso" class="input" name="weight" type="text" placeholder="">
+                </div>
+
+                <div class="descripcion">
+                    <label class="label" for="">Otras caracteristicas</label>
+                    <textarea rows="4" name="features" form="usrform" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria"></textarea>
                 </div>
 
             <div class="buttons">
