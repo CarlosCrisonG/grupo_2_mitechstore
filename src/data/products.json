@@ -192,5 +192,38 @@
     "price": 32,
     "image": "parlante-xiaomi-id12.jpg",
     "color": "black"
+  },
+  {
+    "id": 13,
+    "name": "Redmi Note 11",
+    "shortDescription": "Celular Xiaomi Redmi Note 11 de 128GB y 4GB de Ram con cámara cuádruple de 50MP",
+    "images": [
+      "1677968076756 product - image.jpg",
+      "1677968076757 product - image.jpg",
+      "1677968076768 product - image.jpg",
+      "1677968076773 product - image.jpg",
+      "1677968076775 product - image.jpg"
+    ],
+    "price": "201",
+    "discount": "35",
+    "category": "cel",
+    "highlight": "false",
+    "colors": [
+      "blanco",
+      "gris",
+      "azul"
+    ],
+    "model": "GTR10",
+    "year": "2021",
+    "size": "73.9 mm X 159.9 mm X 8.1 mm",
+    "weight": "179 g",
+    "features": [
+      "Cámara cuádruple de 50MP, alta calidad al mejor precio",
+      "Pantalla de 90Hz, disfruta mejores experiencias en juegos",
+      "Procesador MediaTek G88, poderoso en todo momento",
+      "Batería de 5000mAh, llega al final del día con 1 sola carga",
+      "Doble altavoz, para que disfrutes de sonido estéreo"
+    ],
+    "inSale": true
   }
 ]
