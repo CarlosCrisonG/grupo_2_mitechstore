@@ -13,7 +13,7 @@ const controller = {
   create: (req, res) => {
     const products = getProducts();
 
-    const newId = products[products.length - 1].id + 1;
+    const newId = products.length ? products[products.length - 1].id + 1 : 1;
 
     const features = req.body.features.split("/");
 
