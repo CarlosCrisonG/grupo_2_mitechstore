@@ -39,8 +39,9 @@ h3.titulo {
 .propiedades {
     width: 100%;
     display: flex;
-    gap: 26px;
-    flex-direction: column;
+    gap: 26px 90px;
+    flex-direction: row;
+    flex-wrap: wrap;;
 }
 
 .input::placeholder {
@@ -96,12 +97,6 @@ h3.titulo {
     margin-bottom: 5px;
     align-self: flex-start;
     font-family: 'Raleway', sans-serif;
-}
-
-.precio,
-.categorias,
-.descuento {
-    align-self: flex-start;
 }
 
 .categorias select {    

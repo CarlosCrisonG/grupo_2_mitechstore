@@ -12,7 +12,7 @@
     <h3 class="titulo">Crear un nuevo producto</h3>
     <form action="/admin" method="POST" enctype="multipart/form-data">
        <label class="label" for="name">Nombre del producto</label>
-       <input class="input" name="name" type="text" placeholder="Nombre del producto">
+       <input class="input" name="name" type="text">
        <div class="descripcion">
           <label class="label" for="description">Descripcion</label>
           <textarea rows="4" name="description" form="usrform"></textarea>
@@ -20,34 +20,34 @@
        <label class="label" for="">Imágenes del producto</label>
        <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
        <div class="propiedades">
-          <div class="precio">
-             <label class="label" for="precio">Precio:</label>
-             <input id="precio" name="price" class="input" type="number" placeholder="">
-          </div>
-          <div class="precio">
-             <label class="label" for="discount">Descuento:</label>
-             <input id="precio" name="discount" class="input" type="number" placeholder="">
-          </div>
-          <div class="categorias">
-             <label class="label" for="">Categoría: </label>
-             <select id="categorias" name="category">
-                <option value="" disabled selected>Elige</option>
-                <option value="cel">Celulares</option>
-                <option value="comp">Computadoras</option>
-                <option value="acc">Accesorios</option>
-                <option value="elect">Electrodomésticos</option>
-                <option value="cuidp">Cuidado personal</option>
-             </select>
-          </div>
-          <div class="categorias">
-             <label class="label" for="">Destacar producto:</label>
-             <select id="categorias" name="highlight">
-                <option value="" disabled selected>Elige</option>
-                <option value="true">Si</option>
-                <option value="false">No</option>
-             </select>
-          </div>
-       </div>
+         <div class="precio">
+            <label class="label" for="precio">Precio:</label>
+            <input id="precio" name="price" class="input" type="number" placeholder="">
+         </div>
+         <div class="precio">
+            <label class="label" for="discount">Descuento:</label>
+            <input id="precio" name="discount" class="input" type="number" placeholder="">
+         </div>
+         <div class="categorias">
+            <label class="label" for="">Categoría: </label>
+            <select id="categorias" name="category">
+               <option value="" disabled selected>Elige</option>
+               <option value="cel">Celulares</option>
+               <option value="comp">Computadoras</option>
+               <option value="acc">Accesorios</option>
+               <option value="elect">Electrodomésticos</option>
+               <option value="cuidp">Cuidado personal</option>
+            </select>
+         </div>
+         <div class="categorias">
+            <label class="label" for="">Destacar producto:</label>
+            <select id="categorias" name="highlight">
+               <option value="" disabled selected>Elige</option>
+               <option value="true">Si</option>
+               <option value="false">No</option>
+            </select>
+         </div>
+      </div>
        <label class="label" for="">Colores</label>
        <div class="colores">
           <div>
@@ -111,7 +111,7 @@
        </div>
        <div class="descripcion">
           <label class="label" for="">Otras caracteristicas</label>
-          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria"></textarea>
+          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"></textarea>
        </div>
        <div class="buttons">
           <button type="reset">Borrar</button>
