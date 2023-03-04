@@ -21,10 +21,10 @@ const controller = {
 
     const images = [];
 
-    for (let i = 0; i < req.files.length; i++) {
-      images.push(req.files[i].filename);
-    }
-
+    req.files.forEach(file => {
+      images.push(file.filename)
+    });
+    
     const productToPush = {
       id: newId,
       name: req.body.name,
