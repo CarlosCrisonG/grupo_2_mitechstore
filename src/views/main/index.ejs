@@ -64,7 +64,7 @@
                 <div class="fila_productos" id="fila1">
                     <% onSale.forEach(product => { %>
                         <div class="producto">
-                            <a class="enlace_producto" href="/product/detail">
+                            <a class="enlace_producto" href="/product/detail/<%= product.id %>">
                                 <div class="imagen_producto">
                                     <img src="/images/products/<%= product.images[0] %>" alt="Smart Band 7 Pro">
                                 </div>

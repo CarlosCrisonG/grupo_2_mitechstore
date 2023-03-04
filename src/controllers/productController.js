@@ -9,7 +9,13 @@ function getProducts() {
 
 const controller = {
   productDetail: (req, res) => {
-    res.render("product/productDetail")
+    const id = req.params.id;
+
+    const products = getProducts();
+
+    const product = products.find(product => product.id == id);
+
+    res.render("product/productDetail", { product })
   },
   productList: (req, res) => {
     res.render("product/listaDeProducto", { products: getProducts() });
