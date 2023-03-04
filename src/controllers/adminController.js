@@ -15,16 +15,23 @@ const controller = {
 
     const newId = products[products.length - 1].id + 1;
 
-    const features = req.body.features.split("/");    
+    const features = req.body.features.split("/");
 
     const questionInSale = +req.body.discount ? true : false;
+
+    const images = [];
+
+    for (let i = 0; i < req.files.length; i++) {
+      images.push(req.files[i].filename);
+    }
 
     const productToPush = {
       id: newId,
       name: req.body.name,
       description: req.body.description,
+      images: images.length ? images : "defaultProduct.png",
       price: req.body.price,
-      discount: req.body.discount,      
+      discount: req.body.discount,
       category: req.body.category,
       highlight: req.body.highlight,
       colors: req.body.colors,
@@ -35,11 +42,11 @@ const controller = {
       features: features,
       inSale: questionInSale
     };
-        
+
     products.push(productToPush);
 
-    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2)); 
-    
+    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+
     res.redirect("/");
   },
   editProduct: (req, res) => {
