@@ -27,8 +27,7 @@ const controller = {
     
     const productToPush = {
       id: newId,
-      name: req.body.name,
-      shortDescription: req.body.shortDescription,
+      name: req.body.name,      
       description: req.body.description,
       images: images.length ? images : "defaultProduct.png",
       price: req.body.price,
