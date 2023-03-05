@@ -12,11 +12,11 @@
    <h3 class="titulo">Crear un nuevo producto</h3>
    <form action="/admin" method="POST" enctype="multipart/form-data">
       <label class="label" for="name">Nombre del producto</label>
-      <input class="input" name="name" type="text">
+      <input class="input" name="name" type="text">      
       <div class="descripcion">
-         <label class="label" for="description">Descripcion</label>
-         <textarea rows="4" name="description" form="usrform"></textarea>
-      </div>      
+         <label for="description" class="label">Descripcion</label>
+         <textarea name="description" id="" rows="4"></textarea>
+      </div>
       <label class="label" for="">Imágenes del producto</label>
       <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
       <div class="propiedades">
