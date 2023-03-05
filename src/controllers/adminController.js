@@ -1,5 +1,5 @@
 const path = require("path");
-const fs = require('fs');
+const fs = require("fs");
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -21,13 +21,13 @@ const controller = {
 
     const images = [];
 
-    req.files.forEach(file => {
-      images.push(file.filename)
+    req.files.forEach((file) => {
+      images.push(file.filename);
     });
-    
+
     const productToPush = {
       id: newId,
-      name: req.body.name,      
+      name: req.body.name,
       description: req.body.description,
       images: images.length ? images : "defaultProduct.png",
       price: req.body.price,
@@ -40,7 +40,7 @@ const controller = {
       size: req.body.size,
       weight: req.body.weight,
       features: features,
-      inSale: questionInSale
+      inSale: questionInSale,
     };
 
     products.push(productToPush);
