@@ -67,12 +67,14 @@ const controller = {
 
     const questionInSale = +req.body.discount ? true : false;
 
-    const productToEditIndex = products.findIndex(product => product.id == id);
+    const productToEditIndex = products.findIndex(
+      (product) => product.id == id
+    );
 
     products[productToEditIndex] = {
       ...products[productToEditIndex],
       name: req.body.name,
-      description: req.body.description,      
+      description: req.body.description,
       price: req.body.price,
       discount: req.body.discount,
       category: req.body.category,
@@ -89,6 +91,19 @@ const controller = {
     fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
 
     res.redirect(`/product/detail/${id}`);
+  },
+  delete: (req, res) => {
+    const id = req.params.id;
+
+    const products = getProducts();
+
+    const productToDeleteIndex = products.findIndex(product => product.id == id);
+
+    products.splice(productToDeleteIndex,1);
+
+    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+
+    res.redirect("/");
   },
 };
 

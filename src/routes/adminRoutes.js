@@ -28,4 +28,6 @@ router.get("/editproduct/:id", adminController.editProduct);
 
 router.put("/:id", adminController.edit);
 
+router.delete("/:id",adminController.delete);
+
 module.exports = router;
