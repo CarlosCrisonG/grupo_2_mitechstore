@@ -13,7 +13,7 @@ const controller = {
 
     const products = getProducts();
 
-    const product = products.find(product => product.id == id);
+    const product = products.find(product => product.id == id);    
 
     res.render("product/productDetail", { product })
   },

@@ -51,6 +51,10 @@
             <h4 class="subtitle-descripcion">Descripción</h4>
             <p class="texto"><%= product.description %></p>
           </div>
+          <div class="admin-buttons">
+            <a href="/admin/editproduct/<%= product.id %>"><button class="edit-button">Editar</button></a>
+            <a href=""><button class="delete-button">Eliminar</button></a>
+          </div>
         </section>
       </div>
       <div class="product-caract-box">

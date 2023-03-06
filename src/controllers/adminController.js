@@ -50,7 +50,45 @@ const controller = {
     res.redirect("/");
   },
   editProduct: (req, res) => {
-    res.render("admin/editProduct");
+    const id = req.params.id;
+
+    const products = getProducts();
+
+    const product = products.find((product) => product.id == id);
+
+    res.render("admin/editProduct", { product });
+  },
+  edit: (req, res) => {
+    const id = req.params.id;
+
+    const products = getProducts();
+
+    const features = req.body.features.split("/");
+
+    const questionInSale = +req.body.discount ? true : false;
+
+    const productToEditIndex = products.findIndex(product => product.id == id);
+
+    products[productToEditIndex] = {
+      ...products[productToEditIndex],
+      name: req.body.name,
+      description: req.body.description,      
+      price: req.body.price,
+      discount: req.body.discount,
+      category: req.body.category,
+      highlight: req.body.highlight,
+      colors: req.body.colors,
+      model: req.body.model,
+      year: req.body.year,
+      size: req.body.size,
+      weight: req.body.weight,
+      features: features,
+      inSale: questionInSale,
+    };
+
+    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+
+    res.redirect(`/product/detail/${id}`);
   },
 };
 

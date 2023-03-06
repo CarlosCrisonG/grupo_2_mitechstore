@@ -5,14 +5,15 @@ const path = require("path");
 
 //multer configuracion
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const destinationPath = path.join(__dirname, "../public/images/products");
-        cb(null, destinationPath);
-    },
-    filename: (req, file, cb) => {
-        const filename = Date.now() + " product - image" + path.extname(file.originalname);
-        cb(null, filename);
-    }
+  destination: (req, file, cb) => {
+    const destinationPath = path.join(__dirname, "../public/images/products");
+    cb(null, destinationPath);
+  },
+  filename: (req, file, cb) => {
+    const filename =
+      Date.now() + " product - image" + path.extname(file.originalname);
+    cb(null, filename);
+  },
 });
 
 const upload = multer({ storage });
@@ -23,6 +24,8 @@ router.get("/createproduct", adminController.createProduct);
 
 router.post("/", upload.array("images"), adminController.create);
 
-router.get("/editproduct", adminController.editProduct);
+router.get("/editproduct/:id", adminController.editProduct);
+
+router.put("/:id", adminController.edit);
 
 module.exports = router;
