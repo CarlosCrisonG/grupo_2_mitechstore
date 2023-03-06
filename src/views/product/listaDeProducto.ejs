@@ -35,7 +35,7 @@
                 <div class="conteiner-producto">
                     <a class="enlace_producto" href="">
                     <div class="conteiner-imagen-producto">
-                       <img src="/images/<%= product.images[0] %>" alt="Redmi10">
+                       <img src="/images/products/<%= product.images[0] %>" alt="Redmi10">
                     </div>
     
                     <div class="titulo-producto">
@@ -54,8 +54,7 @@
                     </div>
     
                     <div class="descripcion-producto">
-                        <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                        
+                        <a href="/admin/editproduct/<%= product.id %>"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>                        
                     </div>
                 </a>
                 </div>
