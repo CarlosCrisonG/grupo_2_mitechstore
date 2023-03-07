@@ -21,6 +21,8 @@ const controller = {
 
     const images = [];
 
+    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+
     req.files.forEach((file) => {
       images.push(file.filename);
     });
@@ -34,7 +36,7 @@ const controller = {
       discount: req.body.discount,
       category: req.body.category,
       highlight: req.body.highlight,
-      colors: req.body.colors,
+      colors,
       model: req.body.model,
       year: req.body.year,
       size: req.body.size,
@@ -71,6 +73,8 @@ const controller = {
       (product) => product.id == id
     );
 
+    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+
     products[productToEditIndex] = {
       ...products[productToEditIndex],
       name: req.body.name,
@@ -79,7 +83,7 @@ const controller = {
       discount: req.body.discount,
       category: req.body.category,
       highlight: req.body.highlight,
-      colors: req.body.colors,
+      colors,
       model: req.body.model,
       year: req.body.year,
       size: req.body.size,
