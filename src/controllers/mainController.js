@@ -11,7 +11,7 @@ const controller = {
   index: (req, res) => {
     const products = getProducts();
 
-    const highlightedProducts = products.filter(product => product.highlight);
+    const highlightedProducts = products.filter(product => product.highlight == "true");
 
     const onSale = products.filter(product => product.inSale);
 
