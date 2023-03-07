@@ -30,176 +30,35 @@
     <main>
     <!-- Seccion de producto -->
         <section class="productos">
-            <!-- Primer celular -->
-            <div class="conteiner-producto">
-                <a class="enlace_producto" href="">
-                <div class="conteiner-imagen-producto">
-                   <img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" alt="Redmi10">
-                </div>
-
-                <div class="titulo-producto">
-                    <h3>Redmi 10 - 2022</h3>
-                </div>
-
-                <div class="precio-descuento">
-                    
-                    <div class="precio-producto">
-                        <span>$180</span>
+            <!-- Productos -->
+            <% products.forEach(product => { %>
+                <div class="conteiner-producto">
+                    <a class="enlace_producto" href="/product/detail/<%= product.id %>">
+                    <div class="conteiner-imagen-producto">
+                       <img src="/images/products/<%= product.images[0] %>" alt="Redmi10">
                     </div>
     
-                    <div class="descuento-producto">
-                        <span>20% OFF</span>
-                    </div>
-                </div>
-
-                <div class="descripcion-producto">
-                    <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                    
-                </div>
-            </a>
-            </div>
-            <!-- Segundo celular -->
-            <div class="conteiner-producto">
-                <a class="enlace_producto" href="">
-                <div class="conteiner-imagen-producto">
-                   <img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" alt="Redmi10">
-                </div>
-
-                <div class="titulo-producto">
-                    <h3>Redmi 10 - 2022</h3>
-                </div>
-
-                <div class="precio-descuento">
-                    
-                    <div class="precio-producto">
-                        <span>$180</span>
+                    <div class="titulo-producto">
+                        <h3><%= product.name %></h3>
                     </div>
     
-                    <div class="descuento-producto">
-                        <span>20% OFF</span>
-                    </div>
-                </div>
-
-                <div class="descripcion-producto">
-                    <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                </div>
-            </a>
-            </div>
-            <!-- Tercer celular -->
-            <div class="conteiner-producto">
-                <a class="enlace_producto" href="">
-                <div class="conteiner-imagen-producto">
-                   <img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" alt="Redmi10">
-                </div>
-
-                <div class="titulo-producto">
-                    <h3>Redmi 10 - 2022</h3>
-                </div>
-
-                <div class="precio-descuento">
-                    
-                    <div class="precio-producto">
-                        <span>$180</span>
+                    <div class="precio-descuento">
+                        
+                        <div class="precio-producto">
+                            <span>$<%= product.price %></span>
+                        </div>
+        
+                        <div class="descuento-producto">
+                            <span><%= product.discount %>% OFF</span>
+                        </div>
                     </div>
     
-                    <div class="descuento-producto">
-                        <span>20% OFF</span>
+                    <div class="descripcion-producto">
+                        <a href="/admin/editproduct/<%= product.id %>"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>                        
                     </div>
+                </a>
                 </div>
-
-                <div class="descripcion-producto">
-                    <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                    
-                </div>
-            </a>
-             </div>
-              
-             <!-- Cuarto celular -->
-             <div class="conteiner-producto">
-                <a class="enlace_producto" href="">
-                <div class="conteiner-imagen-producto">
-                   <img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" alt="Redmi10">
-                </div>
-
-                <div class="titulo-producto">
-                    <h3>Redmi 10 - 2022</h3>
-                </div>
-
-                <div class="precio-descuento">
-                    
-                    <div class="precio-producto">
-                        <span>$180</span>
-                    </div>
-    
-                    <div class="descuento-producto">
-                        <span>20% OFF</span>
-                    </div>
-                </div>
-
-                <div class="descripcion-producto">
-                    <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                   
-                </div>
-            </a>
-            </div>
-              <!-- Quinto celular -->
-              <div class="conteiner-producto">
-                <a class="enlace_producto" href="">
-                <div class="conteiner-imagen-producto">
-                   <img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" alt="Redmi10">
-                </div>
-
-                <div class="titulo-producto">
-                    <h3>Redmi 10 - 2022</h3>
-                </div>
-
-                <div class="precio-descuento">
-                    
-                    <div class="precio-producto">
-                        <span>$180</span>
-                    </div>
-    
-                    <div class="descuento-producto">
-                        <span>20% OFF</span>
-                    </div>
-                </div>
-
-                <div class="descripcion-producto">
-                    <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                    
-                </div>
-            </a>
-             </div>
-
-               <!-- Sexto celular -->
-            <div class="conteiner-producto">
-                <a class="enlace_producto" href="">
-                <div class="conteiner-imagen-producto">
-                   <img src="/images/redmi-10-2022-carbon-gray-4gb-ram-128gb-rom (5).jpg" alt="Redmi10">
-                </div>
-
-                <div class="titulo-producto">
-                    <h3>Redmi 10 - 2022</h3>
-                </div>
-
-                <div class="precio-descuento">
-                    
-                    <div class="precio-producto">
-                        <span>$180</span>
-                    </div>
-    
-                    <div class="descuento-producto">
-                        <span>20% OFF</span>
-                    </div>
-                </div>
-
-                <div class="descripcion-producto">
-                    <a href="/admin/editproduct"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
-                    
-                </div>
-            </a>
-             </div>
-            </div>
+            <% }) %>                                              
         </section>
     </main>
 

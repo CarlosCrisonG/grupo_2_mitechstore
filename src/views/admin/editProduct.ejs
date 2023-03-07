@@ -8,132 +8,117 @@
   <%- include("../partials/header") %>
   <!-- Header - Fin-->
 
-    <main>
-        <h3 class="titulo">Editar un producto</h3>
-        <form action="/product/list" method="">
-            <input class="input" type="text" placeholder="Nombre del producto">
-            <div class="descripcion">
-                <textarea rows="4" name="comment" form="usrform">Descripción...</textarea>
-            </div>
-            <label class="label" for="">Imágenes del producto</label>
-            <input type="file" accept=".jpg,.png,.jpeg">
-            <div class="precio">
-                <label class="label" for="precio">Precio:</label>
-                <input id="precio" class="input" type="number" placeholder="">
-            </div>
-            <div class="categorias">
-                <label class="label" for="">Categoría: </label>
-                <select id="categorias" name="categoria">
-                    <option value="empty"></option>
-                    <option value="cel">Celulares</option>
-                    <option value="comp">Computadoras</option>
-                    <option value="acc">Accesorios</option>
-                    <option value="elect">Electrodomésticos</option>
-                    <option value="cuidp">Cuidado personal</option>
-                </select>
-            </div>
-            <label class="label" for="">Colores</label>
-            <div class="colores">
-                <div>
-                    <input id="negro" type="checkbox" name="intereses" value="negro">
-                    <label for="negro">Negro</label>
-                </div>
-
-                <div>
-                    <input id="blanco" type="checkbox" name="intereses" value="blanco">
-                    <label for="blanco">Blanco</label>
-                </div>
-
-                <div>
-                    <input id="gris" type="checkbox" name="intereses" value="gris">
-                    <label for="gris">Gris</label>
-                </div>
-
-                <div>
-                    <input id="rojo" type="checkbox" name="intereses" value="rojo">
-                    <label for="rojo">Rojo</label>
-                </div>
-
-                <div>
-                    <input id="verde" type="checkbox" name="intereses" value="verde">
-                    <label for="verde">Verde</label>
-                </div>
-
-                <div>
-                    <input id="azul" type="checkbox" name="intereses" value="azul">
-                    <label for="azul">Azul</label>
-                </div>
-
-                <div>
-                    <input id="amarillo" type="checkbox" name="intereses" value="amarillo">
-                    <label for="amarillo">Amarillo</label>
-                </div>
-
-                <div>
-                    <input id="violeta" type="checkbox" name="intereses" value="violeta">
-                    <label for="violeta">Violeta</label>
-                </div>
-
-                <div>
-                    <input id="rosado" type="checkbox" name="intereses" value="rosado">
-                    <label for="rosado">Rosado</label>
-                </div>
-
-                <div>
-                    <input id="anaranjado" type="checkbox" name="intereses" value="anaranjado">
-                    <label for="anaranjado">Anaranjado</label>
-                </div>
-            </div>
-
-            <label class="label" for="">Caracteristicas</label>
-            <div class="especificaciones">
-                <div class="especificacion">
-                    <label for="modelo">Modelo:</label>
-                    <input id="modelo" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="fabricacion">Año de fabricación:</label>
-                    <input id="fabricacion" class="input" type="number" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="tamaño">Tamaño:</label>
-                    <input id="tamaño" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="peso">Peso:</label>
-                    <input id="peso" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-            </div>
-
-            <div class="buttons">                
-                <button type="reset">Borrar</button>
-                <a href="/"><button type="submit">Editar producto</button></a> <br>
-            </div>
-        </form>
-    </main>
+  <main>
+    <h3 class="titulo">Crear un nuevo producto</h3>
+    <form action="/admin/<%= product.id %>?_method=PUT" method="POST">
+        <label class="label" for="name">Nombre del producto</label>
+       <input class="input" name="name" type="text" value="<%= product.name %>">      
+       <div class="descripcion">
+          <label for="description" class="label">Descripcion</label>
+          <textarea name="description" id="" rows="4"><%= product.description %></textarea>
+       </div>
+       <label class="label" for="">Imágenes del producto</label>
+       <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
+       <div class="propiedades">
+          <div class="precio">
+             <label class="label" for="precio">Precio:</label>
+             <input id="precio" name="price" class="input" type="number" value="<%= product.price %>">
+          </div>
+          <div class="precio">
+             <label class="label" for="discount">Descuento:</label>
+             <input id="precio" name="discount" class="input" type="number" value="<%= product.discount %>">
+          </div>
+          <div class="categorias">
+             <label class="label" for="">Categoría: </label>
+             <select id="categorias" name="category">
+                <option value="" disabled>Elige</option>
+                <option value="cel" <%= product.category == "cel" ? "selected" : "" %>>Celulares</option>
+                <option value="comp" <%= product.category == "comp" ? "selected" : "" %>>Computadoras</option>
+                <option value="acc" <%= product.category == "acc" ? "selected" : "" %>>Accesorios</option>
+                <option value="elect" <%= product.category == "elect" ? "selected" : "" %>>Electrodomésticos</option>
+                <option value="cuidp" <%= product.category == "cuidp" ? "selected" : "" %>>Cuidado personal</option>
+             </select>
+          </div>
+          <div class="categorias">
+             <label class="label" for="">Destacar producto:</label>
+             <select id="categorias" name="highlight">
+                <option value="" disabled>Elige</option>
+                <option value="true" <%= product.category ? "selected" : "" %>>Si</option>
+                <option value="false" <%= product.category ? "selected" : "" %>>No</option>
+             </select>
+          </div>
+       </div>
+       <label class="label" for="">Colores</label>
+       <div class="colores">
+          <div>
+             <input id="negro" type="checkbox" name="colors" value="negro" <%= product.colors.includes("negro") ? "checked" : "" %>>
+             <label for="negro">Negro</label>
+          </div>
+          <div>
+             <input id="blanco" type="checkbox" name="colors" value="blanco" <%= product.colors.includes("blanco") ? "checked" : "" %>>
+             <label for="blanco">Blanco</label>
+          </div>
+          <div>
+             <input id="gris" type="checkbox" name="colors" value="gris" <%= product.colors.includes("gris") ? "checked" : "" %>>
+             <label for="gris">Gris</label>
+          </div>
+          <div>
+             <input id="rojo" type="checkbox" name="colors" value="rojo" <%= product.colors.includes("rojo") ? "checked" : "" %>>
+             <label for="rojo">Rojo</label>
+          </div>
+          <div>
+             <input id="verde" type="checkbox" name="colors" value="verde" <%= product.colors.includes("verde") ? "checked" : "" %>>
+             <label for="verde">Verde</label>
+          </div>
+          <div>
+             <input id="azul" type="checkbox" name="colors" value="azul" <%= product.colors.includes("azul") ? "checked" : "" %>>
+             <label for="azul">Azul</label>
+          </div>
+          <div>
+             <input id="amarillo" type="checkbox" name="colors" value="amarillo" <%= product.colors.includes("amarillo") ? "checked" : "" %>>
+             <label for="amarillo">Amarillo</label>
+          </div>
+          <div>
+             <input id="violeta" type="checkbox" name="colors" value="violeta" <%= product.colors.includes("violeta") ? "checked" : "" %>>
+             <label for="violeta">Violeta</label>
+          </div>
+          <div>
+             <input id="rosado" type="checkbox" name="colors" value="rosado" <%= product.colors.includes("rosado") ? "checked" : "" %>>
+             <label for="rosado">Rosado</label>
+          </div>
+          <div>
+             <input id="anaranjado" type="checkbox" name="colors" value="anaranjado" <%= product.colors.includes("anaranjado") ? "checked" : "" %>>
+             <label for="anaranjado">Anaranjado</label>
+          </div>
+       </div>
+       <label class="label" for="">Caracteristicas</label>
+       <div class="especificaciones">
+       <div class="especificacion">
+          <label for="modelo">Modelo:</label>
+          <input id="modelo" name="model" class="input" type="text" value="<%= product.model %>">
+       </div>
+       <div class="especificacion">
+          <label for="fabricacion">Año de fabricación:</label>
+          <input id="fabricacion" name="year" class="input" type="number" value="<%= product.year %>">
+       </div>
+       <div class="especificacion">
+          <label for="tamaño">Tamaño:</label>
+          <input id="tamaño" name="size" class="input" type="text" value="<%= product.size %>">
+       </div>
+       <div class="especificacion">
+          <label for="peso">Peso:</label>
+          <input id="peso" class="input" name="weight" type="text" value="<%= product.weight %>">
+       </div>
+       <div class="descripcion">
+          <label class="label" for="">Otras caracteristicas</label>
+          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"><%= product.features.join("/") %></textarea>          
+       </div>
+       <div class="buttons">
+          <button type="reset">Borrar</button>
+          <button type="submit">Editar producto</button> <br>
+       </div>
+    </form>           
+  </main>
    
     <!-- Footer - Inicio -->
 <%- include("../partials/footer") %>

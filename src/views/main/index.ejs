@@ -32,163 +32,52 @@
         <!-- Carrusel - Fin -->
         <!-- Productos Home -->
         <section class="productos_home">
-            <!-- Seccion Novedades -->
+            <!-- Seccion Destacados -->
             <section class="secciones">
-                <h4>Novedades</h4>
+                <h4>Productos destacados</h4>
                 <div class="fila_productos" id="fila1">
-                    <!-- Producto 1: Xiaomi Smart Band 7 Pro -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Smart_Band_7_Pro.png" alt="Smart Band 7 Pro">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Smart Band 7 Pro</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Smartwatch Xiaomi con Pantalla 1,64" GPS, GLONASS, Galileo y QZSS</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$80</span></div>
-                                <div class="descuento_producto"><span>25% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Producto 2: Watch S1 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Watch_S1.png" alt="Xiaomi Watch S1">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Xiaomi Watch S1</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Pantalla de 1,43", Cristal de zafiro | Caja de acero inoxidable | Correa de cuero</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$205</span></div>
-                                <div class="descuento_producto"><span>20% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 3: Watch S1 Active -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Watch_S1_Active.png" alt="Watch S1 Active">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Watch S1 Active</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Pantalla de 1,43" con más de 200 pantallas de reloj. Diseño personalizable</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$151</span></div>
-                                <div class="descuento_producto"><span>15% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 4: Mi Robot Vacuum-Mop 2 Pro -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Vacuum-Mop_2.png" alt="Mi Robot Vacuum-Mop 2 Pro">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Vacuum-Mop 2 Pro</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Dron Mi Robot Vacuum-Mop 2 Pro con trapeado de vibración sónica de alta frecuencia.
-                                </p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$432</span></div>
-                                <div class="descuento_producto"><span>25% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
+                    <% highlightedProducts.forEach(product => { %>
+                        <div class="producto">
+                            <a class="enlace_producto" href="/product/detail/<%= product.id %>">
+                                <div class="imagen_producto">
+                                    <img src="/images/products/<%= product.images[0] %>" alt="<%= product.name %>">
+                                </div>
+                                <div class="titulo_producto">
+                                    <h3><%= product.name %></h3>
+                                </div>                                
+                                <div class="precio_descuento">
+                                    <div class="precio_producto"><span>$<%= product.price %></span></div>
+                                    <div class="descuento_producto"><span><%= product.discount %>% OFF</span></div>
+                                </div>
+                            </a>
+                        </div>
+                    <% }) %>                                    
                 </div>
             </section>
 
-            <!-- Seccion Más Vendidos -->
+            <!-- Seccion En Descuento -->
             <section class="secciones">
-                <h4>Más Vendidos</h4>
+                <h4>Productos en descuento</h4>
                 <div class="fila_productos" id="fila1">
-                    <!-- Producto 5: Redmi Note 10 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Redmi_10_2022_128GB_Azul.jpg" alt="Redmi10">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Redmi 10 - 2022</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Celular Xiaomi Redmi 10 - 2022 de 128GB Azul con cámara de 50MP</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$180</span></div>
-                                <div class="descuento_producto"><span>20% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 6: Redmi Note 11 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Redmi_Note_11.jpg" alt="Redmi Note 11">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Redmi Note 11</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Celular Xiaomi Redmi Note 11 de 128GB y 4GB de Ram con cámara cuádruple de 50MP</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$201</span></div>
-                                <div class="descuento_producto"><span>35% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 7: Xiaomi 12 -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Xiaomi_12.png" alt="Xiaomi 12">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Xiaomi 12</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Celular Xiaomi Xiaomi 12 con 256 Gb / Azul / 8Gb Ram</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$756</span></div>
-                                <div class="descuento_producto"><span>20% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Producto 8: Redmi Buds 3 Lite -->
-                    <div class="producto">
-                        <a class="enlace_producto" href="/product/detail">
-                            <div class="imagen_producto">
-                                <img src="/images/home/Redmi_buds_3_lite.jpg" alt="Redmi Buds 3 Lite">
-                            </div>
-                            <div class="titulo_producto">
-                                <h3>Redmi Buds 3 Lite</h3>
-                            </div>
-                            <div class="descripcion_producto">
-                                <p>Audífonos Bluetooth 5.2 / Ajuste seguro y cómodo.</p>
-                            </div>
-                            <div class="precio_descuento">
-                                <div class="precio_producto"><span>$30</span></div>
-                                <div class="descuento_producto"><span>15% OFF</span></div>
-                            </div>
-                        </a>
-                    </div>
+                    <% onSale.forEach(product => { %>
+                        <div class="producto">
+                            <a class="enlace_producto" href="/product/detail/<%= product.id %>">
+                                <div class="imagen_producto">
+                                    <img src="/images/products/<%= product.images[0] %>" alt="Smart Band 7 Pro">
+                                </div>
+                                <div class="titulo_producto">
+                                    <h3><%= product.name %></h3>
+                                </div>
+                                <div class="descripcion_producto">
+                                    <p><%= product.Description %></p>
+                                </div>
+                                <div class="precio_descuento">
+                                    <div class="precio_producto"><span>$<%= product.price %></span></div>
+                                    <div class="descuento_producto"><span><%= product.discount %>% OFF</span></div>
+                                </div>
+                            </a>
+                        </div>
+                    <% }) %>                                        
                 </div>
             </section>
         </section>

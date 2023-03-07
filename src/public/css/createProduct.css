@@ -15,9 +15,9 @@ form {
 }
 
 h3.titulo {
-   color: #FF6700;
-   text-align: center;
-   margin: 50px 0px;
+    color: #FF6700;
+    text-align: center;
+    margin: 50px 0px;
 }
 
 .input {
@@ -30,6 +30,18 @@ h3.titulo {
     padding-bottom: 15px;
     padding-left: 3px;
     transition: all 300ms;
+}
+
+.precio {
+    width: 38%;
+}
+
+.propiedades {
+    width: 100%;
+    display: flex;
+    gap: 26px 90px;
+    flex-direction: row;
+    flex-wrap: wrap;;
 }
 
 .input::placeholder {
@@ -87,22 +99,21 @@ h3.titulo {
     font-family: 'Raleway', sans-serif;
 }
 
-.precio {
-    width: 38%;
-}
-
-.precio,
-.categorias {
-    align-self: flex-start;
-}
-
-.categorias select {
+.categorias select {    
     display: block;
     font-family: 'Raleway', sans-serif;
     padding: 8px;
     border: solid rgb(197 194 194) 1px;
     border-radius: 5px;
     margin-top: 5px;
+}
+
+.propiedades div.categorias{
+    width: 38%;
+}
+
+.propiedades div.categorias select{
+    width: 100%;
 }
 
 .precio input {
@@ -117,8 +128,7 @@ textarea {
     font-family: 'Raleway', sans-serif;
     width: 100%;
     padding: 5px;
-    font-size: 15px;
-    color: rgb(199, 197, 197);
+    font-size: 15px;    
     border: 1px lightgray solid;
 }
 
@@ -149,18 +159,35 @@ textarea {
 }
 
 @media (min-width: 769px) {
+    .propiedades {
+        display: flex;
+        gap: 30px 100px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }    
+
+    .colores {
+        display: flex;
+        flex-direction: row;
+        gap: 17px;
+        text-align: center;
+        align-self: flex-start;
+        margin-bottom: 20px;
+    }
 
     input::placeholder {
         font-size: 18px;
     }
 
-    .label{
+    .label {
         font-size: 18px;
     }
 
     .buttons button:hover {
         background-color: gray;
-        cursor: pointer;;
+        cursor: pointer;
+        ;
     }
 
     textarea {

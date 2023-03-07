@@ -8,132 +8,117 @@
   <%- include("../partials/header") %>
   <!-- Header - Fin-->
 
-    <main>
-        <h3 class="titulo">Crear un nuevo producto</h3>
-        <form action="/" method="">
-            <input class="input" type="text" placeholder="Nombre del producto">
-            <div class="descripcion">
-                <textarea rows="4" name="comment" form="usrform">Descripción...</textarea>
-            </div>
-            <label class="label" for="">Imágenes del producto</label>
-            <input type="file" accept=".jpg,.png,.jpeg">
-            <div class="precio">
-                <label class="label" for="precio">Precio:</label>
-                <input id="precio" class="input" type="number" placeholder="">
-            </div>
-            <div class="categorias">
-                <label class="label" for="">Categoría: </label>
-                <select id="categorias" name="categoria">
-                    <option value="empty"></option>
-                    <option value="cel">Celulares</option>
-                    <option value="comp">Computadoras</option>
-                    <option value="acc">Accesorios</option>
-                    <option value="elect">Electrodomésticos</option>
-                    <option value="cuidp">Cuidado personal</option>
-                </select>
-            </div>
-            <label class="label" for="">Colores</label>
-            <div class="colores">
-                <div>
-                    <input id="negro" type="checkbox" name="intereses" value="negro">
-                    <label for="negro">Negro</label>
-                </div>
-
-                <div>
-                    <input id="blanco" type="checkbox" name="intereses" value="blanco">
-                    <label for="blanco">Blanco</label>
-                </div>
-
-                <div>
-                    <input id="gris" type="checkbox" name="intereses" value="gris">
-                    <label for="gris">Gris</label>
-                </div>
-
-                <div>
-                    <input id="rojo" type="checkbox" name="intereses" value="rojo">
-                    <label for="rojo">Rojo</label>
-                </div>
-
-                <div>
-                    <input id="verde" type="checkbox" name="intereses" value="verde">
-                    <label for="verde">Verde</label>
-                </div>
-
-                <div>
-                    <input id="azul" type="checkbox" name="intereses" value="azul">
-                    <label for="azul">Azul</label>
-                </div>
-
-                <div>
-                    <input id="amarillo" type="checkbox" name="intereses" value="amarillo">
-                    <label for="amarillo">Amarillo</label>
-                </div>
-
-                <div>
-                    <input id="violeta" type="checkbox" name="intereses" value="violeta">
-                    <label for="violeta">Violeta</label>
-                </div>
-
-                <div>
-                    <input id="rosado" type="checkbox" name="intereses" value="rosado">
-                    <label for="rosado">Rosado</label>
-                </div>
-
-                <div>
-                    <input id="anaranjado" type="checkbox" name="intereses" value="anaranjado">
-                    <label for="anaranjado">Anaranjado</label>
-                </div>
-            </div>
-
-            <label class="label" for="">Caracteristicas</label>
-            <div class="especificaciones">
-                <div class="especificacion">
-                    <label for="modelo">Modelo:</label>
-                    <input id="modelo" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="fabricacion">Año de fabricación:</label>
-                    <input id="fabricacion" class="input" type="number" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="tamaño">Tamaño:</label>
-                    <input id="tamaño" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="peso">Peso:</label>
-                    <input id="peso" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-
-                <div class="especificacion">
-                    <label for="otraCaracteristica">Otra caracteristica a destacar:</label>
-                    <input id="otraCaracteristica" class="input" type="text" placeholder="">
-                </div>
-            </div>
-
-            <div class="buttons">
-                <button type="reset">Borrar</button>
-                <a href="/"><button type="submit">Crear producto</button></a> <br>
-            </div>
-        </form>
-    </main>
+  <main>
+   <h3 class="titulo">Crear un nuevo producto</h3>
+   <form action="/admin" method="POST" enctype="multipart/form-data">
+      <label class="label" for="name">Nombre del producto</label>
+      <input class="input" name="name" type="text">      
+      <div class="descripcion">
+         <label for="description" class="label">Descripcion</label>
+         <textarea name="description" id="" rows="4"></textarea>
+      </div>
+      <label class="label" for="">Imágenes del producto</label>
+      <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
+      <div class="propiedades">
+         <div class="precio">
+            <label class="label" for="precio">Precio:</label>
+            <input id="precio" name="price" class="input" type="number" placeholder="">
+         </div>
+         <div class="precio">
+            <label class="label" for="discount">Descuento:</label>
+            <input id="precio" name="discount" class="input" type="number" placeholder="">
+         </div>
+         <div class="categorias">
+            <label class="label" for="">Categoría: </label>
+            <select id="categorias" name="category">
+               <option value="" disabled selected>Elige</option>
+               <option value="cel">Celulares</option>
+               <option value="comp">Computadoras</option>
+               <option value="acc">Accesorios</option>
+               <option value="elect">Electrodomésticos</option>
+               <option value="cuidp">Cuidado personal</option>
+            </select>
+         </div>
+         <div class="categorias">
+            <label class="label" for="">Destacar producto:</label>
+            <select id="categorias" name="highlight">
+               <option value="" disabled selected>Elige</option>
+               <option value="true">Si</option>
+               <option value="false">No</option>
+            </select>
+         </div>
+      </div>
+      <label class="label" for="">Colores</label>
+      <div class="colores">
+         <div>
+            <input id="negro" type="checkbox" name="colors" value="negro">
+            <label for="negro">Negro</label>
+         </div>
+         <div>
+            <input id="blanco" type="checkbox" name="colors" value="blanco">
+            <label for="blanco">Blanco</label>
+         </div>
+         <div>
+            <input id="gris" type="checkbox" name="colors" value="gris">
+            <label for="gris">Gris</label>
+         </div>
+         <div>
+            <input id="rojo" type="checkbox" name="colors" value="rojo">
+            <label for="rojo">Rojo</label>
+         </div>
+         <div>
+            <input id="verde" type="checkbox" name="colors" value="verde">
+            <label for="verde">Verde</label>
+         </div>
+         <div>
+            <input id="azul" type="checkbox" name="colors" value="azul">
+            <label for="azul">Azul</label>
+         </div>
+         <div>
+            <input id="amarillo" type="checkbox" name="colors" value="amarillo">
+            <label for="amarillo">Amarillo</label>
+         </div>
+         <div>
+            <input id="violeta" type="checkbox" name="colors" value="violeta">
+            <label for="violeta">Violeta</label>
+         </div>
+         <div>
+            <input id="rosado" type="checkbox" name="colors" value="rosado">
+            <label for="rosado">Rosado</label>
+         </div>
+         <div>
+            <input id="anaranjado" type="checkbox" name="colors" value="anaranjado">
+            <label for="anaranjado">Anaranjado</label>
+         </div>
+      </div>
+      <label class="label" for="">Caracteristicas</label>
+      <div class="especificaciones">
+      <div class="especificacion">
+         <label for="modelo">Modelo:</label>
+         <input id="modelo" name="model" class="input" type="text" placeholder="">
+      </div>
+      <div class="especificacion">
+         <label for="fabricacion">Año de fabricación:</label>
+         <input id="fabricacion" name="year" class="input" type="number" placeholder="">
+      </div>
+      <div class="especificacion">
+         <label for="tamaño">Tamaño:</label>
+         <input id="tamaño" name="size" class="input" type="text" placeholder="">
+      </div>
+      <div class="especificacion">
+         <label for="peso">Peso:</label>
+         <input id="peso" class="input" name="weight" type="text" placeholder="">
+      </div>
+      <div class="descripcion">
+         <label class="label" for="">Otras caracteristicas</label>
+         <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"></textarea>
+      </div>
+      <div class="buttons">
+         <button type="reset">Borrar</button>
+         <a href="/"><button type="submit">Crear producto</button></a> <br>
+      </div>
+   </form>
+ </main>
    
     <!-- Footer - Inicio -->
 <%- include("../partials/footer") %>
