@@ -31,7 +31,7 @@ const controller = {
       id: newId,
       name: req.body.name,
       description: req.body.description,
-      images: images.length ? images : "defaultProduct.png",
+      images: images.length ? images : ["defaultProduct.png"],
       price: req.body.price,
       discount: req.body.discount,
       category: req.body.category,
