@@ -21,7 +21,8 @@ const controller = {
 
     const images = [];
 
-    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+    const colors =
+      typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
     req.files.forEach((file) => {
       images.push(file.filename);
@@ -73,7 +74,8 @@ const controller = {
       (product) => product.id == id
     );
 
-    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+    const colors =
+      typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
     products[productToEditIndex] = {
       ...products[productToEditIndex],
@@ -101,9 +103,15 @@ const controller = {
 
     const products = getProducts();
 
-    const productToDeleteIndex = products.findIndex(product => product.id == id);
+    const productToDeleteIndex = products.findIndex(
+      (product) => product.id == id
+    );
 
-    products.splice(productToDeleteIndex,1);
+    products[productToDeleteIndex].images.forEach((image) => {
+      fs.unlinkSync(path.join(__dirname, "../public/images/products/", image));
+    });
+
+    products.splice(productToDeleteIndex, 1);
 
     fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
 
