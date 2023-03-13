@@ -19,7 +19,7 @@ const controller = {
   },
   productList: (req, res) => {
     
-    if (req.query) {
+    if (req.query.category) {
       if (req.query.category == "computadoras") {
         let allProducts = getProducts();
         let categoryToShow = allProducts.filter (product => product.category == req.query.category)
