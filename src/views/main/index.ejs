@@ -34,7 +34,7 @@
         <section class="productos_home">
             <!-- Seccion Destacados -->
             <section class="secciones">
-                <h4>Productos destacados</h4>
+                <h2>Productos destacados</h2>
                 <div class="fila_productos" id="fila1">
                     <% highlightedProducts.forEach(product => { %>
                         <div class="producto">
@@ -43,7 +43,7 @@
                                     <img src="/images/products/<%= product.images[0] %>" alt="<%= product.name %>">
                                 </div>
                                 <div class="titulo_producto">
-                                    <h3><%= product.name %></h3>
+                                    <h4><%= product.name %></h4>
                                 </div>                                
                                 <div class="precio_descuento">
                                     <div class="precio_producto"><span>$<%= product.price %></span></div>
@@ -57,7 +57,7 @@
 
             <!-- Seccion En Descuento -->
             <section class="secciones">
-                <h4>Productos en descuento</h4>
+                <h2>Productos en oferta</h2>
                 <div class="fila_productos" id="fila1">
                     <% onSale.forEach(product => { %>
                         <div class="producto">
@@ -66,7 +66,7 @@
                                     <img src="/images/products/<%= product.images[0] %>" alt="Smart Band 7 Pro">
                                 </div>
                                 <div class="titulo_producto">
-                                    <h3><%= product.name %></h3>
+                                    <h4><%= product.name %></h4>
                                 </div>
                                 <div class="descripcion_producto">
                                     <p><%= product.Description %></p>

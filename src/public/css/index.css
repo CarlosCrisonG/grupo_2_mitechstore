@@ -61,7 +61,7 @@
     margin-bottom:40px;
   }
   
-  .secciones h4 {
+  .secciones h2 {
     text-align: center;
     margin-bottom: 10px;
   }
@@ -80,6 +80,7 @@
   }
 
   .producto {
+    height: fit-content;
     width: 90%;
     background-color: white;
     padding: 30px;
@@ -110,8 +111,8 @@
     transition: all 200ms ease-in;
   }
 
-  .titulo_producto h3 {
-    margin-bottom:5px;
+  .titulo_producto h4 {
+    margin-bottom: 20px;
   }
 
   .imagen_producto img {
@@ -167,7 +168,7 @@
 /*Desktop*/
 @media (min-width: 1024px) {
   .fila_productos {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: stretch;
   }
   .producto {
