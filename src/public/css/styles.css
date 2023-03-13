@@ -1,5 +1,7 @@
 * {
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /*Fuente Raleway*/
@@ -44,3 +46,321 @@ h6 {
     font-size: 14px;
 }
 /*Tamaños de Fuentes ---- Fin */
+
+/*Estilos del Header ---- Inicio */
+.encabezado {
+    display: none;
+    background-color: #DCDCDC;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.ad-text {
+    white-space: nowrap;
+    overflow: hidden;
+    background: white;
+    padding: 15px 0;
+}
+
+.ad-text p {
+    font-size: 20px;
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+div.header-top-bar {
+    background-color: #FF6700;
+}
+
+div.search-bar input {
+    width: 85%;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    padding: 0;
+    padding-left: 2px;
+}
+
+input::placeholder {
+    font-family: 'Raleway', sans-serif;
+}
+
+div.search-bar button {
+    width: 13%;
+    max-width: 20px;
+    height: 40px;
+    background: white;
+    text-align: center;
+    color: rgb(88, 88, 88);
+    font-size: 14px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 0;
+}
+
+div.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding-right: 5px;
+}
+
+.logo-search-container {
+    display: flex;
+    margin: auto;
+}
+
+.logo {
+    width: 50%;
+    padding: 8px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+nav.opciones {
+    display: none;
+}
+
+nav.categorias-navbar {
+    display: none;
+}
+
+.categorias-navbar ul,
+.opciones ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li.categoria a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+li.main-header-navbar-element a {
+    text-decoration: none;
+}
+
+.burguer-menu {
+    text-align: center;
+}
+
+.burguer-menu button {
+    background-color: white;
+    color: #FF6700;
+    padding: 9px 11px;
+    border: none;
+    border-radius: 6px;
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.categoria-desplegable {
+    width: 200px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 55px;
+    display: none;
+    z-index: 2;
+}
+
+.categoria-desplegable a {
+    padding: 15px;
+    display: block
+}
+
+/*Laptop*/
+@media (min-width: 769px) {
+
+    nav.categorias-navbar {
+        display: block;
+    }
+
+    .ad-text{
+        display: none;
+    }
+
+    .encabezado {
+        display: block;
+    }
+
+    .encabezado p {
+        font-size: 18px;
+    }
+
+    .burguer-menu {
+        display: none;
+    }
+
+    .logo {
+        max-width: 200px;
+    }
+
+    div.search-bar {
+        width: 25%;
+    }
+
+    .logo-search-container {
+        justify-content: space-around;
+        max-width: 1200px;
+    }
+
+    nav.opciones {
+        display: flex;
+    }
+
+    nav.opciones ul {
+        display: flex;
+        align-items: center;
+    }
+
+    nav.opciones ul li {
+        margin: 0px 30px 0px 0px;
+    }
+
+    li.main-header-navbar-element a {
+        color: white;
+        font-size: 18px;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    a i {
+        font-size: 18px;
+        color: white;
+    }
+
+    .categorias-navbar {
+        background-color: #DCDCDC;
+        display: block;
+    }
+
+    .categorias-navbar ul {
+        display: flex;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .categoria {
+        font-family: 'Raleway', sans-serif;
+        padding: 20px;
+        transition: all 200ms;
+        position: relative;
+    }
+
+    .categoria:hover {
+        background-color: lightgray;
+        cursor: default;
+        box-shadow: 0px 0px 5px rgb(100, 100, 100);
+    }
+
+    .categoria:hover .categoria-desplegable {
+        box-shadow: 0px 0px 5px rgb(100, 100, 100);
+        display: block;
+    }
+
+}
+
+    @media (min-width: 1025px) {
+        div.search-bar {
+            width: 30%;
+        }
+    }
+        
+    
+/*Estilos del Header ---- Fin */
+
+/*Estilos del Footer ---- Inicio */
+footer {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    background-color: #c3c3c3;
+    padding: 40px 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+div.noticiasDiv {
+    display: none;
+}
+
+div.emailInput input {
+    width: 90%;
+    text-align: center;
+    padding: 4px 0;
+}
+
+div.emailInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.feedbackDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+div.redesSocialesDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+div.redesSocialesDiv div.redesSocialesIcon {
+    display: flex;
+    flex-direction: row;
+    gap: 9px;
+}
+
+svg.icons{
+    width: 30px;
+    height: 30px;
+}
+
+/* tablets */
+@media(min-width:768px) {
+    div.noticiasDiv{
+        display: flex;
+        flex-grow: 0.2;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    div.noticiasDiv div.emailInput label i.fa-envelope{
+        font-size: 1.5em;
+    }
+}
+
+/* desktop */
+@media(min-width:1024px) {
+    footer{
+        padding: 40px 60px;
+    }
+}
+/*Estilos del Footer ---- Fin */
