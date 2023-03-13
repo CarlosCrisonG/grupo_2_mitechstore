@@ -22,24 +22,29 @@ const controller = {
     if (req.query) {
       if (req.query.category == "computadoras") {
         let allProducts = getProducts();
-        let products = allProducts.filter (product => product.category == req.query.category)
-        return res.render("product/listaDeProducto", { products });
+        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryTitle = "Computadoras";
+        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
       } else if (req.query.category == "celulares") {
         let allProducts = getProducts();
-        let products = allProducts.filter (product => product.category == req.query.category)
-        return res.render("product/listaDeProducto", { products });
+        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryTitle = "Celulares";
+        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
       } else if (req.query.category == "accesorios") {
         let allProducts = getProducts();
-        let products = allProducts.filter (product => product.category == req.query.category)
-        return res.render("product/listaDeProducto", { products });
+        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryTitle = "Accesorios";
+        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
       } else if (req.query.category == "electrodomésticos") {
         let allProducts = getProducts();
-        let products = allProducts.filter (product => product.category == req.query.category)
-        return res.render("product/listaDeProducto", { products });
-      }
+        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryTitle = "Electrodomésticos";
+        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
+      } 
     } else {
       let products = getProducts();
-      return res.render("product/listaDeProducto", { products });
+      let categoryTitle = "Todos los productos";
+      return res.render("product/listaDeProducto", { products, categoryTitle });
     }
     
   },
