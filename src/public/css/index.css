@@ -115,8 +115,13 @@
     margin-bottom: 20px;
   }
 
+  .imagen_producto {
+    text-align: center;
+  }
+
   .imagen_producto img {
     width: 90%;
+    margin-bottom: 10px;
   }
 
   .precio_descuento {

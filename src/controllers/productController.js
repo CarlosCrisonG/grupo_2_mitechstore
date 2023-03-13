@@ -13,40 +13,45 @@ const controller = {
 
     const products = getProducts();
 
-    const product = products.find(product => product.id == id);    
+    const product = products.find(product => product.id == id);
 
     res.render("product/productDetail", { product })
   },
   productList: (req, res) => {
-    
+    let allProducts = getProducts();
+
     if (req.query.category) {
+
       if (req.query.category == "computadoras") {
-        let allProducts = getProducts();
-        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
         let categoryTitle = "Computadoras";
         return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
+
       } else if (req.query.category == "celulares") {
-        let allProducts = getProducts();
-        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
         let categoryTitle = "Celulares";
         return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
+
       } else if (req.query.category == "accesorios") {
-        let allProducts = getProducts();
-        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
         let categoryTitle = "Accesorios";
         return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-      } else if (req.query.category == "electrodomésticos") {
-        let allProducts = getProducts();
-        let categoryToShow = allProducts.filter (product => product.category == req.query.category)
+
+      } else if (req.query.category == "electrodomesticos") {
+        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
         let categoryTitle = "Electrodomésticos";
         return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-      } 
+      }
+      else if (req.query.category == "cuidadoPersonal") {
+        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
+        let categoryTitle = "Cuidado Personal";
+        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
+      }
     } else {
-      let products = getProducts();
       let categoryTitle = "Todos los productos";
-      return res.render("product/listaDeProducto", { products, categoryTitle });
+      return res.render("product/listaDeProducto", { products: allProducts, categoryTitle });
     }
-    
+
   },
   productCart: (req, res) => {
     res.render("product/productCart")
