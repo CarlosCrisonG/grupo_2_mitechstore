@@ -39,9 +39,10 @@ h3.titulo {
 .propiedades {
     width: 100%;
     display: flex;
-    gap: 26px 90px;
+    gap: 26px 45px;
     flex-direction: row;
-    flex-wrap: wrap;;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .input::placeholder {
@@ -184,10 +185,14 @@ textarea {
         font-size: 18px;
     }
 
-    .buttons button:hover {
+    .create-button:hover {
         background-color: gray;
         cursor: pointer;
-        ;
+    }
+
+    .delete-button:hover {
+        cursor: pointer;
+        background-color: rgb(167, 10, 10);
     }
 
     textarea {
