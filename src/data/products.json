@@ -26,7 +26,7 @@
       "Monitoreo All-day",
       "12 días de duración de batería​"
     ],
-    "inSale": "true"
+    "inSale": true
   },
   {
     "id": 2,
@@ -52,7 +52,7 @@
       "El cristal de zafiro* es extremadamente duro y resistente al desgaste",
       "El Xiaomi Watch S1 incluye dos correas: una de cuero de primera calidad y una de fluorocarbono resistente a la suciedad."
     ],
-    "inSale": "true"
+    "inSale": true
   },
   {
     "id": 3,
@@ -79,7 +79,7 @@
       "Cuenta con microfibras para garantizar una penetración uniforme del agua",
       "Las migas se aspiran en un instante"
     ],
-    "inSale": "true"
+    "inSale": true
   },
   {
     "id": 4,
@@ -107,7 +107,7 @@
       "Control de llamadas",
       "Modo de baja latencia para juegos"
     ],
-    "inSale": "true"
+    "inSale": true
   },
   {
     "id": 5,
@@ -136,7 +136,7 @@
       "Procesador MediaTek Helio G88",
       "Batería de 5000 mAh con carga rápida de 18W"
     ],
-    "inSale": "true"
+    "inSale": true
   },
   {
     "id": 6,
@@ -165,7 +165,7 @@
       "Cámara cuádruple, principal de 50 MP",
       "Doble altavoz para un sonido estéreo"
     ],
-    "inSale": "false"
+    "inSale": false
   },
   {
     "id": 7,
@@ -192,7 +192,7 @@
       "arga turbo de 67 W con cable + inalámbrica de 50 W",
       "Xiaomi ProFocus"
     ],
-    "inSale": "false"
+    "inSale": false
   },
   {
     "id": 8,
@@ -218,7 +218,7 @@
       "Deslizamiento y desplazamiento silenciosos con rueda de goma suave",
       "Ligero y de tamaño compacto que es fácil de usar y llevar"
     ],
-    "inSale": "false"
+    "inSale": false
   },
   {
     "id": 9,
@@ -243,7 +243,7 @@
       "Disfruta de tus canciones favoritas con absoluta nitidez y todo lujo de detalle",
       "Sonido graves profundos y definidos y unos agudos dulces y equilibrados."
     ],
-    "inSale": "false"
+    "inSale": false
   },
   {
     "id": 10,
@@ -270,7 +270,7 @@
       "Es ajustable en ancho y se adapta a la mayoría de los teléfonos inteligentes",
       "Navegación y carga al mismo tiempo"
     ],
-    "inSale": "false"
+    "inSale": false
   },
   {
     "id": 11,
@@ -297,7 +297,7 @@
       "AMOLED de 120 Hz",
       "Procesador flagship Qualcomm Snapdragon™ 888"
     ],
-    "inSale": "false"
+    "inSale": false
   },
   {
     "id": 12,
@@ -323,6 +323,6 @@
       "Su certificación IP55 lo que lo hace ideal para hacer uso de este en exteriores",
       "86x86x45mm de tamaño y un peso de solo 182 gramos"
     ],
-    "inSale": "false"
+    "inSale": false
   }
 ]
