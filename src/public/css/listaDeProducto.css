@@ -34,7 +34,7 @@ main{
     
 }
 
-h1{
+.conteiner-h1 h3{
     color: #FF6700;
     text-align: center;
 }
@@ -89,7 +89,7 @@ a{
     width: 90%;
 }
 
-h3{
+.titulo-producto h3{
     font-size: 25px;
     margin-bottom: 10px;
     margin-top: 0;
