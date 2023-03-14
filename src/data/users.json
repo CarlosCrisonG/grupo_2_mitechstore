@@ -52,7 +52,7 @@
     "country": "Vietnam",
     "region": "FJ-W",
     "city": "Hội An",
-    "zip": null,
+    "zip": "765666",
     "address": "5 Forest Dale Junction"
   }, {
     "id": 5,
@@ -80,7 +80,7 @@
     "country": "China",
     "region": "PG-WPD",
     "city": "Wanglinkou",
-    "zip": null,
+    "zip": "349012",
     "address": "60 Mendota Lane"
   }, {
     "id": 7,
@@ -136,7 +136,7 @@
     "country": "China",
     "region": "NI-AN",
     "city": "Bohai",
-    "zip": null,
+    "zip": "523234",
     "address": "3 Cottonwood Parkway"
   }, {
     "id": 11,
@@ -150,7 +150,7 @@
     "country": "China",
     "region": "US-NM",
     "city": "Zhulan",
-    "zip": null,
+    "zip": "646456",
     "address": "1187 Forest Pass"
   }, {
     "id": 12,
@@ -304,7 +304,7 @@
     "country": "Indonesia",
     "region": "SB-MK",
     "city": "Tapan",
-    "zip": null,
+    "zip": "45768",
     "address": "0096 Meadow Ridge Plaza"
   }, {
     "id": 23,
@@ -332,7 +332,7 @@
     "country": "China",
     "region": "US-NY",
     "city": "Dongjie",
-    "zip": null,
+    "zip": "987456",
     "address": "0 Armistice Pass"
   }, {
     "id": 25,
@@ -387,7 +387,7 @@
     "userprofile": "Vendedor",
     "country": "Russia",
     "region": "US-TX",
-    "city": "Pristen’",
+    "city": "Pristen",
     "zip": "306205",
     "address": "2 Lakeland Point"
   }, {
