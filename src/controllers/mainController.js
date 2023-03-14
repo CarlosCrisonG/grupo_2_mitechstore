@@ -13,7 +13,7 @@ const controller = {
 
     const highlightedProducts = products.filter(product => product.highlight == "true");
 
-    const onSale = products.filter(product => product.inSale);
+    const onSale = products.filter(product => product.inSale == true);
 
     res.render("main/index", { onSale, highlightedProducts });
   },

@@ -137,6 +137,31 @@ li.caracteristicas {
     margin-bottom: 25px;
 }
 
+.admin-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly
+}
+
+.edit-button,
+.delete-button {
+    width: 100%;
+    margin-top: 10px;
+    border: solid rgb(197 194 194) 1px;
+    border-left: none;
+    border-right: none;
+    font-family: 'Raleway', sans-serif;
+    background-color: #FF6700;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    transition: all 400ms;
+}
+
+.delete-button {
+    padding: 15px 20px;
+}
+
 /* ---------------------Estilos Carrusel -- Inicio */
 #carrusel {
     width: 100%;
@@ -284,7 +309,8 @@ li.caracteristicas {
         font-size: 15px;
     }
 
-    .comprar:hover {
+    .comprar:hover,
+    .edit-button:hover {
         background-color: gray;
         cursor: pointer;
     }
@@ -301,6 +327,16 @@ li.caracteristicas {
     .next:hover {
         background-color: rgb(255, 255, 255);
     }
+
+    .admin-buttons {
+        justify-content: flex-start;
+        gap: 0px 20px;
+    }
+
+    .delete-button:hover {
+        cursor: pointer;
+        background-color: rgb(167, 10, 10);
+    }
 }
 
 @media (min-width: 1025px) {
@@ -310,7 +346,7 @@ li.caracteristicas {
     }
 
     .cuotas {
-        margin-right: 45px;
+        margin-right: 60px;
     }
 
     .right-box {
