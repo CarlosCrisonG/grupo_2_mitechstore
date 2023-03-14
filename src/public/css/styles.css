@@ -13,7 +13,15 @@
 /*Usar como => font-family: 'Montserrat', sans-serif; */
 
 /*Tamaños de Fuentes ---- Inicio */
-p, h1, h2, h3, h4, h5, h6, span, a {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -45,6 +53,7 @@ h5 {
 h6 {
     font-size: 14px;
 }
+
 /*Tamaños de Fuentes ---- Fin */
 
 /*Estilos del Header ---- Inicio */
@@ -70,11 +79,11 @@ h6 {
 }
 
 @keyframes scroll {
-    0%{
+    0% {
         transform: translateX(100%);
     }
 
-    100%{
+    100% {
         transform: translateX(-100%);
     }
 }
@@ -187,6 +196,11 @@ li.main-header-navbar-element a {
     display: block
 }
 
+nav.categorias-navbar ul a {
+    text-decoration: none;
+    color: black;
+}
+
 /*Laptop*/
 @media (min-width: 769px) {
 
@@ -194,7 +208,7 @@ li.main-header-navbar-element a {
         display: block;
     }
 
-    .ad-text{
+    .ad-text {
         display: none;
     }
 
@@ -279,13 +293,13 @@ li.main-header-navbar-element a {
 
 }
 
-    @media (min-width: 1025px) {
-        div.search-bar {
-            width: 30%;
-        }
+@media (min-width: 1025px) {
+    div.search-bar {
+        width: 30%;
     }
-        
-    
+}
+
+
 /*Estilos del Header ---- Fin */
 
 /*Estilos del Footer ---- Inicio */
@@ -298,7 +312,7 @@ footer {
     padding: 40px 0;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: black;
 }
@@ -338,29 +352,30 @@ div.redesSocialesDiv div.redesSocialesIcon {
     gap: 9px;
 }
 
-svg.icons{
+svg.icons {
     width: 30px;
     height: 30px;
 }
 
 /* tablets */
 @media(min-width:768px) {
-    div.noticiasDiv{
+    div.noticiasDiv {
         display: flex;
         flex-grow: 0.2;
         flex-direction: column;
         gap: 8px;
     }
 
-    div.noticiasDiv div.emailInput label i.fa-envelope{
+    div.noticiasDiv div.emailInput label i.fa-envelope {
         font-size: 1.5em;
     }
 }
 
 /* desktop */
 @media(min-width:1024px) {
-    footer{
+    footer {
         padding: 40px 60px;
     }
 }
+
 /*Estilos del Footer ---- Fin */
