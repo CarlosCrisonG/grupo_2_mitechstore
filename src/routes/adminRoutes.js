@@ -26,7 +26,7 @@ router.post("/", upload.array("images"), adminController.create);
 
 router.get("/editproduct/:id", adminController.editProduct);
 
-router.put("/:id", adminController.edit);
+router.put("/:id",upload.array("images"), adminController.edit);
 
 router.delete("/:id",adminController.delete);
 
