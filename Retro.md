@@ -48,6 +48,7 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 
 ### 2. Hacer más:
 - Agregar fotos a los comentarios de los pull request.
+- Ser más participativos en los reviews de los pull request.
 
 ### 3. Continuar haciendo:
 - Trabajando en ramas y solicitando pull request.
@@ -55,9 +56,10 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 - Seguir manteniendo actualizado el tablero de Trello.
 
 ### 4. Hacer menos:
-
+- No mantener actualizado el Github y el Trello.
 
 ### 5. Dejar de hacer:
-
+- Trabajar directamente en la rama main.
+- No realizar la revisión de los pull request.
 
 <br />
