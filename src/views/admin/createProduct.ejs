@@ -1,5 +1,5 @@
 <%- include("../partials/head", {
-    stylePag: "createProduct", title: "Creacion de Producto"
+    stylePag: "createProduct", title: "Crear producto"
   }) %>
   
 <body>
@@ -32,11 +32,11 @@
             <label class="label" for="">Categoría: </label>
             <select id="categorias" name="category">
                <option value="" disabled selected>Elige</option>
-               <option value="cel">Celulares</option>
-               <option value="comp">Computadoras</option>
-               <option value="acc">Accesorios</option>
-               <option value="elect">Electrodomésticos</option>
-               <option value="cuidp">Cuidado personal</option>
+               <option value="celulares">Celulares</option>
+               <option value="computadoras">Computadoras</option>
+               <option value="accesorios">Accesorios</option>
+               <option value="electrodomesticos">Electrodomésticos</option>
+               <option value="cuidadoPersonal">Cuidado personal</option>
             </select>
          </div>
          <div class="categorias">
@@ -114,8 +114,8 @@
          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"></textarea>
       </div>
       <div class="buttons">
-         <button type="reset">Borrar</button>
-         <a href="/"><button type="submit">Crear producto</button></a> <br>
+         <button class="delete-button" type="reset">Borrar</button>
+         <a href="/"><button class="create-button" type="submit">Crear producto</button></a> <br>
       </div>
    </form>
  </main>
