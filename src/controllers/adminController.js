@@ -74,6 +74,12 @@ const controller = {
       (product) => product.id == id
     );
 
+    const images = []
+
+    req.files.forEach((file) => {
+      images.push(file.filename);
+    });
+
     const colors =
       typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
@@ -82,6 +88,7 @@ const controller = {
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
+      images: images.length ? images : products[productToEditIndex].images,
       discount: req.body.discount,
       category: req.body.category,
       highlight: req.body.highlight,
