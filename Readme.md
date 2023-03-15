@@ -16,7 +16,7 @@ Tienda de productos de tecnología exclusiva para productos y accesorios marca X
 Sprint 1: https://trello.com/b/bxqi7wBT/proyecto-integrador<br />
 Sprint 2: https://trello.com/b/cIFR3m3x/sprint-2<br />
 Sprint 3: https://trello.com/b/69R4k4XY/sprint-3<br />
-Sprint 4:<br />
+Sprint 4: https://trello.com/b/6AXsEJKn/sprint-4<br />
 
 <br />
 
