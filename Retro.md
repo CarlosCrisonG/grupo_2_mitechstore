@@ -63,3 +63,24 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 - No realizar la revisión de los pull request.
 
 <br />
+
+# Sprint 4
+
+### 1. Comenzar a hacer:
+- Revisar y probar con más calma cada pull request
+
+### 2. Hacer más:
+- Participar más en las revisiones de los pull request
+
+### 3. Continuar haciendo:
+- Continuar con la planeación y ejecución de tareas en el Trello
+- Continuar trabajando en ramas y solicitando pull request
+- Continuar reuniéndonos varias veces por semana
+
+### 4. Hacer menos:
+- Olvidarse de actualizar el estado de las tareas en el Trello
+
+### 5. Dejar de hacer:
+- Ninguna
+
+<br />
