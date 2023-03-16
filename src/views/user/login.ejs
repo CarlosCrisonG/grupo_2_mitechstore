@@ -13,9 +13,9 @@
 
         </div>
 
-        <form class="form" action="" method="POST">
+        <form class="form" action="/user/consult" method="POST">
 
-          <input class="input" type="email" placeholder="Correo electrónico" name="email">
+          <input class="input" type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
 
           <input class="input" type="password" placeholder="Contraseña" name="password">
 

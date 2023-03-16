@@ -37,7 +37,7 @@ const controller = {
 
     users.push(user);
 
-    fs.writeFileSync(usersPath, JSON.stringify(users));
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
 
     res.redirect("/");
 
@@ -45,6 +45,24 @@ const controller = {
   login: (req, res) => {
     res.render("user/login");
   },
+  consult: (req, res) => {
+    const users = getusers();
+
+    const user = {
+      email: req.body.email,
+      password: req.body.password
+    }
+
+    users.forEach(person => {
+      if ((user.email == person.email) && (bcrypt.compareSync(user.password, person.password))) {
+        return res.redirect("/")
+      }
+    });
+
+    delete user.password;    
+
+    res.render("user/login", { oldData: user });
+  }
 };
 
 module.exports = controller;

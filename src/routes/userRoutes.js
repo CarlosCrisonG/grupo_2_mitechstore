@@ -10,4 +10,6 @@ router.post("/", upload.single("avatar"), userController.create)
 
 router.get("/login", userController.login);
 
+router.post("/consult", userController.consult);
+
 module.exports = router;
