@@ -53,13 +53,11 @@ const controller = {
       password: req.body.password
     }
 
-    users.forEach(person => {
-      if ((user.email == person.email) && (bcrypt.compareSync(user.password, person.password))) {
-        return res.redirect("/")
-      }
-    });
+    if (users.find(person => (user.email == person.email) && (bcrypt.compareSync(user.password, person.password)))) {
+      return res.redirect("/")
+    }
 
-    delete user.password;    
+    delete user.password;
 
     res.render("user/login", { oldData: user });
   }
