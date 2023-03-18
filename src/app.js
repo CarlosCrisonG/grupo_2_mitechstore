@@ -2,6 +2,10 @@
 const express = require("express");
 const app = express();
 
+//Express - session
+const session = require("express-session");
+app.use(session({ secret: "Palabra secreta" }));
+
 //Requerimos Path
 const path = require("path");
 const publicPath = path.resolve(__dirname, "./public");

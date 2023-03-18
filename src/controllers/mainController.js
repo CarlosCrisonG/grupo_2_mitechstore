@@ -15,7 +15,7 @@ const controller = {
 
     const onSale = products.filter(product => product.inSale == true);
 
-    res.render("main/index", { onSale, highlightedProducts });
+    res.render("main/index", { onSale, highlightedProducts, user: req.session.userLogged });
   },
 };
 

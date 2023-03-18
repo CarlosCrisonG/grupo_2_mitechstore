@@ -53,7 +53,17 @@ const controller = {
       password: req.body.password
     }
 
-    if (users.find(person => (user.email == person.email) && (bcrypt.compareSync(user.password, person.password)))) {
+    const userFound = users.find(person => (user.email == person.email))
+
+    if (userFound && (bcrypt.compareSync(user.password, userFound.password))) {
+      delete userFound.password;
+
+      req.session.userLogged = {
+        first_name: userFound.first_name,
+        last_name: userFound.last_name,
+        email: userFound.email
+      }
+
       return res.redirect("/")
     }
 
