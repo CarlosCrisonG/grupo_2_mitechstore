@@ -9,7 +9,7 @@
       <!--Contenido HTML de Registro - Inicio -->
       <main>
         <h3>Editar información de usuario</h3>
-        <form action="/editUser/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form class="formulario-registro" action="/editUser/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
           <input class="input" type="text" placeholder="Nombre" name="nombre" value="<%= user.first_name %>" required>
           <input class="input" type="text" placeholder="Apellido" name="apellido" value="<%= user.last_name %>" required>
           <input class="input" type="email" placeholder="Correo electrónico" name="email" value="<%= user.email %>" required>
@@ -57,7 +57,7 @@
           </div>
           <input class="input" type="text" placeholder="Provincia / Región" name="provincia" value="<%= user.region %>" required>
           <input class="input" type="text" placeholder="Ciudad" name="ciudad" value="<%= user.city %>" required>
-          <input class="input" type="number" placeholder="Código postal" name="codigoPostal" value="<%= user.zip %>" required>
+          <input class="input" type="text" placeholder="Código postal" name="codigoPostal" value="<%= user.zip %>" required>
           <input class="input" type="text" placeholder="Dirección" name="direccion" value="<%= user.address %>" required>
           <div id="create-account-button">
             <button class="reset" type="reset">Borrar</button>
