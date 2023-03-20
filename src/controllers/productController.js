@@ -15,7 +15,7 @@ const controller = {
 
     const product = products.find(product => product.id == id);
 
-    res.render("product/productDetail", { product })
+    res.render("product/productDetail", { product, user: req.session.userLogged })
   },
   productList: (req, res) => {
     let allProducts = getProducts();
@@ -54,7 +54,7 @@ const controller = {
 
   },
   productCart: (req, res) => {
-    res.render("product/productCart")
+    res.render("product/productCart", { user: req.session.userLogged })
   },
 };
 

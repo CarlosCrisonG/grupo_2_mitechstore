@@ -8,7 +8,7 @@ function getProducts() {
 
 const controller = {
   createProduct: (req, res) => {
-    res.render("admin/createProduct");
+    res.render("admin/createProduct", { user: req.session.userLogged });
   },
   create: (req, res) => {
     const products = getProducts();
@@ -59,7 +59,7 @@ const controller = {
 
     const product = products.find((product) => product.id == id);
 
-    res.render("admin/editProduct", { product });
+    res.render("admin/editProduct", { product, user: req.session.userLogged });
   },
   edit: (req, res) => {
     const id = req.params.id;
@@ -115,7 +115,7 @@ const controller = {
     );
 
     products[productToDeleteIndex].images.forEach((image) => {
-      if(image != "defaultProduct.png"){
+      if (image != "defaultProduct.png") {
         fs.unlinkSync(path.join(__dirname, "../public/images/products/", image));
       }
     });
