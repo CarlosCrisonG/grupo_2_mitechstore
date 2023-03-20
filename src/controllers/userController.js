@@ -68,6 +68,9 @@ const controller = {
     delete user.password;
 
     res.render("user/login", { oldData: user });
+  },
+  profile: (req, res) => {
+    res.render("Espcio para poner la vista", { user: req.session.userLogged })
   }
 };
 
