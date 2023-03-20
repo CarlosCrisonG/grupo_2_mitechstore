@@ -32,15 +32,14 @@ const controller = {
       region: req.body.region,
       city: req.body.city,
       zip: req.body.zip,
-      address: req.body.address
-    }
+      address: req.body.address,
+    };
 
     users.push(user);
 
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
 
     res.redirect("/user/login");
-
   },
   login: (req, res) => {
     res.render("user/login");
@@ -50,19 +49,19 @@ const controller = {
 
     const user = {
       email: req.body.email,
-      password: req.body.password
-    }
+      password: req.body.password,
+    };
 
-    const userFound = users.find(person => (user.email == person.email))
+    const userFound = users.find((person) => user.email == person.email);
 
-    if (userFound && (bcrypt.compareSync(user.password, userFound.password))) {
+    if (userFound && bcrypt.compareSync(user.password, userFound.password)) {
       delete userFound.password;
 
       req.session.userLogged = {
         ...userFound,
-      }
+      };
 
-      return res.redirect("/")
+      return res.redirect("/");
     }
 
     delete user.password;
@@ -70,8 +69,13 @@ const controller = {
     res.render("user/login", { oldData: user });
   },
   profile: (req, res) => {
-    res.render("Espcio para poner la vista", { user: req.session.userLogged })
-  }
+    res.render("Espcio para poner la vista", { user: req.session.userLogged });
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+
+    res.redirect("/");
+  },
 };
 
 module.exports = controller;
