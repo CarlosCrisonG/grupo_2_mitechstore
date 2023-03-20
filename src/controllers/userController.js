@@ -27,7 +27,7 @@ const controller = {
       password: bcrypt.hashSync(req.body.password, 10),
       phone: req.body.phone,
       avatar,
-      userprofile: req.body.userprofile,
+      userprofile: req.body.userprofile.toLowerCase(),
       country: req.body.country,
       region: req.body.region,
       city: req.body.city,
@@ -39,7 +39,7 @@ const controller = {
 
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
 
-    res.redirect("/");
+    res.redirect("/user/login");
 
   },
   login: (req, res) => {
@@ -61,7 +61,7 @@ const controller = {
       req.session.userLogged = {
         ...userFound,
       }
-      
+
       return res.redirect("/")
     }
 
