@@ -36,7 +36,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(publicPath));
 
 //Iniciamos el servidor
-app.listen(port, () => console.log("Servidor corriendo en puerto 3000"));
+app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
 
 //Rutas principales (index)
 app.use("/", mainRoutes);
