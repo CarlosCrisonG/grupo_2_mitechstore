@@ -59,11 +59,9 @@ const controller = {
       delete userFound.password;
 
       req.session.userLogged = {
-        first_name: userFound.first_name,
-        last_name: userFound.last_name,
-        email: userFound.email
+        ...userFound,
       }
-
+      
       return res.redirect("/")
     }
 
