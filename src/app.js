@@ -4,7 +4,7 @@ const app = express();
 
 //Express - session
 const session = require("express-session");
-app.use(session({ secret: "Palabra secreta" }));
+app.use(session({ secret: "Palabra secreta",resave:false, saveUninitialized:false }));
 
 //Requerimos Path
 const path = require("path");
