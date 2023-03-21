@@ -4,7 +4,7 @@ const app = express();
 
 //Express - session
 const session = require("express-session");
-app.use(session({ secret: "Palabra secreta",resave:false, saveUninitialized:false }));
+app.use(session({ secret: "Palabra secreta", resave: false, saveUninitialized: false }));
 
 //Requerimos Path
 const path = require("path");
@@ -20,6 +20,10 @@ app.set("views", path.join(__dirname, "views"));
 //configuración para que lleguen los datos por post
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+//middleware para pasarle la variable local del usuario a todas las vistas
+const authMiddleware = require("./middlewares/authMiddleware");
+app.use(authMiddleware);
 
 //rutas
 const mainRoutes = require("./routes/mainRoutes");

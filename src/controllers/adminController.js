@@ -8,7 +8,7 @@ function getProducts() {
 
 const controller = {
   createProduct: (req, res) => {
-    res.render("admin/createProduct", { user: req.session.userLogged });
+    res.render("admin/createProduct");
   },
   create: (req, res) => {
     const products = getProducts();
@@ -59,7 +59,7 @@ const controller = {
 
     const product = products.find((product) => product.id == id);
 
-    res.render("admin/editProduct", { product, user: req.session.userLogged });
+    res.render("admin/editProduct", { product });
   },
   edit: (req, res) => {
     const id = req.params.id;
