@@ -23,6 +23,7 @@ const productsRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const partialsRoutes = require("./routes/partialsRoutes");
+const testRoutes = require("./routes/testRoutes");
 
 //method override
 const methodOverride = require("method-override");
@@ -48,3 +49,6 @@ app.use("/admin", adminRoutes);
 
 //rutas para los partials (header,footer)
 app.use("/partials", partialsRoutes);
+
+//rutas para testear
+app.use("/test", testRoutes);

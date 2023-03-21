@@ -282,7 +282,7 @@ nav.categorias-navbar ul a {
 
     .categoria:hover {
         background-color: lightgray;
-        cursor: default;
+        cursor: pointer;
         box-shadow: 0px 0px 5px rgb(100, 100, 100);
     }
 
