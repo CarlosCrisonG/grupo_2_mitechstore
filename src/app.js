@@ -2,6 +2,10 @@
 const express = require("express");
 const app = express();
 
+//Express - cookie
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 //Express - session
 const session = require("express-session");
 app.use(session({ secret: "Palabra secreta", resave: false, saveUninitialized: false }));
