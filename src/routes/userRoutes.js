@@ -14,6 +14,6 @@ router.post("/consult", userController.consult);
 
 router.get("/profile", userController.profile);
 
-router.post("/logout", userController.logout);
+router.get("/logout", userController.logout);
 
 module.exports = router;
