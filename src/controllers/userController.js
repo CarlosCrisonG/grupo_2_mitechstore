@@ -77,7 +77,7 @@ const controller = {
   update: (req, res) => {
     const users = getusers()
 
-    const userToUpdateIndex = users.findIndex(user => user.id == req.body.id);
+    const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
 
     const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
 
@@ -94,6 +94,7 @@ const controller = {
       userprofile: req.body.userprofile,
       country: req.body.country,
       region: req.body.region,
+      city:req.body.city,
       zip: req.body.zip,
       address: req.body.address,
     }
@@ -113,6 +114,9 @@ const controller = {
 
     res.redirect("/");
   },
+  delete: (req,res)=>{
+
+  }
 };
 
 module.exports = controller;
