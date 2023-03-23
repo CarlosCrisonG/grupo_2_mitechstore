@@ -16,13 +16,16 @@
             <% if (locals.user) { %>
               <li class="main-header-navbar-element"><a href="/user/edit"><%= user.first_name %> <%= user.last_name %> <i class="fa-solid fa-user"></i></a></li>
               <li class="main-header-navbar-element"><a href="/user/logout">Salir de la sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+              <form action="/user/destroy" method="POST">
+                <button type="submit">Elimina tu usuario</button>
+              </form>
             <% }else {%>
               <li class="main-header-navbar-element"><a href="/user/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
             <% } %>
               <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
             <% if (locals.user && user.userprofile == "vendedor") { %>
               <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
-            <% } %>
+            <% } %>            
           </ul>
         </nav>
       </div>
