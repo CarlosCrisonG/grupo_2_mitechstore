@@ -71,6 +71,43 @@ const controller = {
   profile: (req, res) => {
     res.render("Espcio para poner la vista", { user: req.session.userLogged });
   },
+  edit: (req, res) => {
+    res.render("user/editprofile");
+  },
+  update: (req, res) => {
+    const users = getusers()
+
+    const userToUpdateIndex = users.findIndex(user => user.id == req.body.id);
+
+    const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
+
+    const password = req.body.password ? bcrypt.hashSync(req.body.password, 10) : users[userToUpdateIndex].password;
+
+    users[userToUpdateIndex] = {
+      ...users[userToUpdateIndex],
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password,
+      phone: req.body.phone,
+      avatar,
+      userprofile: req.body.userprofile,
+      country: req.body.country,
+      region: req.body.region,
+      zip: req.body.zip,
+      address: req.body.address,
+    }
+
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
+
+    delete users[userToUpdateIndex].password;
+
+    req.session.userLogged = {
+      ...users[userToUpdateIndex]
+    };
+
+    res.redirect("/");
+  },
   logout: (req, res) => {
     req.session.destroy();
 

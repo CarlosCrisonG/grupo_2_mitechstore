@@ -14,6 +14,10 @@ router.post("/consult", userController.consult);
 
 router.get("/profile", userController.profile);
 
+router.get("/edit", userController.edit);
+
+router.put("/", upload.single("avatar"), userController.update);
+
 router.get("/logout", userController.logout);
 
 module.exports = router;
