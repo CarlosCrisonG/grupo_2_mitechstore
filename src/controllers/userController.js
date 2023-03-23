@@ -44,7 +44,7 @@ const controller = {
   login: (req, res) => {
     res.render("user/login");
   },
-  consult: (req, res) => {
+  processLogin: (req, res) => {
     const users = getusers();
 
     const user = {
