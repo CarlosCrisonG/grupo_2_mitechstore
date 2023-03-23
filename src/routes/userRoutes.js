@@ -20,4 +20,6 @@ router.put("/", upload.single("avatar"), userController.update);
 
 router.get("/logout", userController.logout);
 
+router.post("/destroy",userController.destroyUser);
+
 module.exports = router;

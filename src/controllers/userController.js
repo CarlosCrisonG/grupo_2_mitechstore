@@ -94,7 +94,7 @@ const controller = {
       userprofile: req.body.userprofile,
       country: req.body.country,
       region: req.body.region,
-      city:req.body.city,
+      city: req.body.city,
       zip: req.body.zip,
       address: req.body.address,
     }
@@ -114,8 +114,20 @@ const controller = {
 
     res.redirect("/");
   },
-  delete: (req,res)=>{
+  destroyUser: (req, res) => {
+    const users = getusers();
 
+    const userToDestroyIndex = users.findIndex(user => user.id == req.session.userLogged.id);
+
+    fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", users[userToDestroyIndex].avatar));
+
+    users.splice(userToDestroyIndex, 1);
+
+    req.session.destroy();
+
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
+
+    res.redirect("/");
   }
 };
 
