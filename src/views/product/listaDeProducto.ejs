@@ -47,10 +47,11 @@
                         <div class="precio-producto">
                             <span>$<%= product.price %></span>
                         </div>
-        
-                        <div class="descuento-producto">
-                            <span><%= product.discount %>% OFF</span>
-                        </div>
+                        <% if (product.discount > 0) { %>
+                            <div class="descuento-producto">
+                                <span><%= product.discount %>% OFF</span>
+                            </div>
+                        <% } %>
                     </div>
     
                     <div class="descripcion-producto">

@@ -74,6 +74,17 @@ main{
     
 }
 
+.conteiner-producto:hover {
+    transform: scale(1.1);
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;
+  }
+
 a{
     background-color: transparent;
     text-decoration: none;
@@ -169,7 +180,7 @@ a{
   /*Desktop*/
   @media (min-width: 1024px) {
     .productos {
-      justify-content: flex-start;
+      justify-content: center;
     }
     .conteiner-producto {
       width: 20%;
