@@ -16,7 +16,7 @@
             <% if (locals.user) { %>
               <li class="main-header-navbar-element"><a href="/user/edit"><%= user.first_name %> <%= user.last_name %> <i class="fa-solid fa-user"></i></a></li>
               <li class="main-header-navbar-element"><a href="/user/logout">Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
-              <form action="/user/destroy" method="POST">
+              <form action="/user/destroy?_method=DELETE" method="POST">
                 <button type="submit">Elimina tu usuario</button>
               </form>
             <% }else {%>
