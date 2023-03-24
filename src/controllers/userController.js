@@ -72,7 +72,7 @@ const controller = {
     res.render("Espcio para poner la vista", { user: req.session.userLogged });
   },
   edit: (req, res) => {
-    res.render("user/editprofile");
+    res.render("admin/editUser");
   },
   update: (req, res) => {
     const users = getusers()
