@@ -15,7 +15,7 @@ const controller = {
   create: (req, res) => {
     const users = getusers();
 
-    const avatar = req.file ? req.file.filename : "defaultUser.png";
+    const avatar = req.file ? req.file.filename : "defaultUser.jpg";
 
     const id = users[users.length - 1].id + 1;
 
