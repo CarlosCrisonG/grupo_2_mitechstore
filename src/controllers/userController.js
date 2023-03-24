@@ -119,7 +119,9 @@ const controller = {
 
     const userToDestroyIndex = users.findIndex(user => user.id == req.session.userLogged.id);
 
-    fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", users[userToDestroyIndex].avatar));
+    if(users[userToDestroyIndex].avatar != "defaultUser.jpg"){
+      fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", users[userToDestroyIndex].avatar));
+    }
 
     users.splice(userToDestroyIndex, 1);
 
