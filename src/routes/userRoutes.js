@@ -10,7 +10,7 @@ router.post("/", upload.single("avatar"), userController.create)
 
 router.get("/login", userController.login);
 
-router.post("/consult", userController.processLogin);
+router.post("/processLogin", userController.processLogin);
 
 router.get("/profile", userController.profile);
 
