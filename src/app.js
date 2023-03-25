@@ -32,7 +32,7 @@ app.use(authMiddleware);
 //rutas
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productRoutes");
-const userRoutes = require("./routes/userRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const partialsRoutes = require("./routes/partialsRoutes");
 const testRoutes = require("./routes/testRoutes");
@@ -54,7 +54,7 @@ app.use("/", mainRoutes);
 app.use("/product", productsRoutes);
 
 //rutas para control de usuarios (login, register)
-app.use("/user", usersRoutes);
+app.use("/users", usersRoutes);
 
 //rutas para administradores (crear producto)
 app.use("/admin", adminRoutes);

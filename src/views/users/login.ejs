@@ -13,7 +13,7 @@
 
         </div>
 
-        <form class="form" action="/user/processLogin" method="POST">
+        <form class="form" action="/users/processLogin" method="POST">
 
           <input class="input" type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
 
@@ -38,7 +38,7 @@
 
         <div class="contenedorNoTienes">
 
-          <a href="/user/register">¿No tienes una cuenta? Crea una aquí</a>
+          <a href="/users/register">¿No tienes una cuenta? Crea una aquí</a>
 
         </div>
       </main>

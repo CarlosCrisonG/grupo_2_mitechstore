@@ -10,7 +10,7 @@ function getusers() {
 
 const controller = {
   register: (req, res) => {
-    res.render("user/register");
+    res.render("users/register");
   },
   create: (req, res) => {
     const users = getusers();
@@ -39,10 +39,10 @@ const controller = {
 
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
 
-    res.redirect("/user/login");
+    res.redirect("/users/login");
   },
   login: (req, res) => {
-    res.render("user/login");
+    res.render("users/login");
   },
   processLogin: (req, res) => {
     const users = getusers();
@@ -66,7 +66,7 @@ const controller = {
 
     delete user.password;
 
-    res.render("user/login", { oldData: user });
+    res.render("users/login", { oldData: user });
   },
   profile: (req, res) => {
     res.render("Espcio para poner la vista", { user: req.session.userLogged });

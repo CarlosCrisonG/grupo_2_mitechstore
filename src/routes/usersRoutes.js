@@ -2,24 +2,24 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middlewares/multerUsers");
 
-const userController = require("../controllers/userController");
+const usersController = require("../controllers/usersController");
 
-router.get("/register", userController.register);
+router.get("/register", usersController.register);
 
-router.post("/", upload.single("avatar"), userController.create)
+router.post("/", upload.single("avatar"), usersController.create)
 
-router.get("/login", userController.login);
+router.get("/login", usersController.login);
 
-router.post("/processLogin", userController.processLogin);
+router.post("/processLogin", usersController.processLogin);
 
-router.get("/profile", userController.profile);
+router.get("/profile", usersController.profile);
 
-router.get("/edit", userController.edit);
+router.get("/edit", usersController.edit);
 
-router.put("/", upload.single("avatar"), userController.update);
+router.put("/", upload.single("avatar"), usersController.update);
 
-router.get("/logout", userController.logout);
+router.get("/logout", usersController.logout);
 
-router.delete("/destroy",userController.destroyUser);
+router.delete("/destroy",usersController.destroyUser);
 
 module.exports = router;

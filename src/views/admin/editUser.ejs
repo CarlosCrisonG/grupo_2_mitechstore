@@ -9,7 +9,7 @@
       <!--Contenido HTML de Registro - Inicio -->
       <main>
         <h3>Editar información de usuario</h3>
-        <form class="formulario-registro" action="/user/?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form class="formulario-registro" action="/users/?_method=PUT" method="POST" enctype="multipart/form-data">
           <input class="input" type="text" placeholder="Nombre" name="first_name" value="<%= user.first_name %>" required>
           <input class="input" type="text" placeholder="Apellido" name="last_name" value="<%= user.last_name %>" required>
           <input class="input" type="email" placeholder="Correo electrónico" name="email" value="<%= user.email %>" required>
