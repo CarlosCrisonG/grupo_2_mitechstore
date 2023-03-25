@@ -115,7 +115,7 @@ const controller = {
     );
 
     products[productToDeleteIndex].images.forEach((image) => {
-      if(image != "defaultProduct.png"){
+      if (image != "defaultProduct.png") {
         fs.unlinkSync(path.join(__dirname, "../public/images/products/", image));
       }
     });

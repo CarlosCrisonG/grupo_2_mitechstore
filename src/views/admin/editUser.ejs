@@ -9,14 +9,13 @@
       <!--Contenido HTML de Registro - Inicio -->
       <main>
         <h3>Editar información de usuario</h3>
-        <form class="formulario-registro" action="/editUser/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-          <input class="input" type="text" placeholder="Nombre" name="nombre" value="<%= user.first_name %>" required>
-          <input class="input" type="text" placeholder="Apellido" name="apellido" value="<%= user.last_name %>" required>
+        <form class="formulario-registro" action="/users/?_method=PUT" method="POST" enctype="multipart/form-data">
+          <input class="input" type="text" placeholder="Nombre" name="first_name" value="<%= user.first_name %>" required>
+          <input class="input" type="text" placeholder="Apellido" name="last_name" value="<%= user.last_name %>" required>
           <input class="input" type="email" placeholder="Correo electrónico" name="email" value="<%= user.email %>" required>
-          <input class="input" type="email" placeholder="Confirmar correo electrónico" name="confirmarEmail" value="<%= user.email %>"required>
-          <input class="input" type="password" placeholder="Contraseña" name="contraseña" required>
-          <input class="input" type="password" placeholder="Confirmar contraseña" name="confirmarContraseña" required>
-          <input class="input" type="number" placeholder="Número de teléfono" name="telefono" value="<%= user.phone %>" required>
+          <input type="number" name="id" value="<%= user.id %>" style="display: none;">          
+          <input class="input" type="password" placeholder="Contraseña" name="password">          
+          <input class="input" type="number" placeholder="Número de teléfono" name="phone" value="<%= user.phone %>" required>
           <br>
 
           <div class="perfil-label">
@@ -31,18 +30,18 @@
           </div>
           <div class="perfil">
             <div>
-              <input id="comprador" type="radio" name="perfil-usuario" value="Comprador" <%= user.userprofile == "Comprador" ? 'checked' : null %>>
+              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= user.userprofile == "comprador" ? "checked" : null %>>
               <label for="comprador">Comprador</label>
             </div>
             <div>
-              <input id="vendedor" type="radio" name="perfil-usuario" value="Vendedor" <%= user.userprofile == "Vendedor" ? 'checked' : null %>>
+              <input id="vendedor" type="radio" name="userprofile" value="vendedor" <%= user.userprofile == "vendedor" ? "checked" : null %>>
               <label for="vendedor">Vendedor</label>
             </div>
 
           </div>
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
-            <select id="paises" name="pais">
+            <select id="paises" name="country">
               <option value="arg" <%= user.country == "arg" ? "selected" : null %>>Argentina</option>
               <option value="bol" <%= user.country == "bol" ? "selected" : null %>>Bolivia</option>
               <option value="bra" <%= user.country == "bra" ? "selected" : null %>>Brasil</option>
@@ -55,10 +54,10 @@
               <option value="ven" <%= user.country == "ven" ? "selected" : null %>>Venezuela</option>
             </select>
           </div>
-          <input class="input" type="text" placeholder="Provincia / Región" name="provincia" value="<%= user.region %>" required>
-          <input class="input" type="text" placeholder="Ciudad" name="ciudad" value="<%= user.city %>" required>
-          <input class="input" type="text" placeholder="Código postal" name="codigoPostal" value="<%= user.zip %>" required>
-          <input class="input" type="text" placeholder="Dirección" name="direccion" value="<%= user.address %>" required>
+          <input class="input" type="text" placeholder="Provincia / Región" name="region" value="<%= user.region %>" required>
+          <input class="input" type="text" placeholder="Ciudad" name="city" value="<%= user.city %>" required>
+          <input class="input" type="text" placeholder="Código postal" name="zip" value="<%= user.zip %>" required>
+          <input class="input" type="text" placeholder="Dirección" name="address" value="<%= user.address %>" required>
           <div id="create-account-button">
             <button class="reset" type="reset">Borrar</button>
             <button type="submit">Editar</button>

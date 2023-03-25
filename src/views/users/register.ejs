@@ -9,14 +9,12 @@
       <!--Contenido HTML de Registro - Inicio -->
       <main>
         <h3>Crear cuenta</h3>
-        <form class="formulario-registro" action="" method="POST">
-          <input class="input" type="text" placeholder="Nombre" name="nombre" required>
-          <input class="input" type="text" placeholder="Apellido" name="apellido" required>
-          <input class="input" type="email" placeholder="Correo electrónico" name="email" required>
-          <input class="input" type="email" placeholder="Confirmar correo electrónico" name="confirmarEmail" required>
-          <input class="input" type="password" placeholder="Contraseña" name="contraseña" required>
-          <input class="input" type="password" placeholder="Confirmar contraseña" name="confirmarContraseña" required>
-          <input class="input" type="number" placeholder="Número de teléfono" name="telefono">
+        <form class="formulario-registro" action="/users/" method="POST" enctype="multipart/form-data">
+          <input class="input" type="text" placeholder="Nombre" name="first_name" required>
+          <input class="input" type="text" placeholder="Apellido" name="last_name" required>
+          <input class="input" type="email" placeholder="Correo electrónico" name="email" required>          
+          <input class="input" type="password" placeholder="Contraseña" name="password" required>          
+          <input class="input" type="number" placeholder="Número de teléfono" name="phone">
           <br>
 
           <div class="perfil-label">
@@ -31,18 +29,18 @@
           </div>
           <div class="perfil">
             <div>
-              <input id="comprador" type="radio" name="perfil-usuario" value="Comprador" checked>
+              <input id="comprador" type="radio" name="userprofile" value="comprador" checked>
               <label for="comprador">Comprador</label>
             </div>
             <div>
-              <input id="vendedor" type="radio" name="perfil-usuario" value="Vendedor">
+              <input id="vendedor" type="radio" name="userprofile" value="vendedor">
               <label for="vendedor">Vendedor</label>
             </div>
 
           </div>
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
-            <select id="paises" name="pais">
+            <select id="paises" name="country">
               <option value="arg">Argentina</option>
               <option value="bol">Bolivia</option>
               <option value="bra">Brasil</option>
@@ -55,10 +53,10 @@
               <option value="ven">Venezuela</option>
             </select>
           </div>
-          <input class="input" type="text" placeholder="Provincia / Región" name="provincia" required>
-          <input class="input" type="text" placeholder="Ciudad" name="ciudad" required>
-          <input class="input" type="number" placeholder="Código postal" name="codigoPostal" required>
-          <input class="input" type="text" placeholder="Dirección" name="direccion" required>
+          <input class="input" type="text" placeholder="Provincia / Región" name="region" required>
+          <input class="input" type="text" placeholder="Ciudad" name="city" required>
+          <input class="input" type="number" placeholder="Código postal" name="zip" required>
+          <input class="input" type="text" placeholder="Dirección" name="address" required>
           <div id="create-account-button">
             <button class="reset" type="reset">Borrar</button>
             <button type="submit">Crear</button>
