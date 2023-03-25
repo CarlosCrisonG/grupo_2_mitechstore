@@ -54,7 +54,7 @@ app.use("/", mainRoutes);
 app.use("/product", productsRoutes);
 
 //rutas para control de usuarios (login, register)
-app.use("/user", userRoutes);
+app.use("/user", usersRoutes);
 
 //rutas para administradores (crear producto)
 app.use("/admin", adminRoutes);
