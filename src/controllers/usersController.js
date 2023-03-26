@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
+const { validationResult } = require('express-validator');
 
 const usersPath = path.join(__dirname, "../data/users.json");
 function getusers() {
@@ -13,33 +14,53 @@ const controller = {
     res.render("users/register");
   },
   create: (req, res) => {
-    const users = getusers();
+    const errors = validationResult(req);
 
-    const avatar = req.file ? req.file.filename : "defaultUser.jpg";
+    if (errors.isEmpty()) {
+      const users = getusers();
+      let userInDB = users.find(user => user.email == req.body.email)
+      if (userInDB) {
+        return res.render('users/register', {
+          errors: {
+            email: {
+              msg: "Ya existe un usuario registrado con ese email"
+            }
+          }, oldData: req.body
+        });
+      } else {
+        const avatar = req.file ? req.file.filename : "defaultUser.jpg";
 
-    const id = users[users.length - 1].id + 1;
+        const id = users[users.length - 1].id + 1;
 
-    const user = {
-      id,
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      phone: req.body.phone,
-      avatar,
-      userprofile: req.body.userprofile.toLowerCase(),
-      country: req.body.country,
-      region: req.body.region,
-      city: req.body.city,
-      zip: req.body.zip,
-      address: req.body.address,
-    };
+        const user = {
+          id,
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          email: req.body.email,
+          password: bcrypt.hashSync(req.body.password, 10),
+          phone: req.body.phone,
+          avatar,
+          userprofile: req.body.userprofile.toLowerCase(),
+          country: req.body.country,
+          region: req.body.region,
+          city: req.body.city,
+          zip: req.body.zip,
+          address: req.body.address,
+        };
 
-    users.push(user);
+        users.push(user);
 
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
+        fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
 
-    res.redirect("/users/login");
+        res.redirect("/users/login");
+      }
+    } else {
+        res.render('users/register', {
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
+    }
+
   },
   login: (req, res) => {
     res.render("users/login");
@@ -119,7 +140,7 @@ const controller = {
 
     const userToDestroyIndex = users.findIndex(user => user.id == req.session.userLogged.id);
 
-    if(users[userToDestroyIndex].avatar != "defaultUser.jpg"){
+    if (users[userToDestroyIndex].avatar != "defaultUser.jpg") {
       fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", users[userToDestroyIndex].avatar));
     }
 

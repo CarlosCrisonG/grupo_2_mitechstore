@@ -10,19 +10,43 @@
       <main>
         <h3>Crear cuenta</h3>
         <form class="formulario-registro" action="/users/" method="POST" enctype="multipart/form-data">
-          <input class="input" type="text" placeholder="Nombre" name="first_name" required>
-          <input class="input" type="text" placeholder="Apellido" name="last_name" required>
-          <input class="input" type="email" placeholder="Correo electrónico" name="email" required>          
-          <input class="input" type="password" placeholder="Contraseña" name="password" required>          
-          <input class="input" type="number" placeholder="Número de teléfono" name="phone">
+          <input class="input <%= locals.errors && errors.first_name ? 'is-invalid' : null %>" 
+          type="text" placeholder="Nombre" name="first_name" value="<%= locals.oldData && oldData.first_name ? oldData.first_name : null %>">
+          <% if (locals.errors && errors.first_name) { %>
+            <p class = "error"> <%= errors.first_name.msg %> </p>
+          <% } %>
+          
+          <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
+          type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : null %>">
+          <% if (locals.errors && errors.last_name) { %>
+            <p class = "error"> <%= errors.last_name.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+          type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+          <% if (locals.errors && errors.email) { %>
+            <p class = "error"> <%= errors.email.msg %> </p>
+          <% } %>        
+          <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
+          type="password" placeholder="Contraseña" name="password">
+          <% if (locals.errors && errors.password) { %>
+            <p class = "error"> <%= errors.password.msg %> </p>
+          <% } %>         
+          <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>" 
+          type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : null %>">
+          <% if (locals.errors && errors.phone) { %>
+            <p class = "error"> <%= errors.phone.msg %> </p>
+          <% } %>
           <br>
 
           <div class="perfil-label">
             <label>Seleccione una imagen de perfil</label>
           </div>
           <div class="avatar">
-            <input type="file" name="avatar" accept=".jpg,.png,.jpeg">
+            <input type="file" name="avatar">
           </div>
+          <% if (locals.errors && errors.avatar) { %>
+            <p class = "error"> <%= errors.avatar.msg %> </p>
+          <% } %>
 
           <div class="perfil-label">
             <label>Perfil del usuario</label>
@@ -36,27 +60,48 @@
               <input id="vendedor" type="radio" name="userprofile" value="vendedor">
               <label for="vendedor">Vendedor</label>
             </div>
-
           </div>
+          <% if (locals.errors && errors.userprofile) { %>
+            <p class = "error"> <%= errors.userprofile.msg %> </p>
+          <% } %>
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
             <select id="paises" name="country">
-              <option value="arg">Argentina</option>
-              <option value="bol">Bolivia</option>
-              <option value="bra">Brasil</option>
-              <option value="chi">Chile</option>
-              <option value="col">Colombia</option>
-              <option value="ecu">Ecuador</option>
-              <option value="par">Paraguay</option>
-              <option value="per">Perú</option>
-              <option value="uru">Uruguay</option>
-              <option value="ven">Venezuela</option>
+              <option value="arg" <%= locals.oldData && oldData.country == "arg" ? "selected" : null %> >Argentina</option>
+              <option value="bol" <%= locals.oldData && oldData.country == "bol" ? "selected" : null %>>Bolivia</option>
+              <option value="bra" <%= locals.oldData && oldData.country == "bra" ? "selected" : null %>>Brasil</option>
+              <option value="chi" <%= locals.oldData && oldData.country == "chi" ? "selected" : null %>>Chile</option>
+              <option value="col" <%= locals.oldData && oldData.country == "col" ? "selected" : null %>>Colombia</option>
+              <option value="ecu" <%= locals.oldData && oldData.country == "ecu" ? "selected" : null %>>Ecuador</option>
+              <option value="par" <%= locals.oldData && oldData.country == "par" ? "selected" : null %>>Paraguay</option>
+              <option value="per" <%= locals.oldData && oldData.country == "per" ? "selected" : null %>>Perú</option>
+              <option value="uru" <%= locals.oldData && oldData.country == "uru" ? "selected" : null %>>Uruguay</option>
+              <option value="ven" <%= locals.oldData && oldData.country == "ven" ? "selected" : null %>>Venezuela</option>
             </select>
           </div>
-          <input class="input" type="text" placeholder="Provincia / Región" name="region" required>
-          <input class="input" type="text" placeholder="Ciudad" name="city" required>
-          <input class="input" type="number" placeholder="Código postal" name="zip" required>
-          <input class="input" type="text" placeholder="Dirección" name="address" required>
+          <% if (locals.errors && errors.country) { %>
+            <p class = "error"> <%= errors.country.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.region ? 'is-invalid' : null %>" 
+          type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : null %>">
+          <% if (locals.errors && errors.region) { %>
+            <p class = "error"> <%= errors.region.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.city ? 'is-invalid' : null %>" 
+          type="text" placeholder="Ciudad" name="city" value="<%= locals.oldData && oldData.city ? oldData.city : null %>">
+          <% if (locals.errors && errors.city) { %>
+            <p class = "error"> <%= errors.city.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.zip ? 'is-invalid' : null %>" 
+          type="number" placeholder="Código postal" name="zip" value="<%= locals.oldData && oldData.zip ? oldData.zip : null %>">
+          <% if (locals.errors && errors.zip) { %>
+            <p class = "error"> <%= errors.zip.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.address ? 'is-invalid' : null %>" 
+          type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : null %>">
+          <% if (locals.errors && errors.address) { %>
+            <p class = "error"> <%= errors.address.msg %> </p>
+          <% } %>
           <div id="create-account-button">
             <button class="reset" type="reset">Borrar</button>
             <button type="submit">Crear</button>
