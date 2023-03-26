@@ -80,8 +80,7 @@ const controller = {
       images.push(file.filename);
     });
 
-    const colors =
-      typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
     products[productToEditIndex] = {
       ...products[productToEditIndex],
