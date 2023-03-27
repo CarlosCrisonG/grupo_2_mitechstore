@@ -18,7 +18,7 @@ module.exports = {
         body('country').notEmpty().withMessage('Debe seleccionar un pais'),
         body('region').notEmpty().withMessage('Ingrese la región en la que reside'),
         body('city').notEmpty().withMessage('Ingrese la ciudad en la que reside'),
-        body('zip').notEmpty().withMessage('Ingrese el código postal de la ciudad ingresada arriba'),
+        body('zip').notEmpty().withMessage('Ingrese el código postal de la ciudad indicada arriba'),
         body('address').notEmpty().withMessage('Ingrese su dirección'),
 		body('avatar').custom((value, { req }) => {
 

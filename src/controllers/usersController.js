@@ -55,7 +55,7 @@ const controller = {
         res.redirect("/users/login");
       }
     } else {
-        res.render('users/register', {
+      res.render('users/register', {
         errors: errors.mapped(),
         oldData: req.body,
       });
@@ -96,39 +96,48 @@ const controller = {
     res.render("admin/editUser");
   },
   update: (req, res) => {
-    const users = getusers()
+    const errors = validationResult(req);
 
-    const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
+    if (errors.isEmpty()) {
+      const users = getusers()
 
-    const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
+      const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
 
-    const password = req.body.password ? bcrypt.hashSync(req.body.password, 10) : users[userToUpdateIndex].password;
+      const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
 
-    users[userToUpdateIndex] = {
-      ...users[userToUpdateIndex],
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      password,
-      phone: req.body.phone,
-      avatar,
-      userprofile: req.body.userprofile,
-      country: req.body.country,
-      region: req.body.region,
-      city: req.body.city,
-      zip: req.body.zip,
-      address: req.body.address,
+      const password = req.body.password ? bcrypt.hashSync(req.body.password, 10) : users[userToUpdateIndex].password;
+
+      users[userToUpdateIndex] = {
+        ...users[userToUpdateIndex],
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password,
+        phone: req.body.phone,
+        avatar,
+        userprofile: req.body.userprofile,
+        country: req.body.country,
+        region: req.body.region,
+        city: req.body.city,
+        zip: req.body.zip,
+        address: req.body.address,
+      }
+
+      fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
+
+      delete users[userToUpdateIndex].password;
+
+      req.session.userLogged = {
+        ...users[userToUpdateIndex]
+      };
+
+      res.redirect("/");
+    } else {
+      res.render('admin/editUser', {
+        errors: errors.mapped(),
+        oldData: req.body,
+      })
     }
-
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
-
-    delete users[userToUpdateIndex].password;
-
-    req.session.userLogged = {
-      ...users[userToUpdateIndex]
-    };
-
-    res.redirect("/");
   },
   logout: (req, res) => {
     req.session.destroy();
