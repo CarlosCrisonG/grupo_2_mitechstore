@@ -30,6 +30,10 @@ module.exports = {
 		}),
 	],
 	login: [
-
+		body('email')
+			.notEmpty().withMessage('Debe ingresar un correo electrónico')
+			.isEmail().withMessage('Debe ingresar un correo electrónico válido'),
+		body('password')
+			.notEmpty().withMessage('Ingrese una contraseña')
 	]
 }

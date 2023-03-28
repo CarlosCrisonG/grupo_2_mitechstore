@@ -11,7 +11,7 @@ router.post("/", upload.single("avatar"), validator.registerAndEdition, usersCon
 
 router.get("/login", usersController.login);
 
-router.post("/processLogin", usersController.processLogin);
+router.post("/processLogin", validator.login, usersController.processLogin);
 
 router.get("/profile", usersController.profile);
 

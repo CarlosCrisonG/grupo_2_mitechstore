@@ -66,28 +66,47 @@ const controller = {
     res.render("users/login");
   },
   processLogin: (req, res) => {
-    const users = getusers();
+    const errors = validationResult(req);
 
-    const user = {
-      email: req.body.email,
-      password: req.body.password,
-    };
+    if (errors.isEmpty()) {
 
-    const userFound = users.find((person) => user.email == person.email);
+      const users = getusers();
+      let userToLogin = users.find((person) => person.email == req.body.email);
 
-    if (userFound && bcrypt.compareSync(user.password, userFound.password)) {
-      delete userFound.password;
+      if (userToLogin) {
+        if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
+          delete userToLogin.password;
+          req.session.userLogged = {
+            ...userToLogin,
+          };
+          return res.redirect("/");
+        } else {
+          return res.render('users/login', {
+            errors: {
+              password: {
+                msg: "La contraseña ingresada es incorrecta"
+              }
+            }, oldData: req.body
+          })
+        }
 
-      req.session.userLogged = {
-        ...userFound,
-      };
+      } else {
+        return res.render('users/login', {
+          errors: {
+            email: {
+              msg: "No existe ningún usuario registrado con ese email"
+            }
+          }, oldData: req.body
+        })
+      }
 
-      return res.redirect("/");
+    } else {
+      res.render('users/login', {
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
     }
 
-    delete user.password;
-
-    res.render("users/login", { oldData: user });
   },
   profile: (req, res) => {
     res.render("Espcio para poner la vista", { user: req.session.userLogged });
