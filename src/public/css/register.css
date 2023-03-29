@@ -105,6 +105,7 @@ select {
 }
 
 .error {
+    text-align: center;
     color: red;
     font-weight: 700;
     margin-bottom: 20px;
