@@ -21,37 +21,13 @@ const controller = {
     let allProducts = getProducts();
 
     if (req.query.category) {
-
-      if (req.query.category == "computadoras") {
-        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-        let categoryTitle = "Computadoras";
-        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-
-      } else if (req.query.category == "celulares") {
-        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-        let categoryTitle = "Celulares";
-        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-
-      } else if (req.query.category == "accesorios") {
-        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-        let categoryTitle = "Accesorios";
-        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-
-      } else if (req.query.category == "electrodomesticos") {
-        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-        let categoryTitle = "Electrodomésticos";
-        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-      }
-      else if (req.query.category == "cuidadoPersonal") {
-        let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-        let categoryTitle = "Cuidado Personal";
-        return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-      }
+      let categoryToShow = allProducts.filter(product => product.category == req.query.category)
+      let categoryTitle = req.query.category == "cuidadoPersonal" ? "CUIDADO PERSONAL" : req.query.category.toUpperCase();
+      return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
     } else {
-      let categoryTitle = "Todos los productos";
+      let categoryTitle = "TODOS LOS PRODUCTOS";
       return res.render("product/listaDeProducto", { products: allProducts, categoryTitle });
     }
-
   },
   productCart: (req, res) => {
     res.render("product/productCart")
