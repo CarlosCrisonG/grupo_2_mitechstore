@@ -52,7 +52,7 @@
           </div>
           <div class="perfil">
             <div>
-              <input id="comprador" type="radio" name="userprofile" value="comprador" checked <%= locals.oldData && oldData.userprofile && oldData.userprofile == "comprador" ? "checked" : null%>>
+              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "comprador" ? "checked" : null%>>
               <label for="comprador">Comprador</label>
             </div>
             <div>
@@ -65,7 +65,8 @@
           <% } %>
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
-            <select id="paises" name="country">
+            <select class="<%= locals.errors && errors.country ? "paises" : null %>" id="paises" name="country">
+              <option value="" <%= locals.oldData && oldData.country ? null : "selected" %> disabled></option>
               <option value="arg" <%= locals.oldData && oldData.country && oldData.country == "arg" ? "selected" : null %> >Argentina</option>
               <option value="bol" <%= locals.oldData && oldData.country && oldData.country == "bol" ? "selected" : null %>>Bolivia</option>
               <option value="bra" <%= locals.oldData && oldData.country && oldData.country == "bra" ? "selected" : null %>>Brasil</option>
