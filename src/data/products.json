@@ -324,5 +324,30 @@
       "86x86x45mm de tamaño y un peso de solo 182 gramos"
     ],
     "inSale": false
+  },
+  {
+    "id": 13,
+    "name": "Paisaje",
+    "description": "Descripcion",
+    "images": [
+      "1678759606033-product-image.jpg"
+    ],
+    "price": "700",
+    "discount": "12",
+    "category": "cuidadoPersonal",
+    "highlight": "false",
+    "colors": [
+      "verde"
+    ],
+    "model": "Si",
+    "year": "2020",
+    "size": "Grande",
+    "weight": "8kg",
+    "features": [
+      "Muy bonito",
+      " Interesante ",
+      " Magnifico"
+    ],
+    "inSale": true
   }
 ]
