@@ -32,7 +32,9 @@ div.noticiasDiv {
 div.emailInput input {
     width: 90%;
     text-align: center;
-    padding: 4px 0;
+    padding: 8px 0;
+    border: none;
+    border-radius: 7px;
 }
 
 div.emailInput {
@@ -51,19 +53,33 @@ div.feedbackDiv {
 div.redesSocialesDiv {
     display: flex;
     flex-direction: column;
-    gap: 13px;
-    align-items: center;
+    gap: 13px; 
 }
 
 div.redesSocialesDiv div.redesSocialesIcon {
     display: flex;
     flex-direction: row;
     gap: 9px;
+    align-items: center;
 }
 
 svg.icons{
     width: 30px;
     height: 30px;
+}
+
+.wpp-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.wpp-link > i {
+    width: 30px;
+    height: 30px;
+    color: #00a650;
+    padding-top: 4px;
 }
 
 /* tablets */

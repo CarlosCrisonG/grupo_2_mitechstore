@@ -7,31 +7,31 @@
                 <div class="user-container">
                    <div>
                         <img class="profile-picture" src="/images/avatars/defaultUser.jpg" alt="Foto de perfil de Jhon Doe">
-                        <p class="user-name">Jhon Doe</p>
-                        <p class="work-text">Desarrollador</p>
-                        <p class="address-text">Medellin</p>
+                        <p class="user-name"><%= user.first_name %></p>
+                        <p class="work-text"><%= user.last_name %></p>
+                        <p class="address-text"><%= user.city %></p>
                         <div style="display: flex; justify-content: center;">
                             <button class="btn-update">Editar</button>
                         </div>
                    </div>
                 </div>
                 <div class="data-container">
-                    <div>
+                    <div style="width: 100%;">
                         <div class="data-user-info">
-                            <span>Nombre Completo</span>
-                            <p>Jhon Doe</p>
+                            <span class="data-user-info-label">Nombre Completo:</span>
+                            <p><%= user.first_name %></p>
                         </div>
                         <div class="data-user-info">
-                            <span>Correo Electronico</span>
-                            <p>jhondoe.mail</p>
+                            <span class="data-user-info-label">Correo Electronico:</span>
+                            <p><%= user.email %></p>
                         </div>
                         <div class="data-user-info">
-                            <span>Celular</span>
-                            <p>jhondoe.mail</p>
+                            <span class="data-user-info-label">Celular:</span>
+                            <p><%= user.phone %></p>
                         </div>
                         <div class="data-user-info">
-                            <span>Dirección</span>
-                            <p>jhondoe.mail</p>
+                            <span class="data-user-info-label">Dirección:</span>
+                            <p><%= user.address %></p>
                         </div>
                     </div>
                 </div>
