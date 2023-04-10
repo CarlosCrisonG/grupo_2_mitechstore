@@ -10,7 +10,7 @@ const controller = {
     res.render("user/login");
   },
   profile: (req, res) => {
-    res.render("user/userProfile", {user: users[0]});
+    res.render("user/userProfile", {user: users[18]});
   },
 };
 
