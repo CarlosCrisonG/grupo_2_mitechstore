@@ -1,7 +1,6 @@
   <header class="main-header">
     <div class="encabezado">
-      <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/user/register"
-          style="color:blue;">¡Registrate!</a></p>
+      <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/users/register" style="color:blue;">¡Registrate!</a></p>
     </div>
     <div class="header-top-bar">
       <div class="logo-search-container">
@@ -14,12 +13,19 @@
         </div>
         <nav class="opciones">
           <ul>
-            <li class="main-header-navbar-element"></li>
-            <li class="main-header-navbar-element"><a href="/user/login">Ingresar</a></li>
-            <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
-                  class="fa-solid fa-cart-shopping"></i></a></li>
-            <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
-                  class="fa-solid fa-square-plus"></i></a></li>
+            <% if (locals.user) { %>
+              <li class="main-header-navbar-element"><a href="/users/edit"><%= user.first_name %> <%= user.last_name %> <i class="fa-solid fa-user"></i></a></li>
+              <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+              <form action="/users/destroy?_method=DELETE" method="POST">
+                <button type="submit">Elimina tu usuario</button>
+              </form>
+            <% }else {%>
+              <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
+            <% } %>
+              <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+            <% if (locals.user && user.userprofile == "vendedor") { %>
+              <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
+            <% } %>            
           </ul>
         </nav>
       </div>
@@ -33,18 +39,30 @@
     </div>
     <nav class="categorias-navbar">
       <ul>
-        <a href="/product/list"><li class="categoria">Todos los productos
-        </li></a>
-        <a href="/product/list?category=computadoras"><li class="categoria">Computadoras
-        </li></a>
-        <a href="/product/list?category=celulares"><li class="categoria">Celulares
-        </li></a>
-        <a href="/product/list?category=accesorios"><li class="categoria">Accesorios
-        </li></a>
-        <a href="/product/list?category=electrodomesticos"><li class="categoria">Electrodomésticos
-        </li></a>
-        <a href="/product/list?category=cuidadoPersonal"><li class="categoria">Cuidado Personal
-        </li></a>
+        <a href="/product/list">
+          <li class="categoria">Todos los productos
+          </li>
+        </a>
+        <a href="/product/list?category=computadoras">
+          <li class="categoria">Computadoras
+          </li>
+        </a>
+        <a href="/product/list?category=celulares">
+          <li class="categoria">Celulares
+          </li>
+        </a>
+        <a href="/product/list?category=accesorios">
+          <li class="categoria">Accesorios
+          </li>
+        </a>
+        <a href="/product/list?category=electrodomesticos">
+          <li class="categoria">Electrodomésticos
+          </li>
+        </a>
+        <a href="/product/list?category=cuidadoPersonal">
+          <li class="categoria">Cuidado Personal
+          </li>
+        </a>
       </ul>
     </nav>
   </header>

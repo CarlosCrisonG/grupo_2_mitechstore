@@ -13,11 +13,19 @@
 
         </div>
 
-        <form class="form" action="" method="POST">
+        <form class="form" action="/users/processLogin" method="POST">
 
-          <input class="input" type="email" placeholder="Correo electrónico" name="email">
+          <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+          type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+          <% if (locals.errors && errors.email) { %>
+            <p class = "error"> <%= errors.email.msg %> </p>
+          <% } %>
 
-          <input class="input" type="password" placeholder="Contraseña" name="password">
+          <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+          type="password" placeholder="Contraseña" name="password">
+          <% if (locals.errors && errors.password) { %>
+            <p class = "error"> <%= errors.password.msg %> </p>
+          <% } %>
 
           <div class="contenedorOlvidaste">
 
@@ -38,7 +46,7 @@
 
         <div class="contenedorNoTienes">
 
-          <a href="/user/register">¿No tienes una cuenta? Crea una aquí</a>
+          <a href="/users/register">¿No tienes una cuenta? Crea una aquí</a>
 
         </div>
       </main>

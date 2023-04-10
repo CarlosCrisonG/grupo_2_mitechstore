@@ -73,7 +73,7 @@
   .fila_productos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     column-gap: 30px;
@@ -137,7 +137,7 @@
   }
 
   .descuento_producto span {
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-family: 'Montserrat', sans-serif;
     color:#05C026;
   }

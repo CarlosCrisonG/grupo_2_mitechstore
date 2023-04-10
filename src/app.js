@@ -2,6 +2,14 @@
 const express = require("express");
 const app = express();
 
+//Express - cookie
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
+//Express - session
+const session = require("express-session");
+app.use(session({ secret: "Palabra secreta", resave: false, saveUninitialized: false }));
+
 //Requerimos Path
 const path = require("path");
 const publicPath = path.resolve(__dirname, "./public");
@@ -17,12 +25,17 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//middleware para pasarle la variable local del usuario a todas las vistas
+const authMiddleware = require("./middlewares/authMiddleware");
+app.use(authMiddleware);
+
 //rutas
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productRoutes");
-const userRoutes = require("./routes/userRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const partialsRoutes = require("./routes/partialsRoutes");
+const testRoutes = require("./routes/testRoutes");
 
 //method override
 const methodOverride = require("method-override");
@@ -32,7 +45,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(publicPath));
 
 //Iniciamos el servidor
-app.listen(port, () => console.log("Servidor corriendo en puerto 3000"));
+app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
 
 //Rutas principales (index)
 app.use("/", mainRoutes);
@@ -41,10 +54,13 @@ app.use("/", mainRoutes);
 app.use("/product", productsRoutes);
 
 //rutas para control de usuarios (login, register)
-app.use("/user", userRoutes);
+app.use("/users", usersRoutes);
 
 //rutas para administradores (crear producto)
 app.use("/admin", adminRoutes);
 
 //rutas para los partials (header,footer)
 app.use("/partials", partialsRoutes);
+
+//rutas para testear
+app.use("/test", testRoutes);

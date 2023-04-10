@@ -1,0 +1,115 @@
+<%- include("../partials/head", { stylePag: "register" , title: "Editar Usuario" }) %>
+
+
+  <body>
+    <!-- Header - Inicio -->
+    <%- include("../partials/header") %>
+      <!-- Header - Fin-->
+
+      <!--Contenido HTML de Registro - Inicio -->
+      <main>
+        <h3>Editar información de usuario</h3>
+        <form class="formulario-registro" action="/users/?_method=PUT" method="POST" enctype="multipart/form-data">
+          <input class="input <%= locals.errors && errors.first_name ? 'is-invalid' : null %>" 
+          type="text" placeholder="Nombre" name="first_name" value="<%= locals.oldData && oldData.first_name ? oldData.first_name : user.first_name %>">
+          <% if (locals.errors && errors.first_name) { %>
+            <p class = "error"> <%= errors.first_name.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
+          type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : user.last_name %>">
+          <% if (locals.errors && errors.last_name) { %>
+            <p class = "error"> <%= errors.last_name.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>"  
+          type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : user.email %>">
+          <% if (locals.errors && errors.email) { %>
+            <p class = "error"> <%= errors.email.msg %> </p>
+          <% } %>    
+          <input type="number" name="id" value="<%= user.id %>" style="display: none;">          
+          <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>"  
+          type="password" placeholder="Contraseña" name="password">
+          <% if (locals.errors && errors.password) { %>
+            <p class = "error"> <%= errors.password.msg %> </p>
+          <% } %>           
+          <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>"  
+          type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : user.phone %>">
+          <% if (locals.errors && errors.phone) { %>
+            <p class = "error"> <%= errors.phone.msg %> </p>
+          <% } %>
+          <br>
+
+          <div class="perfil-label">
+            <label>Seleccione una imagen de perfil</label>
+          </div>
+          <div class="avatar">
+            <input type="file" name="avatar">
+          </div>
+          <% if (locals.errors && errors.avatar) { %>
+            <p class = "error"> <%= errors.avatar.msg %> </p>
+          <% } %>
+
+          <div class="perfil-label">
+            <label>Perfil del usuario</label>
+          </div>
+          <div class="perfil">
+            <div>
+              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "comprador" ? "checked" : user.userprofile == "comprador" && locals.oldData == undefined ? "checked" : null %>>
+              <label for="comprador">Comprador</label>
+            </div>
+            <div>
+              <input id="vendedor" type="radio" name="userprofile" value="vendedor" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "vendedor" ? "checked" : user.userprofile == "vendedor" && locals.oldData == undefined ? "checked" : null %>>
+              <label for="vendedor">Vendedor</label>
+            </div>
+          </div>
+          <% if (locals.errors && errors.userprofile) { %>
+            <p class = "error"> <%= errors.userprofile.msg %> </p>
+          <% } %>
+          <div class="pais">
+            <label for="paises">Seleccione su pais </label>
+            <select id="paises" name="country">
+              <option value="arg" <%= locals.oldData && oldData.country && oldData.country == "arg" ? "selected" : user.country == "arg" && locals.oldData == undefined ? "selected" : null %>>Argentina</option>
+              <option value="bol" <%= locals.oldData && oldData.country && oldData.country == "bol" ? "selected" : user.country == "bol" && locals.oldData == undefined ? "selected" : null %>>Bolivia</option>
+              <option value="bra" <%= locals.oldData && oldData.country && oldData.country == "bra" ? "selected" : user.country == "bra" && locals.oldData == undefined ? "selected" : null %>>Brasil</option>
+              <option value="chi" <%= locals.oldData && oldData.country && oldData.country == "chi" ? "selected" : user.country == "chi" && locals.oldData == undefined ? "selected" : null %>>Chile</option>
+              <option value="col" <%= locals.oldData && oldData.country && oldData.country == "col" ? "selected" : user.country == "col" && locals.oldData == undefined ? "selected" : null %>>Colombia</option>
+              <option value="ecu" <%= locals.oldData && oldData.country && oldData.country == "ecu" ? "selected" : user.country == "ecu" && locals.oldData == undefined ? "selected" : null %>>Ecuador</option>
+              <option value="par" <%= locals.oldData && oldData.country && oldData.country == "par" ? "selected" : user.country == "par" && locals.oldData == undefined ? "selected" : null %>>Paraguay</option>
+              <option value="per" <%= locals.oldData && oldData.country && oldData.country == "per" ? "selected" : user.country == "per" && locals.oldData == undefined ? "selected" : null %>>Perú</option>
+              <option value="uru" <%= locals.oldData && oldData.country && oldData.country == "uru" ? "selected" : user.country == "uru" && locals.oldData == undefined ? "selected" : null %>>Uruguay</option>
+              <option value="ven" <%= locals.oldData && oldData.country && oldData.country == "ven" ? "selected" : user.country == "ven" && locals.oldData == undefined ? "selected" : null %>>Venezuela</option>
+            </select>
+          </div>
+          <% if (locals.errors && errors.country) { %>
+            <p class = "error"> <%= errors.country.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.region ? 'is-invalid' : null %>" 
+           type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : user.region %>">
+          <% if (locals.errors && errors.region) { %>
+            <p class = "error"> <%= errors.region.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.city ? 'is-invalid' : null %>"  
+          type="text" placeholder="Ciudad" name="city" value="<%= locals.oldData && oldData.city ? oldData.city : user.city %>">
+          <% if (locals.errors && errors.city) { %>
+            <p class = "error"> <%= errors.city.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.zip ? 'is-invalid' : null %>"  
+          type="text" placeholder="Código postal" name="zip" value="<%= locals.oldData && oldData.zip ? oldData.zip : user.zip %>">
+          <% if (locals.errors && errors.zip) { %>
+            <p class = "error"> <%= errors.zip.msg %> </p>
+          <% } %>
+          <input class="input <%= locals.errors && errors.address ? 'is-invalid' : null %>" 
+          type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : user.address %>">
+          <% if (locals.errors && errors.address) { %>
+            <p class = "error"> <%= errors.address.msg %> </p>
+          <% } %>
+          <div id="create-account-button">
+            <button class="reset" type="reset">Borrar</button>
+            <button type="submit">Editar</button>
+          </div>
+        </form>
+      </main>
+      <!--Contenido HTML del Registro - Fin -->
+
+      <!-- Footer - Inicio -->
+      <%- include("../partials/footer") %>
+        <!-- Footer - Fin -->
