@@ -23,4 +23,6 @@ router.get("/logout", usersController.logout);
 
 router.delete("/destroy",usersController.destroyUser);
 
+router.get("/userProfile", usersController.profile);
+
 module.exports = router;

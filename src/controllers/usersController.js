@@ -1,3 +1,4 @@
+const users = require('../data/users.json');
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
@@ -109,7 +110,7 @@ const controller = {
 
   },
   profile: (req, res) => {
-    res.render("Espcio para poner la vista", { user: req.session.userLogged });
+    res.render("users/userProfile");
   },
   edit: (req, res) => {
     res.render("admin/editUser");

@@ -10,10 +10,13 @@
                         <p class="user-name"><%= user.first_name %></p>
                         <p class="work-text"><%= user.last_name %></p>
                         <p class="address-text"><%= user.city %></p>
-                        <div style="display: flex; justify-content: center;">
+                        <div class="user-option">
                             <a href="/users/edit">
                             <button class="btn-update"> Editar</button>
                             </a>
+                            <form action="/users/destroy?_method=DELETE" method="POST">
+                                <button type="submit">Eliminar tu usuario</button>
+                              </form>
                         </div>
                    </div>
                 </div>
