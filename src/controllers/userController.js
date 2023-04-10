@@ -8,6 +8,9 @@ const controller = {
   login: (req, res) => {
     res.render("user/login");
   },
+  profile: (req, res) => {
+    res.render("user/userProfile");
+  },
 };
 
 module.exports = controller;

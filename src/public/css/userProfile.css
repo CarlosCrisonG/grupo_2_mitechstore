@@ -1,0 +1,82 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #ccc;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: 50px 0;
+}
+
+.user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 50px 100px;
+    margin-left: 50px;
+}
+
+.data-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 30px;
+    background-color: #fff;
+    width: 50%;
+    gap: 50px;
+}
+
+.profile-picture {
+    border-radius: 100%;
+    width: 150px;
+}
+
+.user-name {
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.work-text {
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+.address-text {
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.data-user-info {
+    display: flex;
+    gap: 30px;
+    padding: 10px 0;
+    
+}
+
+.data-user-info > span {
+    font-weight: 600;
+}
+
+.btn-update {
+    padding: 7px 30px;
+    background-color: #3483fa;
+    color: #fff;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    margin: 12px 0;
+}

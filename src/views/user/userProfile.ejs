@@ -1,0 +1,44 @@
+<%- include("../partials/head", { stylePag: "userProfile" , title: "Perfil del usuario" }) %>
+
+    <body>
+        <%- include("../partials/header") %>
+        <main>
+            <div class="profile-container">
+                <div class="user-container">
+                   <div>
+                        <img class="profile-picture" src="/images/avatars/defaultUser.jpg" alt="Foto de perfil de Jhon Doe">
+                        <p class="user-name">Jhon Doe</p>
+                        <p class="work-text">Desarrollador</p>
+                        <p class="address-text">Medellin</p>
+                        <div style="display: flex; justify-content: center;">
+                            <button class="btn-update">Editar</button>
+                        </div>
+                   </div>
+                </div>
+                <div class="data-container">
+                    <div>
+                        <div class="data-user-info">
+                            <span>Nombre Completo</span>
+                            <p>Jhon Doe</p>
+                        </div>
+                        <div class="data-user-info">
+                            <span>Correo Electronico</span>
+                            <p>jhondoe.mail</p>
+                        </div>
+                        <div class="data-user-info">
+                            <span>Celular</span>
+                            <p>jhondoe.mail</p>
+                        </div>
+                        <div class="data-user-info">
+                            <span>Dirección</span>
+                            <p>jhondoe.mail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+<!-- Footer - Inicio -->
+<%- include("../partials/footer") %>
+<!-- Footer - Fin -->

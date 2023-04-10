@@ -52,6 +52,7 @@ div.redesSocialesDiv {
     display: flex;
     flex-direction: column;
     gap: 13px;
+    align-items: center;
 }
 
 div.redesSocialesDiv div.redesSocialesIcon {
