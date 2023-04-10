@@ -43,6 +43,7 @@ body {
 }
 
 .profile-picture {
+    display: flex;
     border-radius: 100%;
     width: 150px;
 }
@@ -76,7 +77,6 @@ body {
 }
 
 .btn-update {
-    width: 100%;
     padding: 7px 30px;
     background-color: #3483fa;
     color: #fff;
@@ -106,3 +106,5 @@ body {
     cursor: pointer;
     margin: 12px 0;
 }
+
+
