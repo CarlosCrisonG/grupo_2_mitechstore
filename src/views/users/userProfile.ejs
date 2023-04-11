@@ -7,15 +7,15 @@
                 <div class="user-container">
                    <div>
                         <img class="profile-picture" src="/images/avatars/defaultUser.jpg" alt="Foto de perfil de Jhon Doe">
-                        <p class="user-name"><%= user.first_name %></p>
-                        <p class="work-text"><%= user.last_name %></p>
+                        <p class="user-name"><%= user.first_name + " " + user.last_name %></p>
+                        <p class="work-text"><%= user.userprofile %></p>
                         <p class="address-text"><%= user.city %></p>
                         <div class="user-option">
                             <a href="/users/edit">
                             <button class="btn-update"> Editar</button>
                             </a>
                             <form action="/users/destroy?_method=DELETE" method="POST">
-                                <button type="submit">Eliminar tu usuario</button>
+                                <button type="submit">Eliminar usuario</button>
                               </form>
                         </div>
                    </div>
@@ -24,7 +24,7 @@
                     <div style="width: 100%;">
                         <div class="data-user-info">
                             <span class="data-user-info-label">Nombre Completo:</span>
-                            <p><%= user.first_name %></p>
+                            <p><%= user.first_name + " " + user.last_name %> </p> 
                         </div>
                         <div class="data-user-info">
                             <span class="data-user-info-label">Correo Electronico:</span>
@@ -35,8 +35,8 @@
                             <p><%= user.phone %></p>
                         </div>
                         <div class="data-user-info">
-                            <span class="data-user-info-label">Dirección:</span>
-                            <p><%= user.address %></p>
+                            <span class="data-user-info-label">Dirección y residencia:</span>
+                            <p><%=user.country + " " + user.region + " " + user.city + " " + user.zip + " " + user.address %></p>
                         </div>
                     </div>
                 </div>
