@@ -2,6 +2,10 @@
     font-family: sans-serif;
 }
 
+p {
+    font-size: 17px;
+}
+
 body {
     background-color: #ccc;
 }
@@ -9,10 +13,11 @@ body {
 .profile-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
     align-items: center;
+    flex-direction: column;
+    gap: 20px;
     height: 100%;
-    margin: 50px 30px;
+    margin: 30px 30px;
 }
 
 .user-container {
@@ -21,25 +26,25 @@ body {
     align-items: center;
     background-color: #fff;
     border-radius: 6px;
-    padding: 50px 100px;
+    padding: 10px 40px;
+    width: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .data-container {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
-    padding-left: 30px;
     background-color: #fff;
-    width: 50%;
-    gap: 50px;
-    padding: 70px 30px;
-    border-radius: 7px;
+    border-radius: 6px;
+    padding: 10px 40px;
+    width: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .data-user-info-label {
     font-size: 20px;
+    font-weight: 800;
 }
 
 .profile-picture {
@@ -54,13 +59,13 @@ body {
     font-weight: 600;
     text-align: center;
     padding-top: 10px;
+    margin-bottom: 10px;
 }
 
 .work-text {
     text-align: center;
-    font-weight: 400;
-    font-size: 15px;
-    margin-top: 3px;
+    font-size: 18px;
+    margin: 3px 5px;
 }
 
 .address-text {
@@ -72,13 +77,14 @@ body {
 
 .data-user-info {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 25px;
     padding: 15px 0;
     border-bottom: 1px solid #ededed;
 }
 
 .btn-update {
-    padding: 7px 30px;
+    padding: 10px 30px;
     background-color: #3483fa;
     color: #fff;
     border-radius: 7px;
@@ -96,16 +102,31 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
 }
 
 .user-option form button {
-    padding: 7px 30px;
+    padding: 10px 12px;
     background-color: red;
     color: #fff;
     border-radius: 7px;
     border: none;
     cursor: pointer;
-    margin: 12px 0;
 }
 
+@media (min-width: 769px) {
+    .profile-container {
+        flex-direction: row;
+    }
+    .data-user-info {
+        flex-direction: row;
+    }
+    .user-container {
+        align-self: flex-start;
+        max-width: 300px;
+    }
+    .data-container {
+        max-width: 475px;
+    }
+}
 
