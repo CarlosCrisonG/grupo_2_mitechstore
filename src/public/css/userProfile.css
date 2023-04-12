@@ -37,7 +37,7 @@ body {
     align-items: center;
     background-color: #fff;
     border-radius: 6px;
-    padding: 10px 40px;
+    padding: 10px 15px;
     width: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -126,7 +126,7 @@ body {
         max-width: 300px;
     }
     .data-container {
-        max-width: 475px;
+        max-width: 600px;
     }
 }
 
