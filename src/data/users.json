@@ -448,20 +448,5 @@
       "city": "Mikró Monastíri",
       "zip": "312789",
       "address": "566 Namekagon Lane"
-   },
-   {
-      "id": 31,
-      "first_name": "Lorenzo",
-      "last_name": "Sanchez",
-      "email": "lorenzo97sz@gmail.com",
-      "password": "$2b$10$1v6zbW3VkqFpofhp4oRz1utHsFg7pTG0xbRkISctXGI6PpV1MsI2K",
-      "phone": "02994060870",
-      "avatar": "defaultUser.jpg",
-      "userprofile": "comprador",
-      "country": "arg",
-      "region": "Río Negro",
-      "city": "General Fernandez Oro",
-      "zip": "8324",
-      "address": "Avenida Cipolletti 745"
    }
 ]
