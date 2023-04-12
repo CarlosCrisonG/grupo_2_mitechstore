@@ -15,8 +15,6 @@ router.get("/login", guestMiddleware, usersController.login);
 
 router.post("/processLogin", validator.login, usersController.processLogin);
 
-router.get("/profile", checkLogin, usersController.profile);
-
 router.get("/edit", checkLogin, usersController.edit);
 
 router.put("/", upload.single("avatar"), validator.registerAndEdition, usersController.update);
@@ -24,5 +22,7 @@ router.put("/", upload.single("avatar"), validator.registerAndEdition, usersCont
 router.get("/logout", checkLogin, usersController.logout);
 
 router.delete("/destroy",checkLogin, usersController.destroyUser);
+
+router.get("/userProfile", checkLogin, usersController.profile);
 
 module.exports = router;

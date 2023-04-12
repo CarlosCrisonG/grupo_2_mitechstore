@@ -448,20 +448,5 @@
       "city": "Mikró Monastíri",
       "zip": "312789",
       "address": "566 Namekagon Lane"
-   },
-   {
-      "id": 31,
-      "first_name": "Franco",
-      "last_name": "Rotchen",
-      "email": "asd@gmail.com",
-      "password": "$2b$10$iANlYIQabFz6jK5YDP.Mn.gnsnTwmlKc1CJO.1jFVoU36TOTd6HVy",
-      "phone": "123123123",
-      "avatar": "defaultUser.jpg",
-      "userprofile": "vendedor",
-      "country": "arg",
-      "region": "asdasd",
-      "city": "asdasd",
-      "zip": "13123",
-      "address": "asdasd"
    }
 ]
