@@ -35,9 +35,13 @@ module.exports = {
 		body('email')
 			.notEmpty().withMessage('Debe ingresar un correo electrónico')
 			.isEmail().withMessage('Debe ingresar un correo electrónico válido'),
-		body('password')
-			.notEmpty().withMessage('Ingrese una contraseña')
-			.isLength({ min: 5 }).withMessage('La contraseña debe tener un mínimo de 5 caracteres'),
+		body('password').custom(value => {
+			if (value != "" && value.length <= 4) {
+				throw new Error("La contraseña debe tener un mínimo de 5 caracteres");
+			}
+
+			return true
+		}),
 		body('phone')
 			.notEmpty().withMessage('Debe ingresar un número de teléfono')
 			.isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
