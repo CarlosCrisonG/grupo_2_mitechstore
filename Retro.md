@@ -84,3 +84,22 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 - Ninguna
 
 <br />
+
+# Sprint 5
+
+### 1. Comenzar a hacer:
+- Ninguna
+
+### 2. Hacer más:
+- Finalizar las tareas con mayor anticipación.
+- Participar de los pull request.
+
+### 3. Continuar haciendo:
+- Seguir reuniéndonos semanalmente.
+- Continuar trabajando con ramas y pull request.
+
+### 4. Hacer menos:
+- Ninguna
+
+### 5. Dejar de hacer:
+- Ninguna
