@@ -70,7 +70,9 @@ const controller = {
 
     const features = req.body.features.split("/");
 
-    const questionInSale = +req.body.discount ? true : false;
+    const questionInSale = +req.body.discount ? 1 : 0;
+
+    const questionhighlight = req.body.highlight == "true" ? 1 : 0;
 
     const productToEditIndex = products.findIndex(
       (product) => product.id == id
@@ -92,7 +94,7 @@ const controller = {
       images: images.length ? images : products[productToEditIndex].images,
       discount: req.body.discount,
       category: req.body.category,
-      highlight: req.body.highlight,
+      highlight: questionhighlight,
       colors,
       model: req.body.model,
       year: req.body.year,
