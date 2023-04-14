@@ -44,7 +44,7 @@
              <select id="categorias" name="highlight">
                 <option value="" disabled>Elige</option>
                 <option value="true" <%= product.highlight ? "selected" : "" %>>Si</option>
-                <option value="false" <%= product.highlight ? "selected" : "" %>>No</option>
+                <option value="false" <%= product.highlight ? "" : "selected" %>>No</option>
              </select>
           </div>
        </div>
