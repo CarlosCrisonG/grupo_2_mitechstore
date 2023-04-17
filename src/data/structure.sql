@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema mi_tech_store
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema mi_tech_store
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `mi_tech_store` DEFAULT CHARACTER SET UTF8MB4 ;
+USE `mi_tech_store` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`categories`
+-- Table `mi_tech_store`.`categories`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`categories` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`categories` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`products`
+-- Table `mi_tech_store`.`products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`products` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`products` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NOT NULL,
   `description` TEXT NOT NULL,
@@ -47,33 +47,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`products` (
   INDEX `fk_products_categories1_idx` (`categories_id` ASC) VISIBLE,
   CONSTRAINT `fk_products_categories1`
     FOREIGN KEY (`categories_id`)
-    REFERENCES `mydb`.`categories` (`id`)
+    REFERENCES `mi_tech_store`.`categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`images`
+-- Table `mi_tech_store`.`images`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`images` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`images` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` TEXT NULL DEFAULT 'defaultProduct.png',
+  `name` TEXT NULL,
   `products_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_images_products_idx` (`products_id` ASC) VISIBLE,
   CONSTRAINT `fk_images_products`
     FOREIGN KEY (`products_id`)
-    REFERENCES `mydb`.`products` (`id`)
+    REFERENCES `mi_tech_store`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`features`
+-- Table `mi_tech_store`.`features`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`features` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`features` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NOT NULL,
   `products_id` INT NOT NULL,
@@ -81,16 +81,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`features` (
   INDEX `fk_features_products1_idx` (`products_id` ASC) VISIBLE,
   CONSTRAINT `fk_features_products1`
     FOREIGN KEY (`products_id`)
-    REFERENCES `mydb`.`products` (`id`)
+    REFERENCES `mi_tech_store`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`colors`
+-- Table `mi_tech_store`.`colors`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`colors` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`colors` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -98,9 +98,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`colors_has_products`
+-- Table `mi_tech_store`.`colors_has_products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`colors_has_products` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`colors_has_products` (
   `colors_id` INT NOT NULL,
   `products_id` INT NOT NULL,
   PRIMARY KEY (`colors_id`, `products_id`),
@@ -108,21 +108,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`colors_has_products` (
   INDEX `fk_colors_has_products_colors1_idx` (`colors_id` ASC) VISIBLE,
   CONSTRAINT `fk_colors_has_products_colors1`
     FOREIGN KEY (`colors_id`)
-    REFERENCES `mydb`.`colors` (`id`)
+    REFERENCES `mi_tech_store`.`colors` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_colors_has_products_products1`
     FOREIGN KEY (`products_id`)
-    REFERENCES `mydb`.`products` (`id`)
+    REFERENCES `mi_tech_store`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`userprofile`
+-- Table `mi_tech_store`.`userprofile`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`userprofile` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`userprofile` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -130,9 +130,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`country`
+-- Table `mi_tech_store`.`country`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`country` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`country` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(3) NOT NULL,
   PRIMARY KEY (`id`))
@@ -140,16 +140,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`users`
+-- Table `mi_tech_store`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`users` (
+CREATE TABLE IF NOT EXISTS `mi_tech_store`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(100) NOT NULL,
   `last_name` VARCHAR(100) NOT NULL,
-  `email` TEXT NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
   `password` TEXT NOT NULL,
   `phone` TEXT NOT NULL,
-  `avatar` TEXT NULL DEFAULT 'defaultUser.jpg',
+  `avatar` TEXT NULL,
   `region` VARCHAR(100) NOT NULL,
   `city` VARCHAR(100) NOT NULL,
   `zip` VARCHAR(45) NOT NULL,
@@ -162,12 +162,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   INDEX `fk_users_country1_idx` (`country_id` ASC) VISIBLE,
   CONSTRAINT `fk_users_userprofile1`
     FOREIGN KEY (`userprofile_id`)
-    REFERENCES `mydb`.`userprofile` (`id`)
+    REFERENCES `mi_tech_store`.`userprofile` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_country1`
     FOREIGN KEY (`country_id`)
-    REFERENCES `mydb`.`country` (`id`)
+    REFERENCES `mi_tech_store`.`country` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
