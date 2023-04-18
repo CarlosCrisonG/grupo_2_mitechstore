@@ -20,5 +20,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const UserProfile = sequelize.define(alias, cols, config);
 
+    UserProfile.associate = (models) => {
+        UserProfile.hasMany(models.User, {
+            as: "users",
+            foreignKey: "userprofile_id"
+        });
+    }
+
     return UserProfile;
 }
