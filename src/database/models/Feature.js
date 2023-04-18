@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         Feature.belongsTo(models.Product, {
             as: "product",
             foreignKey: "products_id"
-        })
+        });
     };
 
     return Category;

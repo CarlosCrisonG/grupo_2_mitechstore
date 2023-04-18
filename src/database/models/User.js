@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     const config = {
         timestamps: false,
         tableName: "users"
-    }
+    };
 
     const User = sequelize.define(alias, cols, config);
 
@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
             as: "country",
             foreignKey: "country_id"
         });
-    }
+    };
 
     return User;
 }

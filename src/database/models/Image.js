@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             defaultValue: 'defaultProduct.png'
         }
-    }
+    };
 
     const config = {
         timestamps: false,
         tableName: "images"
-    }
+    };
 
     const Image = sequelize.define(alias, cols, config);
 
@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
         Image.belongsTo(models.Product, {
             as: "product",
             foreignKey: "products_id"
-        })
-    }
+        });
+    };
 
     return Image;
 }
