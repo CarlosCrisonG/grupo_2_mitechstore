@@ -18,7 +18,14 @@ module.exports = (sequelize, DataTypes) => {
         tableName: "country"
     };
 
-    const Counrty = sequelize.define(alias, cols, config);
+    const Country = sequelize.define(alias, cols, config);
 
-    return Counrty;
+    Country.associate = (models) => {
+        Country.hasMany(models.User, {
+            as: "users",
+            foreignKey: "country_id"
+        });
+    };
+
+    return Country;
 }

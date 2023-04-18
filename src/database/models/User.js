@@ -62,6 +62,11 @@ module.exports = (sequelize, DataTypes) => {
             as: "userProfile",
             foreignKey: "userprofile_id"
         });
+
+        User.belongsTo(models.Country, {
+            as: "country",
+            foreignKey: "country_id"
+        });
     }
 
     return User;
