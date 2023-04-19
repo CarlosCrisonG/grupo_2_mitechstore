@@ -30,8 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         avatar: {
             type: DataTypes.TEXT,
-            allowNull: false,
-            defaultValue: 'defaultUser.jpg'
+            allowNull: false,            
         },
         region: {
             type: DataTypes.STRING(100),
