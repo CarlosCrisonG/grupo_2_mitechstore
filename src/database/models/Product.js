@@ -1,3 +1,5 @@
+const { defaultValueSchemable } = require("sequelize/types/utils");
+
 module.exports = (sequelize, DataTypes) => {
     const alias = "Product";
 
@@ -21,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         discount: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue: 0
         },
         highlight: {
             type: DataTypes.BOOLEAN,
