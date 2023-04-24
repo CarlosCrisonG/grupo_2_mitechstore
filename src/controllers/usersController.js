@@ -1,9 +1,11 @@
-const users = require('../data/users.json');
+const User = require('../database/models/User');
+// const users = require('../data/users.json');
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
 const { validationResult } = require('express-validator');
+const { log } = require('console');
 
 const usersPath = path.join(__dirname, "../data/users.json");
 function getusers() {
@@ -14,54 +16,48 @@ const controller = {
   register: (req, res) => {
     res.render("users/register");
   },
-  create: (req, res) => {
-    const errors = validationResult(req);
-
+  create: async (req, res) => {
+    const errors = validationResult(req); //Form errors validation
     if (errors.isEmpty()) {
-      const users = getusers();
-      let userInDB = users.find(user => user.email == req.body.email)
-      if (userInDB) {
-        return res.render('users/register', {
-          errors: {
-            email: {
-              msg: "Ya existe un usuario registrado con ese email"
-            }
-          }, oldData: req.body
-        });
-      } else {
-        const avatar = req.file ? req.file.filename : "defaultUser.jpg";
-
-        const id = users[users.length - 1].id + 1;
-
-        const user = {
-          id,
-          first_name: req.body.first_name,
-          last_name: req.body.last_name,
-          email: req.body.email,
-          password: bcrypt.hashSync(req.body.password, 10),
-          phone: req.body.phone,
-          avatar,
-          userprofile: req.body.userprofile.toLowerCase(),
-          country: req.body.country,
-          region: req.body.region,
-          city: req.body.city,
-          zip: req.body.zip,
-          address: req.body.address,
-        };
-
-        users.push(user);
-
-        fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
-
-        res.redirect("/users/login");
+      try {
+        const users = await User.findAll();
+        console.log(users);
+        
+        //Check if users already exists
+        let userInDB = User.find(user => user.email == req.body.email);
+        if (userInDB) {
+          return res.render('users/register', {
+            errors: {
+              email: {
+                msg: "Ya existe un usuario registrado con ese email"
+              }
+            }, oldData: req.body
+          });
+        } else {
+          //User Creation
+          const userToCreate = {
+            id,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            phone: req.body.phone,
+            avatar,
+            userprofile: req.body.userprofile.toLowerCase(),
+            country: req.body.country,
+            region: req.body.region,
+            city: req.body.city,
+            zip: req.body.zip,
+            address: req.body.address,
+          };
+          await db.User.create(userToCreate);
+          res.redirect("/users/login");
+        }
+      } catch (error) {
+          console.log(error);
+          res.status(400).send("Hubo un error" + error);
       }
-    } else {
-      res.render('users/register', {
-        errors: errors.mapped(),
-        oldData: req.body,
-      });
     }
-
   },
   login: (req, res) => {
     res.render("users/login");
