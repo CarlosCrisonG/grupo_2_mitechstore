@@ -1,4 +1,4 @@
-const User = require('../database/models/User');
+const db = require('../database/models');
 // const users = require('../data/users.json');
 const express = require("express");
 const path = require("path");
@@ -16,48 +16,63 @@ const controller = {
   register: (req, res) => {
     res.render("users/register");
   },
-  create: async (req, res) => {
+  create: (req, res) => {
     const errors = validationResult(req); //Form errors validation
     if (errors.isEmpty()) {
-      try {
-        const users = await User.findAll();
-        console.log(users);
-        
-        //Check if users already exists
-        let userInDB = User.find(user => user.email == req.body.email);
-        if (userInDB) {
-          return res.render('users/register', {
-            errors: {
-              email: {
-                msg: "Ya existe un usuario registrado con ese email"
-              }
-            }, oldData: req.body
-          });
-        } else {
-          //User Creation
-          const userToCreate = {
-            id,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            phone: req.body.phone,
-            avatar,
-            userprofile: req.body.userprofile.toLowerCase(),
-            country: req.body.country,
-            region: req.body.region,
-            city: req.body.city,
-            zip: req.body.zip,
-            address: req.body.address,
-          };
-          await db.User.create(userToCreate);
-          res.redirect("/users/login");
-        }
-      } catch (error) {
-          console.log(error);
-          res.status(400).send("Hubo un error" + error);
+      db.User.findAll()
+        .then((users) => {
+          console.log(users);
+        });
       }
-    }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  //     try {
+  //       const allUsers = await db.User.findAll();
+  //       console.log(allUsers);
+        
+  //       //Check if users already exists
+  //       let userInDB = allUsers.find(user => user.email == req.body.email);
+  //       if (userInDB) {
+  //         return res.render('users/register', {
+  //           errors: {
+  //             email: {
+  //               msg: "Ya existe un usuario registrado con ese email"
+  //             }
+  //           }, oldData: req.body
+  //         });
+  //       } else {
+  //         //User Creation
+  //         const userToCreate = {
+  //           // id,
+  //           first_name: req.body.first_name,
+  //           last_name: req.body.last_name,
+  //           email: req.body.email,
+  //           password: bcrypt.hashSync(req.body.password, 10),
+  //           phone: req.body.phone,
+  //           avatar,
+  //           userprofile: req.body.userprofile.toLowerCase(),
+  //           country: req.body.country,
+  //           region: req.body.region,
+  //           city: req.body.city,
+  //           zip: req.body.zip,
+  //           address: req.body.address,
+  //         };
+  //         await db.User.create(userToCreate);
+  //         res.redirect("/users/login");
+  //       }
+  //     } catch (error) {
+  //         console.log(error);
+  //         res.status(400).send("Hubo un error: " + error);
+  //     }
+  //   }
   },
   login: (req, res) => {
     res.render("users/login");
