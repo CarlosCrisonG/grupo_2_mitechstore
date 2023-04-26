@@ -32,11 +32,9 @@
             <label class="label" for="">Categoría: </label>
             <select id="categorias" name="category">
                <option value="" disabled selected>Elige</option>
-               <option value="celulares">Celulares</option>
-               <option value="computadoras">Computadoras</option>
-               <option value="accesorios">Accesorios</option>
-               <option value="electrodomesticos">Electrodomésticos</option>
-               <option value="cuidadoPersonal">Cuidado personal</option>
+               <% categories.forEach(category => { %>         
+                  <option value="<%= category.id %>"><%= category.name %></option>
+               <% }) %>               
             </select>
          </div>
          <div class="categorias">
@@ -49,47 +47,13 @@
          </div>
       </div>
       <label class="label" for="">Colores</label>
-      <div class="colores">
-         <div>
-            <input id="negro" type="checkbox" name="colors" value="negro">
-            <label for="negro">Negro</label>
-         </div>
-         <div>
-            <input id="blanco" type="checkbox" name="colors" value="blanco">
-            <label for="blanco">Blanco</label>
-         </div>
-         <div>
-            <input id="gris" type="checkbox" name="colors" value="gris">
-            <label for="gris">Gris</label>
-         </div>
-         <div>
-            <input id="rojo" type="checkbox" name="colors" value="rojo">
-            <label for="rojo">Rojo</label>
-         </div>
-         <div>
-            <input id="verde" type="checkbox" name="colors" value="verde">
-            <label for="verde">Verde</label>
-         </div>
-         <div>
-            <input id="azul" type="checkbox" name="colors" value="azul">
-            <label for="azul">Azul</label>
-         </div>
-         <div>
-            <input id="amarillo" type="checkbox" name="colors" value="amarillo">
-            <label for="amarillo">Amarillo</label>
-         </div>
-         <div>
-            <input id="violeta" type="checkbox" name="colors" value="violeta">
-            <label for="violeta">Violeta</label>
-         </div>
-         <div>
-            <input id="rosado" type="checkbox" name="colors" value="rosado">
-            <label for="rosado">Rosado</label>
-         </div>
-         <div>
-            <input id="anaranjado" type="checkbox" name="colors" value="anaranjado">
-            <label for="anaranjado">Anaranjado</label>
-         </div>
+      <div class="colores">   
+         <% colors.forEach(color => { %>      
+            <div>
+               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>">
+               <label for="<%= color.name %>"><%= color.name %></label>
+            </div>
+         <% }) %>               
       </div>
       <label class="label" for="">Caracteristicas</label>
       <div class="especificaciones">

@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const db = require('../database/models');
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -7,52 +8,67 @@ function getProducts() {
 }
 
 const controller = {
-  createProduct: (req, res) => {
-    res.render("admin/createProduct");
+  createProduct: async (req, res) => {
+    try {
+      const categories = await db.Category.findAll();
+
+      const colors = await db.Color.findAll();
+
+      res.render("admin/createProduct", { categories, colors })
+    } catch (error) {
+      res.send(error)
+    }
   },
-  create: (req, res) => {
-    const products = getProducts();
+  create: async (req, res) => {
+    try {
+      const features = req.body.features.split("/");
 
-    const newId = products.length ? products[products.length - 1].id + 1 : 1;
+      const questionInSale = +req.body.discount ? 1 : 0;
 
-    const features = req.body.features.split("/");
+      const questionhighlight = req.body.highlight == "true" ? 1 : 0;
 
-    const questionInSale = +req.body.discount ? 1 : 0;
+      const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
-    const questionhighlight = req.body.highlight == "true" ? 1 : 0;
+      const productCreated = await db.Product.create({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        discount: req.body.discount,
+        highlight: questionhighlight,
+        model: req.body.model,
+        year: req.body.year,
+        size: req.body.size,
+        weight: req.body.weight,
+        inSale: questionInSale,
+        categories_id: req.body.category
+      });
 
-    const images = [];
+      db.ProductColor.bulkCreate(colors.map(color => {
+        return {
+          colors_id: color,
+          products_id: productCreated.id
+        }
+      }))
 
-    const colors =
-      typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+      db.Feature.bulkCreate(features.map(feature => {
+        return {
+          name: feature,
+          products_id: productCreated.id
+        }
+      }))
 
-    req.files.forEach((file) => {
-      images.push(file.filename);
-    });
+      db.Image.bulkCreate(req.files.map(file => {
+        return {
+          name: file.filename,
+          products_id: productCreated.id
+        }
+      }))
 
-    const productToPush = {
-      id: newId,
-      name: req.body.name,
-      description: req.body.description,
-      images: images.length ? images : ["defaultProduct.png"],
-      price: req.body.price,
-      discount: req.body.discount,
-      category: req.body.category,
-      highlight: questionhighlight,
-      colors,
-      model: req.body.model,
-      year: req.body.year,
-      size: req.body.size,
-      weight: req.body.weight,
-      features: features,
-      inSale: questionInSale,
-    };
+      res.redirect("/");
 
-    products.push(productToPush);
-
-    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
-
-    res.redirect("/");
+    } catch (error) {
+      res.send(error)
+    }
   },
   editProduct: (req, res) => {
     const id = req.params.id;
