@@ -124,26 +124,26 @@ const controller = {
 
     res.redirect(`/product/detail/${id}`);
   },
-  delete: (req, res) => {
+  delete: async (req, res) => {
     const id = req.params.id;
 
-    const products = getProducts();
+    const imagesInStorage = await db.Image.findAll({ where: { products_id: id } })
 
-    const productToDeleteIndex = products.findIndex(
-      (product) => product.id == id
-    );
-
-    products[productToDeleteIndex].images.forEach((image) => {
+    imagesInStorage.forEach(image => {
       if (image != "defaultProduct.png") {
-        fs.unlinkSync(path.join(__dirname, "../public/images/products/", image));
+        fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.name));
       }
-    });
+    })
 
-    products.splice(productToDeleteIndex, 1);
+    db.Feature.destroy({ where: { products_id: id } })
 
-    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+    db.Image.destroy({ where: { products_id: id } })
 
-    res.redirect("/");
+    db.ProductColor.destroy({ where: { products_id: id } })
+
+    db.Product.destroy({ where: { id } })
+
+    res.redirect("/")
   },
 };
 
