@@ -53,11 +53,11 @@
           </div>
           <div class="perfil">
             <div>
-              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "comprador" ? "checked" : user.userprofile == "comprador" && locals.oldData == undefined ? "checked" : null %>>
+              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= locals.oldData && oldData.userprofile && oldData.userprofile_id == "1" ? "checked" : user.userprofile_id == "1" && locals.oldData == undefined ? "checked" : null %>>
               <label for="comprador">Comprador</label>
             </div>
             <div>
-              <input id="vendedor" type="radio" name="userprofile" value="vendedor" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "vendedor" ? "checked" : user.userprofile == "vendedor" && locals.oldData == undefined ? "checked" : null %>>
+              <input id="vendedor" type="radio" name="userprofile" value="vendedor" <%= locals.oldData && oldData.userprofile && oldData.userprofile_id == "2" ? "checked" : user.userprofile_id == "2" && locals.oldData == undefined ? "checked" : null %>>
               <label for="vendedor">Vendedor</label>
             </div>
           </div>
