@@ -137,9 +137,9 @@ const controller = {
 
     db.Feature.destroy({ where: { products_id: id } })
 
-    db.Image.destroy({ where: { products_id: id } })
-
     db.ProductColor.destroy({ where: { products_id: id } })
+
+    db.Image.destroy({ where: { products_id: id } })
 
     db.Product.destroy({ where: { id } })
 
