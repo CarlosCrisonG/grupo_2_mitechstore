@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const fs = require('fs');
+const db = require('../database/models');
+
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -8,12 +10,10 @@ function getProducts() {
 }
 
 const controller = {
-  productDetail: (req, res) => {
+  productDetail: async (req, res) => {
     const id = req.params.id;
 
-    const products = getProducts();
-
-    const product = products.find(product => product.id == id);
+    const product = await db.Product.findOne({ include: ["images", "category", "features"], where: { id } });    
 
     res.render("product/productDetail", { product })
   },
@@ -26,7 +26,7 @@ const controller = {
       return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
     } else {
       let categoryTitle = "TODOS LOS PRODUCTOS";
-      return res.render("product/listaDeProducto", { products: allProducts, categoryTitle });
+      return res.render("product/listanDeProducto", { products: allProducts, categoryTitle });
     }
   },
   productCart: (req, res) => {
