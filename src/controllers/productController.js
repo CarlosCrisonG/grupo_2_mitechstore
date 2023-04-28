@@ -13,7 +13,7 @@ const controller = {
   productDetail: async (req, res) => {
     const id = req.params.id;
 
-    const product = await db.Product.findOne({ include: ["images", "category", "features"], where: { id } });    
+    const product = await db.Product.findOne({ include: ["images", "category", "features", "colors"], where: { id } });
 
     res.render("product/productDetail", { product })
   },

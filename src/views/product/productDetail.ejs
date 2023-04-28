@@ -37,7 +37,10 @@
             <div class="color">
               <label class="label-color" for="color">Color: </label>
               <select class="select-color" name="color" id="color">                
-                <option value="" disabled selected>En mantenimiento</option>                
+                <option value="" disabled selected>--Elige--</option>
+                <% product.colors.forEach(color => { %>
+                      <option value="<%= color.id %>"><%= color.name %></option>
+                <% }) %>
               </select>
             </div>
             <p class="cuotas">Stock disponible <i class="fa-solid fa-check"></i></p>
