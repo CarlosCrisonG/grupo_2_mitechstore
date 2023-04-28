@@ -141,7 +141,7 @@ const controller = {
 
     db.Image.destroy({ where: { products_id: id } })
 
-    db.Product.destroy({ where: { id } })
+    await db.Product.destroy({ where: { id } })
 
     res.redirect("/")
   },
