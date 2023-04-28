@@ -21,6 +21,8 @@ const controller = {
   },
   create: async (req, res) => {
     try {
+      req.files = req.files.length > 0 ? req.files : [{ filename: 'defaultProduct.png' }]
+
       const features = req.body.features.split("/");
 
       const questionInSale = +req.body.discount ? 1 : 0;
@@ -130,7 +132,7 @@ const controller = {
     const imagesInStorage = await db.Image.findAll({ where: { products_id: id } })
 
     imagesInStorage.forEach(image => {
-      if (image != "defaultProduct.png") {
+      if (image.dataValues.name != "defaultProduct.png") {
         fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.name));
       }
     })
