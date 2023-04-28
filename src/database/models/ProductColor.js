@@ -1,12 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
     const alias = "ProductColor";
 
-    const cols = {        
+    const cols = {
         colors_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true
         },
         products_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true
         }
     };
 
