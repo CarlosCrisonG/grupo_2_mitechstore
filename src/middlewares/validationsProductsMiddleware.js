@@ -38,7 +38,7 @@ module.exports = {
 			.isLength({min:5}).withMessage('El nombre del producto debe tener un mínimo de 5 caracteres'),
 		body('description')
 			.notEmpty().withMessage('Debe ingresar una descripción del producto')
-			.isLength({min:5}).withMessage('La descripción del producto debe tener un mínimo de 20 caracteres'),
+			.isLength({min:20}).withMessage('La descripción del producto debe tener un mínimo de 20 caracteres'),
 		body('price')
 			.notEmpty().withMessage('Debe ingresar el precio del producto')
 			.isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
