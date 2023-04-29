@@ -2,7 +2,7 @@ const path = require("path");
 const multer = require("multer");
 
 //multer configuracion
-const storage = multer.diskStorage({
+const diskStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         const destinationPath = path.join(__dirname, "../public/images/products");
         cb(null, destinationPath);
@@ -14,6 +14,19 @@ const storage = multer.diskStorage({
     },
 });
 
-const upload = multer({ storage });
+const upload = multer({ 
+	storage: diskStorage, 
+	fileFilter: (req, file, cb) => {
+		let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+		let fileExtension = path.extname(file.originalname);
+		let extensionIsOk = acceptedExtensions.includes(fileExtension);
+		if (extensionIsOk) {
+			cb(null, true);
+		} else {
+			req.fileValidationError = true;
+			cb(null, false);
+		}
+	}
+});
 
 module.exports = upload;
