@@ -17,17 +17,12 @@ const controller = {
 
     res.render("product/productDetail", { product })
   },
-  productList: (req, res) => {
-    let allProducts = getProducts();
+  productList: async (req, res) => {
+    const categoryQueryId = req.query.category;
 
-    if (req.query.category) {
-      let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-      let categoryTitle = req.query.category == "cuidadoPersonal" ? "CUIDADO PERSONAL" : req.query.category.toUpperCase();
-      return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-    } else {
-      let categoryTitle = "TODOS LOS PRODUCTOS";
-      return res.render("product/listanDeProducto", { products: allProducts, categoryTitle });
-    }
+    const products = categoryQueryId ? await db.Product.findAll({ include: ["images"], where: { categories_id: categoryQueryId } }) : await db.Product.findAll({ include: ["images"] })
+
+    res.render("product/listaDeProducto", { products, categoryQueryId })
   },
   productCart: (req, res) => {
     res.render("product/productCart")
