@@ -112,12 +112,15 @@ const controller = {
 
     db.ProductColor.destroy({ where: { products_id: id } })
 
-    await db.Feature.bulkCreate(features.map(feature => {
-      return {
-        name: feature,
-        products_id: id
-      }
-    }))
+
+    if (!(features.length == 1 && features[0] == "")) {      
+      await db.Feature.bulkCreate(features.map(feature => {
+        return {
+          name: feature,
+          products_id: id
+        }
+      }))
+    }
 
     if (colors != undefined) {
       await db.ProductColor.bulkCreate(colors.map(color => {
