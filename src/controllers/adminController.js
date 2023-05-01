@@ -72,14 +72,16 @@ const controller = {
       res.send(error)
     }
   },
-  editProduct: (req, res) => {
+  editProduct: async (req, res) => {
     const id = req.params.id;
 
-    const products = getProducts();
+    const categories = await db.Category.findAll();
 
-    const product = products.find((product) => product.id == id);
+    const colors = await db.Color.findAll();
 
-    res.render("admin/editProduct", { product });
+    const product = await db.Product.findOne({ include: { all: true }, where: { id } });    
+
+    res.render("admin/editProduct", { product, categories, colors });
   },
   edit: (req, res) => {
     const id = req.params.id;
