@@ -32,6 +32,10 @@ app.use(express.json());
 const authMiddleware = require("./middlewares/authMiddleware");
 app.use(authMiddleware);
 
+//middleware para pasar las categorías al header
+const categoriesMiddleware = require('./middlewares/categoriesMiddleware');
+app.use(categoriesMiddleware);
+
 //rutas
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productRoutes");

@@ -40,26 +40,12 @@
           <li class="categoria">Todos los productos
           </li>
         </a>
-        <a href="/product/list?category=computadoras">
-          <li class="categoria">Computadoras
-          </li>
-        </a>
-        <a href="/product/list?category=celulares">
-          <li class="categoria">Celulares
-          </li>
-        </a>
-        <a href="/product/list?category=accesorios">
-          <li class="categoria">Accesorios
-          </li>
-        </a>
-        <a href="/product/list?category=electrodomesticos">
-          <li class="categoria">Electrodomésticos
-          </li>
-        </a>
-        <a href="/product/list?category=cuidadoPersonal">
-          <li class="categoria">Cuidado Personal
-          </li>
-        </a>
+        <% headerCategories.forEach(category => { %>
+          <a href="/product/list?category=<%= category.id %>">
+            <li class="categoria"><%= category.name %>
+            </li>
+          </a>  
+        <% }) %>        
       </ul>
     </nav>
   </header>
