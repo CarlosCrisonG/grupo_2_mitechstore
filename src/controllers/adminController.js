@@ -79,14 +79,12 @@ const controller = {
 
     const colors = await db.Color.findAll();
 
-    const product = await db.Product.findOne({ include: { all: true }, where: { id } });    
+    const product = await db.Product.findOne({ include: { all: true }, where: { id } });
 
     res.render("admin/editProduct", { product, categories, colors });
   },
-  edit: (req, res) => {
+  edit: async (req, res) => {
     const id = req.params.id;
-
-    const products = getProducts();
 
     const features = req.body.features.split("/");
 
@@ -94,37 +92,60 @@ const controller = {
 
     const questionhighlight = req.body.highlight == "true" ? 1 : 0;
 
-    const productToEditIndex = products.findIndex(
-      (product) => product.id == id
-    );
-
-    const images = []
-
-    req.files.forEach((file) => {
-      images.push(file.filename);
-    });
-
     const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
-    products[productToEditIndex] = {
-      ...products[productToEditIndex],
+    db.Product.update({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
-      images: images.length ? images : products[productToEditIndex].images,
       discount: req.body.discount,
-      category: req.body.category,
       highlight: questionhighlight,
-      colors,
       model: req.body.model,
       year: req.body.year,
       size: req.body.size,
       weight: req.body.weight,
-      features: features,
       inSale: questionInSale,
-    };
+      categories_id: req.body.category
+    }, { where: { id } });
 
-    fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+    db.Feature.destroy({ where: { products_id: id } })
+
+    db.ProductColor.destroy({ where: { products_id: id } })
+
+    await db.Feature.bulkCreate(features.map(feature => {
+      return {
+        name: feature,
+        products_id: id
+      }
+    }))
+
+    if (colors != undefined) {
+      await db.ProductColor.bulkCreate(colors.map(color => {
+        return {
+          colors_id: color,
+          products_id: id
+        }
+      }))
+    }
+
+    if (req.files.length != 0) {
+      const imagesInStorage = await db.Image.findAll({ where: { products_id: id } })
+
+      imagesInStorage.forEach(image => {
+        if (image.dataValues.name != "defaultProduct.png") {
+          fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.name));
+        }
+      })
+
+      db.Image.destroy({ where: { products_id: id } })
+
+      await db.Image.bulkCreate(req.files.map(file => {
+        return {
+          name: file.filename,
+          products_id: id
+        }
+      }))
+    }
 
     res.redirect(`/product/detail/${id}`);
   },
