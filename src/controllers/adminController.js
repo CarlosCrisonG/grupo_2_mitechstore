@@ -8,60 +8,60 @@ function getProducts() {
 }
 
 const controller = {
-  createProduct: async (req, res) => {    
-      const categories = await db.Category.findAll();
+  createProduct: async (req, res) => {
+    const categories = await db.Category.findAll();
 
-      const colors = await db.Color.findAll();
+    const colors = await db.Color.findAll();
 
-      res.render("admin/createProduct", { categories, colors });
+    res.render("admin/createProduct", { categories, colors });
   },
-  create: async (req, res) => {    
-      req.files = req.files.length > 0 ? req.files : [{ filename: 'defaultProduct.png' }]
+  create: async (req, res) => {
+    req.files = req.files.length > 0 ? req.files : [{ filename: 'defaultProduct.png' }]
 
-      const features = req.body.features.split("/");
+    const features = req.body.features.split("/");
 
-      const questionInSale = +req.body.discount ? 1 : 0;
+    const questionInSale = +req.body.discount ? 1 : 0;
 
-      const questionhighlight = req.body.highlight == "true" ? 1 : 0;
+    const questionhighlight = req.body.highlight == "true" ? 1 : 0;
 
-      const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
 
-      const productCreated = await db.Product.create({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        discount: req.body.discount,
-        highlight: questionhighlight,
-        model: req.body.model,
-        year: req.body.year,
-        size: req.body.size,
-        weight: req.body.weight,
-        inSale: questionInSale,
-        categories_id: req.body.category
-      });
+    const productCreated = await db.Product.create({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      discount: req.body.discount,
+      highlight: questionhighlight,
+      model: req.body.model,
+      year: req.body.year,
+      size: req.body.size,
+      weight: req.body.weight,
+      inSale: questionInSale,
+      categories_id: req.body.category
+    });
 
-      db.ProductColor.bulkCreate(colors.map(color => {
-        return {
-          colors_id: color,
-          products_id: productCreated.id
-        };
-      }));
+    db.ProductColor.bulkCreate(colors.map(color => {
+      return {
+        colors_id: color,
+        products_id: productCreated.id
+      };
+    }));
 
-      db.Feature.bulkCreate(features.map(feature => {
-        return {
-          name: feature,
-          products_id: productCreated.id
-        };
-      }));
+    db.Feature.bulkCreate(features.map(feature => {
+      return {
+        name: feature,
+        products_id: productCreated.id
+      };
+    }));
 
-      db.Image.bulkCreate(req.files.map(file => {
-        return {
-          name: file.filename,
-          products_id: productCreated.id
-        };
-      }));
+    db.Image.bulkCreate(req.files.map(file => {
+      return {
+        name: file.filename,
+        products_id: productCreated.id
+      };
+    }));
 
-      res.redirect("/");    
+    res.redirect("/");
   },
   editProduct: async (req, res) => {
     const id = req.params.id;
@@ -104,7 +104,7 @@ const controller = {
     db.ProductColor.destroy({ where: { products_id: id } });
 
 
-    if (!(features.length == 1 && features[0] == "")) {      
+    if (!(features.length == 1 && features[0] == "")) {
       await db.Feature.bulkCreate(features.map(feature => {
         return {
           name: feature,
@@ -146,10 +146,10 @@ const controller = {
   delete: async (req, res) => {
     const id = req.params.id;
 
-    const imagesInStorage = await db.Image.findAll({ where: { products_id: id } });
+    const imagesInStorage = await db.Image.findAll({ where: { products_id: id }, raw: true });
 
     imagesInStorage.forEach(image => {
-      if (image.dataValues.name != "defaultProduct.png") {
+      if (image.name != "defaultProduct.png") {
         fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.name));
       }
     })
