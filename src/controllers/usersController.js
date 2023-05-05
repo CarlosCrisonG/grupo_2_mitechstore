@@ -128,7 +128,7 @@ const controller = {
     }).then(function (user) {
       if (user) {
         let userFound = user;
-        console.log(user);
+        // console.log(user);
         res.render("admin/editUser", { user: userFound });
       } else {
         res.send('El usuario no se encuentra en la base de datos');
@@ -139,47 +139,108 @@ const controller = {
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      const users = getusers()
+      const userInDB = db.User.findOne({
+        where: {
+          email: req.body.email
+        },
+      }).then(function (users) {
+        console.log('TEST: ' + users[0]);
+        const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
 
-      const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
+        const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
 
-      const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
-
-      const password = req.body.password ? bcrypt.hashSync(req.body.password, 10) : users[userToUpdateIndex].password;
-
-      users[userToUpdateIndex] = {
-        ...users[userToUpdateIndex],
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        password,
-        phone: req.body.phone,
-        avatar,
-        userprofile: req.body.userprofile,
-        country: req.body.country,
-        region: req.body.region,
-        city: req.body.city,
-        zip: req.body.zip,
-        address: req.body.address,
-      }
-
-      fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
-
-      delete users[userToUpdateIndex].password;
-
-      req.session.userLogged = {
-        ...users[userToUpdateIndex]
-      };
-
-      res.redirect("/");
+        const userToUpdate = {
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          email: req.body.email,
+          password: bcrypt.hashSync(req.body.password, 10),
+          phone: req.body.phone,
+          avatar,
+          region: req.body.region,
+          city: req.body.city,
+          zip: req.body.zip,
+          address: req.body.address,
+          userprofile_id: req.body.userprofile,
+          country_id: req.body.country
+        };
+        db.User.update(userToCreate, {
+          where: {
+            id: userToUpdateIndex
+          }
+        });
+        res.redirect("/users/userProfile");
+      })
     } else {
-      res.render('admin/editUser', {
+      res.render('users/register', {
         errors: errors.mapped(),
         oldData: req.body,
-      })
+      });
     }
   },
-  logout: (req, res) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //   if (errors.isEmpty()) {
+  //     const users = getusers()
+
+  //     const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
+
+  //     const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
+
+  //     const password = req.body.password ? bcrypt.hashSync(req.body.password, 10) : users[userToUpdateIndex].password;
+
+  //     users[userToUpdateIndex] = {
+  //       ...users[userToUpdateIndex],
+  //       first_name: req.body.first_name,
+  //       last_name: req.body.last_name,
+  //       email: req.body.email,
+  //       password,
+  //       phone: req.body.phone,
+  //       avatar,
+  //       userprofile: req.body.userprofile,
+  //       country: req.body.country,
+  //       region: req.body.region,
+  //       city: req.body.city,
+  //       zip: req.body.zip,
+  //       address: req.body.address,
+  //     }
+
+  //     fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
+
+  //     delete users[userToUpdateIndex].password;
+
+  //     req.session.userLogged = {
+  //       ...users[userToUpdateIndex]
+  //     };
+
+  //     res.redirect("/");
+  //   } else {
+  //     res.render('admin/editUser', {
+  //       errors: errors.mapped(),
+  //       oldData: req.body,
+  //     })
+  //   }
+  // },
+  logout: (req, res) => { // Listo con Sequelize
     req.session.destroy();
 
     res.redirect("/");
