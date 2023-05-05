@@ -10,7 +10,7 @@
     <!-- Seccion de header -->
     <section>
         <div class="conteiner-h1">            
-            <h3><%= categoryQueryId ? headerCategories.find(category => category.id == categoryQueryId).name : "Todos los productos"%></h3>
+            <h3><%= locals.categoryQueryId && categoryQueryId ? headerCategories.find(category => category.id == categoryQueryId).name : "Todos los productos"%></h3>
         </div>
     </section>
     
