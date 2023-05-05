@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require('fs');
 const db = require('../database/models');
+const { Op } = require("sequelize");
 
 
 const productsPath = path.join(__dirname, "../data/products.json");
@@ -27,6 +28,20 @@ const controller = {
   productCart: (req, res) => {
     res.render("product/productCart")
   },
+  searchBar: async (req, res) => {
+    const words = req.query.words;
+
+    const products = await db.Product.findAll({
+      include: ["images"],
+      where: {
+        name: {
+          [Op.like]: `%${words}%`
+        }
+      }
+    });
+
+    res.render("product/listaDeProducto", { products, words })
+  }
 };
 
 module.exports = controller;

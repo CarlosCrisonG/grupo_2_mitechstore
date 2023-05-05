@@ -4,6 +4,8 @@ const checkLogin = require ("../middlewares/checkLogin");
 
 const productsController = require("../controllers/productController");
 
+router.get("/search", productsController.searchBar)
+
 router.get("/detail/:id", productsController.productDetail);
 
 router.get("/list", productsController.productList);

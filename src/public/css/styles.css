@@ -127,6 +127,12 @@ div.search-bar {
     padding-right: 5px;
 }
 
+div.search-bar form.form-search-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .logo-search-container {
     display: flex;
     margin: auto;
