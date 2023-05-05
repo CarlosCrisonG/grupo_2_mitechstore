@@ -53,11 +53,11 @@
           </div>
           <div class="perfil">
             <div>
-              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= locals.oldData && oldData.userprofile && oldData.userprofile_id == "1" ? "checked" : user.userprofile_id == "1" && locals.oldData == undefined ? "checked" : null %>>
+              <input id="comprador" type="radio" name="userprofile" value="1" <%= locals.oldData && oldData.userprofile && oldData.userprofile_id == "1" ? "checked" : user.userprofile_id == "1" && locals.oldData == undefined ? "checked" : null %>>
               <label for="comprador">Comprador</label>
             </div>
             <div>
-              <input id="vendedor" type="radio" name="userprofile" value="vendedor" <%= locals.oldData && oldData.userprofile && oldData.userprofile_id == "2" ? "checked" : user.userprofile_id == "2" && locals.oldData == undefined ? "checked" : null %>>
+              <input id="vendedor" type="radio" name="userprofile" value="2" <%= locals.oldData && oldData.userprofile && oldData.userprofile_id == "2" ? "checked" : user.userprofile_id == "2" && locals.oldData == undefined ? "checked" : null %>>
               <label for="vendedor">Vendedor</label>
             </div>
           </div>
@@ -67,16 +67,16 @@
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
             <select id="paises" name="country">
-              <option value="arg" <%= locals.oldData && oldData.country && oldData.country == "arg" ? "selected" : user.country == "arg" && locals.oldData == undefined ? "selected" : null %>>Argentina</option>
-              <option value="bol" <%= locals.oldData && oldData.country && oldData.country == "bol" ? "selected" : user.country == "bol" && locals.oldData == undefined ? "selected" : null %>>Bolivia</option>
-              <option value="bra" <%= locals.oldData && oldData.country && oldData.country == "bra" ? "selected" : user.country == "bra" && locals.oldData == undefined ? "selected" : null %>>Brasil</option>
-              <option value="chi" <%= locals.oldData && oldData.country && oldData.country == "chi" ? "selected" : user.country == "chi" && locals.oldData == undefined ? "selected" : null %>>Chile</option>
-              <option value="col" <%= locals.oldData && oldData.country && oldData.country == "col" ? "selected" : user.country == "col" && locals.oldData == undefined ? "selected" : null %>>Colombia</option>
-              <option value="ecu" <%= locals.oldData && oldData.country && oldData.country == "ecu" ? "selected" : user.country == "ecu" && locals.oldData == undefined ? "selected" : null %>>Ecuador</option>
-              <option value="par" <%= locals.oldData && oldData.country && oldData.country == "par" ? "selected" : user.country == "par" && locals.oldData == undefined ? "selected" : null %>>Paraguay</option>
-              <option value="per" <%= locals.oldData && oldData.country && oldData.country == "per" ? "selected" : user.country == "per" && locals.oldData == undefined ? "selected" : null %>>Perú</option>
-              <option value="uru" <%= locals.oldData && oldData.country && oldData.country == "uru" ? "selected" : user.country == "uru" && locals.oldData == undefined ? "selected" : null %>>Uruguay</option>
-              <option value="ven" <%= locals.oldData && oldData.country && oldData.country == "ven" ? "selected" : user.country == "ven" && locals.oldData == undefined ? "selected" : null %>>Venezuela</option>
+              <option value="1" <%= locals.oldData && oldData.country_id && oldData.country_id == "1" ? "selected" : user.country_id == "1" && locals.oldData == undefined ? "selected" : null %>>Argentina</option>
+              <option value="2" <%= locals.oldData && oldData.country_id && oldData.country_id == "2" ? "selected" : user.country_id == "2" && locals.oldData == undefined ? "selected" : null %>>Bolivia</option>
+              <option value="3" <%= locals.oldData && oldData.country_id && oldData.country_id == "3" ? "selected" : user.country_id == "3" && locals.oldData == undefined ? "selected" : null %>>Brasil</option>
+              <option value="4" <%= locals.oldData && oldData.country_id && oldData.country_id == "4" ? "selected" : user.country_id == "4" && locals.oldData == undefined ? "selected" : null %>>Chile</option>
+              <option value="5" <%= locals.oldData && oldData.country_id && oldData.country_id == "5" ? "selected" : user.country_id == "5" && locals.oldData == undefined ? "selected" : null %>>Colombia</option>
+              <option value="6" <%= locals.oldData && oldData.country_id && oldData.country_id == "6" ? "selected" : user.country_id == "6" && locals.oldData == undefined ? "selected" : null %>>Ecuador</option>
+              <option value="7" <%= locals.oldData && oldData.country_id && oldData.country_id == "7" ? "selected" : user.country_id == "7" && locals.oldData == undefined ? "selected" : null %>>Paraguay</option>
+              <option value="8" <%= locals.oldData && oldData.country_id && oldData.country_id == "8" ? "selected" : user.country_id == "8" && locals.oldData == undefined ? "selected" : null %>>Perú</option>
+              <option value="9" <%= locals.oldData && oldData.country_id && oldData.country_id == "9" ? "selected" : user.country_id == "9" && locals.oldData == undefined ? "selected" : null %>>Uruguay</option>
+              <option value="10" <%= locals.oldData && oldData.country_id && oldData.country_id == "10" ? "selected" : user.country == "10" && locals.oldData == undefined ? "selected" : null %>>Venezuela</option>
             </select>
           </div>
           <% if (locals.errors && errors.country) { %>
