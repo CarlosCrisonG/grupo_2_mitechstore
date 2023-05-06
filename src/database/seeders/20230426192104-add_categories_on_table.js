@@ -33,5 +33,8 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('categories', null, {});
+    await queryInterface.sequelize.query(
+      'ALTER TABLE categories AUTO_INCREMENT = 1'
+    );
   }
 };

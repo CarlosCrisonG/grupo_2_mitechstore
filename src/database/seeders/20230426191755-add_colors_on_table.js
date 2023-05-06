@@ -43,5 +43,8 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('colors', null, {});
+    await queryInterface.sequelize.query(
+      'ALTER TABLE colors AUTO_INCREMENT = 1'
+    );
   }
 };
