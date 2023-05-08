@@ -17,95 +17,99 @@ const controller = {
   register: (req, res) => {
     res.render("users/register");
   },
-  create: (req, res) => {
+  create: async (req, res) => {
     const errors = validationResult(req);
 
-    if (errors.isEmpty()) {
-      db.User.findAll().then(function (users) {
-        //Check if the user is already in the database
-        const userInDB = users.find((user) => user.email == req.body.email);
-        if (userInDB) {
-          return res.render("users/register", {
-            errors: {
-              email: {
-                msg: "Ya existe un usuario registrado con ese email",
-              },
-            },
-            oldData: req.body,
-          });
-        } else {
-          const avatar = req.file ? req.file.filename : "defaultUser.jpg";
-
-          const userToCreate = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            phone: req.body.phone,
-            avatar,
-            region: req.body.region,
-            city: req.body.city,
-            zip: req.body.zip,
-            address: req.body.address,
-            userprofile_id: req.body.userprofile,
-            country_id: req.body.country,
-          };
-          db.User.create(userToCreate);
-          res.redirect("/users/login");
-        }
-      });
-    } else {
-      res.render("users/register", {
+    if (!errors.isEmpty()) {
+      return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
       });
     }
+
+    const userInDB = await db.User.findOne({ where: { email: req.body.email } })
+
+    if (!userInDB) {
+      return res.render("users/register", {
+        errors: {
+          email: {
+            msg: "Ya existe un usuario registrado con ese email",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    //lo elimino ya que es redundante guardarlo
+    delete userInDB;
+
+    const avatar = req.file ? req.file.filename : "defaultUser.jpg";
+
+    const userToCreate = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 10),
+      phone: req.body.phone,
+      avatar,
+      region: req.body.region,
+      city: req.body.city,
+      zip: req.body.zip,
+      address: req.body.address,
+      userprofile_id: req.body.userprofile,
+      country_id: req.body.country,
+    }
+
+    await db.User.create(userToCreate)
+
+    res.redirect("/users/login");
   },
   login: (req, res) => {
     res.render("users/login");
   },
-  processLogin: (req, res) => {
+  processLogin: async (req, res) => {
     const errors = validationResult(req);
 
-    if (errors.isEmpty()) {
-      const users = db.User.findAll().then(function (users) {
-        let userToLogin = users.find(
-          (person) => person.email == req.body.email
-        );
-        if (userToLogin) {
-          if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
-            delete userToLogin.password;
-            req.session.userLogged = {
-              ...userToLogin,
-            };
-            return res.redirect("/");
-          } else {
-            return res.render("users/login", {
-              errors: {
-                password: {
-                  msg: "La contraseña ingresada es incorrecta",
-                },
-              },
-              oldData: req.body,
-            });
-          }
-        } else {
-          return res.render("users/login", {
-            errors: {
-              email: {
-                msg: "No existe ningún usuario registrado con ese email",
-              },
-            },
-            oldData: req.body,
-          });
-        }
-      });
-    } else {
-      res.render("users/login", {
+    if (!errors.isEmpty()) {
+      return res.render("users/login", {
         errors: errors.mapped(),
         oldData: req.body,
       });
     }
+
+    const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
+
+    if (!userToLogin) {
+      return res.render("users/login", {
+        errors: {
+          email: {
+            msg: "No existe ningún usuario registrado con ese email",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    if (!bcrypt.compareSync(req.body.password, userToLogin.password)) {
+      delete req.body.password;
+
+      return res.render("users/login", {
+        errors: {
+          password: {
+            msg: "La contraseña ingresada es incorrecta",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    delete userToLogin.password;
+
+    req.session.userLogged = {
+      ...userToLogin,
+    };
+
+    return res.redirect("/");
   },
   profile: (req, res) => {
     const userInDB = db.User.findOne({
