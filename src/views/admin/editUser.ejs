@@ -52,14 +52,14 @@
             <label>Perfil del usuario</label>
           </div>
           <div class="perfil">
-            <div>
-              <input id="comprador" type="radio" name="userprofile" value="comprador" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "comprador" ? "checked" : user.userprofile == "comprador" && locals.oldData == undefined ? "checked" : null %>>
-              <label for="comprador">Comprador</label>
-            </div>
-            <div>
-              <input id="vendedor" type="radio" name="userprofile" value="vendedor" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "vendedor" ? "checked" : user.userprofile == "vendedor" && locals.oldData == undefined ? "checked" : null %>>
-              <label for="vendedor">Vendedor</label>
-            </div>
+            <% userProfiles.forEach(profile => { %>             
+              <% if (profile.name.toUpperCase() != 'ADMINISTRADOR') { %>               
+                <div>
+                  <input id="<%= profile.name %>" type="radio" name="userprofile" value="<%= profile.id %>" <%= locals.oldData && oldData.userprofile == profile.id ? "checked" : user.userprofile_id == profile.id && locals.oldData == undefined ? "checked" : null%>>
+                  <label for="<%= profile.name %>"><%= profile.name %></label>
+                </div>
+              <% } %>
+            <% }) %>            
           </div>
           <% if (locals.errors && errors.userprofile) { %>
             <p class = "error"> <%= errors.userprofile.msg %> </p>
@@ -67,16 +67,9 @@
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
             <select id="paises" name="country">
-              <option value="arg" <%= locals.oldData && oldData.country && oldData.country == "arg" ? "selected" : user.country == "arg" && locals.oldData == undefined ? "selected" : null %>>Argentina</option>
-              <option value="bol" <%= locals.oldData && oldData.country && oldData.country == "bol" ? "selected" : user.country == "bol" && locals.oldData == undefined ? "selected" : null %>>Bolivia</option>
-              <option value="bra" <%= locals.oldData && oldData.country && oldData.country == "bra" ? "selected" : user.country == "bra" && locals.oldData == undefined ? "selected" : null %>>Brasil</option>
-              <option value="chi" <%= locals.oldData && oldData.country && oldData.country == "chi" ? "selected" : user.country == "chi" && locals.oldData == undefined ? "selected" : null %>>Chile</option>
-              <option value="col" <%= locals.oldData && oldData.country && oldData.country == "col" ? "selected" : user.country == "col" && locals.oldData == undefined ? "selected" : null %>>Colombia</option>
-              <option value="ecu" <%= locals.oldData && oldData.country && oldData.country == "ecu" ? "selected" : user.country == "ecu" && locals.oldData == undefined ? "selected" : null %>>Ecuador</option>
-              <option value="par" <%= locals.oldData && oldData.country && oldData.country == "par" ? "selected" : user.country == "par" && locals.oldData == undefined ? "selected" : null %>>Paraguay</option>
-              <option value="per" <%= locals.oldData && oldData.country && oldData.country == "per" ? "selected" : user.country == "per" && locals.oldData == undefined ? "selected" : null %>>Perú</option>
-              <option value="uru" <%= locals.oldData && oldData.country && oldData.country == "uru" ? "selected" : user.country == "uru" && locals.oldData == undefined ? "selected" : null %>>Uruguay</option>
-              <option value="ven" <%= locals.oldData && oldData.country && oldData.country == "ven" ? "selected" : user.country == "ven" && locals.oldData == undefined ? "selected" : null %>>Venezuela</option>
+              <% countries.forEach(country => { %>               
+                <option value="<%= country.id %>" <%= locals.oldData && oldData.country && oldData.country == country.id ? "selected" : user.country_id == country.id && locals.oldData == undefined ? "selected" : null %>><%= country.name %></option>
+              <% }) %>              
             </select>
           </div>
           <% if (locals.errors && errors.country) { %>

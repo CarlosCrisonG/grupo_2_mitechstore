@@ -1,65 +1,72 @@
-  <header class="main-header">
-    <div class="encabezado">
-      <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/users/register" style="color:blue;">¡Registrate!</a></p>
-    </div>
-    <div class="header-top-bar">
-      <div class="logo-search-container">
-        <div class="logo">
-          <a href="/"><img src="/images/Logo_Blanco.png" alt="MiTechStore"></a>
-        </div>
-        <div class="search-bar">
-          <input type="text" placeholder="¿Que producto buscas?">
-          <button class=><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <nav class="opciones">
-          <ul>
-            <% if (locals.user) { %>
-              <li class="main-header-navbar-element"><a href="/users/userProfile"><%= user.first_name %> <%= user.last_name %> <i class="fa-solid fa-user"></i></a></li>
-              <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+<header class="main-header">
+  <div class="encabezado">
+    <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/users/register"
+        style="color:blue;">¡Registrate!</a></p>
+  </div>
+  <div class="header-top-bar">
+    <div class="logo-search-container">
+      <div class="logo">
+        <a href="/"><img src="/images/Logo_Blanco.png" alt="MiTechStore"></a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="¿Que producto buscas?">
+        <button class=><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <nav class="opciones">
+        <ul>
+          <% if (locals.user) { %>
+            <li class="main-header-navbar-element"><a href="/users/userProfile">
+                <%= user.dataValues.first_name %> <i class="fa-solid fa-user"></i>
+              </a></li>
+            <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i
+                  class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
             <% }else {%>
-              <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
-            <% } %>
-              <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-            <% if (locals.user && user.userprofile == "vendedor") { %>
-              <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
-            <% } %>            
-          </ul>
-        </nav>
-      </div>
-      <div class="ad-text">
-        <p>Realizá compras en nuestras tienda online, recibí promociones y novedades ¡Registrate!</p>
-      </div>
-      <div class="burguer-menu">
-        <button><i class="fas fa-bars"></i></button>
-      </div>
+              <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i
+                    class="fa-solid fa-user"></i></a></li>
+              <% } %>
+                <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
+                      class="fa-solid fa-cart-shopping"></i></a></li>
+                <% if (locals.user && user.userprofile=="vendedor" ) { %>
+                  <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
+                        class="fa-solid fa-square-plus"></i></a></li>
+                  <% } %>
+        </ul>
+      </nav>
     </div>
+    <div class="ad-text">
+      <p>Realizá compras en nuestras tienda online, recibí promociones y novedades ¡Registrate!</p>
     </div>
-    <nav class="categorias-navbar">
-      <ul>
-        <a href="/product/list">
-          <li class="categoria">Todos los productos
-          </li>
-        </a>
-        <a href="/product/list?category=computadoras">
-          <li class="categoria">Computadoras
-          </li>
-        </a>
-        <a href="/product/list?category=celulares">
-          <li class="categoria">Celulares
-          </li>
-        </a>
-        <a href="/product/list?category=accesorios">
-          <li class="categoria">Accesorios
-          </li>
-        </a>
-        <a href="/product/list?category=electrodomesticos">
-          <li class="categoria">Electrodomésticos
-          </li>
-        </a>
-        <a href="/product/list?category=cuidadoPersonal">
-          <li class="categoria">Cuidado Personal
-          </li>
-        </a>
-      </ul>
-    </nav>
-  </header>
+    <div class="burguer-menu">
+      <button><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+  </div>
+  <nav class="categorias-navbar">
+    <ul>
+      <a href="/product/list">
+        <li class="categoria">Todos los productos
+        </li>
+      </a>
+      <a href="/product/list?category=computadoras">
+        <li class="categoria">Computadoras
+        </li>
+      </a>
+      <a href="/product/list?category=celulares">
+        <li class="categoria">Celulares
+        </li>
+      </a>
+      <a href="/product/list?category=accesorios">
+        <li class="categoria">Accesorios
+        </li>
+      </a>
+      <a href="/product/list?category=electrodomesticos">
+        <li class="categoria">Electrodomésticos
+        </li>
+      </a>
+      <a href="/product/list?category=cuidadoPersonal">
+        <li class="categoria">Cuidado Personal
+        </li>
+      </a>
+    </ul>
+  </nav>
+</header>
