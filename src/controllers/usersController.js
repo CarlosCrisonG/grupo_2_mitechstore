@@ -125,19 +125,33 @@ const controller = {
       }
     });
   },
-  edit: (req, res) => {
-    const userInDB = db.User.findOne({
-      where: {
-        email: req.session.userLogged.dataValues.email,
-      },
-    }).then(function (user) {
-      if (user) {
-        let userFound = user;
-        res.render("admin/editUser", { user: userFound });
-      } else {
-        res.send("El usuario no se encuentra en la base de datos");
-      }
+  edit: async (req, res) => {
+    // const userInDB = db.User.findOne({
+    //   where: {
+    //     email: req.session.userLogged.dataValues.email,
+    //   },
+    // }).then(function (user) {
+    //   if (user) {
+    //     let userFound = user;
+    //     res.render("admin/editUser", { user: userFound });
+    //   } else {
+    //     res.send("El usuario no se encuentra en la base de datos");
+    //   }
+    // });
+
+    const userInDB = await db.User.findOne({
+      where: { email: req.session.userLogged.dataValues.email }
     });
+
+    if (!userInDB) {
+      return res.send("el usuario no se encuentra en la base de datos");
+    }
+
+    const userProfiles = await db.UserProfile.findAll();
+
+    const countries = await db.Country.findAll();
+
+    res.render("admin/editUser", { user: userInDB, userProfiles, countries })
   },
   update: async (req, res) => {
     const errors = validationResult(req);
@@ -186,9 +200,15 @@ const controller = {
         res.redirect("/users/userProfile");
       });
     } else {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
       res.render("admin/editUser", {
         errors: errors.mapped(),
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
   },
