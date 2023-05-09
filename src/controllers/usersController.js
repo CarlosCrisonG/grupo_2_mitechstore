@@ -29,7 +29,7 @@ const controller = {
 
     const userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
-    if (!userInDB) {
+    if (userInDB) {
       return res.render("users/register", {
         errors: {
           email: {
@@ -139,13 +139,13 @@ const controller = {
       }
     });
   },
-  update: (req, res) => {
+  update: async (req, res) => {
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
       const userInDB = db.User.findOne({
         where: { email: req.body.email },
-      }).then(function (user) {
+      }).then(async function (user) {
         let avatar = user.avatar;
 
         if (req.file) {
@@ -170,9 +170,19 @@ const controller = {
           country_id: req.body.country,
         };
 
-        db.User.update(userToUpdate, {
+        await db.User.update(userToUpdate, {
           where: { id: user.id },
         });
+
+        let updatedUser = await db.User.findOne({
+          where: { email: req.body.email }
+        })
+
+        delete updatedUser.password;
+
+        req.session.userLogged = {
+          ...updatedUser,
+        }
         res.redirect("/users/userProfile");
       });
     } else {
