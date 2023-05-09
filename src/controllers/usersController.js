@@ -113,6 +113,7 @@ const controller = {
   },
   profile: (req, res) => {
     const userInDB = db.User.findOne({
+      include: { all: true },
       where: {
         email: req.session.userLogged.dataValues.email,
       },
@@ -126,19 +127,6 @@ const controller = {
     });
   },
   edit: async (req, res) => {
-    // const userInDB = db.User.findOne({
-    //   where: {
-    //     email: req.session.userLogged.dataValues.email,
-    //   },
-    // }).then(function (user) {
-    //   if (user) {
-    //     let userFound = user;
-    //     res.render("admin/editUser", { user: userFound });
-    //   } else {
-    //     res.send("El usuario no se encuentra en la base de datos");
-    //   }
-    // });
-
     const userInDB = await db.User.findOne({
       where: { email: req.session.userLogged.dataValues.email }
     });
