@@ -161,7 +161,6 @@ const controller = {
           first_name: req.body.first_name,
           last_name: req.body.last_name,
           email: req.body.email,
-          password: bcrypt.hashSync(req.body.password, 10),
           phone: req.body.phone,
           avatar,
           region: req.body.region,
@@ -172,6 +171,10 @@ const controller = {
           country_id: req.body.country,
         };
 
+        if (req.body.password) {
+          userToUpdate.password = bcrypt.hashSync(req.body.password, 10);
+        }
+        
         await db.User.update(userToUpdate, {
           where: { id: user.id },
         });
