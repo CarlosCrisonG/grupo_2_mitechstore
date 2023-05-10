@@ -3,65 +3,67 @@
 }) %>
 
 <body>
-    <!-- Header - Inicio -->
-   <%- include("../partials/header") %>
-   <!-- Header - Fin-->
+  <!-- Header - Inicio -->
+  <%- include("../partials/header") %>
+  <!-- Header - Fin-->
 
-    <!-- Seccion de header -->
-    <section>
-        <div class="conteiner-h1">            
-            <h3><%= locals.categoryQueryId && categoryQueryId ? headerCategories.find(category => category.id == categoryQueryId).name : "Todos los productos"%></h3>
-        </div>
-    </section>
-    
-    <div class="filtro">
-        <form>
-            <label>Buscar</label>
-            <input type="search" placeholder="Escribe aqui"></input>
-            <label>Filtrar por</label>
-            <select class="filtrar-por" name="fitro">
-                <option value="menor-precio">Menor precio</option>
-                <option value="mayor-precio">Mayor precio</option>
-                <option value="A-Z">A-Z</option>
-                <option value="Z-A">Z-A</option>
-            </select>
-        </form>
+  <!-- Seccion de header -->
+  <section>
+    <div class="conteiner-h1">
+      <h3><%= locals.categoryQueryId && categoryQueryId ? headerCategories.find(category => category.id == categoryQueryId).name : "Todos los productos"%></h3>
     </div>
-    <main>
+  </section>
+
+  <div class="filtro">
+    <form>
+      <label>Buscar</label>
+      <input type="search" placeholder="Escribe aqui"></input>
+      <label>Filtrar por</label>
+      <select class="filtrar-por" name="fitro">
+        <option value="menor-precio">Menor precio</option>
+        <option value="mayor-precio">Mayor precio</option>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+      </select>
+    </form>
+  </div>
+  <main>
     <!-- Seccion de producto -->
-        <section class="productos">
-            <!-- Productos -->
-            <% products.forEach(product => { %>
-                <div class="conteiner-producto">
-                    <a class="enlace_producto" href="/product/detail/<%= product.id %>">
-                    <div class="conteiner-imagen-producto">
-                       <img src="/images/products/<%= product.images[0].name %>" alt="Redmi10">
-                    </div>
-    
-                    <div class="titulo-producto">
-                        <h3><%= product.name %></h3>
-                    </div>
-    
-                    <div class="precio-descuento">
-                        
-                        <div class="precio-producto">
-                            <span>$<%= product.price %></span>
-                        </div>
-                        <% if (product.discount > 0) { %>
-                            <div class="descuento-producto">
-                                <span><%= product.discount %>% OFF</span>
-                            </div>
-                        <% } %>
-                    </div>
-    
-                    <div class="descripcion-producto">
-                        <a href="/admin/editproduct/<%= product.id %>"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>                        
-                    </div>
-                </a>
-                </div>
-            <% }) %>                                              
-        </section>
-    </main>
+    <section class="productos">
+      <!-- Productos -->
+      <% products.forEach(product => { %>
+      <div class="conteiner-producto">
+        <a class="enlace_producto" href="/product/detail/<%= product.id %>">
+          <div class="conteiner-imagen-producto">
+            <img src="/images/products/<%= product.images[0].name %>" alt="Redmi10">
+          </div>
+
+          <div class="titulo-producto">
+            <h3><%= product.name %></h3>
+          </div>
+
+          <div class="precio-descuento">
+
+            <div class="precio-producto">
+              <span>$<%= product.price %></span>
+            </div>
+            <% if (product.discount > 0) { %>
+            <div class="descuento-producto">
+              <span><%= product.discount %>% OFF</span>
+            </div>
+            <% } %>
+          </div>
+
+          <% if (locals.user && user.dataValues.userprofile_id != 1) { %>
+          <div class="descripcion-producto">
+            <a href="/admin/editproduct/<%= product.id %>"><button> Editar <i class="fa-regular fa-pen-to-square"></i> </button></a>
+          </div>
+          <% } %>
+        </a>
+      </div>
+      <% }) %>
+    </section>
+  </main>
 
   <!-- Footer - Inicio -->
   <%- include("../partials/footer") %>
