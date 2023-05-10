@@ -9,8 +9,10 @@
         <a href="/"><img src="/images/Logo_Blanco.png" alt="MiTechStore"></a>
       </div>
       <div class="search-bar">
-        <input type="text" placeholder="¿Que producto buscas?">
-        <button class=><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form action="/product/search" class="form-search-bar" method="get">
+          <input type="text" placeholder="¿Que producto buscas?" value="<%= locals.words && words ? words : null %>" name="words">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
       </div>
       <nav class="opciones">
         <ul>
@@ -26,7 +28,7 @@
               <% } %>
                 <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
                       class="fa-solid fa-cart-shopping"></i></a></li>
-                <% if (locals.user && user.dataValues.userprofile_id != 1) { %>
+                <% if (locals.user && user.dataValues.userprofile_id != 1 ) { %>
                   <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
                         class="fa-solid fa-square-plus"></i></a></li>
                   <% } %>
