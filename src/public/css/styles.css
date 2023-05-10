@@ -131,6 +131,7 @@ div.search-bar form.form-search-bar{
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
 .logo-search-container {
