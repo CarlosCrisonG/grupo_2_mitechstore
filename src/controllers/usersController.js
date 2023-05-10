@@ -1,186 +1,229 @@
-const users = require('../data/users.json');
+const db = require("../database/models");
+// const users = require('../data/users.json');
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
-const { validationResult } = require('express-validator');
+const { validationResult } = require("express-validator");
+const { log } = require("console");
 
 const usersPath = path.join(__dirname, "../data/users.json");
-function getusers() {
-  return JSON.parse(fs.readFileSync(usersPath));
-}
+
+// function getusers() {
+//   return JSON.parse(fs.readFileSync(usersPath));
+// }
 
 const controller = {
   register: (req, res) => {
     res.render("users/register");
   },
-  create: (req, res) => {
+  create: async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.render("users/register", {
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
+    }
+
+    const userInDB = await db.User.findOne({ where: { email: req.body.email } })
+
+    if (userInDB) {
+      return res.render("users/register", {
+        errors: {
+          email: {
+            msg: "Ya existe un usuario registrado con ese email",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    //lo elimino ya que es redundante guardarlo
+    delete userInDB;
+
+    const avatar = req.file ? req.file.filename : "defaultUser.jpg";
+
+    const userToCreate = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 10),
+      phone: req.body.phone,
+      avatar,
+      region: req.body.region,
+      city: req.body.city,
+      zip: req.body.zip,
+      address: req.body.address,
+      userprofile_id: req.body.userprofile,
+      country_id: req.body.country,
+    }
+
+    await db.User.create(userToCreate)
+
+    res.redirect("/users/login");
+  },
+  login: (req, res) => {
+    res.render("users/login");
+  },
+  processLogin: async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.render("users/login", {
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
+    }
+
+    const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
+
+    if (!userToLogin) {
+      return res.render("users/login", {
+        errors: {
+          email: {
+            msg: "No existe ningún usuario registrado con ese email",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    if (!bcrypt.compareSync(req.body.password, userToLogin.password)) {
+      delete req.body.password;
+
+      return res.render("users/login", {
+        errors: {
+          password: {
+            msg: "La contraseña ingresada es incorrecta",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    delete userToLogin.password;
+
+    req.session.userLogged = {
+      ...userToLogin,
+    };
+
+    return res.redirect("/");
+  },
+  profile: (req, res) => {
+    const userInDB = db.User.findOne({
+      include: { all: true },
+      where: {
+        email: req.session.userLogged.dataValues.email,
+      },
+    }).then(function (user) {
+      if (user) {
+        let userFound = user;
+        res.render("users/userProfile", { user: userFound });
+      } else {
+        res.send("El usuario no se encuentra en la base de datos");
+      }
+    });
+  },
+  edit: async (req, res) => {
+    const userInDB = await db.User.findOne({
+      where: { email: req.session.userLogged.dataValues.email }
+    });
+
+    if (!userInDB) {
+      return res.send("el usuario no se encuentra en la base de datos");
+    }
+
+    const userProfiles = await db.UserProfile.findAll();
+
+    const countries = await db.Country.findAll();
+
+    res.render("admin/editUser", { user: userInDB, userProfiles, countries })
+  },
+  update: async (req, res) => {
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      const users = getusers();
-      let userInDB = users.find(user => user.email == req.body.email)
-      if (userInDB) {
-        return res.render('users/register', {
-          errors: {
-            email: {
-              msg: "Ya existe un usuario registrado con ese email"
-            }
-          }, oldData: req.body
-        });
-      } else {
-        const avatar = req.file ? req.file.filename : "defaultUser.jpg";
+      const userInDB = db.User.findOne({
+        where: { email: req.body.email },
+      }).then(async function (user) {
+        let avatar = user.avatar;
 
-        const id = users[users.length - 1].id + 1;
+        if (req.file) {
+          avatar = req.file.filename;
+          fs.unlinkSync(
+            path.join(__dirname, "../public/images/avatars/", user.avatar)
+          );
+        }
 
-        const user = {
-          id,
+        const userToUpdate = {
           first_name: req.body.first_name,
           last_name: req.body.last_name,
           email: req.body.email,
           password: bcrypt.hashSync(req.body.password, 10),
           phone: req.body.phone,
           avatar,
-          userprofile: req.body.userprofile.toLowerCase(),
-          country: req.body.country,
           region: req.body.region,
           city: req.body.city,
           zip: req.body.zip,
           address: req.body.address,
+          userprofile_id: req.body.userprofile,
+          country_id: req.body.country,
         };
 
-        users.push(user);
+        await db.User.update(userToUpdate, {
+          where: { id: user.id },
+        });
 
-        fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
-
-        res.redirect("/users/login");
-      }
-    } else {
-      res.render('users/register', {
-        errors: errors.mapped(),
-        oldData: req.body,
-      });
-    }
-
-  },
-  login: (req, res) => {
-    res.render("users/login");
-  },
-  processLogin: (req, res) => {
-    const errors = validationResult(req);
-
-    if (errors.isEmpty()) {
-
-      const users = getusers();
-      let userToLogin = users.find((person) => person.email == req.body.email);
-
-      if (userToLogin) {
-        if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
-          delete userToLogin.password;
-          req.session.userLogged = {
-            ...userToLogin,
-          };
-          return res.redirect("/");
-        } else {
-          return res.render('users/login', {
-            errors: {
-              password: {
-                msg: "La contraseña ingresada es incorrecta"
-              }
-            }, oldData: req.body
-          })
-        }
-
-      } else {
-        return res.render('users/login', {
-          errors: {
-            email: {
-              msg: "No existe ningún usuario registrado con ese email"
-            }
-          }, oldData: req.body
+        let updatedUser = await db.User.findOne({
+          where: { email: req.body.email }
         })
-      }
 
+        delete updatedUser.password;
+
+        req.session.userLogged = {
+          ...updatedUser,
+        }
+        res.redirect("/users/userProfile");
+      });
     } else {
-      res.render('users/login', {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
+      res.render("admin/editUser", {
         errors: errors.mapped(),
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
-
   },
-  profile: (req, res) => {
-    res.render("users/userProfile");
-  },
-  edit: (req, res) => {
-    res.render("admin/editUser");
-  },
-  update: (req, res) => {
-    const errors = validationResult(req);
 
-    if (errors.isEmpty()) {
-      const users = getusers()
-
-      const userToUpdateIndex = users.findIndex(user => user.id == req.session.userLogged.id);
-
-      const avatar = req.file ? req.file.filename : users[userToUpdateIndex].avatar;
-
-      const password = req.body.password ? bcrypt.hashSync(req.body.password, 10) : users[userToUpdateIndex].password;
-
-      users[userToUpdateIndex] = {
-        ...users[userToUpdateIndex],
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        password,
-        phone: req.body.phone,
-        avatar,
-        userprofile: req.body.userprofile,
-        country: req.body.country,
-        region: req.body.region,
-        city: req.body.city,
-        zip: req.body.zip,
-        address: req.body.address,
-      }
-
-      fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
-
-      delete users[userToUpdateIndex].password;
-
-      req.session.userLogged = {
-        ...users[userToUpdateIndex]
-      };
-
-      res.redirect("/");
-    } else {
-      res.render('admin/editUser', {
-        errors: errors.mapped(),
-        oldData: req.body,
-      })
-    }
-  },
   logout: (req, res) => {
     req.session.destroy();
 
     res.redirect("/");
   },
   destroyUser: (req, res) => {
-    const users = getusers();
+    const userInDB = db.User.findOne({
+      where: {
+        email: req.session.userLogged.dataValues.email,
+      },
+    }).then(function (user) {
+      if (user.avatar != "defaultUser.jpg") {
+        fs.unlinkSync(
+          path.join(__dirname, "../public/images/avatars/", user.avatar)
+        );
+      }
+      db.User.destroy({ where: { id: user.id } });
 
-    const userToDestroyIndex = users.findIndex(user => user.id == req.session.userLogged.id);
+      req.session.destroy();
 
-    if (users[userToDestroyIndex].avatar != "defaultUser.jpg") {
-      fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", users[userToDestroyIndex].avatar));
-    }
-
-    users.splice(userToDestroyIndex, 1);
-
-    req.session.destroy();
-
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, 3));
-
-    res.redirect("/");
-  }
+      res.redirect("/");
+    });
+  },
 };
 
 module.exports = controller;

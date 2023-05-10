@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
 
     const config = {
         timestamps: false,
-        tableName: "userProfile"
+        tableName: "userprofile"
     };
 
     const UserProfile = sequelize.define(alias, cols, config);
