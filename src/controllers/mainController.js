@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require('fs');
+const db = require('../database/models');
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -8,12 +9,10 @@ function getProducts() {
 }
 
 const controller = {
-  index: (req, res) => {
-    const products = getProducts();
+  index: async (req, res) => {
+    const highlightedProducts = await db.Product.findAll({ include: ["images"], where: { highlight: true } });
 
-    const highlightedProducts = products.filter(product => product.highlight);
-
-    const onSale = products.filter(product => product.inSale);
+    const onSale = await db.Product.findAll({ include: ["images"], where: { inSale: true } });
 
     res.render("main/index", { onSale, highlightedProducts });
   },

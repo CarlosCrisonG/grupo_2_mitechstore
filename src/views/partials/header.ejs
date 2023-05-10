@@ -9,8 +9,10 @@
         <a href="/"><img src="/images/Logo_Blanco.png" alt="MiTechStore"></a>
       </div>
       <div class="search-bar">
-        <input type="text" placeholder="¿Que producto buscas?">
-        <button class=><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form action="/product/search" class="form-search-bar" method="get">
+          <input type="text" placeholder="¿Que producto buscas?" value="<%= locals.words && words ? words : null %>" name="words">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
       </div>
       <nav class="opciones">
         <ul>
@@ -26,7 +28,7 @@
               <% } %>
                 <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
                       class="fa-solid fa-cart-shopping"></i></a></li>
-                <% if (locals.user && user.userprofile=="vendedor" ) { %>
+                <% if (locals.user && user.dataValues.userprofile_id != 1 ) { %>
                   <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
                         class="fa-solid fa-square-plus"></i></a></li>
                   <% } %>
@@ -36,37 +38,18 @@
     <div class="ad-text">
       <p>Realizá compras en nuestras tienda online, recibí promociones y novedades ¡Registrate!</p>
     </div>
-    <div class="burguer-menu">
-      <button><i class="fas fa-bars"></i></button>
-    </div>
-  </div>
-  </div>
-  <nav class="categorias-navbar">
-    <ul>
-      <a href="/product/list">
-        <li class="categoria">Todos los productos
-        </li>
-      </a>
-      <a href="/product/list?category=computadoras">
-        <li class="categoria">Computadoras
-        </li>
-      </a>
-      <a href="/product/list?category=celulares">
-        <li class="categoria">Celulares
-        </li>
-      </a>
-      <a href="/product/list?category=accesorios">
-        <li class="categoria">Accesorios
-        </li>
-      </a>
-      <a href="/product/list?category=electrodomesticos">
-        <li class="categoria">Electrodomésticos
-        </li>
-      </a>
-      <a href="/product/list?category=cuidadoPersonal">
-        <li class="categoria">Cuidado Personal
-        </li>
-      </a>
-    </ul>
-  </nav>
-</header>
+    <nav class="categorias-navbar">
+      <ul>
+        <a href="/product/list">
+          <li class="categoria">Todos los productos
+          </li>
+        </a>
+        <% headerCategories.forEach(category => { %>
+          <a href="/product/list?category=<%= category.id %>">
+            <li class="categoria"><%= category.name %>
+            </li>
+          </a>  
+        <% }) %>        
+      </ul>
+    </nav>
+  </header>
