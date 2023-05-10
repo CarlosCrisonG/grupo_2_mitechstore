@@ -26,7 +26,7 @@
               <% } %>
                 <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
                       class="fa-solid fa-cart-shopping"></i></a></li>
-                <% if (locals.user && user.userprofile=="vendedor" ) { %>
+                <% if (locals.user && user.dataValues.userprofile_id != 1) { %>
                   <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
                         class="fa-solid fa-square-plus"></i></a></li>
                   <% } %>

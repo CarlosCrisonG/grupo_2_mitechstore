@@ -52,7 +52,7 @@
             <h4 class="subtitle-descripcion">Descripción</h4>
             <p class="texto"><%= product.description %></p>
           </div>
-          <% if (locals.user && user.userprofile == "vendedor") { %>           
+          <% if (locals.user && user.dataValues.userprofile_id != 1) { %>           
             <div class="admin-buttons">
               <a href="/admin/editproduct/<%= product.id %>"><button class="edit-button">Editar</button></a>
               <form action="/admin/<%= product.id %>?_method=DELETE" method="POST">            
