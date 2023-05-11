@@ -119,7 +119,7 @@ const controller = {
     };
 
     if (req.body.remember) {
-      res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }))
+      res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }));
     }
 
     return res.redirect("/");
@@ -212,7 +212,7 @@ const controller = {
         }
 
         if (req.cookies.userCookie) {
-          res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }))
+          res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }));
         }
 
         res.redirect("/users/userProfile");
