@@ -118,7 +118,7 @@ const controller = {
       userprofile_id: userToLogin.userprofile_id
     };
 
-    if (req.remember) {
+    if (req.body.remember) {
       res.cookie("userCookie", JSON.stringify(req.session.userLogged))
     }
 
