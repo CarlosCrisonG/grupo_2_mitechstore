@@ -103,11 +103,24 @@ const controller = {
       });
     }
 
-    delete userToLogin.password;
-
     req.session.userLogged = {
-      ...userToLogin,
+      dataValues: {
+        id: userToLogin.id,
+        first_name: userToLogin.first_name,
+        last_name: userToLogin.last_name,
+        email: userToLogin.email,
+        userprofile_id: userToLogin.userprofile_id
+      },
+      id: userToLogin.id,
+      first_name: userToLogin.first_name,
+      last_name: userToLogin.last_name,
+      email: userToLogin.email,
+      userprofile_id: userToLogin.userprofile_id
     };
+
+    if (req.remember) {
+      res.cookie("userCookie", JSON.stringify(req.session.userLogged))
+    }
 
     return res.redirect("/");
   },
@@ -174,7 +187,7 @@ const controller = {
         if (req.body.password) {
           userToUpdate.password = bcrypt.hashSync(req.body.password, 10);
         }
-        
+
         await db.User.update(userToUpdate, {
           where: { id: user.id },
         });
