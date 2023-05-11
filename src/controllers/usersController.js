@@ -119,7 +119,7 @@ const controller = {
     };
 
     if (req.body.remember) {
-      res.cookie("userCookie", JSON.stringify(req.session.userLogged))
+      res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }))
     }
 
     return res.redirect("/");
@@ -211,8 +211,8 @@ const controller = {
           userprofile_id: updatedUser.userprofile_id
         }
 
-        if (res.cookies.userCookie) {
-          res.cookie("userCookie", JSON.stringify(req.session.userLogged))
+        if (req.cookies.userCookie) {
+          res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }))
         }
 
         res.redirect("/users/userProfile");
