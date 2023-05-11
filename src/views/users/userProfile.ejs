@@ -2,73 +2,84 @@
 
     <body>
         <%- include("../partials/header") %>
-        <main>
-            <div class="profile-container">
-                <div class="user-container">
-                   <div>
-                        <img class="profile-picture" src="/images/avatars/<%= user.avatar %>" alt="Foto de perfil">
-                        <p class="user-name"><%= user.first_name + " " + user.last_name %></p>
-                        <p class="work-text"><%= user.userprofile == "comprador" ? "Comprador" : "Vendedor" %></p>
-                        <div class="user-option">
-                            <a href="/users/edit">
-                            <button class="btn-update"> Editar</button>
-                            </a>
-                            <form action="/users/destroy?_method=DELETE" method="POST">
-                                <button type="submit">Eliminar usuario</button>
-                              </form>
-                        </div>
-                   </div>
-                </div>
-                <div class="data-container">
-                    <div style="width: 100%;">
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Nombre Completo:</span>
-                            <p><%= user.first_name + " " + user.last_name %> </p> 
-                        </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Correo Electronico:</span>
-                            <p><%= user.email %></p>
-                        </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Celular:</span>
-                            <p><%= user.phone %></p>
-                        </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Pais:</span>
-                            <p> <%= user.country == "arg" ? 'Argentina' : null %>
-                                <%= user.country == "bol" ? 'Bolivia' : null %>
-                                <%= user.country == "bra" ? 'Brasil' : null %>
-                                <%= user.country == "chi" ? 'Chile' : null %>
-                                <%= user.country == "col" ? 'Colombia' : null %>
-                                <%= user.country == "ecu" ? 'Ecuador' : null %>
-                                <%= user.country == "par" ? 'Paraguay' : null %>
-                                <%= user.country == "per" ? 'Perú' : null %>
-                                <%= user.country == "uru" ? 'Uruguay' : null %>
-                                <%= user.country == "ven" ? 'Venezuela' : null %>
+            <main>
+                <div class="profile-container">
+                    <div class="user-container">
+                        <div>
+                            <img class="profile-picture" src="/images/avatars/<%= user.avatar %>"
+                                alt="Foto de perfil" />
+                            <p class="user-name">
+                                <%= user.first_name + " " + user.last_name %>
                             </p>
+                            <p class="work-text">
+                                <%= user.userProfile.name %>
+                            </p>
+                            <div class="user-option">
+                                <a href="/users/edit">
+                                    <button class="btn-update">Editar</button>
+                                </a>
+                                <form action="/users/destroy?_method=DELETE" method="POST">
+                                    <button type="submit">Eliminar usuario</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Región:</span>
-                            <p><%=user.region %></p>
-                        </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Ciudad:</span>
-                            <p><%=user.city %></p>
-                        </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Código Postal:</span>
-                            <p><%=user.zip %></p>
-                        </div>
-                        <div class="data-user-info">
-                            <span class="data-user-info-label">Dirección:</span>
-                            <p><%=user.address %></p>
+                    </div>
+                    <div class="data-container">
+                        <div style="width: 100%">
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Nombre Completo:</span>
+                                <p>
+                                    <%= user.first_name + " " + user.last_name %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Correo Electronico:</span>
+                                <p>
+                                    <%= user.email %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Celular:</span>
+                                <p>
+                                    <%= user.phone %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Pais:</span>
+                                <p>
+                                    <%= user.country.name %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Región:</span>
+                                <p>
+                                    <%=user.region %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Ciudad:</span>
+                                <p>
+                                    <%=user.city %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Código Postal:</span>
+                                <p>
+                                    <%=user.zip %>
+                                </p>
+                            </div>
+                            <div class="data-user-info">
+                                <span class="data-user-info-label">Dirección:</span>
+                                <p>
+                                    <%=user.address %>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
     </body>
 
-<!-- Footer - Inicio -->
-<%- include("../partials/footer") %>
-<!-- Footer - Fin -->
+    <!-- Footer - Inicio -->
+    <%- include("../partials/footer") %>
+        <!-- Footer - Fin -->

@@ -32,11 +32,9 @@
              <label class="label" for="">Categoría: </label>
              <select id="categorias" name="category">
                 <option value="" disabled>Elige</option>
-                <option value="celulares" <%= product.category == "celulares" ? "selected" : "" %>>Celulares</option>
-                <option value="computadoras" <%= product.category == "computadoras" ? "selected" : "" %>>Computadoras</option>
-                <option value="accesorios" <%= product.category == "accesorios" ? "selected" : "" %>>Accesorios</option>
-                <option value="electrodomesticos" <%= product.category == "electrodomesticos" ? "selected" : "" %>>Electrodomésticos</option>
-                <option value="cuidadoPersonal" <%= product.category == "cuidadoPersonal" ? "selected" : "" %>>Cuidado personal</option>
+                  <% categories.forEach(category => { %>
+                     <option value="<%= category.id %>" <%= product.category.id == category.id ? "selected" : "" %>><%= category.name %></option>
+                  <% }) %>                
              </select>
           </div>
           <div class="categorias">
@@ -50,46 +48,12 @@
        </div>
        <label class="label" for="">Colores</label>
        <div class="colores">
-          <div>
-             <input id="negro" type="checkbox" name="colors" value="negro" <%= product.colors.includes("negro") ? "checked" : "" %>>
-             <label for="negro">Negro</label>
-          </div>
-          <div>
-             <input id="blanco" type="checkbox" name="colors" value="blanco" <%= product.colors.includes("blanco") ? "checked" : "" %>>
-             <label for="blanco">Blanco</label>
-          </div>
-          <div>
-             <input id="gris" type="checkbox" name="colors" value="gris" <%= product.colors.includes("gris") ? "checked" : "" %>>
-             <label for="gris">Gris</label>
-          </div>
-          <div>
-             <input id="rojo" type="checkbox" name="colors" value="rojo" <%= product.colors.includes("rojo") ? "checked" : "" %>>
-             <label for="rojo">Rojo</label>
-          </div>
-          <div>
-             <input id="verde" type="checkbox" name="colors" value="verde" <%= product.colors.includes("verde") ? "checked" : "" %>>
-             <label for="verde">Verde</label>
-          </div>
-          <div>
-             <input id="azul" type="checkbox" name="colors" value="azul" <%= product.colors.includes("azul") ? "checked" : "" %>>
-             <label for="azul">Azul</label>
-          </div>
-          <div>
-             <input id="amarillo" type="checkbox" name="colors" value="amarillo" <%= product.colors.includes("amarillo") ? "checked" : "" %>>
-             <label for="amarillo">Amarillo</label>
-          </div>
-          <div>
-             <input id="violeta" type="checkbox" name="colors" value="violeta" <%= product.colors.includes("violeta") ? "checked" : "" %>>
-             <label for="violeta">Violeta</label>
-          </div>
-          <div>
-             <input id="rosado" type="checkbox" name="colors" value="rosado" <%= product.colors.includes("rosado") ? "checked" : "" %>>
-             <label for="rosado">Rosado</label>
-          </div>
-          <div>
-             <input id="anaranjado" type="checkbox" name="colors" value="anaranjado" <%= product.colors.includes("anaranjado") ? "checked" : "" %>>
-             <label for="anaranjado">Anaranjado</label>
-          </div>
+         <% colors.forEach(color => { %>
+            <div>
+               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>" <%= product.colors.some(productColor => productColor.id == color.id) ? "checked" : "" %>>
+               <label for="<%= color.name %>"><%= color.name %></label>
+            </div>
+         <% }) %>
        </div>
        <label class="label" for="">Caracteristicas</label>
        <div class="especificaciones">
@@ -111,7 +75,7 @@
        </div>
        <div class="descripcion">
           <label class="label" for="">Otras caracteristicas</label>
-          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"><%= product.features.join("/") %></textarea>          
+          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"><%= product.features.map(feature => feature.name).join("/") %></textarea>
        </div>
        <div class="buttons">
           <button class="delete-button" type="reset">Borrar</button>

@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
             as: 'products',
             through: 'colors_has_products',
             foreignKey: 'colors_id',
-            otherKey: 'products_id'
+            otherKey: 'products_id',
+            timestamps: false
         });
     };
 

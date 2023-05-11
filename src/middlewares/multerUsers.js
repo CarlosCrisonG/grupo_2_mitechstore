@@ -3,19 +3,19 @@ const multer = require("multer");
 
 //multer configuracion
 const diskStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const destinationPath = path.join(__dirname, "../public/images/avatars");
-        cb(null, destinationPath);
-    },
-    filename: (req, file, cb) => {
-        const filename =
-            Date.now() + "-avatar-image" + path.extname(file.originalname);
-        cb(null, filename);
-    },
+	destination: (req, file, cb) => {
+		const destinationPath = path.join(__dirname, "../public/images/avatars");
+		cb(null, destinationPath);
+	},
+	filename: (req, file, cb) => {
+		const filename =
+			Date.now() + "-" + Math.round(Math.random() * 9999) + "-avatar-image" + path.extname(file.originalname);
+		cb(null, filename);
+	},
 });
 
-const upload = multer({ 
-	storage: diskStorage, 
+const upload = multer({
+	storage: diskStorage,
 	fileFilter: (req, file, cb) => {
 		let acceptedExtensions = ['.jpg', '.jpeg', '.png'];
 		let fileExtension = path.extname(file.originalname);

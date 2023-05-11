@@ -1,5 +1,3 @@
-const { defaultValueSchemable } = require("sequelize/types/utils");
-
 module.exports = (sequelize, DataTypes) => {
     const alias = "Product";
 
@@ -79,7 +77,8 @@ module.exports = (sequelize, DataTypes) => {
             as: 'colors',
             through: 'colors_has_products',
             foreignKey: 'products_id',
-            otherKey: 'colors_id'
+            otherKey: 'colors_id',
+            timestamps: false
         });
     };
 

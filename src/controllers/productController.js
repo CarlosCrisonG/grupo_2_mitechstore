@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
 const fs = require('fs');
+const db = require('../database/models');
+const { Op } = require("sequelize");
+
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -8,30 +11,37 @@ function getProducts() {
 }
 
 const controller = {
-  productDetail: (req, res) => {
+  productDetail: async (req, res) => {
     const id = req.params.id;
 
-    const products = getProducts();
-
-    const product = products.find(product => product.id == id);
+    const product = await db.Product.findOne({ include: ["images", "category", "features", "colors"], where: { id } });
 
     res.render("product/productDetail", { product })
   },
-  productList: (req, res) => {
-    let allProducts = getProducts();
+  productList: async (req, res) => {
+    const categoryQueryId = req.query.category;
 
-    if (req.query.category) {
-      let categoryToShow = allProducts.filter(product => product.category == req.query.category)
-      let categoryTitle = req.query.category == "cuidadoPersonal" ? "CUIDADO PERSONAL" : req.query.category.toUpperCase();
-      return res.render("product/listaDeProducto", { products: categoryToShow, categoryTitle });
-    } else {
-      let categoryTitle = "TODOS LOS PRODUCTOS";
-      return res.render("product/listaDeProducto", { products: allProducts, categoryTitle });
-    }
+    const products = categoryQueryId ? await db.Product.findAll({ include: ["images"], where: { categories_id: categoryQueryId } }) : await db.Product.findAll({ include: ["images"] })
+
+    res.render("product/listaDeProducto", { products, categoryQueryId })
   },
   productCart: (req, res) => {
     res.render("product/productCart")
   },
+  searchBar: async (req, res) => {
+    const words = req.query.words;
+
+    const products = await db.Product.findAll({
+      include: ["images"],
+      where: {
+        name: {
+          [Op.like]: `%${words}%`
+        }
+      }
+    });
+
+    res.render("product/listaDeProducto", { products, words })
+  }
 };
 
 module.exports = controller;

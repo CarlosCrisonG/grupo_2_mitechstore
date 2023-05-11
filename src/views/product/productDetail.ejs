@@ -19,7 +19,7 @@
             <!-- Imágenes de Carrusel  -->
 
             <% product.images.forEach(image => { %>
-              <div class="mySlides fade"><img src="/images/products/<%= image %>"
+              <div class="mySlides fade"><img src="/images/products/<%= image.name %>"
                 style="width:100%">
               </div>
             <% }) %>
@@ -37,9 +37,10 @@
             <div class="color">
               <label class="label-color" for="color">Color: </label>
               <select class="select-color" name="color" id="color">                
+                <option value="" disabled selected>--Elige--</option>
                 <% product.colors.forEach(color => { %>
-                  <option value="<%= color %>"><%= color %></option>
-                <% }) %>                
+                      <option value="<%= color.id %>"><%= color.name %></option>
+                <% }) %>
               </select>
             </div>
             <p class="cuotas">Stock disponible <i class="fa-solid fa-check"></i></p>
@@ -51,7 +52,7 @@
             <h4 class="subtitle-descripcion">Descripción</h4>
             <p class="texto"><%= product.description %></p>
           </div>
-          <% if (locals.user && user.userprofile == "vendedor") { %>           
+          <% if (locals.user && user.dataValues.userprofile_id != 1) { %>           
             <div class="admin-buttons">
               <a href="/admin/editproduct/<%= product.id %>"><button class="edit-button">Editar</button></a>
               <form action="/admin/<%= product.id %>?_method=DELETE" method="POST">            
@@ -65,7 +66,7 @@
         <h4 class="subtitle-caracteristicas">Características</h4>
         <ul>
           <% product.features.forEach(feature => { %>           
-            <li class="caracteristicas"><%= feature %></li>          
+            <li class="caracteristicas"><%= feature.name %></li>          
           <% }) %>
         </ul>
       </div>
