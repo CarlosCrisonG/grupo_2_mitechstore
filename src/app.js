@@ -36,6 +36,10 @@ app.use(authMiddleware);
 const categoriesMiddleware = require('./middlewares/categoriesMiddleware');
 app.use(categoriesMiddleware);
 
+//middleware para recordar al usuario
+const rememberMiddleware = require('./middlewares/rememberMiddleware');
+app.use(rememberMiddleware)
+
 //rutas
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productRoutes");
