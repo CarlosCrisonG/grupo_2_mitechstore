@@ -196,11 +196,25 @@ const controller = {
           where: { email: req.body.email }
         })
 
-        delete updatedUser.password;
-
         req.session.userLogged = {
-          ...updatedUser,
+          dataValues: {
+            id: updatedUser.id,
+            first_name: updatedUser.first_name,
+            last_name: updatedUser.last_name,
+            email: updatedUser.email,
+            userprofile_id: updatedUser.userprofile_id
+          },
+          id: updatedUser.id,
+          first_name: updatedUser.first_name,
+          last_name: updatedUser.last_name,
+          email: updatedUser.email,
+          userprofile_id: updatedUser.userprofile_id
         }
+
+        if (res.cookies.userCookie) {
+          res.cookie("userCookie", JSON.stringify(req.session.userLogged))
+        }
+
         res.redirect("/users/userProfile");
       });
     } else {
