@@ -251,6 +251,8 @@ const controller = {
 
       req.session.destroy();
 
+      res.clearCookie("userCookie");
+
       res.redirect("/");
     });
   },
