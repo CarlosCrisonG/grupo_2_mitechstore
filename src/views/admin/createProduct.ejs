@@ -12,25 +12,25 @@
    <h3 class="titulo">Crear un nuevo producto</h3>
    <form action="/admin" method="POST" enctype="multipart/form-data">
       <label class="label" for="name">Nombre del producto</label>
-      <input class="input" name="name" type="text">      
+      <input class="input" name="name" type="text" id="name">      
       <div class="descripcion">
          <label for="description" class="label">Descripcion</label>
-         <textarea name="description" id="" rows="4"></textarea>
+         <textarea name="description" id="description" rows="4"></textarea>
       </div>
       <label class="label" for="">Imágenes del producto</label>
-      <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
+      <input type="file" multiple name="images" accept=".jpg,.png,.jpeg" id="images">     
       <div class="propiedades">
          <div class="precio">
-            <label class="label" for="precio">Precio:</label>
-            <input id="precio" name="price" class="input" type="number" placeholder="">
+            <label class="label" for="price">Precio:</label>
+            <input id="price" name="price" class="input" type="number" placeholder="">
          </div>
          <div class="precio">
             <label class="label" for="discount">Descuento:</label>
-            <input id="precio" name="discount" class="input" type="number" placeholder="">
+            <input id="discount" name="discount" class="input" type="number" placeholder="">
          </div>
          <div class="categorias">
-            <label class="label" for="">Categoría: </label>
-            <select id="categorias" name="category">
+            <label class="label" for="category">Categoría: </label>
+            <select id="category" name="category">
                <option value="" disabled selected>Elige</option>
                <% categories.forEach(category => { %>         
                   <option value="<%= category.id %>"><%= category.name %></option>
@@ -38,8 +38,8 @@
             </select>
          </div>
          <div class="categorias">
-            <label class="label" for="">Destacar producto:</label>
-            <select id="categorias" name="highlight">
+            <label class="label" for="highlight">Destacar producto:</label>
+            <select id="highlight" name="highlight">
                <option value="" disabled selected>Elige</option>
                <option value="true">Si</option>
                <option value="false">No</option>
@@ -58,24 +58,24 @@
       <label class="label" for="">Caracteristicas</label>
       <div class="especificaciones">
       <div class="especificacion">
-         <label for="modelo">Modelo:</label>
-         <input id="modelo" name="model" class="input" type="text" placeholder="">
+         <label for="model">Modelo:</label>
+         <input id="model" name="model" class="input" type="text" placeholder="">
       </div>
       <div class="especificacion">
-         <label for="fabricacion">Año de fabricación:</label>
-         <input id="fabricacion" name="year" class="input" type="number" placeholder="">
+         <label for="year">Año de fabricación:</label>
+         <input id="year" name="year" class="input" type="number" placeholder="">
       </div>
       <div class="especificacion">
-         <label for="tamaño">Tamaño:</label>
-         <input id="tamaño" name="size" class="input" type="text" placeholder="">
+         <label for="size">Tamaño:</label>
+         <input id="size" name="size" class="input" type="text" placeholder="">
       </div>
       <div class="especificacion">
-         <label for="peso">Peso:</label>
-         <input id="peso" class="input" name="weight" type="text" placeholder="">
+         <label for="weight">Peso:</label>
+         <input id="weight" class="input" name="weight" type="text" placeholder="">
       </div>
       <div class="descripcion">
-         <label class="label" for="">Otras caracteristicas</label>
-         <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"></textarea>
+         <label class="label" for="features">Otras caracteristicas</label>
+         <textarea rows="4" id="features" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"></textarea>
       </div>
       <div class="buttons">
          <button class="delete-button" type="reset">Borrar</button>
@@ -83,7 +83,7 @@
       </div>
    </form>
  </main>
-   
+   <script src="/js/productValidations.js"></script>
     <!-- Footer - Inicio -->
 <%- include("../partials/footer") %>
 <!-- Footer - Fin -
