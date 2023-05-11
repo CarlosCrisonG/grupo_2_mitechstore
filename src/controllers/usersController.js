@@ -234,6 +234,8 @@ const controller = {
   logout: (req, res) => {
     req.session.destroy();
 
+    res.clearCookie("userCookie");
+
     res.redirect("/");
   },
   destroyUser: (req, res) => {
