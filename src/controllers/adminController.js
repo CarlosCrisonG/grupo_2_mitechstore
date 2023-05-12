@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const db = require('../database/models');
+const { validationResult } = require("express-validator");
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -16,6 +17,21 @@ const controller = {
     res.render("admin/createProduct", { categories, colors });
   },
   create: async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      const categories = await db.Category.findAll();
+
+      const colors = await db.Color.findAll();
+
+      return res.render("admin/createProduct", {
+        errors: errors.mapped(),
+        oldData: req.body,
+        categories,
+        colors
+      });
+    }
+
     req.files = req.files.length > 0 ? req.files : [{ filename: 'defaultProduct.png' }]
 
     const features = req.body.features.split("/");
