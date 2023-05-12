@@ -1,6 +1,10 @@
 window.addEventListener("load", () => {
+    function preventCreateBtn() {
+        createBtn.style.display = "none";
+    }
+
     function validations(field, inputField) {
-        const sigleErrorMessage = document.querySelector(`p.error-${field}`);
+        const singleErrorMessage = document.querySelector(`p.error-${field}`);
 
         const errorMessage = document.createElement("p");
 
@@ -11,7 +15,7 @@ window.addEventListener("load", () => {
 
             inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
 
-            createBtn.style.display = "none"
+            preventCreateBtn()
         }
 
         if (field == "description" && inputField.value.length < 20) {
@@ -21,7 +25,7 @@ window.addEventListener("load", () => {
 
             inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
 
-            createBtn.style.display = "none"
+            preventCreateBtn()
         }
 
         if (!inputField.value) {
@@ -31,11 +35,16 @@ window.addEventListener("load", () => {
 
             inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
 
-            createBtn.style.display = "none"
+            preventCreateBtn()
         }
 
-        if (sigleErrorMessage) {
-            sigleErrorMessage.remove()
+        if (singleErrorMessage) {
+            singleErrorMessage.remove()
+        }
+
+        if (!document.querySelectorAll("p.error").length) {
+            createBtn.style.display = "revert"
+            return true
         }
     }
 
@@ -49,6 +58,12 @@ window.addEventListener("load", () => {
 
         inputField.addEventListener("focusout", () => {
             validations(field, inputField);
-        })        
+        })
+
+        createBtn.addEventListener("click", (e) => {
+            if (!validations(field, inputField)) {
+                e.preventDefault()
+            }
+        })
     })
 })
