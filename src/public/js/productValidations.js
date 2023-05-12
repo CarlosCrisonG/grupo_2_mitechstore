@@ -1,6 +1,8 @@
 window.addEventListener("load", () => {
     const fields = ["name", "description", "price", "discount", "category", "highlight", "model", "year", "size", "weight", "features"]
 
+    const createBtn = document.querySelector(".create-button")
+
     fields.forEach(field => {
         const inputField = document.getElementById(field)
 
@@ -15,8 +17,12 @@ window.addEventListener("load", () => {
                 errorMessage.textContent = "Este campo no puede estar vacio"
 
                 inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
-            }
 
+                createBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                })
+            }
+            
             if (sigleErrorMessage) {
                 sigleErrorMessage.remove()
             }
