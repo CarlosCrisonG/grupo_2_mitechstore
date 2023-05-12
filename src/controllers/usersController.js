@@ -40,7 +40,6 @@ const controller = {
       });
     }
 
-    //lo elimino ya que es redundante guardarlo
     delete userInDB;
 
     const avatar = req.file ? req.file.filename : "defaultUser.jpg";
