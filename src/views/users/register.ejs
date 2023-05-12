@@ -15,11 +15,13 @@
           <% if (locals.errors && errors.first_name) { %>
             <p class = "error"> <%= errors.first_name.msg %> </p>
           <% } %>
+          <p class="error" id="error-first_name"></p>
           <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
           type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : null %>">
           <% if (locals.errors && errors.last_name) { %>
             <p class = "error"> <%= errors.last_name.msg %> </p>
           <% } %>
+          <p class="error" id="error-last_name"></p>
           <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
           type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
           <% if (locals.errors && errors.email) { %>
@@ -112,6 +114,8 @@
         </div>
       </main>
       <!--Contenido HTML del Registro - Fin -->
+
+      <script src="/js/userRegisterValidations.js"></script>
 
       <!-- Footer - Inicio -->
       <%- include("../partials/footer") %>
