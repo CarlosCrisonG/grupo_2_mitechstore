@@ -211,6 +211,10 @@ const controller = {
         res.redirect("/users/userProfile");
       });
     } else {
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+
       const userProfiles = await db.UserProfile.findAll();
 
       const countries = await db.Country.findAll();
