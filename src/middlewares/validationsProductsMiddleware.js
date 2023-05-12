@@ -5,21 +5,31 @@ module.exports = {
 	create: [
 		body('name')
 			.notEmpty().withMessage('Debe ingresar el nombre del producto')
-			.isLength({min:5}).withMessage('El nombre del producto debe tener un mínimo de 5 caracteres'),
+			.isLength({ min: 5 }).withMessage('El nombre del producto debe tener un mínimo de 5 caracteres'),
 		body('description')
 			.notEmpty().withMessage('Debe ingresar una descripción del producto')
-			.isLength({min:20}).withMessage('La descripción del producto debe tener un mínimo de 20 caracteres'),
+			.isLength({ min: 20 }).withMessage('La descripción del producto debe tener un mínimo de 20 caracteres'),
 		body('price')
 			.notEmpty().withMessage('Debe ingresar el precio del producto')
 			.isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
 		body('discount').isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
-		body('category').notEmpty().withMessage('Debe seleccionar la categoría del producto'),
-		body('highlight').notEmpty().withMessage('Elija si quiere destacar su producto'),
-		body('colors').notEmpty().withMessage('Seleccione los colores de su producto'),
+		body('category')
+			.notEmpty().withMessage('Debe seleccionar la categoría del producto')
+			.isInt({ min: 1, max: 5 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 5'),
+		body('highlight')
+			.notEmpty().withMessage('Elija si quiere destacar su producto')
+			.custom((value, {req}) => {
+				if (value && (value != "true" || value != "false")) {
+					throw new Error("Sólo pueden envarse los valores 'true' o 'false'");
+				}
+			}),
+		body('colors')
+			.notEmpty().withMessage('Seleccione los colores de su producto')
+			.isInt({ min: 1, max: 10 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 10'),
 		body('model').notEmpty().withMessage('Indique el modelo del producto'),
 		body('year')
 			.notEmpty().withMessage('Indique el año de fabricación del producto')
-			.isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
+			.isInt().withMessage('Sólo pueden ingresarse valores numéricos'),
 		body('size').notEmpty().withMessage('Ingrese las medidas del producto'),
 		body('weight').notEmpty().withMessage('Ingrese el peso del producto'),
 		body('features').notEmpty().withMessage('Ingrese al menos una característica del producto'),
@@ -35,10 +45,10 @@ module.exports = {
 	update: [
 		body('name')
 			.notEmpty().withMessage('Debe ingresar el nombre del producto')
-			.isLength({min:5}).withMessage('El nombre del producto debe tener un mínimo de 5 caracteres'),
+			.isLength({ min: 5 }).withMessage('El nombre del producto debe tener un mínimo de 5 caracteres'),
 		body('description')
 			.notEmpty().withMessage('Debe ingresar una descripción del producto')
-			.isLength({min:20}).withMessage('La descripción del producto debe tener un mínimo de 20 caracteres'),
+			.isLength({ min: 20 }).withMessage('La descripción del producto debe tener un mínimo de 20 caracteres'),
 		body('price')
 			.notEmpty().withMessage('Debe ingresar el precio del producto')
 			.isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
