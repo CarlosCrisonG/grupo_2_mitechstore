@@ -24,6 +24,12 @@ const controller = {
 
       const colors = await db.Color.findAll();
 
+      if (req.files) {
+        req.files.forEach(image => {
+          fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.filename));
+        })
+      }
+
       return res.render("admin/createProduct", {
         errors: errors.mapped(),
         oldData: req.body,
