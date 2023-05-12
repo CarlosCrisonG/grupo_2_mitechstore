@@ -30,6 +30,10 @@ const controller = {
 
       const countries = await db.Country.findAll();
 
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+
       return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
