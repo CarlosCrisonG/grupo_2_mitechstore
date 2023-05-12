@@ -12,14 +12,14 @@ module.exports = {
 		body('price')
 			.notEmpty().withMessage('Debe ingresar el precio del producto')
 			.isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
-		body('discount').isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
+		body('discount').optional({checkFalsy: true}).isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
 		body('category')
 			.notEmpty().withMessage('Debe seleccionar la categoría del producto')
 			.isInt({ min: 1, max: 5 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 5'),
 		body('highlight')
 			.notEmpty().withMessage('Elija si quiere destacar su producto')
 			.custom((value, {req}) => {
-				if (value != "true" || value != "false") {
+				if (value != "true" && value != "false") {
 					throw new Error("Sólo pueden enviarse los valores 'true' o 'false'");
 				}
 				return true;
