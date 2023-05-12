@@ -103,3 +103,24 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 
 ### 5. Dejar de hacer:
 - Ninguna
+
+<br />
+
+# Sprint 6
+
+### 1. Comenzar a hacer:
+- Tratar de hacer refactor cuando se pueda para mejorar el rendimiento
+
+### 2. Hacer más:
+- Participar de los pull request.
+
+### 3. Continuar haciendo:
+- Finalizar las tareas con mayor anticipación.
+- Seguir reuniéndonos semanalmente.
+- Continuar trabajando con ramas y pull requests.
+
+### 4. Hacer menos:
+- Ninguna
+
+### 5. Dejar de hacer:
+- Ninguna
