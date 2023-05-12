@@ -148,7 +148,7 @@ const controller = {
     });
 
     if (!userInDB) {
-      return res.send("el usuario no se encuentra en la base de datos");
+      return res.send("El usuario no se encuentra en la base de datos");
     }
 
     const userProfiles = await db.UserProfile.findAll();
