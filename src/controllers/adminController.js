@@ -97,6 +97,28 @@ const controller = {
     res.render("admin/editProduct", { product, categories, colors });
   },
   edit: async (req, res) => {
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      const categories = await db.Category.findAll();
+
+      const colors = await db.Color.findAll();
+
+      if (req.files) {
+        req.files.forEach(image => {
+          fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.filename));
+        })
+      }
+
+      return res.render("admin/editProduct", {
+        errors: errors.mapped(),
+        oldData: req.body,
+        categories,
+        colors
+      });
+    }
+
     const id = req.params.id;
 
     const features = req.body.features.split("/");
