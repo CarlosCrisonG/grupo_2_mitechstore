@@ -26,12 +26,13 @@
           type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
           <% if (locals.errors && errors.email) { %>
             <p class = "error"> <%= errors.email.msg %> </p>
-          <% } %>        
+          <% } %>
+          <p class="error" id="error-email"></p>
           <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
-          type="password" placeholder="Contraseña" name="password">
+          type="password" placeholder="Contraseña" name="password" id="password">
           <% if (locals.errors && errors.password) { %>
             <p class = "error"> <%= errors.password.msg %> </p>
-          <% } %>         
+          <% } %>       
           <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>" 
           type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : null %>">
           <% if (locals.errors && errors.phone) { %>

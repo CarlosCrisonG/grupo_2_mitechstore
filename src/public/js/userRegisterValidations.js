@@ -1,5 +1,6 @@
 window.onload = function () {
-  const form = document.querySelector("form.formulario-registro"); //Capturar formulario
+  
+   const form = document.querySelector("form.formulario-registro"); //Capturar formulario
   form.first_name.focus(); //Enfocar 1er Nombre
 
   form.addEventListener("submit", (e) => {
@@ -39,11 +40,34 @@ window.onload = function () {
         name: "last_name",
         message: "Tu apellido debe tener al menos 2 letras",
       });
-      form.first_name.classList.add("is-invalid");
+      form.last_name.classList.add("is-invalid");
     } else {
       form.last_name.classList.remove("is-invalid");
       form.last_name.classList.add("is-valid");
     }
+    // Email
+    if (!form.email.value) {
+      errors.push({
+        name: "email",
+        message: "Tu email no puede estar vacio",
+      });
+      form.email.classList.add("is-invalid");
+    } else if (form.email.value) { //Verificar si es email válido
+      let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!form.email.value.match(mailformat)) {
+        errors.push({
+          name: "email",
+          message: "Debes escribir un email válido",
+        });
+        form.email.classList.add("is-invalid");
+      }
+    } else {
+      form.email.classList.remove("is-invalid");
+      form.email.classList.add("is-valid");
+    }
+    
+    // Password
+   
 
     // Mostrar Errores
     errors.forEach((error) => {
