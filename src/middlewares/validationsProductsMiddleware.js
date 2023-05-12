@@ -19,9 +19,10 @@ module.exports = {
 		body('highlight')
 			.notEmpty().withMessage('Elija si quiere destacar su producto')
 			.custom((value, {req}) => {
-				if (value && (value != "true" || value != "false")) {
-					throw new Error("Sólo pueden envarse los valores 'true' o 'false'");
+				if (value != "true" || value != "false") {
+					throw new Error("Sólo pueden enviarse los valores 'true' o 'false'");
 				}
+				return true;
 			}),
 		body('colors')
 			.notEmpty().withMessage('Seleccione los colores de su producto')
@@ -33,10 +34,10 @@ module.exports = {
 		body('size').notEmpty().withMessage('Ingrese las medidas del producto'),
 		body('weight').notEmpty().withMessage('Ingrese el peso del producto'),
 		body('features').notEmpty().withMessage('Ingrese al menos una característica del producto'),
-		body('avatar').custom((value, { req }) => {
+		body('images').custom((value, { req }) => {
 
-			if (req.fileValidationError == true) {
-				req.fileValidationError = false
+			if (req.productImagesError == true) {
+				req.productImagesError = false
 				throw new Error("Los únicos formatos de archivo admitidos son JPG, JPEG, PNG y GIF");
 			}
 			return true;
@@ -63,7 +64,7 @@ module.exports = {
 		body('size').notEmpty().withMessage('Ingrese las medidas del producto'),
 		body('weight').notEmpty().withMessage('Ingrese el peso del producto'),
 		body('features').notEmpty().withMessage('Ingrese al menos una característica del producto'),
-		body('avatar').custom((value, { req }) => {
+		body('images').custom((value, { req }) => {
 
 			if (req.fileValidationError == true) {
 				req.fileValidationError = false

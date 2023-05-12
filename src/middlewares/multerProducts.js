@@ -23,7 +23,7 @@ const upload = multer({
 		if (extensionIsOk) {
 			cb(null, true);
 		} else {
-			req.fileValidationError = true;
+			req.productImagesError = true;
 			cb(null, false);
 		}
 	}
