@@ -14,22 +14,37 @@ const usersPath = path.join(__dirname, "../data/users.json");
 // }
 
 const controller = {
-  register: (req, res) => {
-    res.render("users/register");
+  register: async (req, res) => {
+
+    const userProfiles = await db.UserProfile.findAll();
+
+    const countries = await db.Country.findAll();
+
+    res.render("users/register", {userProfiles, countries});
   },
   create: async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
       return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
 
     const userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
     if (userInDB) {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+      
       return res.render("users/register", {
         errors: {
           email: {
@@ -37,6 +52,8 @@ const controller = {
           },
         },
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
 
