@@ -9,9 +9,33 @@ window.addEventListener("load", () => {
         inputField.addEventListener("focusout", () => {
             const sigleErrorMessage = document.querySelector(`p.error-${field}`);
 
-            if (!inputField.value) {
-                const errorMessage = document.createElement("p");
+            const errorMessage = document.createElement("p");
 
+            if (field == "name" && inputField.value.length < 5) {
+                errorMessage.classList.add("error", `error-${field}`)
+
+                errorMessage.textContent = "5 caracteres minimo"
+
+                inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+
+                createBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                })
+            }
+
+            if (field == "description" && inputField.value.length < 20) {
+                errorMessage.classList.add("error", `error-${field}`)
+
+                errorMessage.textContent = "20 caracteres minimo"
+
+                inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+
+                createBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                })
+            }
+
+            if (!inputField.value) {
                 errorMessage.classList.add("error", `error-${field}`)
 
                 errorMessage.textContent = "Este campo no puede estar vacio"
@@ -22,7 +46,7 @@ window.addEventListener("load", () => {
                     e.preventDefault();
                 })
             }
-            
+
             if (sigleErrorMessage) {
                 sigleErrorMessage.remove()
             }
