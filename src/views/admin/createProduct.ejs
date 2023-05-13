@@ -11,12 +11,14 @@
   <main>
    <h3 class="titulo">Crear un nuevo producto</h3>
    <form action="/admin" method="POST" enctype="multipart/form-data">
-      <label class="label" for="name">Nombre del producto</label>
-      <input class="input <%= locals.errors && errors.name ? 'is-invalid' :null  %>" name="name" type="text" 
-      value="<%= locals.oldData && oldData.name ? oldData.name : null %>">
-      <% if (locals.errors && errors.name) { %>
-         <p class = "error"> <%= errors.name.msg %> </p>
-       <% } %>      
+      <div class="nombre-producto">
+         <label class="label" for="name">Nombre del producto</label>
+         <input class="input <%= locals.errors && errors.name ? 'is-invalid' :null  %>" name="name" type="text" 
+         value="<%= locals.oldData && oldData.name ? oldData.name : null %>">
+         <% if (locals.errors && errors.name) { %>
+            <p class = "error"> <%= errors.name.msg %> </p>
+          <% } %>      
+      </div>
       <div class="descripcion">
          <label for="description" class="label">Descripcion</label>
          <textarea name="description" class="<%= locals.errors && errors.description ? 'is-invalid' :null  %>" id="" rows="4"><%=  locals.oldData && oldData.description ? oldData.description : null %></textarea>

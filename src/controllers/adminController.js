@@ -97,13 +97,17 @@ const controller = {
     res.render("admin/editProduct", { product, categories, colors });
   },
   edit: async (req, res) => {
-
+    
     const errors = validationResult(req);
-
+    
+    const id = req.params.id;
+    
     if (!errors.isEmpty()) {
       const categories = await db.Category.findAll();
 
       const colors = await db.Color.findAll();
+
+      const product = await db.Product.findOne({ include: { all: true }, where: { id } });
 
       if (req.files) {
         req.files.forEach(image => {
@@ -114,12 +118,12 @@ const controller = {
       return res.render("admin/editProduct", {
         errors: errors.mapped(),
         oldData: req.body,
+        product,
         categories,
         colors
       });
     }
 
-    const id = req.params.id;
 
     const features = req.body.features.split("/");
 

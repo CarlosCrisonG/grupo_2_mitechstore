@@ -166,6 +166,14 @@ textarea {
     box-shadow: 0px 0px 5px rgb(250, 2, 2);
 }
 
+.nombre-producto {
+width: 100%;
+}
+
+.nombre-producto input {
+    margin-top: 8px;
+}
+
 @media (min-width: 481px) {
 
     form {
