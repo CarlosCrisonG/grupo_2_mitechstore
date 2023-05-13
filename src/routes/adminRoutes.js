@@ -8,11 +8,11 @@ const adminController = require("../controllers/adminController");
 
 router.get("/createproduct", checkLogin, adminController.createProduct);
 
-router.post("/", upload.array("images"), validator.create, adminController.create);
+router.post("/", upload.array("images"), validator.createAndUpdate, adminController.create);
 
 router.get("/editproduct/:id", checkLogin, adminController.editProduct);
 
-router.put("/:id", upload.array("images"), validator.update, adminController.edit);
+router.put("/:id", upload.array("images"), validator.createAndUpdate, adminController.edit);
 
 router.delete("/:id", checkLogin, adminController.delete);
 
