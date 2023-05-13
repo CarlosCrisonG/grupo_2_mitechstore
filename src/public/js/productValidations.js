@@ -28,7 +28,27 @@ window.addEventListener("load", () => {
             preventCreateBtn()
         }
 
-        if (!inputField.value) {
+        if (field == "images" && inputField.files.length > 0) {
+            const acceptedExtensions = ['jpg', 'jpeg', 'png'];
+
+            for (let i = 0; i < inputField.files.length; i++) {
+                const filetType = inputField.files[i].type.split("/")[1];
+
+                if (!acceptedExtensions.includes(filetType)) {
+                    errorMessage.classList.add("error", `error-${field}`)
+
+                    errorMessage.textContent = "No aceptamos ese formato, aceptamos: ." + acceptedExtensions.join(" .")
+
+                    inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+
+                    inputField.value = ""
+
+                    preventCreateBtn()
+                }
+            }
+        }
+
+        if (!inputField.value && field != "images") {
             errorMessage.classList.add("error", `error-${field}`)
 
             errorMessage.textContent = "Este campo no puede estar vacio"
@@ -49,7 +69,7 @@ window.addEventListener("load", () => {
     }
 
 
-    const fields = ["name", "description", "price", "discount", "category", "highlight", "model", "year", "size", "weight", "features"]
+    const fields = ["name", "description", "price", "discount", "category", "highlight", "model", "year", "size", "weight", "features", "images"]
 
     const createBtn = document.querySelector(".create-button")
 
