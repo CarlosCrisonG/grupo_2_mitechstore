@@ -50,7 +50,7 @@
       <div class="colores">   
          <% colors.forEach(color => { %>      
             <div>
-               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>">
+               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>" class="checkbox-color">
                <label for="<%= color.name %>"><%= color.name %></label>
             </div>
          <% }) %>               
