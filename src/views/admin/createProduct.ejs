@@ -112,8 +112,8 @@
       </div>
       <div class="especificacion">
          <label for="peso">Peso:</label>
-         <input id="peso" class="input <%= locals.errors && errors.size ? 'is-invalid' :null  %>" name="weight" type="text" placeholder=""
-         value="<%= locals.oldData && oldData.size ? oldData.size : null %>">
+         <input id="peso" class="input <%= locals.errors && errors.weight ? 'is-invalid' :null  %>" name="weight" type="text" placeholder=""
+         value="<%= locals.oldData && oldData.weight ? oldData.weight : null %>">
          <% if (locals.errors && errors.weight) { %>
             <p class = "error"> <%= errors.weight.msg %> </p>
           <% } %>   
