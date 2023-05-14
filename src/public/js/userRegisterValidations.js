@@ -27,6 +27,7 @@ window.onload = function () {
       form.first_name.classList.remove("is-invalid");
       form.first_name.classList.add("is-valid");
     }
+
     // 2do Nombre
     if (!form.last_name.value) {
       errors.push({
@@ -44,6 +45,7 @@ window.onload = function () {
       form.last_name.classList.remove("is-invalid");
       form.last_name.classList.add("is-valid");
     }
+
     // Email
     if (!form.email.value) {
       errors.push({
@@ -114,13 +116,23 @@ window.onload = function () {
     }
 
     // Telefono
-    console.log(form.phone);
     if (!form.phone.value) {
       errors.push({
         name: "phone",
         message: "Debes escribir un número de teléfono",
       });
       form.phone.classList.add("is-invalid");
+    } else if (form.phone.value) {
+      if (isNaN(form.phone.value)) {
+        errors.push({
+          name: "phone",
+          message: "Solo puedes ingresar números",
+        });
+        form.phone.classList.add("is-invalid");
+      } else {
+        form.phone.classList.remove("is-invalid");
+        form.phone.classList.add("is-valid");
+      }
     } else {
       form.phone.classList.remove("is-invalid");
       form.phone.classList.add("is-valid");
@@ -148,6 +160,83 @@ window.onload = function () {
     } else {
       form.avatar.classList.remove("is-invalid");
       form.avatar.classList.remove("is-valid");
+    }
+
+    // Perfil de Usuario
+    if (form.comprador.checked == true || form.vendedor.checked == true) {
+      const labelcomprador = document.querySelector("#labelcomprador");
+      const labelvendedor = document.querySelector("#labelvendedor");
+      labelcomprador.classList.remove("is-invalid");
+      labelvendedor.classList.remove("is-invalid");
+    } else {
+      const labelcomprador = document.querySelector("#labelcomprador");
+      const labelvendedor = document.querySelector("#labelvendedor");
+      errors.push({
+        name: "userprofile",
+        message: "Debes seleccionar un perfil",
+      });
+      labelcomprador.classList.add("is-invalid");
+      labelvendedor.classList.add("is-invalid");
+    }
+
+    //Pais
+    if (!form.paises.value) {
+      errors.push({
+        name: "paises",
+        message: "Debes seleccionar un país",
+      });
+      form.paises.classList.add("is-invalid");
+    } else {
+      form.paises.classList.remove("is-invalid");
+      form.paises.classList.add("is-valid");
+    }
+
+    //Provincia
+    if (!form.region.value) {
+      errors.push({
+        name: "region",
+        message: "Debes escribir una región o provincia",
+      });
+      form.region.classList.add("is-invalid");
+    } else {
+      form.region.classList.remove("is-invalid");
+      form.region.classList.add("is-valid");
+    }
+
+    //Ciudad
+    if (!form.city.value) {
+      errors.push({
+        name: "city",
+        message: "Debes escribir una ciudad",
+      });
+      form.city.classList.add("is-invalid");
+    } else {
+      form.city.classList.remove("is-invalid");
+      form.city.classList.add("is-valid");
+    }
+
+    //Codigo Postal
+    if (!form.zip.value) {
+      errors.push({
+        name: "zip",
+        message: "Escribe el código postal de la ciudad indicada arriba",
+      });
+      form.zip.classList.add("is-invalid");
+    } else {
+      form.zip.classList.remove("is-invalid");
+      form.zip.classList.add("is-valid");
+    }
+
+    //Dirección
+    if (!form.address.value) {
+      errors.push({
+        name: "address",
+        message: "Debes ingresar tu dirección",
+      });
+      form.address.classList.add("is-invalid");
+    } else {
+      form.address.classList.remove("is-invalid");
+      form.address.classList.add("is-valid");
     }
 
     // Mostrar Errores de Campos Vacios
