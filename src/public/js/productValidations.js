@@ -48,7 +48,7 @@ window.addEventListener("load", () => {
             }
         }
 
-        if (!inputField.value || !inputField.value.trim().length > 0 && field != "images") {
+        if (field != "images" && (!inputField.value || !inputField.value.trim().length > 0)) {
             errorMessage.classList.add("error", `error-${field}`)
 
             errorMessage.textContent = "Este campo no puede estar vacio"
