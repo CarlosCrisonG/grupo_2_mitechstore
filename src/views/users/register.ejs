@@ -51,17 +51,19 @@
           <% if (locals.errors && errors.phone) { %>
             <p class = "error"> <%= errors.phone.msg %> </p>
           <% } %>
+          <p class="error" id="error-phone"></p>
           <br>
 
           <div class="perfil-label">
             <label>Seleccione una imagen de perfil</label>
           </div>
-          <div class="avatar">
-            <input type="file" name="avatar">
+          <div>
+            <input type="file" name="avatar" id="avatar">
           </div>
           <% if (locals.errors && errors.avatar) { %>
             <p class = "error"> <%= errors.avatar.msg %> </p>
           <% } %>
+          <p class="error avatar" id="error-avatar"></p>
 
           <div class="perfil-label">
             <label>Perfil del usuario</label>

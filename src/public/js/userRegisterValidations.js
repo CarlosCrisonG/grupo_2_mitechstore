@@ -113,6 +113,43 @@ window.onload = function () {
       form.password2.classList.add("is-valid");
     }
 
+    // Telefono
+    console.log(form.phone);
+    if (!form.phone.value) {
+      errors.push({
+        name: "phone",
+        message: "Debes escribir un número de teléfono",
+      });
+      form.phone.classList.add("is-invalid");
+    } else {
+      form.phone.classList.remove("is-invalid");
+      form.phone.classList.add("is-valid");
+    }
+
+    //Subir Avatar
+    if (form.avatar.value) {
+      const campo = document.querySelector('#avatar');
+      const nombreArchivo = campo.files[0].name;
+      const extension = nombreArchivo.split('.').pop().toLowerCase();
+      const permitidas = ['jpg', 'jpeg', 'png', 'gif'];
+
+      if (!permitidas.includes(extension)) {
+        errors.push({
+          name: "avatar",
+          message: "Solo se permiten archivos JPG, JPEG, PNG y GIF",
+        });
+        form.avatar.classList.remove("is-valid");
+        form.avatar.classList.add("is-invalid");
+        campo.value = ''; // Limpia el campo de subida de archivos
+      } else {
+        form.avatar.classList.remove("is-invalid");
+        form.avatar.classList.add("is-valid");
+      }
+    } else {
+      form.avatar.classList.remove("is-invalid");
+      form.avatar.classList.remove("is-valid");
+    }
+
     // Mostrar Errores de Campos Vacios
     errors.forEach((error) => {
       const errorLabel = document.getElementById("error-" + error.name);
