@@ -11,28 +11,41 @@
         <h3>Crear cuenta</h3>
         <form class="formulario-registro" action="/users/" method="POST" enctype="multipart/form-data">
           <input class="input <%= locals.errors && errors.first_name ? 'is-invalid' : null %>" 
-          type="text" placeholder="Nombre" name="first_name" value="<%= locals.oldData && oldData.first_name ? oldData.first_name : null %>">
+          type="text" autocomplete="username" placeholder="Nombre" name="first_name" value="<%= locals.oldData && oldData.first_name ? oldData.first_name : null %>">
           <% if (locals.errors && errors.first_name) { %>
             <p class = "error"> <%= errors.first_name.msg %> </p>
           <% } %>
           <p class="error" id="error-first_name"></p>
           <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
-          type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : null %>">
+          type="text" autocomplete="username" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : null %>">
           <% if (locals.errors && errors.last_name) { %>
             <p class = "error"> <%= errors.last_name.msg %> </p>
           <% } %>
           <p class="error" id="error-last_name"></p>
           <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
-          type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+          type="email" autocomplete="username" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
           <% if (locals.errors && errors.email) { %>
             <p class = "error"> <%= errors.email.msg %> </p>
           <% } %>
           <p class="error" id="error-email"></p>
           <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
-          type="password" placeholder="Contraseña" name="password" id="password">
+          type="password" autocomplete="new-password" placeholder="Contraseña" name="password" id="password">
           <% if (locals.errors && errors.password) { %>
             <p class = "error"> <%= errors.password.msg %> </p>
-          <% } %>       
+          <% } %>
+          <p class="error" id="error-password"></p>
+            <!-- Validador de Password -->
+          <div id="pass_validator_message">
+              <span id="pass_validator_title">Tu contraseña debe tener:</span>
+              <p id="letter" class="invalid">Una letra <b>minúscula</b></p>
+              <p id="capital" class="invalid">Una letra <b>mayúscula</b></p>
+              <p id="number" class="invalid">Un <b>número</b></p>
+              <p id="symbol" class="invalid">Un <b>caracter especial</b></p>
+              <p id="length" class="invalid">Mínimo <b>8 caracteres</b></p>
+          </div>
+          <input class="input" type="password" autocomplete="new-password" 
+          placeholder="Confirmar Contraseña" name="password2" id="password2">
+          <p class="error" id="error-password2"></p>
           <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>" 
           type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : null %>">
           <% if (locals.errors && errors.phone) { %>
