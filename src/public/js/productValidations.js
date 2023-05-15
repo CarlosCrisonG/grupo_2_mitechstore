@@ -68,6 +68,29 @@ window.addEventListener("load", () => {
         }
     }
 
+    function colorsValidations() {
+        const checkboxes = document.querySelectorAll("input.checkbox-color");
+
+        let bool
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                bool = true
+            }
+        })
+
+        const divColors = document.getElementById("colors")
+        const errorMessage = document.createElement("p");
+        errorMessage.classList.add("error", `error-checkbox-color`)
+        errorMessage.textContent = "Selecciona un color"
+        if (!bool && !document.querySelector("p.error-checkbox-color")) {
+            preventCreateBtn();
+            divColors.parentNode.insertBefore(errorMessage, divColors);
+        }
+
+        return bool
+    }
+
 
     const fields = ["name", "description", "price", "discount", "category", "highlight", "model", "year", "size", "weight", "features", "images"]
 
@@ -81,7 +104,11 @@ window.addEventListener("load", () => {
         })
 
         createBtn.addEventListener("click", (e) => {
-            if (!validations(field, inputField)) {
+            const validationsBool = validations(field, inputField)
+
+            const colorsValidationsBool = colorsValidations()
+
+            if (!validationsBool || !colorsValidationsBool) {
                 e.preventDefault()
             }
         })
