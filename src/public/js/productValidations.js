@@ -8,6 +8,10 @@ window.addEventListener("load", () => {
 
         errorMessage.classList.add("error", `error-${field}`);
 
+        if (!["images", "checkbox-color"].includes(field)) {
+            inputField.classList.add("is-invalid")
+        }
+
         errorMessage.innerText = message;
 
         inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
@@ -38,7 +42,7 @@ window.addEventListener("load", () => {
             hiddenCreateBtn();
         }
 
-        if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {            
+        if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {
             createErrorMessage({ field, inputField, message: "Debes poner un valor númerico" })
 
             hiddenCreateBtn()
