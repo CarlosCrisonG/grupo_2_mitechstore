@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    function preventCreateBtn() {
+    function hiddenCreateBtn() {
         createBtn.style.display = "none";
     }
 
@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
 
                     inputField.value = "";
 
-                    preventCreateBtn();
+                    hiddenCreateBtn();
                 }
             }
         }
@@ -35,25 +35,25 @@ window.addEventListener("load", () => {
         if (field != "images" && (!inputField.value || !inputField.value.trim().length > 0)) {
             createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" });
 
-            preventCreateBtn();
+            hiddenCreateBtn();
         }
 
         if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {            
             createErrorMessage({ field, inputField, message: "Debes poner un valor númerico" })
 
-            preventCreateBtn()
+            hiddenCreateBtn()
         }
 
         if (field == "name" && inputField.value.length < 5) {
             createErrorMessage({ field, inputField, message: "5 caracteres minimo" });
 
-            preventCreateBtn();
+            hiddenCreateBtn();
         }
 
         if (field == "description" && inputField.value.length < 20) {
             createErrorMessage({ field, inputField, message: "20 caracteres minimo" });
 
-            preventCreateBtn();
+            hiddenCreateBtn();
         }
 
         if (errorMessages) {
@@ -83,7 +83,7 @@ window.addEventListener("load", () => {
 
         if (!bool && !document.querySelector("p.error-checkbox-color")) {
             createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" });
-            preventCreateBtn();
+            hiddenCreateBtn();
         }
 
         return bool;
