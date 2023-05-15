@@ -76,7 +76,7 @@
       <div class="colores">   
          <% colors.forEach(color => { %>      
             <div>
-               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>" <%= locals.oldData && oldData.colors && oldData.colors.includes(color.id.toString()) ? "checked" : null %>>
+               <input id="<%= color.name %>" type="checkbox" name="colors[]" value="<%= color.id %>" <%= locals.oldData && oldData.colors && oldData.colors.includes(color.id.toString()) ? "checked" : null %>>
                <label for="<%= color.name %>"><%= color.name %></label>
             </div>
          <% }) %>

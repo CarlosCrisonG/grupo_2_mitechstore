@@ -1,5 +1,6 @@
 const { body } = require('express-validator');
 const path = require('path');
+const db = require("../database/models");
 
 module.exports = {
 	createAndUpdate: [
@@ -15,7 +16,13 @@ module.exports = {
 		body('discount').optional({checkFalsy: true}).isNumeric().withMessage('Sólo pueden ingresarse valores numéricos'),
 		body('category')
 			.notEmpty().withMessage('Debe seleccionar la categoría del producto')
-			.isInt({ min: 1, max: 5 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 5'),
+			.custom(async (value, { req }) => {
+				let productCategory = await db.Category.findOne({where: {id: value}})
+				if (!productCategory) {
+					throw new Error('La categoria seleccionada no está disponible');
+				}
+				return true;
+			}),
 		body('highlight')
 			.notEmpty().withMessage('Elija si quiere destacar su producto')
 			.custom((value, {req}) => {
@@ -26,7 +33,16 @@ module.exports = {
 			}),
 		body('colors')
 			.notEmpty().withMessage('Seleccione los colores de su producto')
-			.isInt({ min: 1, max: 10 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 10'),
+			.custom(async (value, { req }) => {
+				let colorsInDb = await db.Color.findAll();
+				let colorsId = colorsInDb.map(color => color.dataValues.id);
+				let colorsAreOk = value.every(colorId => colorsId.includes(Number(colorId)));
+				if (colorsAreOk) {
+					return true
+				} else {
+					throw new Error("Los colores seleccionados no están disponibles");
+				}	
+				}),		  
 		body('model').notEmpty().withMessage('Indique el modelo del producto'),
 		body('year')
 			.notEmpty().withMessage('Indique el año de fabricación del producto')
