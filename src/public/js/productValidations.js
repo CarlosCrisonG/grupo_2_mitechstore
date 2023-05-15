@@ -38,6 +38,12 @@ window.addEventListener("load", () => {
             preventCreateBtn();
         }
 
+        if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {            
+            createErrorMessage({ field, inputField, message: "Debes poner un valor númerico" })
+
+            preventCreateBtn()
+        }
+
         if (field == "name" && inputField.value.length < 5) {
             createErrorMessage({ field, inputField, message: "5 caracteres minimo" });
 
