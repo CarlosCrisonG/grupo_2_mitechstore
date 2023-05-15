@@ -3,30 +3,18 @@ window.addEventListener("load", () => {
         createBtn.style.display = "none";
     }
 
-    function validations(field, inputField) {
-        const singleErrorMessage = document.querySelector(`p.error-${field}`);
-
+    function createErrorMessage({ field, inputField, message }) {
         const errorMessage = document.createElement("p");
 
-        if (field == "name" && inputField.value.length < 5) {
-            errorMessage.classList.add("error", `error-${field}`)
+        errorMessage.classList.add("error", `error-${field}`)
 
-            errorMessage.textContent = "5 caracteres minimo"
+        errorMessage.innerText = message
 
-            inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+        inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+    }
 
-            preventCreateBtn()
-        }
-
-        if (field == "description" && inputField.value.length < 20) {
-            errorMessage.classList.add("error", `error-${field}`)
-
-            errorMessage.textContent = "20 caracteres minimo"
-
-            inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
-
-            preventCreateBtn()
-        }
+    function validations(field, inputField) {
+        const errorMessages = document.querySelectorAll(`p.error-${field}`);
 
         if (field == "images" && inputField.files.length > 0) {
             const acceptedExtensions = ['jpg', 'jpeg', 'png'];
@@ -35,11 +23,7 @@ window.addEventListener("load", () => {
                 const filetType = inputField.files[i].type.split("/")[1];
 
                 if (!acceptedExtensions.includes(filetType)) {
-                    errorMessage.classList.add("error", `error-${field}`)
-
-                    errorMessage.textContent = "No aceptamos ese formato, aceptamos: ." + acceptedExtensions.join(" .")
-
-                    inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+                    createErrorMessage({ field, inputField, message: "No aceptamos ese formato, aceptamos: ." + acceptedExtensions.join(" .") })
 
                     inputField.value = ""
 
@@ -49,17 +33,27 @@ window.addEventListener("load", () => {
         }
 
         if (field != "images" && (!inputField.value || !inputField.value.trim().length > 0)) {
-            errorMessage.classList.add("error", `error-${field}`)
-
-            errorMessage.textContent = "Este campo no puede estar vacio"
-
-            inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+            createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" })
 
             preventCreateBtn()
         }
 
-        if (singleErrorMessage) {
-            singleErrorMessage.remove()
+        if (field == "name" && inputField.value.length < 5) {
+            createErrorMessage({ field, inputField, message: "5 caracteres minimo" })
+
+            preventCreateBtn()
+        }
+
+        if (field == "description" && inputField.value.length < 20) {
+            createErrorMessage({ field, inputField, message: "20 caracteres minimo" })
+
+            preventCreateBtn()
+        }
+
+        if (errorMessages) {
+            errorMessages.forEach(message => {
+                message.remove()
+            })
         }
 
         if (!document.querySelectorAll("p.error").length) {
@@ -80,12 +74,10 @@ window.addEventListener("load", () => {
         })
 
         const divColors = document.getElementById("colors")
-        const errorMessage = document.createElement("p");
-        errorMessage.classList.add("error", `error-checkbox-color`)
-        errorMessage.textContent = "Selecciona un color"
+
         if (!bool && !document.querySelector("p.error-checkbox-color")) {
+            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" })
             preventCreateBtn();
-            divColors.parentNode.insertBefore(errorMessage, divColors);
         }
 
         return bool
