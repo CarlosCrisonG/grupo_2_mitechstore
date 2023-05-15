@@ -1,5 +1,6 @@
 const { body } = require('express-validator');
 const path = require('path');
+const db = require("../database/models");
 
 module.exports = {
 	register: [
@@ -30,7 +31,13 @@ module.exports = {
 			.isInt({ min: 1, max: 2 }).withMessage('Sólo pueden ingresarse los valores numéricos 1 o 2'),
 		body('country')
 			.notEmpty().withMessage('Debe seleccionar un pais')
-			.isInt({ min: 1, max: 10 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 10'),
+			.custom(async (value, { req }) => {
+				let userCountry = await db.Country.findOne({where: {id: value}})
+				if (!userCountry) {
+					throw new Error('El país seleccionado no está disponible');
+				}
+				return true;
+			}),
 		body('region').notEmpty().withMessage('Ingrese la región en la que reside'),
 		body('city').notEmpty().withMessage('Ingrese la ciudad en la que reside'),
 		body('zip').notEmpty().withMessage('Ingrese el código postal de la ciudad indicada arriba'),
@@ -72,7 +79,13 @@ module.exports = {
 			.isInt({ min: 1, max: 2 }).withMessage('Sólo pueden ingresarse los valores numéricos 1 o 2'),
 		body('country')
 			.notEmpty().withMessage('Debe seleccionar un pais')
-			.isInt({ min: 1, max: 10 }).withMessage('Sólo pueden ingresarse valores numéricos entre 1 y 10'),
+			.custom(async (value, { req }) => {
+				let userCountry = await db.Country.findOne({where: {id: value}})
+				if (!userCountry) {
+					throw new Error('El país seleccionado no está disponible');
+				}
+				return true;
+			}),
 		body('region').notEmpty().withMessage('Ingrese la región en la que reside'),
 		body('city').notEmpty().withMessage('Ingrese la ciudad en la que reside'),
 		body('zip').notEmpty().withMessage('Ingrese el código postal de la ciudad indicada arriba'),
