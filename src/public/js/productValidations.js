@@ -6,9 +6,9 @@ window.addEventListener("load", () => {
     function createErrorMessage({ field, inputField, message }) {
         const errorMessage = document.createElement("p");
 
-        errorMessage.classList.add("error", `error-${field}`)
+        errorMessage.classList.add("error", `error-${field}`);
 
-        errorMessage.innerText = message
+        errorMessage.innerText = message;
 
         inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
     }
@@ -23,85 +23,85 @@ window.addEventListener("load", () => {
                 const filetType = inputField.files[i].type.split("/")[1];
 
                 if (!acceptedExtensions.includes(filetType)) {
-                    createErrorMessage({ field, inputField, message: "No aceptamos ese formato, aceptamos: ." + acceptedExtensions.join(" .") })
+                    createErrorMessage({ field, inputField, message: "No aceptamos ese formato, aceptamos: ." + acceptedExtensions.join(" .") });
 
-                    inputField.value = ""
+                    inputField.value = "";
 
-                    preventCreateBtn()
+                    preventCreateBtn();
                 }
             }
         }
 
         if (field != "images" && (!inputField.value || !inputField.value.trim().length > 0)) {
-            createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" })
+            createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" });
 
-            preventCreateBtn()
+            preventCreateBtn();
         }
 
         if (field == "name" && inputField.value.length < 5) {
-            createErrorMessage({ field, inputField, message: "5 caracteres minimo" })
+            createErrorMessage({ field, inputField, message: "5 caracteres minimo" });
 
-            preventCreateBtn()
+            preventCreateBtn();
         }
 
         if (field == "description" && inputField.value.length < 20) {
-            createErrorMessage({ field, inputField, message: "20 caracteres minimo" })
+            createErrorMessage({ field, inputField, message: "20 caracteres minimo" });
 
-            preventCreateBtn()
+            preventCreateBtn();
         }
 
         if (errorMessages) {
             errorMessages.forEach(message => {
-                message.remove()
+                message.remove();
             })
         }
 
         if (!document.querySelectorAll("p.error").length) {
-            createBtn.style.display = "revert"
-            return true
+            createBtn.style.display = "revert";
+            return true;
         }
     }
 
     function colorsValidations() {
         const checkboxes = document.querySelectorAll("input.checkbox-color");
 
-        let bool
+        let bool;
 
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                bool = true
+                bool = true;
             }
         })
 
-        const divColors = document.getElementById("colors")
+        const divColors = document.getElementById("colors");
 
         if (!bool && !document.querySelector("p.error-checkbox-color")) {
-            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" })
+            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" });
             preventCreateBtn();
         }
 
-        return bool
+        return bool;
     }
 
 
-    const fields = ["name", "description", "price", "discount", "category", "highlight", "model", "year", "size", "weight", "features", "images"]
+    const fields = ["name", "description", "price", "discount", "category", "highlight", "model", "year", "size", "weight", "features", "images"];
 
-    const createBtn = document.querySelector(".create-button")
+    const createBtn = document.querySelector(".create-button");
 
     fields.forEach(field => {
-        const inputField = document.getElementById(field)
+        const inputField = document.getElementById(field);
 
         inputField.addEventListener("focusout", () => {
             validations(field, inputField);
         })
 
         createBtn.addEventListener("click", (e) => {
-            const validationsBool = validations(field, inputField)
+            const validationsBool = validations(field, inputField);
 
-            const colorsValidationsBool = colorsValidations()
+            const colorsValidationsBool = colorsValidations();
 
             if (!validationsBool || !colorsValidationsBool) {
-                e.preventDefault()
+                e.preventDefault();
             }
         })
     })
