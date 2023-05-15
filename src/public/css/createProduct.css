@@ -6,9 +6,11 @@ main {
     padding-right: 5%;
 }
 
-p.error{
-    color: red;
+p.error {
     text-align: center;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 form {
@@ -105,7 +107,7 @@ h3.titulo {
     font-family: 'Raleway', sans-serif;
 }
 
-.categorias select {    
+.categorias select {
     display: block;
     font-family: 'Raleway', sans-serif;
     padding: 8px;
@@ -114,11 +116,11 @@ h3.titulo {
     margin-top: 5px;
 }
 
-.propiedades div.categorias{
+.propiedades div.categorias {
     width: 38%;
 }
 
-.propiedades div.categorias select{
+.propiedades div.categorias select {
     width: 100%;
 }
 
@@ -134,7 +136,7 @@ textarea {
     font-family: 'Raleway', sans-serif;
     width: 100%;
     padding: 5px;
-    font-size: 15px;    
+    font-size: 15px;
     border: 1px lightgray solid;
 }
 
@@ -171,7 +173,7 @@ textarea {
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-    }    
+    }
 
     .colores {
         display: flex;
