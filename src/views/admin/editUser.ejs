@@ -67,6 +67,7 @@
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
             <select class="<%= locals.errors && errors.country ? "paises" : null %>" id="paises" name="country">
+              <option value="" disabled selected>Elige</option>
               <% countries.forEach(country => { %>               
                 <option value="<%= country.id %>" <%= locals.oldData && oldData.country && oldData.country == country.id ? "selected" : user.country_id == country.id && locals.oldData == undefined ? "selected" : null %>><%= country.name %></option>
               <% }) %>              
