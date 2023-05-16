@@ -448,5 +448,20 @@
       "city": "Mikró Monastíri",
       "zip": "312789",
       "address": "566 Namekagon Lane"
+   },
+   {
+      "id": 31,
+      "first_name": "Miguel",
+      "last_name": "Zuluaga",
+      "email": "zuluagaherreramiguelangel@gmail.com",
+      "password": "$2b$10$/S1IHI5/aSbClq7OZLoF.OUJJowfq1t/eay5Wfl4waRtNIRc.n/EK",
+      "phone": "3194173386",
+      "avatar": "1682519110740-avatar-image.jpg",
+      "userprofile": "vendedor",
+      "country": "col",
+      "region": "Antioquia",
+      "city": "Medellin",
+      "zip": "554321",
+      "address": "Cl 77 a sur"
    }
 ]

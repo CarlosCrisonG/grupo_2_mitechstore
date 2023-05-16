@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Xiaomi Watch S1 Active",
     "description": "Pantalla HD de 1.43 pulgadas con mas de 200 pantallas de reloj. Diseño personalizable",
-    "price": 151,
+    "price": "151",
     "images": [
       "xiaomi-reloj1-id1.jpg",
       "xiaomi-reloj2-id1.jpg",
@@ -12,7 +12,7 @@
     ],
     "discount": "10",
     "category": "accesorios",
-    "highlight": "true",
+    "highlight": 1,
     "colors": [
       "negro"
     ],
@@ -27,7 +27,7 @@
       "Monitoreo All-day",
       "12 días de duración de batería​"
     ],
-    "inSale": true
+    "inSale": 1
   },
   {
     "id": 2,
