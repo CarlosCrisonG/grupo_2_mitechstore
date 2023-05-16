@@ -16,12 +16,14 @@ window.onload = function () {
         name: "first_name",
         message: "Tu nombre no puede estar vacio",
       });
+      form.first_name.classList.remove("is-valid");
       form.first_name.classList.add("is-invalid");
     } else if (form.first_name.value.length < 2) {
       errors.push({
         name: "first_name",
         message: "Tu nombre debe tener al menos 2 letras",
       });
+      form.first_name.classList.remove("is-valid");
       form.first_name.classList.add("is-invalid");
     } else {
       form.first_name.classList.remove("is-invalid");
@@ -34,12 +36,14 @@ window.onload = function () {
         name: "last_name",
         message: "Tu apellido no puede estar vacio",
       });
+      form.last_name.classList.remove("is-valid");
       form.last_name.classList.add("is-invalid");
     } else if (form.last_name.value.length < 2) {
       errors.push({
         name: "last_name",
         message: "Tu apellido debe tener al menos 2 letras",
       });
+      form.last_name.classList.remove("is-valid");
       form.last_name.classList.add("is-invalid");
     } else {
       form.last_name.classList.remove("is-invalid");
@@ -52,6 +56,7 @@ window.onload = function () {
         name: "email",
         message: "Tu email no puede estar vacio",
       });
+      form.email.classList.remove("is-valid");
       form.email.classList.add("is-invalid");
     } else if (form.email.value) {
       //Verificar si es email válido
@@ -61,6 +66,7 @@ window.onload = function () {
           name: "email",
           message: "Debes escribir un email válido",
         });
+        form.email.classList.remove("is-valid");
         form.email.classList.add("is-invalid");
       }
     } else {
@@ -74,6 +80,7 @@ window.onload = function () {
         name: "password",
         message: "Tu password no puede estar vacio",
       });
+      form.password.classList.remove("is-valid");
       form.password.classList.add("is-invalid");
     } else if (form.password.value) {
       let passformat = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^-!@._*#%]*[-!@._*#%])[-A-Za-z0-9=!@._*#%]*$/;
@@ -82,6 +89,7 @@ window.onload = function () {
           name: "password",
           message: "Tu contraseña no cumple los requerimientos",
         });
+        form.password.classList.remove("is-valid");
         form.password.classList.add("is-invalid");
       } else {
         form.password.classList.remove("is-invalid");
@@ -98,13 +106,15 @@ window.onload = function () {
         name: "password2",
         message: "Debes confirmar tu contraseña",
       });
+      form.password2.classList.remove("is-valid");
       form.password2.classList.add("is-invalid");
     } else if (form.password2.value) {
-      if (!form.password.value.match(form.password2.value)) {
+      if (form.password.value !== password2.value) {
         errors.push({
           name: "password2",
           message: "Tus contraseñas no coinciden",
         });
+        form.password2.classList.remove("is-valid");
         form.password2.classList.add("is-invalid");
       } else {
         form.password2.classList.remove("is-invalid");
@@ -121,6 +131,7 @@ window.onload = function () {
         name: "phone",
         message: "Debes escribir un número de teléfono",
       });
+      form.phone.classList.remove("is-valid");
       form.phone.classList.add("is-invalid");
     } else if (form.phone.value) {
       if (isNaN(form.phone.value)) {
@@ -128,6 +139,7 @@ window.onload = function () {
           name: "phone",
           message: "Solo puedes ingresar números",
         });
+        form.phone.classList.remove("is-valid");
         form.phone.classList.add("is-invalid");
       } else {
         form.phone.classList.remove("is-invalid");
@@ -164,19 +176,15 @@ window.onload = function () {
 
     // Perfil de Usuario
     if (form.comprador.checked == true || form.vendedor.checked == true) {
-      const labelcomprador = document.querySelector("#labelcomprador");
-      const labelvendedor = document.querySelector("#labelvendedor");
-      labelcomprador.classList.remove("is-invalid");
-      labelvendedor.classList.remove("is-invalid");
+      document.querySelector("#labelcomprador").classList.remove("is-invalid");
+      document.querySelector("#labelvendedor").classList.remove("is-invalid");
     } else {
-      const labelcomprador = document.querySelector("#labelcomprador");
-      const labelvendedor = document.querySelector("#labelvendedor");
       errors.push({
         name: "userprofile",
         message: "Debes seleccionar un perfil",
       });
-      labelcomprador.classList.add("is-invalid");
-      labelvendedor.classList.add("is-invalid");
+      document.querySelector("#labelcomprador").classList.add("is-invalid");
+      document.querySelector("#labelvendedor").classList.add("is-invalid");
     }
 
     //Pais
@@ -185,6 +193,7 @@ window.onload = function () {
         name: "paises",
         message: "Debes seleccionar un país",
       });
+      form.paises.classList.remove("is-valid");
       form.paises.classList.add("is-invalid");
     } else {
       form.paises.classList.remove("is-invalid");
@@ -197,6 +206,7 @@ window.onload = function () {
         name: "region",
         message: "Debes escribir una región o provincia",
       });
+      form.region.classList.remove("is-valid");
       form.region.classList.add("is-invalid");
     } else {
       form.region.classList.remove("is-invalid");
@@ -209,6 +219,7 @@ window.onload = function () {
         name: "city",
         message: "Debes escribir una ciudad",
       });
+      form.city.classList.remove("is-valid");
       form.city.classList.add("is-invalid");
     } else {
       form.city.classList.remove("is-invalid");
@@ -221,6 +232,7 @@ window.onload = function () {
         name: "zip",
         message: "Escribe el código postal de la ciudad indicada arriba",
       });
+      form.zip.classList.remove("is-valid");
       form.zip.classList.add("is-invalid");
     } else {
       form.zip.classList.remove("is-invalid");
@@ -233,6 +245,7 @@ window.onload = function () {
         name: "address",
         message: "Debes ingresar tu dirección",
       });
+      form.address.classList.remove("is-valid");
       form.address.classList.add("is-invalid");
     } else {
       form.address.classList.remove("is-invalid");
