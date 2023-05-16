@@ -14,22 +14,45 @@ const usersPath = path.join(__dirname, "../data/users.json");
 // }
 
 const controller = {
-  register: (req, res) => {
-    res.render("users/register");
+  register: async (req, res) => {
+
+    const userProfiles = await db.UserProfile.findAll();
+
+    const countries = await db.Country.findAll();
+
+    res.render("users/register", {userProfiles, countries});
   },
   create: async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+
       return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
 
     const userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
     if (userInDB) {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+      
       return res.render("users/register", {
         errors: {
           email: {
@@ -37,10 +60,11 @@ const controller = {
           },
         },
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
 
-    //lo elimino ya que es redundante guardarlo
     delete userInDB;
 
     const avatar = req.file ? req.file.filename : "defaultUser.jpg";
@@ -132,7 +156,7 @@ const controller = {
     });
 
     if (!userInDB) {
-      return res.send("el usuario no se encuentra en la base de datos");
+      return res.send("El usuario no se encuentra en la base de datos");
     }
 
     const userProfiles = await db.UserProfile.findAll();
@@ -191,6 +215,10 @@ const controller = {
         res.redirect("/users/userProfile");
       });
     } else {
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+
       const userProfiles = await db.UserProfile.findAll();
 
       const countries = await db.Country.findAll();
