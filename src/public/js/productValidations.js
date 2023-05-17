@@ -9,7 +9,8 @@ window.addEventListener("load", () => {
         errorMessage.classList.add("error", `error-${field}`);
 
         if (!["images", "checkbox-color"].includes(field)) {
-            inputField.classList.add("is-invalid")
+            inputField.classList.remove("valid");
+            inputField.classList.add("is-invalid");
         }
 
         errorMessage.innerText = message;
@@ -103,6 +104,11 @@ window.addEventListener("load", () => {
 
         inputField.addEventListener("focusout", () => {
             validations(field, inputField);
+
+            if (document.querySelectorAll(`p.error-${field}`).length <= 0) {
+                inputField.classList.remove("is-invalid")
+                inputField.classList.add("valid")
+            }
         })
 
         createBtn.addEventListener("click", (e) => {

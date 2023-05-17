@@ -19,6 +19,12 @@ p.error {
     border-width: 1px;
 }
 
+.valid {
+    box-shadow: rgb(10, 250, 2) 0px 0px 5px;
+    border-color: green;
+    border-width: 1px;
+}
+
 form {
     width: 100%;
     display: flex;
