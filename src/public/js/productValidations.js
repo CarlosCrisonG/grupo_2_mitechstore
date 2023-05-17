@@ -125,16 +125,15 @@ window.addEventListener("load", () => {
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener("click", () => {
             const errorMessageCheckBox = document.querySelector("p.error-checkbox-color");
-
-            if (checkbox.checked) {
-                checkbox.classList.add("valid");
-                createBtn.style.display = "revert";
-                return errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
-            }
-
+            
             checkbox.classList.remove("valid");
             
             colorsValidations(checkboxes)
+
+            if (checkbox.checked) {
+                checkbox.classList.add("valid");                
+                errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
+            }
         })
         
     })
