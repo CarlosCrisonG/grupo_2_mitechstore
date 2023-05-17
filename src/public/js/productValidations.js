@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
 
         errorMessage.classList.add("error", `error-${field}`);
 
-        if (!["images", "checkbox-color"].includes(field)) {
+        if (field != "checkbox-color") {
             inputField.classList.remove("valid");
             inputField.classList.add("is-invalid");
         }
@@ -77,7 +77,7 @@ window.addEventListener("load", () => {
         let bool;
 
         checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {                
+            if (checkbox.checked) {
                 bool = true;
             }
         })
