@@ -128,8 +128,13 @@ window.addEventListener("load", () => {
 
             if (checkbox.checked) {
                 checkbox.classList.add("valid");
-                errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
+                return errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
             }
+
+            checkbox.classList.remove("valid");
+            
+            colorsValidations(checkboxes)
         })
+        
     })
 })
