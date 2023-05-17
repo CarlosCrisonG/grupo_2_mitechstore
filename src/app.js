@@ -28,6 +28,9 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//Definimos la carpeta public
+app.use(express.static(publicPath));
+
 //middleware para pasarle la variable local del usuario a todas las vistas
 const authMiddleware = require("./middlewares/authMiddleware");
 app.use(authMiddleware);
@@ -35,6 +38,10 @@ app.use(authMiddleware);
 //middleware para pasar las categorías al header
 const categoriesMiddleware = require('./middlewares/categoriesMiddleware');
 app.use(categoriesMiddleware);
+
+//middleware para recordar al usuario
+const rememberMiddleware = require('./middlewares/rememberMiddleware');
+app.use(rememberMiddleware);
 
 //rutas
 const mainRoutes = require("./routes/mainRoutes");
@@ -47,9 +54,6 @@ const testRoutes = require("./routes/testRoutes");
 //method override
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
-
-//Definimos la carpeta public
-app.use(express.static(publicPath));
 
 //Iniciamos el servidor
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));

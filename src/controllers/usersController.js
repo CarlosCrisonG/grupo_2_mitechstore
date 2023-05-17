@@ -127,11 +127,24 @@ const controller = {
       });
     }
 
-    delete userToLogin.password;
-
     req.session.userLogged = {
-      ...userToLogin,
+      dataValues: {
+        id: userToLogin.id,
+        first_name: userToLogin.first_name,
+        last_name: userToLogin.last_name,
+        email: userToLogin.email,
+        userprofile_id: userToLogin.userprofile_id
+      },
+      id: userToLogin.id,
+      first_name: userToLogin.first_name,
+      last_name: userToLogin.last_name,
+      email: userToLogin.email,
+      userprofile_id: userToLogin.userprofile_id
     };
+
+    if (req.body.remember) {
+      res.cookie("userCookie", JSON.stringify(req.session.userLogged), { maxAge: 3600000 });
+    }
 
     return res.redirect("/");
   },
@@ -198,7 +211,7 @@ const controller = {
         if (req.body.password) {
           userToUpdate.password = bcrypt.hashSync(req.body.password, 10);
         }
-        
+
         await db.User.update(userToUpdate, {
           where: { id: user.id },
         });
@@ -207,11 +220,25 @@ const controller = {
           where: { email: req.body.email }
         })
 
-        delete updatedUser.password;
-
         req.session.userLogged = {
-          ...updatedUser,
+          dataValues: {
+            id: updatedUser.id,
+            first_name: updatedUser.first_name,
+            last_name: updatedUser.last_name,
+            email: updatedUser.email,
+            userprofile_id: updatedUser.userprofile_id
+          },
+          id: updatedUser.id,
+          first_name: updatedUser.first_name,
+          last_name: updatedUser.last_name,
+          email: updatedUser.email,
+          userprofile_id: updatedUser.userprofile_id
         }
+
+        if (req.cookies.userCookie) {
+          res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }));
+        }
+
         res.redirect("/users/userProfile");
       });
     } else {
@@ -235,6 +262,8 @@ const controller = {
   logout: (req, res) => {
     req.session.destroy();
 
+    res.clearCookie("userCookie");
+
     res.redirect("/");
   },
   destroyUser: (req, res) => {
@@ -251,6 +280,8 @@ const controller = {
       db.User.destroy({ where: { id: user.id } });
 
       req.session.destroy();
+
+      res.clearCookie("userCookie");
 
       res.redirect("/");
     });
