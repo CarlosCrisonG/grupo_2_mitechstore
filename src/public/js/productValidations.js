@@ -128,6 +128,7 @@ window.addEventListener("load", () => {
 
             if (checkbox.checked) {
                 checkbox.classList.add("valid");
+                createBtn.style.display = "revert";
                 return errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
             }
 
