@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
         if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {
             createErrorMessage({ field, inputField, message: "Debes poner un valor númerico" })
 
-            hiddenCreateBtn()
+            hiddenCreateBtn();
         }
 
         if (field == "name" && inputField.value.length < 5) {
@@ -73,13 +73,11 @@ window.addEventListener("load", () => {
         }
     }
 
-    function colorsValidations() {
-        const checkboxes = document.querySelectorAll("input.checkbox-color");
-
+    function colorsValidations(checkboxes) {
         let bool;
 
         checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
+            if (checkbox.checked) {                
                 bool = true;
             }
         })
@@ -99,6 +97,8 @@ window.addEventListener("load", () => {
 
     const createBtn = document.querySelector(".create-button");
 
+    const checkboxes = document.querySelectorAll("input.checkbox-color");
+
     fields.forEach(field => {
         const inputField = document.getElementById(field);
 
@@ -106,18 +106,29 @@ window.addEventListener("load", () => {
             validations(field, inputField);
 
             if (document.querySelectorAll(`p.error-${field}`).length <= 0) {
-                inputField.classList.remove("is-invalid")
-                inputField.classList.add("valid")
+                inputField.classList.remove("is-invalid");
+                inputField.classList.add("valid");
             }
         })
 
         createBtn.addEventListener("click", (e) => {
             const validationsBool = validations(field, inputField);
 
-            const colorsValidationsBool = colorsValidations();
+            const colorsValidationsBool = colorsValidations(checkboxes);
 
             if (!validationsBool || !colorsValidationsBool) {
                 e.preventDefault();
+            }
+        })
+    })
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("click", () => {
+            const errorMessageCheckBox = document.querySelector("p.error-checkbox-color");
+
+            if (checkbox.checked) {
+                checkbox.classList.add("valid");
+                errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
             }
         })
     })
