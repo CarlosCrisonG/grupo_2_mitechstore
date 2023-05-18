@@ -35,12 +35,12 @@ window.addEventListener("load", () => {
             }
         }
 
-        if (field != "images" && (!inputField.value || !inputField.value.trim().length > 0)) {
+        if (!["images", "discount"].includes(field) && (!inputField.value || !inputField.value.trim().length > 0)) {
             createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" });
         }
-
-        if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {
-            createErrorMessage({ field, inputField, message: "Debes poner un valor númerico" })
+        
+        if (["year", "price"].includes(field) && Number.isInteger(inputField.value) || inputField.value < 0) {
+            createErrorMessage({ field, inputField, message: "Debes poner un valor númerico mayor a 0" })
         }
 
         if (field == "name" && inputField.value.length < 5) {
