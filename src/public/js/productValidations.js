@@ -31,34 +31,24 @@ window.addEventListener("load", () => {
                     createErrorMessage({ field, inputField, message: "No aceptamos ese formato, aceptamos: ." + acceptedExtensions.join(" .") });
 
                     inputField.value = "";
-
-                    hiddenCreateBtn();
                 }
             }
         }
 
         if (field != "images" && (!inputField.value || !inputField.value.trim().length > 0)) {
             createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" });
-
-            hiddenCreateBtn();
         }
 
         if (["year", "price", "discount"].includes(field) && !Number(inputField.value)) {
             createErrorMessage({ field, inputField, message: "Debes poner un valor númerico" })
-
-            hiddenCreateBtn();
         }
 
         if (field == "name" && inputField.value.length < 5) {
             createErrorMessage({ field, inputField, message: "5 caracteres minimo" });
-
-            hiddenCreateBtn();
         }
 
         if (field == "description" && inputField.value.length < 20) {
             createErrorMessage({ field, inputField, message: "20 caracteres minimo" });
-
-            hiddenCreateBtn();
         }
 
         if (errorMessages) {
@@ -85,8 +75,7 @@ window.addEventListener("load", () => {
         const divColors = document.getElementById("colors");
 
         if (!bool && !document.querySelector("p.error-checkbox-color")) {
-            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" });
-            hiddenCreateBtn();
+            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" })
         }
 
         return bool;
@@ -117,6 +106,7 @@ window.addEventListener("load", () => {
             const colorsValidationsBool = colorsValidations(checkboxes);
 
             if (!validationsBool || !colorsValidationsBool) {
+                hiddenCreateBtn();
                 e.preventDefault();
             }
         })
@@ -125,16 +115,16 @@ window.addEventListener("load", () => {
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener("click", () => {
             const errorMessageCheckBox = document.querySelector("p.error-checkbox-color");
-            
+
             checkbox.classList.remove("valid");
-            
+
             colorsValidations(checkboxes)
 
             if (checkbox.checked) {
-                checkbox.classList.add("valid");                
+                checkbox.classList.add("valid");
                 errorMessageCheckBox ? errorMessageCheckBox.remove() : null;
             }
         })
-        
+
     })
 })
