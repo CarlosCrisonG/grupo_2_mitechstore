@@ -38,9 +38,13 @@ window.addEventListener("load", () => {
         if (!["images", "discount"].includes(field) && (!inputField.value || !inputField.value.trim().length > 0)) {
             createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" });
         }
-        
-        if (["year", "price"].includes(field) && Number.isInteger(inputField.value) || inputField.value < 0) {
+
+        if (["year", "price"].includes(field) && (!parseInt(inputField.value) || inputField.value < 1)) {
             createErrorMessage({ field, inputField, message: "Debes poner un valor númerico mayor a 0" })
+        }
+
+        if (field == "discount" && inputField.value && (!parseInt(inputField.value) || inputField.value < 1)) {            
+            createErrorMessage({ field, inputField, message: "Si vas a colorar un valor tiene que ser un numero positivo" })
         }
 
         if (field == "name" && inputField.value.length < 5) {
