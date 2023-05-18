@@ -91,7 +91,16 @@ window.addEventListener("load", () => {
     fields.forEach(field => {
         const inputField = document.getElementById(field);
 
-        inputField.addEventListener("focusout", () => {
+        inputField.addEventListener("focus", () => {
+            validations(field, inputField);
+
+            if (document.querySelectorAll(`p.error-${field}`).length <= 0) {
+                inputField.classList.remove("is-invalid");
+                inputField.classList.add("valid");
+            }
+        })
+
+        inputField.addEventListener("input", () => {
             validations(field, inputField);
 
             if (document.querySelectorAll(`p.error-${field}`).length <= 0) {
