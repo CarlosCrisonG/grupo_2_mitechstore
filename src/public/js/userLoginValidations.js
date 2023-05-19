@@ -46,10 +46,10 @@ window.onload = function () {
                 name: "password",
                 message: "Debes llenar este campo", 
             });
-            form.last_name.classList.add("is-invalid");
+            form.password.classList.add("is-invalid");
         } else {
-            form.last_name.classList.remove("is-invalid");
-            form.last_name.classList.add("is-valid");
+            form.password.classList.remove("is-invalid");
+            form.password.classList.add("is-valid");
           }
         })
     }
