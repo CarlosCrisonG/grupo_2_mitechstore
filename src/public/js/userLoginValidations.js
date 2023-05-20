@@ -1,11 +1,11 @@
 window.onload = function () {
-    const form = document.querySelector("form.input"); //Capturar formulario
+    const form = document.querySelector("form.form"); //Capturar formulario
     form.email.focus()
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const errorsElement = document.querySelector(".error");
+        const errorsElement = document.querySelectorAll(".error");
         errorsElement.forEach(element => {
             element.innerHTML = "";
         })
@@ -45,23 +45,10 @@ window.onload = function () {
       });
       form.password.classList.remove("is-valid");
       form.password.classList.add("is-invalid");
-      //Validar si tiene un formato de email
-    } else if (!form.password.value.match(/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^-!@._*#%]*[-!@._*#%])[-A-Za-z0-9=!@._*#%]*$/)) { 
-        errors.push({
-          name: "password",
-          message: "Tu contraseña no cumple los requerimientos",
-        });
-        form.password.classList.remove("is-valid");
-        form.password.classList.add("is-invalid");
-    } else if (form.password.value.length < 8) { 
-      errors.push({
-        name: "password",
-        message: "Tu contraseña debe tener mínimo 8 caracteres",
-      });
-      form.password.classList.remove("is-valid");
-      form.password.classList.add("is-invalid");
-  }
-    else {
+  } else {
       form.password.classList.remove("is-invalid");
       form.password.classList.add("is-valid");
-    }
+    };
+  });
+}
+
