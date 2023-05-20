@@ -2,8 +2,8 @@ window.onload = function () {
     const form = document.querySelector("form.form"); //Capturar formulario
     form.email.focus()
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
         const errorsElement = document.querySelectorAll(".error");
         errorsElement.forEach(element => {
@@ -11,7 +11,7 @@ window.onload = function () {
         })
         const errors = [];
 
-        // Email
+    // Email
     if (!form.email.value) {
       errors.push({
         name: "email",
