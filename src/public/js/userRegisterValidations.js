@@ -158,7 +158,7 @@ window.onload = function () {
 
     //Subir Avatar
     if (form.avatar.value) {
-      const campo = document.querySelector('#avatar');
+      const campo = document.querySelector('.avatar input');
       const nombreArchivo = campo.files[0].name;
       const extension = nombreArchivo.split('.').pop().toLowerCase();
       const permitidas = ['jpg', 'jpeg', 'png', 'gif'];
@@ -181,7 +181,6 @@ window.onload = function () {
     }
 
     // Perfil de Usuario
-    console.log(form.userprofile.value);
     if (form.userprofile.value) {
       document.querySelector(".userprofile").classList.remove("is-invalid");
       document.querySelector(".userprofile").classList.remove("is-invalid");
