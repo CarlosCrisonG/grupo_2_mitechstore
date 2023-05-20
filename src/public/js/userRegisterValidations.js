@@ -181,7 +181,8 @@ window.onload = function () {
     }
 
     // Perfil de Usuario
-    if (form.comprador.checked == true || form.vendedor.checked == true) {
+    console.log(form.profile);
+    if (form.profile.id.checked == true) {
       document.querySelector("#labelcomprador").classList.remove("is-invalid");
       document.querySelector("#labelvendedor").classList.remove("is-invalid");
     } else {
