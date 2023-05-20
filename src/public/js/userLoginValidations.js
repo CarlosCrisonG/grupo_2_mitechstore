@@ -48,7 +48,16 @@ window.onload = function () {
   } else {
       form.password.classList.remove("is-invalid");
       form.password.classList.add("is-valid");
-    };
+    }
+
+    // Mostrar errores de campos vacios
+    errors.forEach((error) => {
+      const errorLabel = document.getElementById("error-" + error.name);
+      errorLabel.innerHTML = error.message;
+    })
+    if (errors.length === 0){
+      form.submit();
+    }
   });
 }
 
