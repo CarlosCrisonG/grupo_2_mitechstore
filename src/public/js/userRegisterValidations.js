@@ -181,17 +181,17 @@ window.onload = function () {
     }
 
     // Perfil de Usuario
-    console.log(form.profile);
-    if (form.profile.id.checked == true) {
-      document.querySelector("#labelcomprador").classList.remove("is-invalid");
-      document.querySelector("#labelvendedor").classList.remove("is-invalid");
+    console.log(form.userprofile.value);
+    if (form.userprofile.value) {
+      document.querySelector(".userprofile").classList.remove("is-invalid");
+      document.querySelector(".userprofile").classList.remove("is-invalid");
     } else {
       errors.push({
         name: "userprofile",
         message: "Debes seleccionar un perfil",
       });
-      document.querySelector("#labelcomprador").classList.add("is-invalid");
-      document.querySelector("#labelvendedor").classList.add("is-invalid");
+      document.querySelector(".userprofile").classList.add("is-invalid");
+      document.querySelector(".userprofile").classList.add("is-invalid");
     }
 
     //Pais

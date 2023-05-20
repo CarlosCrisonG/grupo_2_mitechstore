@@ -72,7 +72,7 @@
               <% userProfiles.forEach(profile => { %>             
                 <% if (profile.id != "3") { %>               
                   <div>
-                    <input id="<%= profile.name %>" type="radio" name="userprofile" value="<%= profile.id %>" <%= locals.oldData && oldData.userprofile && oldData.userprofile == profile.id ? "checked" : null%>>
+                    <input id="<%= profile.name %>" type="radio" name="userprofile" value="<%= profile.id %>" <%= locals.oldData && oldData.userprofile && oldData.userprofile == profile.id ? "checked" : null%> class="userprofile">
                     <label for="<%= profile.name %>"><%= profile.name %></label>
                   </div>
                 <% } %>
