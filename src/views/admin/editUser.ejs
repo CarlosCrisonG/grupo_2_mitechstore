@@ -11,17 +11,17 @@
         <h3>Editar información de usuario</h3>
         <form class="formulario-registro" action="/users/?_method=PUT" method="POST" enctype="multipart/form-data">
           <input class="input <%= locals.errors && errors.first_name ? 'is-invalid' : null %>" 
-          type="text" placeholder="Nombre" name="first_name" value="<%= locals.oldData && oldData.first_name ? oldData.first_name : user.first_name %>">
+          type="text" placeholder="Nombre" name="first_name" value="<%= locals.oldData && oldData.first_name ? oldData.first_name : user.dataValues.first_name %>">
           <% if (locals.errors && errors.first_name) { %>
             <p class = "error"> <%= errors.first_name.msg %> </p>
           <% } %>
           <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
-          type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : user.last_name %>">
+          type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : user.dataValues.last_name %>">
           <% if (locals.errors && errors.last_name) { %>
             <p class = "error"> <%= errors.last_name.msg %> </p>
           <% } %>
           <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>"  
-          type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : user.email %>">
+          type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : user.dataValues.email %>">
           <% if (locals.errors && errors.email) { %>
             <p class = "error"> <%= errors.email.msg %> </p>
           <% } %>    
@@ -32,7 +32,7 @@
             <p class = "error"> <%= errors.password.msg %> </p>
           <% } %>           
           <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>"  
-          type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : user.phone %>">
+          type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : user.dataValues.phone %>">
           <% if (locals.errors && errors.phone) { %>
             <p class = "error"> <%= errors.phone.msg %> </p>
           <% } %>
@@ -66,7 +66,8 @@
           <% } %>
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
-            <select id="paises" name="country">
+            <select class="<%= locals.errors && errors.country ? "paises" : null %>" id="paises" name="country">
+              <option value="" disabled selected>Elige</option>
               <% countries.forEach(country => { %>               
                 <option value="<%= country.id %>" <%= locals.oldData && oldData.country && oldData.country == country.id ? "selected" : user.country_id == country.id && locals.oldData == undefined ? "selected" : null %>><%= country.name %></option>
               <% }) %>              
@@ -76,22 +77,22 @@
             <p class = "error"> <%= errors.country.msg %> </p>
           <% } %>
           <input class="input <%= locals.errors && errors.region ? 'is-invalid' : null %>" 
-           type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : user.region %>">
+           type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : user.dataValues.region %>">
           <% if (locals.errors && errors.region) { %>
             <p class = "error"> <%= errors.region.msg %> </p>
           <% } %>
           <input class="input <%= locals.errors && errors.city ? 'is-invalid' : null %>"  
-          type="text" placeholder="Ciudad" name="city" value="<%= locals.oldData && oldData.city ? oldData.city : user.city %>">
+          type="text" placeholder="Ciudad" name="city" value="<%= locals.oldData && oldData.city ? oldData.city : user.dataValues.city %>">
           <% if (locals.errors && errors.city) { %>
             <p class = "error"> <%= errors.city.msg %> </p>
           <% } %>
           <input class="input <%= locals.errors && errors.zip ? 'is-invalid' : null %>"  
-          type="text" placeholder="Código postal" name="zip" value="<%= locals.oldData && oldData.zip ? oldData.zip : user.zip %>">
+          type="text" placeholder="Código postal" name="zip" value="<%= locals.oldData && oldData.zip ? oldData.zip : user.dataValues.zip %>">
           <% if (locals.errors && errors.zip) { %>
             <p class = "error"> <%= errors.zip.msg %> </p>
           <% } %>
           <input class="input <%= locals.errors && errors.address ? 'is-invalid' : null %>" 
-          type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : user.address %>">
+          type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : user.dataValues.address %>">
           <% if (locals.errors && errors.address) { %>
             <p class = "error"> <%= errors.address.msg %> </p>
           <% } %>

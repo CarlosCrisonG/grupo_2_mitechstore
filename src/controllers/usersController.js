@@ -14,22 +14,45 @@ const usersPath = path.join(__dirname, "../data/users.json");
 // }
 
 const controller = {
-  register: (req, res) => {
-    res.render("users/register");
+  register: async (req, res) => {
+
+    const userProfiles = await db.UserProfile.findAll();
+
+    const countries = await db.Country.findAll();
+
+    res.render("users/register", {userProfiles, countries});
   },
   create: async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+
       return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
 
     const userInDB = await db.User.findOne({ where: { email: req.body.email } })
 
     if (userInDB) {
+      const userProfiles = await db.UserProfile.findAll();
+
+      const countries = await db.Country.findAll();
+
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+      
       return res.render("users/register", {
         errors: {
           email: {
@@ -37,10 +60,11 @@ const controller = {
           },
         },
         oldData: req.body,
+        userProfiles,
+        countries
       });
     }
 
-    //lo elimino ya que es redundante guardarlo
     delete userInDB;
 
     const avatar = req.file ? req.file.filename : "defaultUser.jpg";
@@ -103,11 +127,24 @@ const controller = {
       });
     }
 
-    delete userToLogin.password;
-
     req.session.userLogged = {
-      ...userToLogin,
+      dataValues: {
+        id: userToLogin.id,
+        first_name: userToLogin.first_name,
+        last_name: userToLogin.last_name,
+        email: userToLogin.email,
+        userprofile_id: userToLogin.userprofile_id
+      },
+      id: userToLogin.id,
+      first_name: userToLogin.first_name,
+      last_name: userToLogin.last_name,
+      email: userToLogin.email,
+      userprofile_id: userToLogin.userprofile_id
     };
+
+    if (req.body.remember) {
+      res.cookie("userCookie", JSON.stringify(req.session.userLogged), { maxAge: 3600000 });
+    }
 
     return res.redirect("/");
   },
@@ -132,7 +169,7 @@ const controller = {
     });
 
     if (!userInDB) {
-      return res.send("el usuario no se encuentra en la base de datos");
+      return res.send("El usuario no se encuentra en la base de datos");
     }
 
     const userProfiles = await db.UserProfile.findAll();
@@ -174,7 +211,7 @@ const controller = {
         if (req.body.password) {
           userToUpdate.password = bcrypt.hashSync(req.body.password, 10);
         }
-        
+
         await db.User.update(userToUpdate, {
           where: { id: user.id },
         });
@@ -183,14 +220,32 @@ const controller = {
           where: { email: req.body.email }
         })
 
-        delete updatedUser.password;
-
         req.session.userLogged = {
-          ...updatedUser,
+          dataValues: {
+            id: updatedUser.id,
+            first_name: updatedUser.first_name,
+            last_name: updatedUser.last_name,
+            email: updatedUser.email,
+            userprofile_id: updatedUser.userprofile_id
+          },
+          id: updatedUser.id,
+          first_name: updatedUser.first_name,
+          last_name: updatedUser.last_name,
+          email: updatedUser.email,
+          userprofile_id: updatedUser.userprofile_id
         }
+
+        if (req.cookies.userCookie) {
+          res.cookie("userCookie", JSON.stringify(req.session.userLogged, { maxAge: 3600000 }));
+        }
+
         res.redirect("/users/userProfile");
       });
     } else {
+      if (req.file) {
+        fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
+      }
+
       const userProfiles = await db.UserProfile.findAll();
 
       const countries = await db.Country.findAll();
@@ -206,6 +261,8 @@ const controller = {
 
   logout: (req, res) => {
     req.session.destroy();
+
+    res.clearCookie("userCookie");
 
     res.redirect("/");
   },
@@ -223,6 +280,8 @@ const controller = {
       db.User.destroy({ where: { id: user.id } });
 
       req.session.destroy();
+
+      res.clearCookie("userCookie");
 
       res.redirect("/");
     });

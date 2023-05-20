@@ -11,71 +11,119 @@
   <main>
    <h3 class="titulo">Crear un nuevo producto</h3>
    <form action="/admin" method="POST" enctype="multipart/form-data">
-      <label class="label" for="name">Nombre del producto</label>
-      <input class="input" name="name" type="text">      
+      <div class="nombre-producto">
+         <label class="label" for="name">Nombre del producto</label>
+         <input class="input <%= locals.errors && errors.name ? 'is-invalid' :null  %>" name="name" type="text" 
+         value="<%= locals.oldData && oldData.name ? oldData.name : null %>">
+         <% if (locals.errors && errors.name) { %>
+            <p class = "error"> <%= errors.name.msg %> </p>
+          <% } %>      
+      </div>
       <div class="descripcion">
          <label for="description" class="label">Descripcion</label>
-         <textarea name="description" id="" rows="4"></textarea>
+         <textarea name="description" class="<%= locals.errors && errors.description ? 'is-invalid' :null  %>" id="" rows="4"><%=  locals.oldData && oldData.description ? oldData.description : null %></textarea>
+         <% if (locals.errors && errors.description) { %>
+            <p class = "error"> <%= errors.description.msg %> </p>
+          <% } %>   
       </div>
       <label class="label" for="">Imágenes del producto</label>
-      <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
+      <input type="file" multiple name="images" accept=".jpg,.png,.jpeg,.gif"> 
+      <% if (locals.errors && errors.images) { %>
+         <p class = "error"> <%= errors.images.msg %> </p>
+       <% } %>       
       <div class="propiedades">
          <div class="precio">
             <label class="label" for="precio">Precio:</label>
-            <input id="precio" name="price" class="input" type="number" placeholder="">
+            <input id="precio" name="price" class="input <%= locals.errors && errors.price ? 'is-invalid' :null  %>" type="number" placeholder=""
+            value="<%= locals.oldData && oldData.price ? oldData.price : null %>">
+            <% if (locals.errors && errors.price) { %>
+               <p class = "error"> <%= errors.price.msg %> </p>
+             <% } %>   
          </div>
          <div class="precio">
             <label class="label" for="discount">Descuento:</label>
-            <input id="precio" name="discount" class="input" type="number" placeholder="">
+            <input id="discount" name="discount" class="input <%= locals.errors && errors.discount ? 'is-invalid' :null  %>" type="number" placeholder=""
+            value="<%= locals.oldData && oldData.discount ? oldData.discount : null %>">
+            <% if (locals.errors && errors.discount) { %>
+               <p class = "error"> <%= errors.discount.msg %> </p>
+             <% } %>   
          </div>
          <div class="categorias">
             <label class="label" for="">Categoría: </label>
-            <select id="categorias" name="category">
+            <select id="categorias" class="<%= locals.errors && errors.category ? 'is-invalid' :null  %>" name="category">
                <option value="" disabled selected>Elige</option>
                <% categories.forEach(category => { %>         
-                  <option value="<%= category.id %>"><%= category.name %></option>
+                  <option value="<%= category.id %>"  <%= locals.oldData && oldData.category && oldData.category == category.id ? "selected" : null%>><%= category.name %></option>
                <% }) %>               
             </select>
+            <% if (locals.errors && errors.category) { %>
+               <p class = "error"> <%= errors.category.msg %> </p>
+             <% } %>   
          </div>
          <div class="categorias">
             <label class="label" for="">Destacar producto:</label>
-            <select id="categorias" name="highlight">
+            <select id="categorias" class="<%= locals.errors && errors.highlight ? 'is-invalid' :null  %>" name="highlight">
                <option value="" disabled selected>Elige</option>
-               <option value="true">Si</option>
-               <option value="false">No</option>
+               <option value="true" <%= locals.oldData && oldData.highlight && oldData.highlight == "true" ? "selected" : null%>>Si</option>
+               <option value="false" <%= locals.oldData && oldData.highlight && oldData.highlight == "false" ? "selected" : null%>>No</option>
             </select>
+            <% if (locals.errors && errors.highlight) { %>
+               <p class = "error"> <%= errors.highlight.msg %> </p>
+             <% } %>   
          </div>
       </div>
       <label class="label" for="">Colores</label>
       <div class="colores">   
          <% colors.forEach(color => { %>      
             <div>
-               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>">
+               <input id="<%= color.name %>" type="checkbox" name="colors[]" value="<%= color.id %>" <%= locals.oldData && oldData.colors && oldData.colors.includes(color.id.toString()) ? "checked" : null %>>
                <label for="<%= color.name %>"><%= color.name %></label>
             </div>
-         <% }) %>               
+         <% }) %>
       </div>
+      <% if (locals.errors && errors.colors) { %>
+         <p class = "error"> <%= errors.colors.msg %> </p>
+       <% } %>                  
       <label class="label" for="">Caracteristicas</label>
-      <div class="especificaciones">
+   <div class="especificaciones">
       <div class="especificacion">
          <label for="modelo">Modelo:</label>
-         <input id="modelo" name="model" class="input" type="text" placeholder="">
+         <input id="modelo" name="model" class="input <%= locals.errors && errors.model ? 'is-invalid' :null  %>" type="text" placeholder=""
+         value="<%= locals.oldData && oldData.model ? oldData.model : null %>">
+         <% if (locals.errors && errors.model) { %>
+            <p class = "error"> <%= errors.model.msg %> </p>
+          <% } %>   
       </div>
       <div class="especificacion">
          <label for="fabricacion">Año de fabricación:</label>
-         <input id="fabricacion" name="year" class="input" type="number" placeholder="">
+         <input id="fabricacion" name="year" class="input <%= locals.errors && errors.year ? 'is-invalid' :null  %>" type="number" placeholder=""
+         value="<%= locals.oldData && oldData.year ? oldData.year : null %>">
+         <% if (locals.errors && errors.year) { %>
+            <p class = "error"> <%= errors.year.msg %> </p>
+          <% } %>   
       </div>
       <div class="especificacion">
          <label for="tamaño">Tamaño:</label>
-         <input id="tamaño" name="size" class="input" type="text" placeholder="">
+         <input id="tamaño" name="size" class="input <%= locals.errors && errors.size ? 'is-invalid' :null  %>" type="text" placeholder=""
+         value="<%= locals.oldData && oldData.size ? oldData.size : null %>">
+         <% if (locals.errors && errors.size) { %>
+            <p class = "error"> <%= errors.size.msg %> </p>
+          <% } %>   
       </div>
       <div class="especificacion">
          <label for="peso">Peso:</label>
-         <input id="peso" class="input" name="weight" type="text" placeholder="">
+         <input id="peso" class="input <%= locals.errors && errors.weight ? 'is-invalid' :null  %>" name="weight" type="text" placeholder=""
+         value="<%= locals.oldData && oldData.weight ? oldData.weight : null %>">
+         <% if (locals.errors && errors.weight) { %>
+            <p class = "error"> <%= errors.weight.msg %> </p>
+          <% } %>   
       </div>
       <div class="descripcion">
          <label class="label" for="">Otras caracteristicas</label>
-         <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"></textarea>
+         <textarea rows="4" name="features" class="<%= locals.errors && errors.features ? 'is-invalid' :null  %>" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"><%=  locals.oldData && oldData.features ? oldData.features : null %></textarea>
+         <% if (locals.errors && errors.features) { %>
+            <p class = "error"> <%= errors.features.msg %> </p>
+          <% } %>   
       </div>
       <div class="buttons">
          <button class="delete-button" type="reset">Borrar</button>
