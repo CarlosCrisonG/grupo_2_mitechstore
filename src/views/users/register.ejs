@@ -16,18 +16,21 @@
             <p class = "error"> <%= errors.first_name.msg %> </p>
           <% } %>
           <p class="error" id="error-first_name"></p>
+
           <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
           type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : null %>">
           <% if (locals.errors && errors.last_name) { %>
             <p class = "error"> <%= errors.last_name.msg %> </p>
           <% } %>
           <p class="error" id="error-last_name"></p>
+
           <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
           type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
           <% if (locals.errors && errors.email) { %>
             <p class = "error"> <%= errors.email.msg %> </p>
           <% } %>
           <p class="error" id="error-email"></p>
+
           <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
           type="password" placeholder="Contraseña" name="password" id="password">
           <% if (locals.errors && errors.password) { %>
@@ -46,6 +49,7 @@
           <input class="input" type="password"  
           placeholder="Confirmar Contraseña" name="password2" id="password2">
           <p class="error" id="error-password2"></p>
+          
           <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>" 
           type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : null %>">
           <% if (locals.errors && errors.phone) { %>

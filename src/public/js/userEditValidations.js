@@ -78,43 +78,33 @@ window.onload = function () {
     }
 
     // Password
-    if (!form.password.value) {
-      errors.push({
-        name: "password",
-        message: "Tu password no puede estar vacio",
-      });
-      form.password.classList.remove("is-valid");
-      form.password.classList.add("is-invalid");
-      //Validar si tiene un formato de password requerido
-    } else if (!form.password.value.match(/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^-!@._*#%]*[-!@._*#%])[-A-Za-z0-9=!@._*#%]*$/)) { 
+    if (form.password.value || form.password2.value) {
+      //Validar si tiene el formato requerido de password
+      if (!form.password.value.match(/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^-!@._*#%]*[-!@._*#%])[-A-Za-z0-9=!@._*#%]*$/)) {
         errors.push({
           name: "password",
-          message: "Tu contraseña no cumple los requerimientos",
+          message: "Tu nueva contraseña no cumple los requerimientos",
         });
         form.password.classList.remove("is-valid");
         form.password.classList.add("is-invalid");
-    } else if (form.password.value.length < 8) { 
-      errors.push({
-        name: "password",
-        message: "Tu contraseña debe tener mínimo 8 caracteres",
-      });
-      form.password.classList.remove("is-valid");
-      form.password.classList.add("is-invalid");
-  }
-    else {
+      } else if (form.password.value.length < 8) {
+        errors.push({
+          name: "password",
+          message: "Tu contraseña debe tener mínimo 8 caracteres",
+        });
+        form.password.classList.remove("is-valid");
+        form.password.classList.add("is-invalid");
+      } else {
+        form.password.classList.remove("is-invalid");
+        form.password.classList.add("is-valid");
+      }
+    } else {
       form.password.classList.remove("is-invalid");
       form.password.classList.add("is-valid");
     }
 
     // Confirmar Password
-    if (!form.password2.value) {
-      errors.push({
-        name: "password2",
-        message: "Debes confirmar tu contraseña",
-      });
-      form.password2.classList.remove("is-valid");
-      form.password2.classList.add("is-invalid");
-    } else if (form.password2.value) {
+    if (form.password2.style.display = "block") {
       if (form.password.value !== form.password2.value) {
         errors.push({
           name: "password2",
@@ -268,9 +258,12 @@ window.onload = function () {
     }
   });
 
-  //Validador de Password
+  //Validador de Email
   //Cuando se hace clic en la caja de password
+
   form.password.addEventListener("focus", (e) => {
+    form.password2.style.display = "block"; //Mostrar campo confirmar contraseña
+    document.querySelector("#error-password2").style.display = "block"; //Mostrar campo error confirmar contraseña
     let myInput = document.getElementById("password");
     let letter = document.getElementById("letter");
     let capital = document.getElementById("capital");
