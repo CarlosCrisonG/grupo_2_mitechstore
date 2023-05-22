@@ -1,89 +1,89 @@
 <%- include("../partials/head", {
     stylePag: "createProduct", title: "Editar un producto"
   }) %>
-  
+
 <body>
 
-    <!-- Header - Inicio -->
+  <!-- Header - Inicio -->
   <%- include("../partials/header") %>
   <!-- Header - Fin-->
 
   <main>
     <h3 class="titulo">Editar producto</h3>
     <form action="/admin/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <label class="label" for="name">Nombre del producto</label>
-       <input class="input" name="name" type="text" value="<%= product.name %>">      
-       <div class="descripcion">
-          <label for="description" class="label">Descripcion</label>
-          <textarea name="description" id="" rows="4"><%= product.description %></textarea>
-       </div>
-       <label class="label" for="">Imágenes del producto</label>
-       <input type="file" multiple name="images" accept=".jpg,.png,.jpeg">     
-       <div class="propiedades">
-          <div class="precio">
-             <label class="label" for="precio">Precio:</label>
-             <input id="precio" name="price" class="input" type="number" value="<%= product.price %>">
-          </div>
-          <div class="precio">
-             <label class="label" for="discount">Descuento:</label>
-             <input id="precio" name="discount" class="input" type="number" value="<%= product.discount %>">
-          </div>
-          <div class="categorias">
-             <label class="label" for="">Categoría: </label>
-             <select id="categorias" name="category">
-                <option value="" disabled>Elige</option>
-                  <% categories.forEach(category => { %>
-                     <option value="<%= category.id %>" <%= product.category.id == category.id ? "selected" : "" %>><%= category.name %></option>
-                  <% }) %>                
-             </select>
-          </div>
-          <div class="categorias">
-             <label class="label" for="">Destacar producto:</label>
-             <select id="categorias" name="highlight">
-                <option value="" disabled>Elige</option>
-                <option value="true" <%= product.highlight ? "selected" : "" %>>Si</option>
-                <option value="false" <%= product.highlight ? "" : "selected" %>>No</option>
-             </select>
-          </div>
-       </div>
-       <label class="label" for="">Colores</label>
-       <div class="colores">
-         <% colors.forEach(color => { %>
-            <div>
-               <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>" <%= product.colors.some(productColor => productColor.id == color.id) ? "checked" : "" %>>
-               <label for="<%= color.name %>"><%= color.name %></label>
-            </div>
-         <% }) %>
-       </div>
-       <label class="label" for="">Caracteristicas</label>
-       <div class="especificaciones">
-       <div class="especificacion">
+      <label class="label" for="name">Nombre del producto</label>
+      <input class="input" name="name" type="text" value="<%= product.name %>" id="name">
+      <div class="descripcion">
+        <label for="description" class="label">Descripcion</label>
+        <textarea name="description" id="description" rows="4"><%= product.description %></textarea>
+      </div>
+      <label class="label" for="">Imágenes del producto</label>
+      <input type="file" multiple name="images" accept=".jpg,.png,.jpeg" id="images">
+      <div class="propiedades">
+        <div class="precio">
+          <label class="label" for="precio">Precio:</label>
+          <input id="price" name="price" class="input" type="number" value="<%= product.price %>">
+        </div>
+        <div class="precio">
+          <label class="label" for="discount">Descuento:</label>
+          <input id="discount" name="discount" class="input" type="number" value="<%= product.discount %>">
+        </div>
+        <div class="categorias">
+          <label class="label" for="">Categoría: </label>
+          <select id="category" name="category">
+            <option value="" disabled>Elige</option>
+            <% categories.forEach(category => { %>
+            <option value="<%= category.id %>" <%= product.category.id == category.id ? "selected" : "" %>><%= category.name %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="categorias">
+          <label class="label" for="">Destacar producto:</label>
+          <select id="highlight" name="highlight">
+            <option value="" disabled>Elige</option>
+            <option value="true" <%= product.highlight ? "selected" : "" %>>Si</option>
+            <option value="false" <%= product.highlight ? "" : "selected" %>>No</option>
+          </select>
+        </div>
+      </div>
+      <label class="label" for="">Colores</label>
+      <div class="colores" id="colors">
+        <% colors.forEach(color => { %>
+        <div>
+          <input id="<%= color.name %>" type="checkbox" name="colors" value="<%= color.id %>" <%= product.colors.some(productColor => productColor.id == color.id) ? "checked" : "" %> class="checkbox-color">
+          <label for="<%= color.name %>"><%= color.name %></label>
+        </div>
+        <% }) %>
+      </div>
+      <label class="label" for="">Caracteristicas</label>
+      <div class="especificaciones">
+        <div class="especificacion">
           <label for="modelo">Modelo:</label>
-          <input id="modelo" name="model" class="input" type="text" value="<%= product.model %>">
-       </div>
-       <div class="especificacion">
+          <input id="model" name="model" class="input" type="text" value="<%= product.model %>">
+        </div>
+        <div class="especificacion">
           <label for="fabricacion">Año de fabricación:</label>
-          <input id="fabricacion" name="year" class="input" type="number" value="<%= product.year %>">
-       </div>
-       <div class="especificacion">
+          <input id="year" name="year" class="input" type="number" value="<%= product.year %>">
+        </div>
+        <div class="especificacion">
           <label for="tamaño">Tamaño:</label>
-          <input id="tamaño" name="size" class="input" type="text" value="<%= product.size %>">
-       </div>
-       <div class="especificacion">
+          <input id="size" name="size" class="input" type="text" value="<%= product.size %>">
+        </div>
+        <div class="especificacion">
           <label for="peso">Peso:</label>
-          <input id="peso" class="input" name="weight" type="text" value="<%= product.weight %>">
-       </div>
-       <div class="descripcion">
+          <input id="weight" class="input" name="weight" type="text" value="<%= product.weight %>">
+        </div>
+        <div class="descripcion">
           <label class="label" for="">Otras caracteristicas</label>
-          <textarea rows="4" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"><%= product.features.map(feature => feature.name).join("/") %></textarea>
-       </div>
-       <div class="buttons">
+          <textarea rows="4" id="features" name="features" placeholder="separa las caracteristicas con / Ej: 4 cámaras/500mAh de bateria/Carga rápida"><%= product.features.map(feature => feature.name).join("/") %></textarea>
+        </div>
+        <div class="buttons">
           <button class="delete-button" type="reset">Borrar</button>
           <button class="create-button" type="submit">Editar producto</button> <br>
-       </div>
-    </form>           
+        </div>
+    </form>
   </main>
-   
-    <!-- Footer - Inicio -->
-<%- include("../partials/footer") %>
-<!-- Footer - Fin -
+  <script src="/js/productValidations.js"></script>
+  <!-- Footer - Inicio -->
+  <%- include("../partials/footer") %>
+  <!-- Footer - Fin -
