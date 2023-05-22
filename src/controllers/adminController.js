@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const db = require('../database/models');
+const { validationResult } = require("express-validator");
 
 const productsPath = path.join(__dirname, "../data/products.json");
 function getProducts() {
@@ -16,6 +17,27 @@ const controller = {
     res.render("admin/createProduct", { categories, colors });
   },
   create: async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      const categories = await db.Category.findAll();
+
+      const colors = await db.Color.findAll();
+
+      if (req.files) {
+        req.files.forEach(image => {
+          fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.filename));
+        })
+      }
+
+      return res.render("admin/createProduct", {
+        errors: errors.mapped(),
+        oldData: req.body,
+        categories,
+        colors
+      });
+    }
+
     req.files = req.files.length > 0 ? req.files : [{ filename: 'defaultProduct.png' }]
 
     const features = req.body.features.split("/");
@@ -75,7 +97,33 @@ const controller = {
     res.render("admin/editProduct", { product, categories, colors });
   },
   edit: async (req, res) => {
+    
+    const errors = validationResult(req);
+    
     const id = req.params.id;
+    
+    if (!errors.isEmpty()) {
+      const categories = await db.Category.findAll();
+
+      const colors = await db.Color.findAll();
+
+      const product = await db.Product.findOne({ include: { all: true }, where: { id } });
+
+      if (req.files) {
+        req.files.forEach(image => {
+          fs.unlinkSync(path.join(__dirname, "../public/images/products/", image.filename));
+        })
+      }
+
+      return res.render("admin/editProduct", {
+        errors: errors.mapped(),
+        oldData: req.body,
+        product,
+        categories,
+        colors
+      });
+    }
+
 
     const features = req.body.features.split("/");
 

@@ -15,103 +15,128 @@
           <% if (locals.errors && errors.first_name) { %>
             <p class = "error"> <%= errors.first_name.msg %> </p>
           <% } %>
+          <p class="error" id="error-first_name"></p>
           <input class="input <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
           type="text" placeholder="Apellido" name="last_name" value="<%= locals.oldData && oldData.last_name ? oldData.last_name : null %>">
           <% if (locals.errors && errors.last_name) { %>
             <p class = "error"> <%= errors.last_name.msg %> </p>
           <% } %>
+          <p class="error" id="error-last_name"></p>
           <input class="input <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
           type="email" placeholder="Correo electrónico" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
           <% if (locals.errors && errors.email) { %>
             <p class = "error"> <%= errors.email.msg %> </p>
-          <% } %>        
+          <% } %>
+          <p class="error" id="error-email"></p>
           <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>" 
-          type="password" placeholder="Contraseña" name="password">
+          type="password" placeholder="Contraseña" name="password" id="password">
           <% if (locals.errors && errors.password) { %>
             <p class = "error"> <%= errors.password.msg %> </p>
-          <% } %>         
+          <% } %>
+          <p class="error" id="error-password"></p>
+            <!-- Validador de Password -->
+          <div id="pass_validator_message">
+              <span id="pass_validator_title">Tu contraseña debe tener:</span>
+              <p id="letter" class="invalid">Una letra <b>minúscula</b></p>
+              <p id="capital" class="invalid">Una letra <b>mayúscula</b></p>
+              <p id="number" class="invalid">Un <b>número</b></p>
+              <p id="symbol" class="invalid">Un <b>caracter especial</b></p>
+              <p id="length" class="invalid">Mínimo <b>8 caracteres</b></p>
+          </div>
+          <input class="input" type="password"  
+          placeholder="Confirmar Contraseña" name="password2" id="password2">
+          <p class="error" id="error-password2"></p>
           <input class="input <%= locals.errors && errors.phone ? 'is-invalid' : null %>" 
           type="number" placeholder="Número de teléfono" name="phone" value="<%= locals.oldData && oldData.phone ? oldData.phone : null %>">
           <% if (locals.errors && errors.phone) { %>
             <p class = "error"> <%= errors.phone.msg %> </p>
           <% } %>
+          <p class="error" id="error-phone"></p>
           <br>
 
           <div class="perfil-label">
             <label>Seleccione una imagen de perfil</label>
           </div>
           <div class="avatar">
-            <input type="file" name="avatar">
+            <input type="file" name="avatar" accept=".jpg,.png,.jpeg,.gif">
           </div>
           <% if (locals.errors && errors.avatar) { %>
             <p class = "error"> <%= errors.avatar.msg %> </p>
           <% } %>
+          <p class="error avatar" id="error-avatar"></p>
 
           <div class="perfil-label">
             <label>Perfil del usuario</label>
           </div>
           <div class="perfil">
-            <div>
-              <input id="comprador" type="radio" name="userprofile" value="1" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "comprador" ? "checked" : null%>>
-              <label for="comprador">Comprador</label>
-            </div>
-            <div>
-              <input id="vendedor" type="radio" name="userprofile" value="2" <%= locals.oldData && oldData.userprofile && oldData.userprofile == "vendedor" ? "checked" : null%>>
-              <label for="vendedor">Vendedor</label>
-            </div>
+              <% userProfiles.forEach(profile => { %>             
+                <% if (profile.id != "3") { %>               
+                  <div>
+                    <input id="<%= profile.name %>" type="radio" name="userprofile" value="<%= profile.id %>" <%= locals.oldData && oldData.userprofile && oldData.userprofile == profile.id ? "checked" : null%> class="userprofile">
+                    <label for="<%= profile.name %>"><%= profile.name %></label>
+                  </div>
+                <% } %>
+              <% }) %>     
           </div>
           <% if (locals.errors && errors.userprofile) { %>
             <p class = "error"> <%= errors.userprofile.msg %> </p>
           <% } %>
+          <p class="error" id="error-userprofile"></p>
+
           <div class="pais">
             <label for="paises">Seleccione su pais </label>
             <select class="<%= locals.errors && errors.country ? "paises" : null %>" id="paises" name="country">
-              <option value="" <%= locals.oldData && oldData.country ? null : "selected" %> disabled></option>
-              <option value="1" <%= locals.oldData && oldData.country && oldData.country == "arg" ? "selected" : null %> >Argentina</option>
-              <option value="2" <%= locals.oldData && oldData.country && oldData.country == "bol" ? "selected" : null %>>Bolivia</option>
-              <option value="3" <%= locals.oldData && oldData.country && oldData.country == "bra" ? "selected" : null %>>Brasil</option>
-              <option value="4" <%= locals.oldData && oldData.country && oldData.country == "chi" ? "selected" : null %>>Chile</option>
-              <option value="5" <%= locals.oldData && oldData.country && oldData.country == "col" ? "selected" : null %>>Colombia</option>
-              <option value="6" <%= locals.oldData && oldData.country && oldData.country == "ecu" ? "selected" : null %>>Ecuador</option>
-              <option value="7" <%= locals.oldData && oldData.country && oldData.country == "par" ? "selected" : null %>>Paraguay</option>
-              <option value="8" <%= locals.oldData && oldData.country && oldData.country == "per" ? "selected" : null %>>Perú</option>
-              <option value="9" <%= locals.oldData && oldData.country && oldData.country == "uru" ? "selected" : null %>>Uruguay</option>
-              <option value="10" <%= locals.oldData && oldData.country && oldData.country == "ven" ? "selected" : null %>>Venezuela</option>
+              <option value="" disabled selected>Elige</option>
+              <% countries.forEach(country => { %>               
+                <option value="<%= country.id %>" <%= locals.oldData && oldData.country && oldData.country == country.id ? "selected" : null %>><%= country.name %></option>
+              <% }) %> 
             </select>
           </div>
           <% if (locals.errors && errors.country) { %>
             <p class = "error"> <%= errors.country.msg %> </p>
           <% } %>
+          <p class="error" id="error-paises"></p>
+
           <input class="input <%= locals.errors && errors.region ? 'is-invalid' : null %>" 
           type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : null %>">
           <% if (locals.errors && errors.region) { %>
             <p class = "error"> <%= errors.region.msg %> </p>
           <% } %>
+          <p class="error" id="error-region"></p>
+
           <input class="input <%= locals.errors && errors.city ? 'is-invalid' : null %>" 
           type="text" placeholder="Ciudad" name="city" value="<%= locals.oldData && oldData.city ? oldData.city : null %>">
           <% if (locals.errors && errors.city) { %>
             <p class = "error"> <%= errors.city.msg %> </p>
           <% } %>
+          <p class="error" id="error-city"></p>
+
           <input class="input <%= locals.errors && errors.zip ? 'is-invalid' : null %>" 
           type="number" placeholder="Código postal" name="zip" value="<%= locals.oldData && oldData.zip ? oldData.zip : null %>">
           <% if (locals.errors && errors.zip) { %>
             <p class = "error"> <%= errors.zip.msg %> </p>
           <% } %>
+          <p class="error" id="error-zip"></p>
+
           <input class="input <%= locals.errors && errors.address ? 'is-invalid' : null %>" 
           type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : null %>">
           <% if (locals.errors && errors.address) { %>
             <p class = "error"> <%= errors.address.msg %> </p>
           <% } %>
+          <p class="error" id="error-address"></p>
+
           <div id="create-account-button">
             <button class="reset" type="reset">Borrar</button>
             <button type="submit">Crear</button>
           </div>
         </form>
         <div class="link-inicio-sesion">
-          <a href="/user/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+          <a href="/users/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
         </div>
       </main>
       <!--Contenido HTML del Registro - Fin -->
+
+      <script src="/js/userRegisterValidations.js"></script>
 
       <!-- Footer - Inicio -->
       <%- include("../partials/footer") %>

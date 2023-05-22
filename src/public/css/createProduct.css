@@ -85,10 +85,8 @@ h3.titulo {
 .colores {
     display: flex;
     flex-direction: column;
-    gap: 20px 0px;
+    gap: 15px 0px;
     align-self: flex-start;
-    margin-bottom: 20px;
-    margin-left: 25px;
 }
 
 .caracteristicasTitle {
@@ -119,8 +117,7 @@ h3.titulo {
     font-family: 'Raleway', sans-serif;
 }
 
-.categorias select {
-    display: block;
+select {
     font-family: 'Raleway', sans-serif;
     padding: 8px;
     border: solid rgb(197 194 194) 1px;
@@ -170,6 +167,32 @@ textarea {
     transition: all 400ms;
 }
 
+textarea {
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-weight: 700;
+    margin: 8px 0px;
+}
+
+.is-invalid {
+    border-color: red;
+    border-width: 1px;
+    box-shadow: 0px 0px 5px rgb(250, 2, 2);
+}
+
+.nombre-producto {
+width: 100%;
+}
+
+.nombre-producto input {
+    margin-top: 8px;
+}
+
 @media (min-width: 481px) {
 
     form {
@@ -190,10 +213,8 @@ textarea {
     .colores {
         display: flex;
         flex-direction: row;
-        gap: 17px;
         text-align: center;
         align-self: flex-start;
-        margin-bottom: 20px;
     }
 
     input::placeholder {

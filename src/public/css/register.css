@@ -108,13 +108,20 @@ select {
     text-align: center;
     color: red;
     font-weight: 700;
-    margin-bottom: 20px;
 }
 
 .is-invalid {
+    color: red;
     border-color: red;
     border-width: 1px;
-    box-shadow: 0px 0px 5px rgb(250, 2, 2);
+    /* box-shadow: 0px 0px 5px rgb(250, 2, 2); */
+}
+
+.is-valid {
+    color: #198754;
+    border-color: #198754;
+    border-width: 1px;
+    /* box-shadow: 0px 0px 5px #08693c; */
 }
 
 .paises {
@@ -123,7 +130,49 @@ select {
     box-shadow: 0px 0px 5px rgb(250, 2, 2);
 }
 
+/*Validaciones Password FrontEnd*/
+#pass_validator_message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    padding: 10px 20px;
+}
 
+#pass_validator_message p {
+    padding: 5px 35px;
+    font-size: 16px;
+}
+
+#pass_validator_title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: '\f00c';
+    font-family: "Font Awesome 6 free"; 
+	font-weight: 900;
+}
+
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: '\58';
+    font-family: "Font Awesome 6 free"; 
+	font-weight: 900;
+}
+
+/*Reglas para Responsive*/
 @media (min-width: 481px) {
     .input {
         max-width: 470px;
@@ -132,10 +181,11 @@ select {
     .perfil {
         max-width: 450px;
     }
+
     .perfil-label {
         max-width: 470px;
     }
-    
+
 }
 
 @media (min-width: 769px) {
@@ -173,5 +223,14 @@ select {
     select {
         padding: 4px;
     }
-
+    /*Regla responsive para validador de contraseña*/
+    #pass_validator_message {
+        display: none;
+        background: #f1f1f1;
+        color: #000;
+        position: absolute;
+        right: 10vw;
+        padding: 20px;
+        margin-top: 100px;
+    }
 }
