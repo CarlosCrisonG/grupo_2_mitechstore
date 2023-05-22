@@ -6,6 +6,25 @@ main {
     padding-right: 5%;
 }
 
+p.error {
+    text-align: center;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.is-invalid {
+    box-shadow: rgb(250, 2, 2) 0px 0px 5px;
+    border-color: red;
+    border-width: 1px;
+}
+
+.valid {
+    box-shadow: rgb(10, 250, 2) 0px 0px 5px;
+    border-color: green;
+    border-width: 1px;
+}
+
 form {
     width: 100%;
     display: flex;
@@ -106,11 +125,11 @@ select {
     margin-top: 5px;
 }
 
-.propiedades div.categorias{
+.propiedades div.categorias {
     width: 38%;
 }
 
-.propiedades div.categorias select{
+.propiedades div.categorias select {
     width: 100%;
 }
 
@@ -126,7 +145,7 @@ textarea {
     font-family: 'Raleway', sans-serif;
     width: 100%;
     padding: 5px;
-    font-size: 15px;    
+    font-size: 15px;
     border: 1px lightgray solid;
 }
 
@@ -189,7 +208,7 @@ width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-    }    
+    }
 
     .colores {
         display: flex;

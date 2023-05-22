@@ -46,7 +46,7 @@ const controller = {
 
     const questionhighlight = req.body.highlight == "true" ? 1 : 0;
 
-    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+    const colors = req.body.colors;
 
     const productCreated = await db.Product.create({
       name: req.body.name,
@@ -131,7 +131,7 @@ const controller = {
 
     const questionhighlight = req.body.highlight == "true" ? 1 : 0;
 
-    const colors = typeof req.body.colors == "string" ? [req.body.colors] : req.body.colors;
+    const colors = req.body.colors;
 
     db.Product.update({
       name: req.body.name,
@@ -150,7 +150,6 @@ const controller = {
     db.Feature.destroy({ where: { products_id: id } });
 
     db.ProductColor.destroy({ where: { products_id: id } });
-
 
     if (!(features.length == 1 && features[0] == "")) {
       await db.Feature.bulkCreate(features.map(feature => {
