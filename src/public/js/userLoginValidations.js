@@ -7,6 +7,7 @@ window.onload = function () {
 
         const errorsElement = document.querySelectorAll(".error");
         errorsElement.forEach(element => {
+            element.style.display = "none"
             element.innerHTML = "";
         })
         const errors = [];
@@ -53,6 +54,7 @@ window.onload = function () {
     // Mostrar errores de campos vacios
     errors.forEach((error) => {
       const errorLabel = document.getElementById("error-" + error.name);
+      errorLabel.style.display = "block"
       errorLabel.innerHTML = error.message;
     })
     if (errors.length === 0){
