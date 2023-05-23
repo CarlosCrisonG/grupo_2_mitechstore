@@ -101,6 +101,10 @@ main{
     color: red;
     font-weight: 700;
     margin-bottom: 20px;
+}
+
+#error-email,
+#error-password {
     display: none;
 }
 
