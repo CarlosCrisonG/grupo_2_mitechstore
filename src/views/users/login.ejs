@@ -20,13 +20,13 @@
           <% if (locals.errors && errors.email) { %>
             <p class = "error"> <%= errors.email.msg %> </p>
           <% } %>
-
+          <p class="error" id="error-email"></p>
           <input class="input <%= locals.errors && errors.password ? 'is-invalid' : null %>"
           type="password" placeholder="Contraseña" name="password">
           <% if (locals.errors && errors.password) { %>
             <p class = "error"> <%= errors.password.msg %> </p>
           <% } %>
-
+          <p class="error" id="error-password"></p>
           <div class="contenedorOlvidaste">
 
             <a href="">¿Olvidaste tu contraseña? Haz click aquí</a>
@@ -50,6 +50,8 @@
 
         </div>
       </main>
+
+      <script src="/js/userLoginValidations.js"></script>
 
       <!-- Footer - Inicio -->
       <%- include("../partials/footer") %>

@@ -124,6 +124,12 @@ select {
     /* box-shadow: 0px 0px 5px #08693c; */
 }
 
+.is-valid {
+    color: #198754;
+    border-color: #198754;
+    border-width: 1px;
+}
+
 .paises {
     border-color: red;
     border-width: 1px;

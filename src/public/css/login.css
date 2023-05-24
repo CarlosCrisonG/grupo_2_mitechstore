@@ -97,10 +97,15 @@ main{
     color: rgb(54, 104, 241);
 }
 
-.error {
+.error{
     color: red;
     font-weight: 700;
     margin-bottom: 20px;
+}
+
+#error-email,
+#error-password {
+    display: none;
 }
 
 .is-invalid {
