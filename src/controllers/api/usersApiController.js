@@ -9,7 +9,7 @@ const controller = {
 
             let data = usersFromDb.map(user => ({
                 ...user.dataValues,
-                detail: `/api/users/${user.id}`
+                detail: `/api/users/${user.dataValues.id}`
             }))
 
             res.json({
@@ -18,7 +18,7 @@ const controller = {
                     count: usersFromDb.length,
                     url: req.originalUrl
                 },
-                data: data
+                data
             })
         } catch (error) {
             console.log(error);
