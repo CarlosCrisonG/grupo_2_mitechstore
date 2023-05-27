@@ -27,10 +27,7 @@ const controller = {
     },
     detail: async (req, res) => {
         try {
-            let user = await db.User.findOne({
-                where: {
-                    id: req.params.id
-                },
+            let user = await db.User.findByPk(req.params.id, {
                 attributes: { exclude: ["password", "country_id", "userprofile_id"] },
                 include: [
                     { association: "userProfile" },
