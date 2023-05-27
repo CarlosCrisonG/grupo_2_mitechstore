@@ -75,3 +75,5 @@ app.use("/partials", partialsRoutes);
 
 //rutas para testear
 app.use("/test", testRoutes);
+
+//Rutas APIs
