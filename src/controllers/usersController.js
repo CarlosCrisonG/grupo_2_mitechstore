@@ -189,9 +189,11 @@ const controller = {
 
         if (req.file) {
           avatar = req.file.filename;
-          fs.unlinkSync(
-            path.join(__dirname, "../public/images/avatars/", user.avatar)
-          );
+          if (user.avatar != "defaultUser.jpg") {
+            fs.unlinkSync(
+              path.join(__dirname, "../public/images/avatars/", user.avatar)
+            );
+          }
         }
 
         const userToUpdate = {
