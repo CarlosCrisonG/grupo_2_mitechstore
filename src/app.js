@@ -78,4 +78,4 @@ app.use("/partials", partialsRoutes);
 app.use("/test", testRoutes);
 
 //Rutas APIs
-app.use("/api/products", productsApiRoutes)
+app.use("/api/products", productsApiRoutes);
