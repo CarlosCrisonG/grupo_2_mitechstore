@@ -23,7 +23,7 @@ const controller = {
         const productsWithUrlImage = products.map(product => {
             const url = product.images.map(image => ({ url: "http://localhost:3000/images/products/" + image.name }))
 
-            return { product, imagesUrl: url }
+            return { fields: product, imagesUrl: url }
         })
 
         const jsonRes = {
@@ -62,7 +62,7 @@ const controller = {
 
         const url = product.images.map(image => "http://localhost:3000/images/products/" + image.name)
 
-        const productWithUrlImage = { product, imagesUrl: url }
+        const productWithUrlImage = { fields: product, imagesUrl: url }
 
         const jsonRes = {
             meta: {
