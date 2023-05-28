@@ -13,7 +13,10 @@ const controller = {
 
         const totalProductsInDB = await db.Product.count()
 
-        if (products.length < 1) {
+        const limitPag = Math.ceil(totalProductsInDB / 10)
+
+
+        if (products.length < 1 || pag > limitPag) {
             return res.status(404).json({
                 meta: {
                     status: 404
@@ -38,7 +41,8 @@ const controller = {
             data: productsWithUrlImage
         }
 
-        if (pag >= 1 && productsWithUrlImage.length == 10) {
+
+        if (pag >= 1 && productsWithUrlImage.length == 10 || pag < limitPag) {
             jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (pag + 1)
         }
 
@@ -47,7 +51,6 @@ const controller = {
         }
 
         res.status(200).json(jsonRes)
-
     },
     detail: async (req, res) => {
         const id = req.params.id;
