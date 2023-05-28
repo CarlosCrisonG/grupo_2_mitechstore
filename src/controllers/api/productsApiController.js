@@ -11,6 +11,8 @@ const controller = {
 
         const products = await db.Product.findAll({ limit, offset, include: { all: true } })
 
+        const totalProductsInDB = await db.Product.count()
+
         if (products.length < 1) {
             return res.status(404).json({
                 meta: {
@@ -30,6 +32,7 @@ const controller = {
             meta: {
                 status: 200,
                 count: productsWithUrlImage.length,
+                totalProductsInDB,
                 url: req.originalUrl
             },
             data: productsWithUrlImage
