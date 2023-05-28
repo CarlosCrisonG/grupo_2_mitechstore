@@ -35,7 +35,32 @@ const controller = {
                 errorMsg: error
             })
         }
+    },
+    detail: async (req, res) => {
+
+        let statusRes = 200;
+
+        const id = req.params.id;
+
+        const product = await db.Product.findOne({ where: { id }, include: { all: true } });
+
+        const jsonRes = {
+            meta: {
+                status: 200
+            },
+            data: product
+        }
+
+        if (!product) {
+            statusRes = 404;
+
+            jsonRes.meta.status = 404
+
+            jsonRes.data = "product not found"
+        }
+        
+        res.status(statusRes).json(jsonRes);
     }
 }
 
-module.exports = controller
+module.exports = controller;
