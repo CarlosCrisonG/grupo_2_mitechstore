@@ -21,6 +21,15 @@ const controller = {
             }
 
             let userPaging = usersFromDb.slice(offset, offset + limit)
+            
+            if (userPaging.length < 1 && usersFromDb.length >= 1) {
+            return res.json({
+                meta: {
+                    status: 404
+                },
+                data: "This page is empty, please return to a previous one"
+            })
+            }
 
             let data = userPaging.map(user => ({
                 ...user.dataValues,
