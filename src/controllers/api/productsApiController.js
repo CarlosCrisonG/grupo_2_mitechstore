@@ -5,7 +5,7 @@ const controller = {
 
         const limit = 10;
 
-        const pag = parseInt(req.query.pag) ? parseInt(req.query.pag) : 1
+        const pag = parseInt(req.query.pag) || 1
 
         const offset = limit * (pag - 1)
 
@@ -35,12 +35,12 @@ const controller = {
             data: productsWithUrlImage
         }
 
-        if (req.query.pag >= 1 && productsWithUrlImage.length == 10) {
-            jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (parseInt(req.query.pag) + 1)
+        if (pag >= 1 && productsWithUrlImage.length == 10) {
+            jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (pag + 1)
         }
 
-        if (req.query.pag > 1) {
-            jsonRes.meta.previous = "http://localhost:3000/api/products/?pag=" + (parseInt(req.query.pag) - 1)
+        if (pag > 1) {
+            jsonRes.meta.previous = "http://localhost:3000/api/products/?pag=" + (pag - 1)
         }
 
         res.status(200).json(jsonRes)
