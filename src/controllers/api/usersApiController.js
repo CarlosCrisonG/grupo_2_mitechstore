@@ -11,6 +11,15 @@ const controller = {
                 attributes: { exclude: ["password", "country_id", "userprofile_id", "phone", "region", "city", "zip", "address"] }
             });
 
+            if (usersFromDb.length < 1) {
+                return res.status(404).json({
+                    meta: {
+                        status: 404
+                    },
+                    data: "There are no users in data base"
+                })
+            }
+
             let userPaging = usersFromDb.slice(offset, offset + limit)
 
             let data = userPaging.map(user => ({
@@ -53,6 +62,16 @@ const controller = {
                     { association: "country" }
                 ]
             })
+
+            if (!user) {
+                return res.status(404).json({
+                    meta: {
+                        status: 404
+                    },
+                    data: "User not found in data base"
+                })
+            }
+
             res.json({
                 meta: {
                     status: 200,
