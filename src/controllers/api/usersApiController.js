@@ -20,6 +20,8 @@ const controller = {
                 })
             }
 
+            let pagesAmmount = Math.ceil(usersFromDb.length / limit)
+
             let userPaging = usersFromDb.slice(offset, offset + limit)
             
             if (userPaging.length < 1 && usersFromDb.length >= 1) {
@@ -27,7 +29,7 @@ const controller = {
                 meta: {
                     status: 404
                 },
-                data: "This page is empty, please return to a previous one"
+                data: `This page is empty, please return to page ${pagesAmmount}, which is the last page`
             })
             }
 
@@ -42,6 +44,7 @@ const controller = {
                     count: usersFromDb.length,
                     url: req.originalUrl,
                     limit,
+                    total_pages: pagesAmmount,
                     page
                 },
                 data
