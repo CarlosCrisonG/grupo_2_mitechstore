@@ -15,6 +15,7 @@ const controller = {
                 meta: {
                     status: 200,
                     count: products.length,
+                    url: req.originalUrl
                 },
                 data: products
             }
@@ -46,7 +47,8 @@ const controller = {
 
         const jsonRes = {
             meta: {
-                status: 200
+                status: 200,
+                url: req.originalUrl
             },
             data: product
         }
