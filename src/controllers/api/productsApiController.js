@@ -35,7 +35,7 @@ const controller = {
             data: productsWithUrlImage
         }
 
-        if (req.query.pag > 1 && productsWithUrlImage.length == 10) {
+        if (req.query.pag >= 1 && productsWithUrlImage.length == 10) {
             jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (parseInt(req.query.pag) + 1)
         }
 
