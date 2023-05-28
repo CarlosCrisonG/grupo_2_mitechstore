@@ -3,27 +3,42 @@ const db = require('../../database/models');
 const controller = {
     list: async (req, res) => {
         try {
-            // let limit = 5;
-            // let page = parseInt(req.query.page) || 1;
-            // let offset = limit * (page - 1);
+            let limit = 10;
+            let page = parseInt(req.query.page) || 1;
+            let offset = limit * (page - 1);
 
             let usersFromDb = await db.User.findAll({
                 attributes: { exclude: ["password", "country_id", "userprofile_id", "phone", "region", "city", "zip", "address"] }
             });
 
-            let data = usersFromDb.map(user => ({
+            let userPaging = usersFromDb.slice(offset, offset + limit)
+
+            let data = userPaging.map(user => ({
                 ...user.dataValues,
                 detail: `/api/users/${user.dataValues.id}`
             }))
 
-            res.json({
+            let response = {
                 meta: {
                     status: 200,
                     count: usersFromDb.length,
-                    url: req.originalUrl
+                    url: req.originalUrl,
+                    limit,
+                    page
                 },
                 data
-            })
+            }
+            
+            if (!(data.length < limit)) {
+                response.meta.next = `/api/users?page=${page + 1}`
+            }
+
+            if (page > 1) {
+                response.meta.previous = `/api/users?page=${page - 1}`
+            }
+            
+            res.json(response)
+
         } catch (error) {
             console.log(error);
             res.status(400).send(error)
