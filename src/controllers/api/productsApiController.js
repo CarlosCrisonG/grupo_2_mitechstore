@@ -11,6 +11,15 @@ const controller = {
 
         const products = await db.Product.findAll({ limit, offset, include: { all: true } })
 
+        if (products.length < 1) {
+            return res.status(404).json({
+                meta: {
+                    status: 404
+                },
+                data: "Products not found"
+            })
+        }
+
         const productsWithUrlImage = products.map(product => {
             const url = product.images.map(image => ({ url: "http://localhost:3000/images/products/" + image.name }))
 
