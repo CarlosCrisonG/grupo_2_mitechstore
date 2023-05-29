@@ -58,7 +58,7 @@ const controller = {
                 response.meta.previous = `http://localhost:3000/api/users?page=${page - 1}`
             }
 
-            res.json(response)
+            res.status(200).json(response)
 
         } catch (error) {
             console.log(error);
@@ -84,7 +84,7 @@ const controller = {
                 })
             }
 
-            res.json({
+            res.status(200).json({
                 meta: {
                     status: 200,
                     url: req.originalUrl
