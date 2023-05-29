@@ -35,14 +35,14 @@ const controller = {
 
             let data = userPaging.map(user => ({
                 ...user.dataValues,
-                detail: `/api/users/${user.dataValues.id}`
+                detail: `http://localhost:3000/api/users/${user.dataValues.id}`
             }))
 
             let response = {
                 meta: {
                     status: 200,
-                    count: usersFromDb.length,
                     url: req.originalUrl,
+                    count: usersFromDb.length,
                     limit,
                     total_pages: pagesAmmount,
                     page
@@ -51,11 +51,11 @@ const controller = {
             }
 
             if (page < pagesAmmount) {
-                response.meta.next = `/api/users?page=${page + 1}`
+                response.meta.next = `http://localhost:3000/api/users?page=${page + 1}`
             }
 
             if (page > 1) {
-                response.meta.previous = `/api/users?page=${page - 1}`
+                response.meta.previous = `http://localhost:3000/api/users?page=${page - 1}`
             }
 
             res.json(response)
@@ -89,7 +89,7 @@ const controller = {
                     status: 200,
                     url: req.originalUrl
                 },
-                data: { ...user.dataValues, avatarURL: `/images/avatars/${user.dataValues.avatar}` }
+                data: { ...user.dataValues, avatarURL: `http://localhost:3000/images/avatars/${user.dataValues.avatar}` }
 
             })
         } catch (error) {
