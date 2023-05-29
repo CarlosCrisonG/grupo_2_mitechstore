@@ -23,7 +23,7 @@ const controller = {
             let pagesAmmount = Math.ceil(usersFromDb.length / limit)
 
             if (page > pagesAmmount) {
-                return res.json({
+                return res.status(404).json({
                     meta: {
                         status: 404
                     },
