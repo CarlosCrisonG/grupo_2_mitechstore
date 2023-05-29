@@ -7,42 +7,34 @@ const controller = {
             let page = parseInt(req.query.page) || 1;
             let offset = limit * (page - 1);
 
-            let usersFromDb = await db.User.findAll({
+            let usersFromDb = await db.User.findAll({ limit, offset,
                 attributes: { exclude: ["password", "country_id", "userprofile_id", "phone", "region", "city", "zip", "address"] }
             });
+            
+            let totalUsersInDB = await db.User.count();
 
-            if (usersFromDb.length < 1) {
+            let pagesAmmount = Math.ceil(totalUsersInDB / limit)
+
+            if (usersFromDb.length < 1 || page > pagesAmmount) {
                 return res.status(404).json({
                     meta: {
                         status: 404
                     },
-                    data: "There are no users in data base"
+                    data: `Users not found. Last page is page ${pagesAmmount} `
                 })
             }
 
-            let pagesAmmount = Math.ceil(usersFromDb.length / limit)
-
-            if (page > pagesAmmount) {
-                return res.status(404).json({
-                    meta: {
-                        status: 404
-                    },
-                    data: `This page is empty, please return to page ${pagesAmmount}, which is the last page`
-                })
-            }
-
-            let userPaging = usersFromDb.slice(offset, offset + limit)
-
-            let data = userPaging.map(user => ({
+            let data = usersFromDb.map(user => ({
                 ...user.dataValues,
                 detail: `http://localhost:3000/api/users/${user.dataValues.id}`
             }))
+
 
             let response = {
                 meta: {
                     status: 200,
                     url: req.originalUrl,
-                    count: usersFromDb.length,
+                    count: totalUsersInDB,
                     limit,
                     total_pages: pagesAmmount,
                     page
