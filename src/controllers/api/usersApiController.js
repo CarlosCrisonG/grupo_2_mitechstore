@@ -22,16 +22,16 @@ const controller = {
 
             let pagesAmmount = Math.ceil(usersFromDb.length / limit)
 
-            let userPaging = usersFromDb.slice(offset, offset + limit)
-            
-            if (userPaging.length < 1 && usersFromDb.length >= 1) {
-            return res.json({
-                meta: {
-                    status: 404
-                },
-                data: `This page is empty, please return to page ${pagesAmmount}, which is the last page`
-            })
+            if (page > pagesAmmount) {
+                return res.json({
+                    meta: {
+                        status: 404
+                    },
+                    data: `This page is empty, please return to page ${pagesAmmount}, which is the last page`
+                })
             }
+
+            let userPaging = usersFromDb.slice(offset, offset + limit)
 
             let data = userPaging.map(user => ({
                 ...user.dataValues,
@@ -49,15 +49,15 @@ const controller = {
                 },
                 data
             }
-            
-            if (!(data.length < limit)) {
+
+            if (page < pagesAmmount) {
                 response.meta.next = `/api/users?page=${page + 1}`
             }
 
             if (page > 1) {
                 response.meta.previous = `/api/users?page=${page - 1}`
             }
-            
+
             res.json(response)
 
         } catch (error) {
