@@ -45,7 +45,7 @@ const controller = {
         }
 
 
-        if (page >= 1 && productsWithUrlImage.length == 10 || page < limitPag) {
+        if (page >= 1 && productsWithUrlImage.length == limit || page < limitPag) {
             jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (page + 1);
         }
 
