@@ -3,20 +3,20 @@ const db = require('../../database/models');
 const controller = {
     list: async (req, res) => {
 
-        const limit = 10;
+        const limit = parseInt(req.query.limit) || 10;
 
-        const pag = parseInt(req.query.pag) || 1;
+        const page = parseInt(req.query.page) || 1;
 
-        const offset = limit * (pag - 1);
+        const offset = limit * (page - 1);
 
         const products = await db.Product.findAll({ limit, offset, include: { all: true } });
 
         const totalProductsInDB = await db.Product.count();
 
-        const limitPag = Math.ceil(totalProductsInDB / 10);
+        const limitPag = Math.ceil(totalProductsInDB / limit);
 
 
-        if (products.length < 1 || pag > limitPag) {
+        if (products.length < 1 || page > limitPag) {
             return res.status(404).json({
                 meta: {
                     status: 404
@@ -34,20 +34,23 @@ const controller = {
         const jsonRes = {
             meta: {
                 status: 200,
+                url: req.originalUrl,
                 count: productsWithUrlImage.length,
+                limit,
                 totalProductsInDB,
-                url: req.originalUrl
+                total_pages: limitPag,
+                page
             },
             data: productsWithUrlImage
         }
 
 
-        if (pag >= 1 && productsWithUrlImage.length == 10 || pag < limitPag) {
-            jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (pag + 1);
+        if (page >= 1 && productsWithUrlImage.length == 10 || page < limitPag) {
+            jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (page + 1);
         }
 
-        if (pag > 1) {
-            jsonRes.meta.previous = "http://localhost:3000/api/products/?pag=" + (pag - 1);
+        if (page > 1) {
+            jsonRes.meta.previous = "http://localhost:3000/api/products/?pag=" + (page - 1);
         }
 
         res.status(200).json(jsonRes);
@@ -55,7 +58,7 @@ const controller = {
     detail: async (req, res) => {
         const id = req.params.id;
 
-        const product = await db.Product.findOne({ where: { id }, include: { all: true } });
+        const product = await db.Product.findByPk(id, { include: { all: true } });
 
         if (!product) {
             return res.status(404).json({
