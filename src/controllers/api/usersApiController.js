@@ -20,7 +20,7 @@ const controller = {
                     meta: {
                         status: 404
                     },
-                    data: `Users not found. Last page is page ${pagesAmmount} `
+                    data: "Users not found"
                 })
             }
 
