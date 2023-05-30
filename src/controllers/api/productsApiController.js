@@ -15,7 +15,6 @@ const controller = {
 
         const limitPag = Math.ceil(totalProductsInDB / limit);
 
-
         if (products.length < 1 || page > limitPag) {
             return res.status(404).json({
                 meta: {
@@ -26,9 +25,13 @@ const controller = {
         }
 
         const productsWithUrlImage = products.map(product => {
-            const url = product.images.map(image => ({ url: "http://localhost:3000/images/products/" + image.name }));
+            const url = product.images.map(image => ({ url: `${req.protocol}://${req.get('host')}/images/products/${image.name}` }));
 
-            return { ...product.get(), imagesUrl: url };
+            return {
+                ...product.get(),                
+                detail: `${req.protocol}://${req.get('host')}/api/products/${product.id}`,
+                imagesUrl: url
+            };
         })
 
         const jsonRes = {
@@ -39,18 +42,18 @@ const controller = {
                 limit,
                 totalProductsInDB,
                 total_pages: limitPag,
-                page
+                page,                
             },
             data: productsWithUrlImage
         }
 
 
         if (page >= 1 && productsWithUrlImage.length == limit || page < limitPag) {
-            jsonRes.meta.next = "http://localhost:3000/api/products/?pag=" + (page + 1);
+            jsonRes.meta.next = `${req.protocol}://${req.get('host')}/api/products/?page=${(page + 1)}`;
         }
 
         if (page > 1) {
-            jsonRes.meta.previous = "http://localhost:3000/api/products/?pag=" + (page - 1);
+            jsonRes.meta.previous = `${req.protocol}://${req.get('host')}/api/products/?page=${(page - 1)}`;
         }
 
         res.status(200).json(jsonRes);
@@ -69,7 +72,7 @@ const controller = {
             });
         }
 
-        const url = product.images.map(image => "http://localhost:3000/images/products/" + image.name);
+        const url = product.images.map(image => `${req.protocol}://${req.get('host')}/images/products/${image.name}`);
 
         const productWithUrlImage = { ...product.get(), imagesUrl: url };
 
