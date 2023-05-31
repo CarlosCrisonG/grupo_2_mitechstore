@@ -25,15 +25,17 @@ const controller = {
 
         const categories = await db.Category.findAll()
 
-        const countByCategory = await Promise.all(categories.map(async category => {
-            const totalProducts = await db.Product.count({
-                where: {
-                    categories_id: category.id
-                }
-            })
+        const countByCategory = {}
 
-            return { id: category.id, name: category.name, totalProducts }
-        }))
+        for (const categoryObj of categories) {
+            const keyName = categoryObj.get().name
+
+            const categoryID = categoryObj.get().id
+
+            const totalProducts = await db.Product.count({ where: { categories_id: categoryID } })
+
+            countByCategory[keyName] = totalProducts
+        }
 
         const productsWithUrlImage = products.map(product => {
             const url = product.images.map(image => ({ url: `${req.protocol}://${req.get('host')}/images/products/${image.name}` }));
