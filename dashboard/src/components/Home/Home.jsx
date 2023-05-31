@@ -5,16 +5,9 @@ import './Home.css';
 
 function Home () {
     return (
-        <>
-        <div className="general-container">
-                <div className="menu">
-                    <SideMenu />
-                </div>
-                <div className="info">
-                    <h1>Dasboard</h1>
-                </div>
+        <div className="info">
+            <h1>Dashboard</h1>
         </div>
-        </>
     )
 }
 
