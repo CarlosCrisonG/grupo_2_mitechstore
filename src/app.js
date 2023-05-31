@@ -5,6 +5,10 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+//CORS
+const cors = require("cors");
+app.use(cors());
+
 //Express - cookie
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
