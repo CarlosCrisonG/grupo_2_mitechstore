@@ -1,0 +1,10 @@
+.sidepanel {
+    background-color: #FF6700;
+    display: flex;
+    width: 100%;
+}
+
+.sidepanel .logo {
+    width: 80%;
+
+}

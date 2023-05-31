@@ -1,0 +1,14 @@
+.general-container {
+    display: flex;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.menu {
+    width: 20%;
+}
+
+.info {
+    margin-left: 50px;
+    width: 70%;
+}

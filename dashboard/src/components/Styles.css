@@ -1,0 +1,8 @@
+body {
+    background-color: rgba(242, 242, 242, 1);
+    color: #222231;
+    width: 1200px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
