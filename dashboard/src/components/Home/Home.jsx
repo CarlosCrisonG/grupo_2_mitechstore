@@ -5,8 +5,11 @@ import './Home.css';
 
 function Home () {
     return (
-        <div className="info">
-            <h1>Dashboard</h1>
+        <div className="general-container">
+            <div className="title">
+                <img className="icon" src="/icons/dashboard-black.png" alt="icon"></img>
+                <h1>Dashboard</h1>
+            </div>
         </div>
     )
 }

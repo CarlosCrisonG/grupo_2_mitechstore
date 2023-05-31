@@ -1,4 +1,15 @@
-.info {
+.general-container {
     margin-left: 50px;
-    width: 70%;
+}
+
+.general-container .title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.general-container .title .icon {
+    width: 40px;
+    margin-right: 10px;
 }
