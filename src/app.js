@@ -54,6 +54,7 @@ const usersRoutes = require("./routes/usersRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const partialsRoutes = require("./routes/partialsRoutes");
 const testRoutes = require("./routes/testRoutes");
+const productsApiRoutes = require('./routes/api/productsApiRoutes');
 const usersApiRoutes = require("./routes/api/usersApiRoutes")
 
 //method override
@@ -82,4 +83,5 @@ app.use("/partials", partialsRoutes);
 app.use("/test", testRoutes);
 
 //Rutas APIs
+app.use("/api/products", productsApiRoutes);
 app.use("/api/users", usersApiRoutes);
