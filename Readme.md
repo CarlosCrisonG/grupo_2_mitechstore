@@ -87,9 +87,9 @@ https://github.com/CarlosCrisonG/grupo_2_mitechstore_dashboard
 - Ejecutar el comando **npm install** en la terminal de VSCode.
 - Crear un archivo titulado **.env** en la carpeta raíz del proyecto, el cual debe completarse utilizando como referencia el archivo **.env.example** ya existente en el proyecto. Los datos solicitados corresponden a una conexión que deberá tener creada en un administrador de bases de datos como **MySQL Workbench**, el cual deberá tener instalado y configurado.
 - Dentro del archivo config.js, ubicado en src/database/config/config.js, debemos reemplazar *"development:* por *module.exports =* en la línea 4.
-- Ejecutar el comando **npx sequelize-cli db:create** en la terminal de VSCode.
-- Ejecutar el comando **npx sequelize-cli db:migrate** en la terminal de VSCode.
-- Ejecutar el comando **npx sequelize-cli db:seed:all** en la temrinal de VSCode.
+- Ejecutar el comando **npx sequelize-cli db:create** en la terminal de VSCode para crear la base de datos.
+- Ejecutar el comando **npx sequelize-cli db:migrate** en la terminal de VSCode para crear las tablas y columnas de la base de datos.
+- Ejecutar el comando **npx sequelize-cli db:seed:all** en la temrinal de VSCode para poblar con información la base de datos.
 - Ejecutar el comando **npm run dev** en la terminal de VSCode para poner en marcha el proyecto en el puerto 3000 (por defecto).
 - Descargar el *Dashboard* desde su repositorio de GitHub y abrirlo en otra ventana de VSCode.
 - En la ventana del *Dashboard* ejecutar el comando **npm install** en la terminal de VSCode.
