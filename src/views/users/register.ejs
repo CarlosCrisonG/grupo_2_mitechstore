@@ -101,12 +101,12 @@
           <% } %>
           <p class="error" id="error-paises"></p>
 
-          <input class="input <%= locals.errors && errors.region ? 'is-invalid' : null %>" 
-          type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : null %>">
-          <% if (locals.errors && errors.region) { %>
-            <p class = "error"> <%= errors.region.msg %> </p>
+          <input class="input <%= locals.errors && errors.address ? 'is-invalid' : null %>" 
+          type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : null %>">
+          <% if (locals.errors && errors.address) { %>
+            <p class = "error"> <%= errors.address.msg %> </p>
           <% } %>
-          <p class="error" id="error-region"></p>
+          <p class="error" id="error-address"></p>
 
           <input class="input <%= locals.errors && errors.city ? 'is-invalid' : null %>" 
           type="text" placeholder="Ciudad" name="city" value="<%= locals.oldData && oldData.city ? oldData.city : null %>">
@@ -122,12 +122,12 @@
           <% } %>
           <p class="error" id="error-zip"></p>
 
-          <input class="input <%= locals.errors && errors.address ? 'is-invalid' : null %>" 
-          type="text" placeholder="Dirección" name="address" value="<%= locals.oldData && oldData.address ? oldData.address : null %>">
-          <% if (locals.errors && errors.address) { %>
-            <p class = "error"> <%= errors.address.msg %> </p>
+          <input class="input <%= locals.errors && errors.region ? 'is-invalid' : null %>" 
+          type="text" placeholder="Provincia / Región" name="region" value="<%= locals.oldData && oldData.region ? oldData.region : null %>">
+          <% if (locals.errors && errors.region) { %>
+            <p class = "error"> <%= errors.region.msg %> </p>
           <% } %>
-          <p class="error" id="error-address"></p>
+          <p class="error" id="error-region"></p>
 
           <div id="create-account-button">
             <button class="reset" type="reset">Borrar</button>
