@@ -7,6 +7,7 @@ import Home from './components/Home/Home'
 import Table from './components/Table/Table'
 import Error from './components/Error'
 import SideMenu from './components/SideMenu/SideMenu'
+import Users from "./components/Users/Users"
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       {/* <!-- Content Wrapper --> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Table />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/products" element={<Table />} />
         <Route path="/categories" element={<Table />} />
         <Route path="*" element={<Error />} /> {/* 404 Route */}
