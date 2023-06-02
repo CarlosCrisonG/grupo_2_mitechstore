@@ -106,7 +106,7 @@ https://github.com/CarlosCrisonG/grupo_2_mitechstore_dashboard
 - **Express** 4.18.2, framework que facilita el desarrollo de aplicaciones web en Node.js. 
 - **Express-session** 1.17.3, librería que permite administrar sesiones de usuario en una aplicación de Express.
 - **Express-validator** 6.15.0, librería que facilita la validación de formularios desde el backend en aplicaciones de Express.
-- **Method-override** 3.0.0, librería que permite que los formularios HTML soporte los métodos HTTP PUT (actualizar) y DELETE (borrar)
+- **Method-override** 3.0.0, librería que permite que los formularios HTML soporten los métodos HTTP PUT (actualizar) y DELETE (borrar)
 - **Multer** 1.4.5, paquete que permite subir archivos al servidor.
 - **Eequelize** 6.31.0, ORM para trabajar con bases de datos relacinales utilizando Node.js + JS.
 - **Sequelize-cli** 6.6.0, paquete que proporciona una una interfaz de comandos para realizar diversas tareas relacionadas a Sequelize.
