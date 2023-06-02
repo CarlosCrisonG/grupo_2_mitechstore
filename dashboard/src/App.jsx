@@ -9,6 +9,7 @@ import Error from './components/Error'
 import SideMenu from './components/SideMenu/SideMenu'
 import Users from "./components/Users/Users"
 import Products from "./components/Products/Products"
+import Categories from "./components/Categories/Categories"
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/categories" element={<Table />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="*" element={<Error />} /> {/* 404 Route */}
       </Routes>
       {/* <!-- End of Content Wrapper --> */}
