@@ -33,7 +33,7 @@ class Users extends React.Component {
             <div className="general-container">
 
                 <Table
-                    title="Listado de Usuarios"
+                    title="Listado de Categorías"
                     columns={["Nombre", "Cantidad"]}
                     rows={this.state.rows}
                 />

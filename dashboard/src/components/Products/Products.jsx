@@ -36,8 +36,8 @@ class Users extends React.Component {
             <div className="general-container">
 
                 <Table
-                    title="Listado de Usuarios"
-                    columns={["Nombre", "precio", "categoría", "descuento"]}
+                    title="Listado de Productos"
+                    columns={["Nombre", "Precio", "Categoría", "Descuento"]}
                     rows={this.state.rows}
                 />
 
