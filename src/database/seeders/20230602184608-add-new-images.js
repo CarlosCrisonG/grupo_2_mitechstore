@@ -80,5 +80,9 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('images', null, {});
+    await queryInterface.sequelize.query(
+      'ALTER TABLE images AUTO_INCREMENT = 1'
+    );
   }
 };
