@@ -91,5 +91,9 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('features', null, {});
+    await queryInterface.sequelize.query(
+      'ALTER TABLE features AUTO_INCREMENT = 1'
+    );
   }
 };
