@@ -13,15 +13,15 @@ module.exports = {
      * }], {});
     */
     await queryInterface.bulkInsert('categories', [{
-      name: 'computadoras',
+      name: 'Computadoras',
     }, {
-      name: 'celulares'
+      name: 'Celulares'
     }, {
-      name: 'accesorios'
+      name: 'Accesorios'
     }, {
-      name: 'electrodomesticos'
+      name: 'Electrodomesticos'
     }, {
-      name: 'cuidado personal'
+      name: 'Cuidado personal'
     }], {});
   },
 
