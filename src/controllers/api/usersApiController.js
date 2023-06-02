@@ -8,7 +8,11 @@ const controller = {
             let offset = limit * (page - 1);
 
             let usersFromDb = await db.User.findAll({ limit, offset,
-                attributes: { exclude: ["password", "country_id", "userprofile_id", "phone", "region", "city", "zip", "address"] }
+                attributes: { exclude: ["password", "country_id", "userprofile_id", "phone", "region", "city", "zip", "address"] },
+                include: [
+                    { association: "userProfile" },
+                    { association: "country" }
+                ]
             });
             
             let totalUsersInDB = await db.User.count();
