@@ -18,7 +18,7 @@ class Users extends React.Component {
         fetch("http://localhost:3000/api/products")
             .then(res => res.json())
             .then((data) => {
-                const rows = Object.keys(data.meta.countByCategory).map((category) => ({ name: category, cantity: data.meta.countByCategory[category] }))
+                const rows = Object.keys(data.meta.countByCategory).map((category) => ({ name: category, quantity: data.meta.countByCategory[category] }))
 
                 this.setState({
                     rows
