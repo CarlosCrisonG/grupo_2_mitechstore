@@ -26,8 +26,8 @@ module.exports = {
         inSale: 1,
         categories_id: 3
       },  {
-        name: 'Redmi 10 - 2022',
-        description: 'XIAOMI Redmi 10 2022 128GB. Cámara principal con alta resolución de 50MP',
+        name: 'Redmi 10 - 2023',
+        description: 'XIAOMI Redmi 10 2023 128GB. Cámara principal con alta resolución de 50MP',
         price: 180,
         discount: 20,
         highlight: 1,
@@ -50,8 +50,8 @@ module.exports = {
         inSale: 1,
         categories_id: 2
       },{
-        name: 'Redmi 10 - 2022',
-        description: 'XIAOMI Redmi 10 2022 128GB. Cámara principal con alta resolución de 50MP',
+        name: 'Redmi Note 11',
+        description: 'XIAOMI Redmi 11 2022 128GB. Cámara principal con alta resolución de 50MP',
         price: 180,
         discount: 20,
         highlight: 1,
@@ -62,7 +62,7 @@ module.exports = {
         inSale: 1,
         categories_id: 2
       }, {
-        name: 'Redmi Note 11',
+        name: 'Redmi Note 11 (Snapdragon)',
         description: 'Celular Xiaomi Redmi Note 11 de 128GB y 4GB de RAM con camara cuadruple de 50MP',
         price: 201,
         discount: 0,
@@ -86,12 +86,12 @@ module.exports = {
         inSale: 0,
         categories_id: 2
       }, {
-        name: 'Mouse Inalámbrico Xiaomi Mi Dual Mode Silent Edition',
+        name: 'Mouse Inalámbrico',
         description: 'Este mouse wireless se adaptará a cualquier situación. Su practico tamaño ayudará a llevarlo de viaje, también incorpora un modo dual, para que puedas usarlo en dos computadoras a la vez.',
         price: 17.5,
         discount: 0,
         highlight: 1,
-        model: 'Wireless Mouse',
+        model: 'Xiaomi Mi Dual Mode Silent Edition Wireless Mouse',
         year: 2018,
         size: '98.1 mm x 56 mm x 34.4 mm',
         weight: "93g",
