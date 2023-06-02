@@ -24,7 +24,6 @@ function Home() {
                 setCantidadProductos(data.meta.count) //Cantidad de Productos
 
                 const cantidadCategorias = Object.keys(data.meta.countByCategory).length;
-                console.log(Object.keys(data.meta.countByCategory));
                 setCantidadCategorias(cantidadCategorias) //Cantidad de Categorias
             })
     }, [])
@@ -38,21 +37,40 @@ function Home() {
             <div className="card-row">
                 {/* Card Usuarios */}
                 <Card
+                    long= {false}
                     title="Usuarios"
                     icon={<img className="icon" src="/icons/usuarios-orange.png" alt="icon"></img>}
                     count={cantidadUsuarios}
                 />
                 {/* Card Productos */}
                 <Card
+                    long= {false}
                     title="Productos"
                     icon={<img className="icon" src="/icons/productos-orange.png" alt="icon"></img>}
                     count={cantidadProductos}
                 />
                 {/* Card Categorías */}
                 <Card
+                    long= {false}
                     title="Categorias"
                     icon={<img className="icon" src="/icons/categorias-orange.png" alt="icon"></img>}
                     count={cantidadCategorias}
+                />
+            </div>
+            <div className="card-row">
+                {/* Card Último Usuario Registrado */}
+                <Card
+                    long= {true}
+                    title="Último Usuario Registrado"
+                    icon={<img className="icon" src="/icons/usuarios-orange.png" alt="icon"></img>}
+                    count={cantidadUsuarios}
+                />
+                {/* Card Productos */}
+                <Card
+                    long= {true}
+                    title="Productos"
+                    icon={<img className="icon" src="/icons/productos-orange.png" alt="icon"></img>}
+                    count={cantidadProductos}
                 />
             </div>
         </div>
