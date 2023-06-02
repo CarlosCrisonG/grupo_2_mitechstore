@@ -9,41 +9,43 @@ class Users extends React.Component {
         super(props)
 
         this.state = {
-            info: []
+            rows: []
         }
 
     }
 
-    componentDidMount () {
-        // Fetch de Número de Usuarios
-        fetch('http://localhost:3000/api/users')
+    componentDidMount() {
+        fetch("http://localhost:3000/api/users")
             .then(res => res.json())
             .then((data) => {
-                this.setState({info:data.data})
+                this.setState({
+                    rows: data.data.map((user) => ({
+                        first_name: user.first_name,
+                        last_name: user.last_name,
+                        userProfile: user.userProfile.name,
+                        country: user.country.name,
+                    }))
+                })
             })
     }
 
-    componentDidUpdate () {
-        console.log(this.state.info);
-    }
+    //Validación para mostrar Next y Prev - PENDIENTE
 
-
-//Validación para mostrar Next y Prev - PENDIENTE
-
-    render () {
+    render() {
         return (
             <div className="general-container">
-            <Table 
-                title= "Listado de Usuarios"
-                columns= {["Nombre", "País", "Perfil"]}
-                data= {this.state.info}
-            />
-            
+
+                <Table
+                    title="Listado de Usuarios"
+                    columns={["Nombre", "apellido", "País", "Perfil"]}
+                    rows={this.state.rows}
+                />
+
 
             </div>
         )
     }
-    
+
 }
 
 export default Users;
