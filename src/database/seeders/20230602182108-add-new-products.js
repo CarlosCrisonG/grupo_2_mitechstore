@@ -97,31 +97,7 @@ module.exports = {
         weight: "93g",
         inSale: 0,
         categories_id: 3
-      }, {
-        name: 'Auriculares IE In-ear Xiaomi Dual Driver USB-C',
-        description: 'Los auriculares Xiaomi Mi Dual Driver con un controlador dual para tonos bajos y altos garantizan comodidad y Calidad',
-        price: 29.5,
-        discount: 0,
-        highlight: 1,
-        model: 'In-Ear',
-        year: 2020,
-        size: '98.1 mm x 56 mm x 34.4 mm',
-        weight: "14g",
-        inSale: 0,
-        categories_id: 3
-      }, {
-        name: 'Cargador Inalámbrico de Auto Xiaomi 20W',
-        description: 'Práctico Cargador Inalámbrico de Auto Xiaomi',
-        price: 76.9,
-        discount: 0,
-        highlight: 0,
-        model: 'GDS4127GL',
-        year: 2021,
-        size: '98.5 mm x 40 mm x 34 mm',
-        weight: "20g",
-        inSale: 0,
-        categories_id: 3
-      }, ], {});
+      }], {});
   }, 
   
 
