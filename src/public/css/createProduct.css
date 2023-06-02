@@ -83,6 +83,7 @@ h3.titulo {
 }
 
 .colores {
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px 0px;
