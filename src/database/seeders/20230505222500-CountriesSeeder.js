@@ -15,16 +15,16 @@ module.exports = {
      * }], {});
     */
     await queryInterface.bulkInsert("countries", [
-      { name: "Arg" },
-      { name: "Bol" },
-      { name: "Bra" },
-      { name: "Chi" },
-      { name: "Col" },
-      { name: "Ecu" },
-      { name: "Par" },
-      { name: "Per" },
-      { name: "Uru" },
-      { name: "Ven" }
+      { name: "Argentina" },
+      { name: "Bolivia" },
+      { name: "Brasil" },
+      { name: "Chile" },
+      { name: "Colombia" },
+      { name: "Ecuador" },
+      { name: "Paraguay" },
+      { name: "Peru" },
+      { name: "Uruguay" },
+      { name: "Venezuela" }
     ], {})
   },
 
