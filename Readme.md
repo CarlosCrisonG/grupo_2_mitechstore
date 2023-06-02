@@ -95,7 +95,7 @@ https://github.com/CarlosCrisonG/grupo_2_mitechstore_dashboard
 - En la ventana del *Dashboard* ejecutar el comando **npm install** en la terminal de VSCode.
 - En la ventana del *Dashboard* ejecutar el comando **npm start** en la terminal de VSCode.
 
-# Herramientas utilizadas (librerías, frameworks, módulos):
+# Herramientas utilizadas (librerías, frameworks):
 - **Node.js + JavaScript**
 - **React** 18.2.0, librería que permite construir aplicaciones más rápidas y performantes del lado del frontend mediante componentes.
 - **React-router** 6.11.2, librería que permite implementar sistemas de ruteo en aplicaciones de React.
