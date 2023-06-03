@@ -62,7 +62,7 @@ const controller = {
         }
 
 
-        if (page >= 1 && productsWithUrlImage.length == limit || page < limitPag) {
+        if (page >= 1 && productsWithUrlImage.length == limit && page < limitPag) {
             jsonRes.meta.next = `${req.protocol}://${req.get('host')}/api/products/?page=${(page + 1)}`;
         }
 
