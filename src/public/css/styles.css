@@ -173,6 +173,11 @@ li.main-header-navbar-element a {
     text-decoration: none;
 }
 
+.main-header-navbar-element:hover a {
+    font-weight: 900;
+    text-decoration-skip-ink: auto;
+}
+
 .burguer-menu {
     text-align: center;
 }
@@ -276,6 +281,7 @@ nav.categorias-navbar ul a {
     .categorias-navbar ul {
         display: flex;
         justify-content: space-around;
+        align-items: center;
         max-width: 1200px;
         margin: auto;
     }
@@ -362,6 +368,33 @@ div.redesSocialesDiv div.redesSocialesIcon {
 svg.icons {
     width: 30px;
     height: 30px;
+}
+
+form.newsletter-form {
+    display: flex;
+    justify-content: center;
+}
+
+form.newsletter-form input {
+    width: 85%;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    padding: 0;
+    padding-left: 10px;
+}
+
+form.newsletter-form button {
+    width: 13%;
+    max-width: 20px;
+    height: 30px;
+    background: white;
+    text-align: center;
+    color: rgb(88, 88, 88);
+    font-size: 14px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 0;
 }
 
 /* tablets */

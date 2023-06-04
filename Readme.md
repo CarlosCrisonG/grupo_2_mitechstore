@@ -17,6 +17,10 @@ Sprint 1: https://trello.com/b/bxqi7wBT/proyecto-integrador<br />
 Sprint 2: https://trello.com/b/cIFR3m3x/sprint-2<br />
 Sprint 3: https://trello.com/b/69R4k4XY/sprint-3<br />
 Sprint 4: https://trello.com/b/6AXsEJKn/sprint-4<br />
+Sprint 5: https://trello.com/b/hvnlqLUM/sprint-5<br />
+Sprint 6: https://trello.com/b/A0jJRhHb/sprint-6<br />
+Sprint 7: https://trello.com/b/rvriOVKf/sprint-7<br />
+Sprint 8: https://trello.com/b/RtjVUNsm/sprint-8<br />
 
 <br />
 
@@ -72,3 +76,37 @@ Soy Técnica en Prácticas Cardiológicas, vivo en Buenos Aires - Argentina. No 
 5. Alkosto Colombia: Tienda en linea que ofrece una amplia gama de categorías. De este sitio nos inspiramos para la estructuración del homepage y una parte para la vista de producto. https://www.alkosto.com/
 
 <br />
+
+# Respositorio Dashboard:
+https://github.com/CarlosCrisonG/grupo_2_mitechstore_dashboard
+
+<br />
+
+# Inicialización del proyecto:
+- Descargar el proyecto principal desde GitHub y abrirlo con VSCode.
+- Ejecutar el comando **npm install** en la terminal de VSCode.
+- Crear un archivo titulado **.env** en la carpeta raíz del proyecto, el cual debe completarse utilizando como referencia el archivo **.env.example** ya existente en el proyecto. Los datos solicitados corresponden a una conexión que deberá tener creada en un administrador de bases de datos como **MySQL Workbench**, el cual deberá tener instalado y configurado.
+- Ejecutar el comando **npx sequelize-cli db:create** en la terminal de VSCode para crear la base de datos.
+- Ejecutar el comando **npx sequelize-cli db:migrate** en la terminal de VSCode para crear las tablas y columnas de la base de datos.
+- Ejecutar el comando **npx sequelize-cli db:seed:all** en la temrinal de VSCode para poblar con información la base de datos.
+- Ejecutar el comando **npm run dev** en la terminal de VSCode para poner en marcha el proyecto en el puerto 3000 (por defecto).
+- Descargar el *Dashboard* desde su repositorio de GitHub y abrirlo en otra ventana de VSCode.
+- En la ventana del *Dashboard* ejecutar el comando **npm install** en la terminal de VSCode.
+- En la ventana del *Dashboard* ejecutar el comando **npm run dev** en la terminal de VSCode.
+
+# Herramientas utilizadas (librerías, frameworks):
+- **Node.js + JavaScript**
+- **React** 18.2.0, librería que permite construir aplicaciones más rápidas y performantes del lado del frontend mediante componentes.
+- **React-router** 6.11.2, librería que permite implementar sistemas de ruteo en aplicaciones de React.
+- **Bcrypt** 5.1.0, librería que permite trabajar con contraseñas encritpadas(hasheadas).
+- **Cookie-parser** 1.4.6, librería que permite trabajar con cookies. 
+- **Dotenv** 16.0.3, librería utilizada para cargar variables de entorno desde un archivo .env
+- **Ejs** 3.1.8, motor de plantillas que permite generar vistas con información y estructura dinámicas.
+- **Express** 4.18.2, framework que facilita el desarrollo de aplicaciones web en Node.js. 
+- **Express-session** 1.17.3, librería que permite administrar sesiones de usuario en una aplicación de Express.
+- **Express-validator** 6.15.0, librería que facilita la validación de formularios desde el backend en aplicaciones de Express.
+- **Method-override** 3.0.0, librería que permite que los formularios HTML soporten los métodos HTTP PUT (actualizar) y DELETE (borrar)
+- **Multer** 1.4.5, paquete que permite subir archivos al servidor.
+- **Sequelize** 6.31.0, ORM para trabajar con bases de datos relacionales utilizando Node.js + JS.
+- **Sequelize-cli** 6.6.0, paquete que proporciona una una interfaz de comandos para realizar diversas tareas relacionadas a Sequelize.
+- **Mysql2** 3.2.3, paquete que le permite a Sequelize trabajar con una base de datos SQL.
