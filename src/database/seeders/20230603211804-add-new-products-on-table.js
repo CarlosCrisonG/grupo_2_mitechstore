@@ -16,7 +16,7 @@ module.exports = {
       {
         name: 'Portatil Redmibook 14 Ii - 512 Gb Ssd, Intel Core I7',
         description: 'Xiaomi-ordenador portátil RedmiBook Pro 15 2022, i7-12650H Notebook con Intel Core/i5 12450H RTX2050, 16GB de RAM, 512GB/1TB SSD, 3,2 K, 90Hz, 15,6 pulgadas',
-        price: 1.021,
+        price: 1021,
         discount: 0,
         highlight: 1,
         model: 'RedmiBook 14',
@@ -28,7 +28,7 @@ module.exports = {
       }, {
         name: 'Redmibook AIR 13',
         description: 'El Xiaomi Redmibook AIR 13 es una computadora portátil de la marca Xiaomi. Está equipada con un potente procesador Intel Core i7 de décima generación, lo que garantiza un rendimiento rápido y eficiente en tareas intensivas. Tiene una memoria RAM de 16GB, lo que permite ejecutar múltiples aplicaciones y programas sin problemas. Además, cuenta con una capacidad de almacenamiento de 512GB, proporcionando espacio suficiente para guardar archivos, documentos y multimedia.',
-        price: 1.677,
+        price: 1677,
         discount: 0,
         highlight: 0,
         model: 'Redmibook AIR 13 I7',
