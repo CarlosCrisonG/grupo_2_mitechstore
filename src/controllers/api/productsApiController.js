@@ -62,12 +62,18 @@ const controller = {
         }
 
 
-        if (page >= 1 && productsWithUrlImage.length == limit || page < limitPag) {
+        if (page >= 1 && productsWithUrlImage.length == limit && page < limitPag) {
             jsonRes.meta.next = `${req.protocol}://${req.get('host')}/api/products/?page=${(page + 1)}`;
+            if (req.query.limit) {
+                jsonRes.meta.next += `&limit=${limit}`
+            }
         }
 
         if (page > 1) {
             jsonRes.meta.previous = `${req.protocol}://${req.get('host')}/api/products/?page=${(page - 1)}`;
+            if (req.query.limit) {
+                jsonRes.meta.previous += `&limit=${limit}`
+            }
         }
 
         res.status(200).json(jsonRes);
