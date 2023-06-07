@@ -124,3 +124,7 @@ Evitar pasar tareas a la columna Done en Trello sin que se haya efectuado el pus
 
 ### 5. Dejar de hacer:
 - Ninguna
+
+# Retro Final
+
+![image](./design/RetroTimeLine.png)
