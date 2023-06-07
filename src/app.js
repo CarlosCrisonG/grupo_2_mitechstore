@@ -53,7 +53,6 @@ const productsRoutes = require("./routes/productRoutes");
 const usersRoutes = require("./routes/usersRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const partialsRoutes = require("./routes/partialsRoutes");
-const testRoutes = require("./routes/testRoutes");
 const productsApiRoutes = require('./routes/api/productsApiRoutes');
 const usersApiRoutes = require("./routes/api/usersApiRoutes")
 
@@ -78,9 +77,6 @@ app.use("/admin", adminRoutes);
 
 //rutas para los partials (header,footer)
 app.use("/partials", partialsRoutes);
-
-//rutas para testear
-app.use("/test", testRoutes);
 
 //Rutas APIs
 app.use("/api/products", productsApiRoutes);
