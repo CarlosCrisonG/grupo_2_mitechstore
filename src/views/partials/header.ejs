@@ -1,7 +1,6 @@
 <header class="main-header">
   <div class="encabezado">
-    <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/users/register"
-        style="color:blue;">¡Registrate!</a></p>
+    <p>Realizá compras en nuestras tienda online, recibí promociones y novedades <a href="/users/register" style="color:blue;">¡Registrate!</a></p>
   </div>
   <div class="header-top-bar">
     <div class="logo-search-container">
@@ -10,29 +9,24 @@
       </div>
       <div class="search-bar">
         <form action="/product/search" class="form-search-bar" method="get">
-          <input type="text" placeholder="¿Que producto buscas?" value="<%= locals.words && words ? words : null %>"
-            name="words">
+          <input type="text" placeholder="¿Que producto buscas?" value="<%= locals.words && words ? words : null %>" name="words">
           <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
       <nav class="opciones">
         <ul>
           <% if (locals.user) { %>
-            <li class="main-header-navbar-element"><a href="/users/userProfile">
-                <%= user.dataValues.first_name %> <i class="fa-solid fa-user"></i>
-              </a></li>
-            <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i
-                  class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
-            <% }else {%>
-              <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i
-                    class="fa-solid fa-user"></i></a></li>
-              <% } %>
-                <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
-                      class="fa-solid fa-cart-shopping"></i></a></li>
-                <% if (locals.user && user.dataValues.userprofile_id !=1 ) { %>
-                  <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
-                        class="fa-solid fa-square-plus"></i></a></li>
-                  <% } %>
+          <li class="main-header-navbar-element"><a href="/users/userProfile">
+              <%= user.dataValues.first_name %> <i class="fa-solid fa-user"></i>
+            </a></li>
+          <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+          <% }else {%>
+          <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
+          <% } %>
+          <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+          <% if (locals.user && user.dataValues.userprofile_id !=1 ) { %>
+          <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
+          <% } %>
         </ul>
       </nav>
     </div>
@@ -51,12 +45,12 @@
           </li>
         </a>
         <% headerCategories.forEach(category=> { %>
-          <a href="/product/list?category=<%= category.id %>">
-            <li class="categoria">
-              <%= category.name %>
-            </li>
-          </a>
-          <% }) %>
+        <a href="/product/list?category=<%= category.id %>">
+          <li class="categoria">
+            <%= category.name %>
+          </li>
+        </a>
+        <% }) %>
       </ul>
     </nav>
   </div>
@@ -67,32 +61,30 @@
     <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
   </div>
   <ul>
+    <li><a href="/">Inicio</a></li>
     <% if (locals.user) { %>
-      <li class="main-header-navbar-element"><a href="/users/userProfile">
-          <%= user.dataValues.first_name %> <i class="fa-solid fa-user"></i>
-        </a></li>
-      <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i
-            class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
-      <% }else {%>
-        <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
-        <% } %>
-          <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i
-                class="fa-solid fa-cart-shopping"></i></a></li>
-          <% if (locals.user && user.dataValues.userprofile_id !=1 ) { %>
-            <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i
-                  class="fa-solid fa-square-plus"></i></a></li>
-            <% } %>
-              <a href="/product/list">
-                <li class="categoria">Todos los productos
-                </li>
-              </a>
-              <% headerCategories.forEach(category=> { %>
-                <a href="/product/list?category=<%= category.id %>">
-                  <li class="categoria">
-                    <%= category.name %>
-                  </li>
-                </a>
-                <% }) %>
+    <li class="main-header-navbar-element"><a href="/users/userProfile">
+        <%= user.dataValues.first_name %> <i class="fa-solid fa-user"></i>
+      </a></li>
+    <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+    <% }else {%>
+    <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
+    <% } %>
+    <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+    <% if (locals.user && user.dataValues.userprofile_id !=1 ) { %>
+    <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
+    <% } %>
+    <a href="/product/list">
+      <li class="categoria">Todos los productos
+      </li>
+    </a>
+    <% headerCategories.forEach(category=> { %>
+    <a href="/product/list?category=<%= category.id %>">
+      <li class="categoria">
+        <%= category.name %>
+      </li>
+    </a>
+    <% }) %>
   </ul>
   </nav>
 </div>
