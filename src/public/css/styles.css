@@ -131,7 +131,7 @@ div.menu-mobile {
     background-color: #FF6700;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     padding-right: 30px;
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
 }
 
 div.menu-mobile.hidden {
@@ -164,7 +164,7 @@ div.menu-mobile ul {
     padding: 44px 20px;
 }
 
-div.menu-mobile ul *{
+div.menu-mobile ul * {
     color: white;
 }
 
