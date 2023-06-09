@@ -20,7 +20,7 @@ const controller = {
 
     const countries = await db.Country.findAll();
 
-    res.render("users/register", {userProfiles, countries});
+    res.render("users/register", { userProfiles, countries });
   },
   create: async (req, res) => {
     const errors = validationResult(req);
@@ -52,7 +52,7 @@ const controller = {
       if (req.file) {
         fs.unlinkSync(path.join(__dirname, "../public/images/avatars/", req.file.filename));
       }
-      
+
       return res.render("users/register", {
         errors: {
           email: {
@@ -182,9 +182,7 @@ const controller = {
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      const userInDB = db.User.findOne({
-        where: { email: req.body.email },
-      }).then(async function (user) {
+      const userInDB = db.User.findByPk(req.session.userLogged.id).then(async function (user) {
         let avatar = user.avatar;
 
         if (req.file) {
