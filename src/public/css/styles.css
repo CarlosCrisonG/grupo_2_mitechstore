@@ -93,7 +93,7 @@ div.header-top-bar {
 }
 
 div.search-bar input {
-    width: 85%;
+    width: 45%;
     height: 40px;
     border-radius: 5px 0 0 5px;
     border: none;
@@ -290,12 +290,7 @@ nav.categorias-navbar ul a {
 }
 
 /*Laptop*/
-@media (min-width: 769px) {
-
-    div.search-bar input{
-        width: 40%;
-    }
-
+@media (min-width: 769px) {    
     div.openBtn,
     div.menu-mobile {
         display: none;
