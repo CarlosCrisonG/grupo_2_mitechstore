@@ -7,11 +7,10 @@
       <div class="logo">
         <a href="/"><img src="/images/Logo_Blanco.png" alt="MiTechStore"></a>
       </div>
-      <div class="search-bar">
-        <form action="/product/search" class="form-search-bar" method="get">
-          <input type="text" placeholder="¿Que producto buscas?" value="<%= locals.words && words ? words : null %>" name="words">
-          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+      <div class="openBtn">
+        <div class="openBtn-ico" id="openBtn">
+          <i class="fa-solid fa-bars" style="color: #ff6700;"></i>
+        </div>
       </div>
       <nav class="opciones">
         <ul>
@@ -27,13 +26,15 @@
           <% if (locals.user && user.dataValues.userprofile_id !=1 ) { %>
           <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
           <% } %>
+          <li class="main-header-navbar-element"><a href="http://localhost:5173">Dashboard <i class="fa-solid fa-chart-simple" style="color: #ffffff;"></i></a></li>
         </ul>
       </nav>
     </div>
-    <div class="openBtn">
-      <div class="openBtn-ico" id="openBtn">
-        <i class="fa-solid fa-bars" style="color: #ff6700;"></i>
-      </div>
+    <div class="search-bar">
+      <form action="/product/search" class="form-search-bar" method="get">
+        <input type="text" placeholder="¿Que producto buscas?" value="<%= locals.words && words ? words : null %>" name="words">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
     </div>
     <div class="ad-text">
       <p>Realizá compras en nuestras tienda online, recibí promociones y novedades ¡Registrate!</p>
@@ -68,12 +69,13 @@
       </a></li>
     <li class="main-header-navbar-element"><a href="/users/logout">Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
     <% }else {%>
-    <li class="main-header-navbar-element"><a href="/users/login">Ingresar <i class="fa-solid fa-user"></i></a></li>
+    <li class="main-header-navbar-element"><a href="/users/login">Ingresar</a> / <a href="/users/register">Registrarse</a> <i class="fa-solid fa-user"></i></li>
     <% } %>
     <li class="main-header-navbar-element"><a href="/product/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
     <% if (locals.user && user.dataValues.userprofile_id !=1 ) { %>
     <li class="main-header-navbar-element"><a href="/admin/createproduct">Crear producto <i class="fa-solid fa-square-plus"></i></a></li>
     <% } %>
+    <li><a href="http://localhost:5173">Dashboard <i class="fa-solid fa-chart-simple" style="color: #ffffff;"></i></a></li>
     <a href="/product/list">
       <li class="categoria">Todos los productos
       </li>
@@ -84,7 +86,7 @@
         <%= category.name %>
       </li>
     </a>
-    <% }) %>
+    <% }) %>    
   </ul>
   </nav>
 </div>

@@ -193,11 +193,12 @@ div.search-bar button {
 }
 
 div.search-bar {
+    padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 100%;
     padding-right: 5px;
 }
 
@@ -211,6 +212,7 @@ div.search-bar form.form-search-bar {
 .logo-search-container {
     display: flex;
     margin: auto;
+    justify-content: space-around;
 }
 
 .logo {
@@ -290,6 +292,10 @@ nav.categorias-navbar ul a {
 /*Laptop*/
 @media (min-width: 769px) {
 
+    div.search-bar input{
+        width: 40%;
+    }
+
     div.openBtn,
     div.menu-mobile {
         display: none;
@@ -320,7 +326,7 @@ nav.categorias-navbar ul a {
     }
 
     div.search-bar {
-        width: 25%;
+        width: 100%;
     }
 
     .logo-search-container {
@@ -386,9 +392,7 @@ nav.categorias-navbar ul a {
 }
 
 @media (min-width: 1025px) {
-    div.search-bar {
-        width: 30%;
-    }
+    
 }
 
 
