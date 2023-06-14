@@ -10,7 +10,7 @@
 
   <main>
    <h3 class="titulo">Crear un nuevo producto</h3>
-   <form action="/admin" method="POST" enctype="multipart/form-data">
+   <form class="create-product-form" action="/admin" method="POST" enctype="multipart/form-data">
       <div class="nombre-producto">
          <label class="label" for="name">Nombre del producto</label>
          <input id="name" class="input <%= locals.errors && errors.name ? 'is-invalid' :null  %>" name="name" type="text" value="<%= locals.oldData && oldData.name ? oldData.name : null %>">
