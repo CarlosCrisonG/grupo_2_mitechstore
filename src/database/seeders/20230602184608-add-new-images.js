@@ -61,7 +61,13 @@ module.exports = {
       name: 'xiaomi3-note11-id6.png',
       products_id: 8
     }, {
-      name: 'auriculares-id9.jpg',
+      name: 'Xiaomi12(1).png',
+      products_id: 9
+    }, {
+      name: 'Xiaomi12(2).png',
+      products_id: 9
+    }, {
+      name: 'Xiaomi12(3).png',
       products_id: 9
     }, {
       name: 'xiaomi-mouse.jpg',
