@@ -231,6 +231,7 @@ li.caracteristicas {
 
     #carrusel {
         width: 60%;
+        margin-top: 50px;
     }
 
     .right-box {
@@ -363,5 +364,29 @@ li.caracteristicas {
 
     .comprar {
         font-size: 17px;
+    }
+}
+
+@media (min-width: 750px){
+    .mySlide{
+        margin: 0 auto;
+        
+    }
+
+    .img-product-carousel {
+        width: 65%;
+        display: flex;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 750px){
+    .mySlide{
+        display: flex;
+        justify-content: center;
+    }
+
+    .img-product-carousel {
+        width: 100%;
     }
 }
