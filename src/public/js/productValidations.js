@@ -48,11 +48,11 @@ window.addEventListener("load", () => {
         }
 
         if (field == "name" && inputField.value.length < 5) {
-            createErrorMessage({ field, inputField, message: "5 caracteres minimo" });
+            createErrorMessage({ field, inputField, message: "5 caracteres mínimo" });
         }
 
         if (field == "description" && inputField.value.length < 20) {
-            createErrorMessage({ field, inputField, message: "20 caracteres minimo" });
+            createErrorMessage({ field, inputField, message: "20 caracteres mínimo" });
         }
 
         if (errorMessages) {
