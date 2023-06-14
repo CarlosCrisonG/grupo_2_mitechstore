@@ -36,15 +36,15 @@ window.addEventListener("load", () => {
         }
 
         if (!["images", "discount"].includes(field) && (!inputField.value || !inputField.value.trim().length > 0)) {
-            createErrorMessage({ field, inputField, message: "Este campo no puede estar vacio" });
+            createErrorMessage({ field, inputField, message: "Este campo no puede estar vacío" });
         }
 
         if (["year", "price"].includes(field) && (!Number(inputField.value) || inputField.value < 1)) {
-            createErrorMessage({ field, inputField, message: "Debes poner un valor númerico mayor a 0" })
+            createErrorMessage({ field, inputField, message: "Debes poner un valor numérico mayor a 0" })
         }
 
         if (field == "discount" && inputField.value && (inputField.value != 0 && !Number(inputField.value) || inputField.value < 0)) {
-            createErrorMessage({ field, inputField, message: "Si vas a colorar un valor tiene que ser un numero positivo" })
+            createErrorMessage({ field, inputField, message: "Si vas a colorar un valor tiene que ser un número positivo" })
         }
 
         if (field == "name" && inputField.value.length < 5) {
@@ -79,7 +79,7 @@ window.addEventListener("load", () => {
         const divColors = document.getElementById("colors");
 
         if (!bool && !document.querySelector("p.error-checkbox-color")) {
-            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleciona un color" })
+            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Selecciona un color" })
         }
 
         return bool;

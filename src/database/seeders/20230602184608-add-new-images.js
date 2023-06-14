@@ -67,9 +67,6 @@ module.exports = {
       name: 'Xiaomi12(2).png',
       products_id: 9
     }, {
-      name: 'Xiaomi12(3).png',
-      products_id: 9
-    }, {
       name: 'xiaomi-mouse.jpg',
       products_id: 10
     }
