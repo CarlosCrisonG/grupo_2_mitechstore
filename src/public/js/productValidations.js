@@ -79,7 +79,7 @@ window.addEventListener("load", () => {
         const divColors = document.getElementById("colors");
 
         if (!bool && !document.querySelector("p.error-checkbox-color")) {
-            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleeciona un color" })
+            createErrorMessage({ field: "checkbox-color", inputField: divColors, message: "Seleciona un color" })
         }
 
         return bool;
